@@ -158,7 +158,78 @@ const stories: CaseStory[] = [
         ],
       },
     ],
-  },
+  },,
+  {
+    id: "midnight-pass",
+    title: "凌晨的通行证",
+    summary: "一张门禁卡在两分钟内出现在相隔很远的两个位置。调查从“谁刷了卡”转向“门禁记录究竟证明了什么”，并逐步排除把卡片身份等同于持卡人的错误推断。",
+    cast: [
+      { id: "phoenix", name: "成步堂", characterId: "phoenix" },
+      { id: "edgeworth", name: "御剑", characterId: "edgeworth" },
+      { id: "maya", name: "真宵", characterId: "maya" },
+      { id: "judge", name: "裁判长", characterId: "judge" },
+      { id: "witness", name: "矢张（证人）", characterId: "witness" },
+    ],
+    chapters: [
+      {
+        title: "第一章 · 两次刷卡",
+        summary: "律师事务所拿到门禁导出表，随后在警署资料室确认同一编号的卡片曾在两分钟内被两个读卡器记录。",
+        scenes: [
+          {
+            title: "凌晨零点十七分", background: "office",
+            summary: "事务所里，真宵整理门禁资料。成步堂发现被告的卡片在零点十七分进入仓库，但被告称当时仍在公司外。",
+            lines: [
+              { speaker: "maya", pose: "think", text: "门禁公司把原始导出表发来了。零点十七分，被告的卡号刷开了仓库东门。" },
+              { speaker: "phoenix", pose: "think", text: "这只能证明那张卡被读卡器识别，不能直接证明拿卡的人是谁。" },
+              { speaker: "maya", text: "还有一条。零点十九分，同一个卡号又出现在西楼的资料室。" },
+              { speaker: "phoenix", reaction: "shocked", text: "两分钟？从仓库走到西楼最快也要六分钟。" },
+              { speaker: "maya", pose: "cheer", text: "所以不是人跑得快，就是记录里还有我们没看到的东西。" },
+            ],
+          },
+          {
+            title: "复制卡记录", background: "police-records",
+            summary: "警署资料室中，双方找到设备维护记录：该卡号在案发前一天被复制到一张测试卡，但测试卡是否归还尚不明确。",
+            lines: [
+              { speaker: "edgeworth", pose: "normal", text: "维护日志显示，案发前一天确实制作过一张临时测试卡，编号与被告的卡完全相同。" },
+              { speaker: "phoenix", pose: "point", text: "也就是说，两处记录可以来自两张不同的实体卡。" },
+              { speaker: "edgeworth", pose: "smug", text: "可以，但不能因此断定测试卡就是案发时被使用的那一张。" },
+              { speaker: "maya", pose: "think", text: "归还栏是空的。负责维护的人是谁？" },
+              { speaker: "edgeworth", pose: "bow", text: "证人负责当晚设备检查。法庭上让他说明。" },
+            ],
+          },
+        ],
+      },
+      {
+        title: "第二章 · 卡片不是人",
+        summary: "走廊目击与测试卡流转补上缺口；法庭最终把门禁数据的证明范围限定为“某张同编号卡被使用”。",
+        scenes: [
+          {
+            title: "灯下的人影", background: "night-corridor",
+            summary: "矢张回忆自己在西楼走廊见过一个人影，但无法确认面孔；其时间与第二次刷卡接近。",
+            lines: [
+              { speaker: "witness", pose: "nervous", text: "零点二十分左右，我在西楼走廊看到有人从资料室出来。" },
+              { speaker: "phoenix", pose: "think", text: "你看清是谁了吗？" },
+              { speaker: "witness", reaction: "sweat", text: "灯坏了一半。我只看见轮廓，手里像拿着一张白色卡片。" },
+              { speaker: "maya", pose: "think", text: "那和测试卡的外观一致，但普通门禁卡也是白色。" },
+              { speaker: "phoenix", text: "所以这条目击只能证明当时可能有人带着卡经过，身份仍然未知。" },
+            ],
+          },
+          {
+            title: "门禁记录的边界", background: "courtroom",
+            summary: "庭审明确区分卡号、实体卡与持卡人。检方保留其他证据，但不再把两次刷卡直接解释为被告本人移动。",
+            lines: [
+              { speaker: "judge", pose: "stern", text: "证人，测试卡在维护结束后是否立即归还？" },
+              { speaker: "witness", pose: "nervous", text: "我原本以为归还了，但记录没签字。我现在不能确定。" },
+              { speaker: "edgeworth", reaction: "surprised", text: "检方接受：现有门禁数据无法单独区分原卡与测试卡。" },
+              { speaker: "phoenix", pose: "point", text: "更不能仅凭卡号，把刷卡动作直接归到被告本人身上。" },
+              { speaker: "judge", pose: "normal", text: "本庭记录这一限制。门禁数据证明同编号凭证被使用，持卡人身份仍需其他证据确认。" },
+              { speaker: "maya", pose: "normal", text: "一张卡有编号，一个人有名字。两者不能因为数据库里连在一起，就自动变成同一件事。" },
+            ],
+          },
+        ],
+      },
+    ],
+  }
 ];
 
 export const sampleStories = stories.map(({ id, title, summary, chapters }) => ({
