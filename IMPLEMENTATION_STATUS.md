@@ -1,8 +1,8 @@
 ## Automatic deployment increment (2026-09-27)
 
 - Static URLs are subpath-safe and the build outputs a portable `out` directory.
-- Production hosting is now configured for Vercel instead of GitHub Pages. `vercel.json` runs `npm run check` before producing `out`, so failed tests cannot become a successful Vercel deployment.
-- After the private personal GitHub repository is connected to Vercel once, `main` pushes become automatic production deployments; no GitHub Pages plan upgrade is required.
+- Production hosting is now configured for Render instead of GitHub Pages/Vercel. `render.yaml` builds the static `out` directory and uses `autoDeployTrigger: checksPass`, so Render only deploys after linked GitHub checks pass.
+- After the private GitHub repository is connected to Render once, `main` pushes become automatic public static-site deployments; no GitHub Pages or Vercel account upgrade is required.
 - Current verified state: 75 tests pass, 34 browser modules resolve, and 58 local images cover 9 bindable characters / 46 actions / 7 scenes with source hashes and crop bounds.
 - The built-in “凌晨的通行证” exercises all four newly added investigation scenes, including the detention interview room.
 - The material library adds Apollo Justice, Klavier Gavin, Ema Skye and Trucy Wright as opt-in presets while preserving the historical five-person default demo cast.
