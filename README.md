@@ -10,7 +10,7 @@ Adapter-bound structured rich script editor and performance compiler, with a Cou
 - Work → chapter → scene navigation, with project import/export in the directory sidebar.
 - Story-to-script generation through a user-supplied OpenAI-compatible API. The author confirms every detected character's visual binding before scenes are generated; a fact ledger and scene contracts constrain the output.
 - Versioned `.yahari-project.json` import/export; legacy binding and missing-dependency read-only opening.
-- Asset-backed Courtroom preview with paragraph navigation, progressive text, waits, visible emphasis, flash, shake and focus camera cuts.
+- Asset-backed Courtroom preview with paragraph navigation, progressive text, waits, visible emphasis/flash/shake/focus cuts, plus opt-in original synthesized rehearsal SFX/BGM.
 - One built-in long-form stress case, **《告别逆转 · 最后的异议》**: 4 chapters / 8 scenes / 123 dialogue blocks / 10 speaking roles. It is an original fan-demo inspired by the final confrontation shape of Turnabout Goodbyes rather than a transcript reproduction, and deliberately exercises focus, emphasis, flash, shake and wait tokens.
 
 The portable import boundary rejects malformed structure and ambiguous identities before activation. Semantic errors remain available for repair. Multi-document files round-trip intact, and the UI can switch between scenes.
@@ -30,7 +30,7 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 61 action image mappings, file hashes and crop bounds. Current milestone: 81 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. After the repository is public and Pages is enabled once with Source = `GitHub Actions`, future verified `main` pushes publish automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 61 action image mappings, file hashes and crop bounds. Current milestone: 83 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. After the repository is public and Pages is enabled once with Source = `GitHub Actions`, future verified `main` pushes publish automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics, Courtroom scene generation and its performance plan. Story AI owns adapter-neutral outlining, fact/scene contracts and model transport. Presentation resources are resolved from ResourceRef through the generic presentation resolver. EditorStore owns document mutations/history. DOM is an input surface, never canonical script data.

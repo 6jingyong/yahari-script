@@ -44,7 +44,7 @@ test('long case covers all new locations, characters and presentation stress tok
     if(block.type==='cue')return [block.cue.type];
     return block.content.filter(node=>node.type==='token').map(node=>node.type==='token'?node.token.type:'');
   }));
-  for(const type of ['courtroom.pose','courtroom.reaction','courtroom.focus','courtroom.emphasis','courtroom.flash','courtroom.shake','courtroom.wait']){
+  for(const type of ['courtroom.pose','courtroom.reaction','courtroom.focus','courtroom.emphasis','courtroom.flash','courtroom.shake','courtroom.wait','courtroom.sfx','courtroom.bgm']){
     assert.ok(tokenTypes.has(type),type);
   }
   for(const id of ['von-karma','gumshoe','lotta','yogi','mia']){

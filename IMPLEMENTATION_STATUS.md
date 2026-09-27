@@ -1,3 +1,12 @@
+## Original synthesized rehearsal audio (2026-09-28)
+
+- Courtroom content packs can now declare `previewAudio` synthesis metadata for named SFX/BGM resources; build generation validates waveform, note timing, gain and loop values.
+- Rehearsal provides an explicit sound toggle (off by default). When enabled, Web Audio synthesizes repository-defined cues without bundling CAPCOM music, voice clips or sound files.
+- BGM is reconstructed as persistent playback state, so rewind/restart selects the BGM valid at that script position. SFX is edge-triggered and only fires when playback crosses its token.
+- The long built-in case now exercises `courtroom.sfx` and `courtroom.bgm` alongside pose/reaction/focus/emphasis/flash/shake/wait.
+- Current demo pack includes original procedural cues for Objection/Hold It/desk slam/gavel/impact and four deliberately simple rehearsal loops (trial/cross-examination/suspense/pursuit). They are functional placeholders, not recreations of game audio.
+- Verification: 83 tests pass and 43 browser modules resolve; material checks remain 14 characters / 61 actions / 11 scenes / 78 local images.
+
 ## Rehearsal presentation effects (2026-09-28)
 
 - Rehearsal now renders flash, shake, emphasis and explicit focus as visible effects rather than text-only state hints.

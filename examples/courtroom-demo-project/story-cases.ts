@@ -14,6 +14,8 @@ type Line = {
   flash?: number;
   shake?: number;
   wait?: "input" | number;
+  sfx?: "objection" | "hold-it" | "desk-slam" | "gavel" | "impact";
+  bgm?: "trial" | "cross-examination" | "suspense" | "pursuit";
 };
 type CaseScene = { title: string; summary: string; background: string; lines: Line[] };
 type CaseChapter = { title: string; summary: string; scenes: CaseScene[] };
@@ -51,7 +53,7 @@ const story: CaseStory = {
           background: "lake-dock",
           summary: "葫芦湖夜间码头。夏美带来未提交的底片，糸锯确认时间戳比警方抄录早了几十秒；照片只能证明湖面曾有第二个影子，不能证明身份。",
           lines: [
-            { speaker: "lotta", pose: "camera", text: "我把剩下的底片全翻出来了。别先高兴，照片糊得像隔着一锅汤。", focus: "lotta" },
+            { speaker: "lotta", pose: "camera", text: "我把剩下的底片全翻出来了。别先高兴，照片糊得像隔着一锅汤。", focus: "lotta", bgm: "suspense" },
             { speaker: "gumshoe", pose: "salute", text: "时间戳在这里。警方摘要写的是零点十五分，但原片其实早了四十七秒。", focus: "gumshoe" },
             { speaker: "phoenix", pose: "think", text: "四十七秒足够改变两声枪响的先后，却不足以告诉我们第二个人是谁。" },
             { speaker: "maya", pose: "think", text: "这张边缘有一道细长的反光，好像还有一艘船？" },
@@ -68,7 +70,7 @@ const story: CaseStory = {
           background: "evidence-room",
           summary: "证物保管室。糸锯找到旧案封存物的编号错位；一件金属证物曾被重新登记，但经手签名缺失。",
           lines: [
-            { speaker: "gumshoe", pose: "normal", text: "旧案的箱号是D-6-17，可这张再登记单写成了D-6-71。两个箱子都真实存在。" },
+            { speaker: "gumshoe", pose: "normal", text: "旧案的箱号是D-6-17，可这张再登记单写成了D-6-71。两个箱子都真实存在。", bgm: "suspense" },
             { speaker: "phoenix", pose: "think", text: "抄错数字不稀奇，稀奇的是为什么有人为错号开过一次柜门。" },
             { speaker: "maya", pose: "think", text: "经手人那栏被空着了。" },
             { speaker: "gumshoe", reaction: "nervous", text: "按规程不该空。可十五年前的纸档里，确实就这一页没有签名。" },
@@ -92,17 +94,17 @@ const story: CaseStory = {
           background: "courtroom",
           summary: "夏美重新说明原片时间和湖面反光。狩魔豪强调照片的直观印象，成步堂则迫使法庭区分“看到什么”和“认定是谁”。",
           lines: [
-            { speaker: "judge", pose: "stern", text: "本庭继续审理。今天只接受能够说明来源的证据与证词。" },
+            { speaker: "judge", pose: "stern", text: "本庭继续审理。今天只接受能够说明来源的证据与证词。", bgm: "cross-examination" },
             { speaker: "von-karma", pose: "normal", text: "当然。模糊只属于准备不足的人。", focus: "von-karma" },
             { speaker: "phoenix", pose: "normal", text: "那么我们就从一张没有被摘要替代的原片开始。" },
             { speaker: "lotta", pose: "camera", text: "原片时间比报告里写的早四十七秒。我承认，之前我没核对底片背面的机器记录。" },
             { speaker: "von-karma", pose: "accuse", text: "四十七秒改变不了被告出现在湖上的事实。" },
-            { speaker: "phoenix", pose: "point", text: "异议。我们现在讨论的不是被告是否去过湖边，而是两声枪响之间谁在移动。", emphasis: true, flash: 0.55 },
+            { speaker: "phoenix", pose: "point", text: "异议。我们现在讨论的不是被告是否去过湖边，而是两声枪响之间谁在移动。", emphasis: true, flash: 0.55, sfx: "objection" },
             { speaker: "judge", reaction: "confused", text: "照片上确实还有一处细长反光。" },
             { speaker: "lotta", reaction: "shocked", text: "它在连续两张底片上的位置变了。要么是水面反射，要么确实有东西在动。" },
             { speaker: "edgeworth", pose: "normal", text: "如果是第二艘小艇，就意味着我记忆里的距离关系可能从一开始就错了。" },
             { speaker: "von-karma", pose: "accuse", text: "被告的记忆没有证据价值。" },
-            { speaker: "phoenix", pose: "desk", text: "所以我没有把它当证据。我只要求检方停止把一张照片解释成它没有拍到的身份。", shake: 0.5 },
+            { speaker: "phoenix", pose: "desk", text: "所以我没有把它当证据。我只要求检方停止把一张照片解释成它没有拍到的身份。", shake: 0.5, sfx: "desk-slam" },
             { speaker: "judge", pose: "stern", text: "准许。照片暂时只能证明湖面存在无法识别的第二移动反光。" },
             { speaker: "von-karma", pose: "normal", text: "很好。辩方终于学会了用最慢的方式抵达一个无用结论。" },
             { speaker: "phoenix", pose: "think", text: "无用的结论不会让你急着替它下定义。" },
@@ -113,7 +115,7 @@ const story: CaseStory = {
           background: "witness-stand",
           summary: "灰根不再扮演糊涂船屋管理员，而是承认自己与旧案的关系。他的证词仍有罪责问题，但打破了狩魔豪对旧案叙事的垄断。",
           lines: [
-            { speaker: "yogi", pose: "normal", text: "十五年很长。长到一个人可以练习忘记自己的名字。" },
+            { speaker: "yogi", pose: "normal", text: "十五年很长。长到一个人可以练习忘记自己的名字。", bgm: "suspense" },
             { speaker: "judge", reaction: "confused", text: "证人，请明确说明你的身份。" },
             { speaker: "yogi", pose: "stern", text: "灰根高太郎。旧法院的法警，也是那场电梯事故后被推到所有人面前的人。" },
             { speaker: "edgeworth", reaction: "damaged", text: "……" },
@@ -140,7 +142,7 @@ const story: CaseStory = {
           background: "elevator-hall",
           summary: "千寻帮助众人按时间而非传闻重建旧案。御剑首次把童年记忆与客观记录分开陈述。",
           lines: [
-            { speaker: "mia", pose: "normal", text: "从现在起，每个人只说自己能证明的那一格。不要急着拼完整幅图。" },
+            { speaker: "mia", pose: "normal", text: "从现在起，每个人只说自己能证明的那一格。不要急着拼完整幅图。", bgm: "suspense" },
             { speaker: "phoenix", pose: "think", text: "电梯停电、三个人受困、缺氧、争执，然后传出枪声。" },
             { speaker: "edgeworth", pose: "normal", text: "我记得自己扔出过一样东西，也记得父亲倒下。但中间有大片空白。" },
             { speaker: "mia", pose: "point", text: "那就把空白保留。童年创伤不是录像带。" },
@@ -160,7 +162,7 @@ const story: CaseStory = {
           background: "prosecutor-office",
           summary: "糸锯找到跨案转移记录与一份缺页医疗索引。狩魔豪曾在旧案当夜接受取出金属异物的秘密治疗，却没有留下正常报销记录。",
           lines: [
-            { speaker: "gumshoe", pose: "salute", text: "查到了！D-6-71后来被并入一批“无关金属物”，经手部门正好是检察系统。" },
+            { speaker: "gumshoe", pose: "salute", text: "查到了！D-6-71后来被并入一批“无关金属物”，经手部门正好是检察系统。", bgm: "trial" },
             { speaker: "phoenix", pose: "think", text: "谁签的接收？" },
             { speaker: "gumshoe", reaction: "nervous", text: "还是没有人名。但批次授权码属于高级检察官办公室。" },
             { speaker: "edgeworth", pose: "normal", text: "那年拥有这个授权等级的人不超过三位。" },
@@ -186,8 +188,8 @@ const story: CaseStory = {
           background: "courtroom",
           summary: "矢张突然提交自己当晚捡到的一张停车凭条。它本身不能证明凶手，却让狩魔豪关于自己从未接近湖区的说法出现时间冲突。",
           lines: [
-            { speaker: "judge", pose: "stern", text: "本庭已经给过辩方足够时间。若没有新的可核验证据——" },
-            { speaker: "witness", pose: "confident", text: "有！我有！而且这次不是爱情问题！", focus: "witness" },
+            { speaker: "judge", pose: "stern", text: "本庭已经给过辩方足够时间。若没有新的可核验证据——", bgm: "cross-examination" },
+            { speaker: "witness", pose: "confident", text: "有！我有！而且这次不是爱情问题！", focus: "witness", sfx: "hold-it" },
             { speaker: "phoenix", reaction: "shocked", text: "矢张！？你为什么会在这里？" },
             { speaker: "witness", reaction: "sweat", text: "我昨晚去湖边找丢掉的画材，捡到一张停车凭条。后来看到新闻才觉得不对。" },
             { speaker: "von-karma", pose: "accuse", text: "来源不明的垃圾。" },
@@ -201,7 +203,7 @@ const story: CaseStory = {
             { speaker: "von-karma", pose: "accuse", text: "警员的工作疏失与本案无关。" },
             { speaker: "witness", pose: "nervous", text: "喂，我第一次带来有用东西，你们别又把我赶出去啊。" },
             { speaker: "maya", pose: "cheer", text: "放心，这次你至少把一扇门踢开了。" },
-            { speaker: "phoenix", pose: "desk", text: "接下来，只剩门后那个人必须解释为什么所有记录都朝同一个方向缺了一块。", shake: 0.6, wait: "input" },
+            { speaker: "phoenix", pose: "desk", text: "接下来，只剩门后那个人必须解释为什么所有记录都朝同一个方向缺了一块。", shake: 0.6, wait: "input", sfx: "desk-slam" },
           ],
         },
         {
@@ -209,7 +211,7 @@ const story: CaseStory = {
           background: "courtroom",
           summary: "众人各自只提供自己能证明的一段：糸锯提供记录，御剑说明权限，夏美限定照片，灰根承认自身罪责，千寻约束推理边界，成步堂最终要求狩魔豪解释旧案当夜的肩部伤势。",
           lines: [
-            { speaker: "von-karma", pose: "normal", text: "你们堆了整整一天的碎片，没有一片写着我的名字。" },
+            { speaker: "von-karma", pose: "normal", text: "你们堆了整整一天的碎片，没有一片写着我的名字。", bgm: "pursuit" },
             { speaker: "phoenix", pose: "think", text: "因为名字从来不是证据。我们有的是时间、权限、伤势和被人为切断的记录。" },
             { speaker: "lotta", pose: "camera", text: "我的照片只证明湖上有第二个移动影子。别再拿它替任何人认脸。" },
             { speaker: "yogi", pose: "stern", text: "我的证词只证明有人想让我继续沉默。我不会再替那个人编身份。" },
@@ -223,13 +225,13 @@ const story: CaseStory = {
             { speaker: "edgeworth", reaction: "surprised", text: "如果影像中的金属物与旧案弹道一致……" },
             { speaker: "von-karma", pose: "accuse", text: "闭嘴，御剑。你没有资格质疑教你如何站在这里的人。" },
             { speaker: "edgeworth", reaction: "damaged", text: "正因为是你教的，我才知道检察官最不能做的事，就是害怕证据被验证。" },
-            { speaker: "phoenix", pose: "desk", text: "异议！", flash: 1, shake: 0.9, emphasis: true },
+            { speaker: "phoenix", pose: "desk", text: "异议！", flash: 1, shake: 0.9, emphasis: true, sfx: "objection" },
             { speaker: "phoenix", pose: "point", text: "你今天每一次反对，都不是在否定数据，而是在阻止数据彼此相遇。" },
             { speaker: "mia", pose: "point", text: "真正自信的证据，不怕交叉验证。" },
             { speaker: "gumshoe", reaction: "nervous", text: "鉴识组刚送到侧光结果。被划掉的影像编号还能读出来。" },
             { speaker: "judge", reaction: "surprised", text: "立即提交。" },
             { speaker: "gumshoe", pose: "salute", text: "编号对应的患者登记，使用的是检察系统内部结算码。授权人……狩魔豪。" },
-            { speaker: "von-karma", reaction: "breakdown", text: "……你们以为这样就结束了？", flash: 0.7 },
+            { speaker: "von-karma", reaction: "breakdown", text: "……你们以为这样就结束了？", flash: 0.7, sfx: "impact" },
             { speaker: "witness", reaction: "shocked", text: "哇，连我都听出来这次不妙了。" },
             { speaker: "lotta", reaction: "shocked", text: "相机开着呢。放心，我这次只拍，不替照片写结论。" },
             { speaker: "yogi", reaction: "broken", text: "十五年了。终于有人要求真正该解释的人解释。" },
@@ -239,7 +241,7 @@ const story: CaseStory = {
             { speaker: "judge", pose: "stern", text: "准许。并命令保全全部相关记录。" },
             { speaker: "von-karma", reaction: "breakdown", text: "四十年的完美……竟被一群只会说“我不知道”的人逼到这里。", shake: 0.75 },
             { speaker: "mia", pose: "normal", text: "承认不知道，往往是真相开始出现的地方。" },
-            { speaker: "judge", pose: "normal", text: "本庭休庭。下一次开庭，只讨论能够被验证的事实。" },
+            { speaker: "judge", pose: "normal", text: "本庭休庭。下一次开庭，只讨论能够被验证的事实。", sfx: "gavel" },
             { speaker: null, text: "法槌落下。没有人宣布胜利，但围绕十五年的沉默第一次失去了控制叙事的人。", wait: "input" },
           ],
         },
@@ -262,6 +264,8 @@ function decorateScene(document:ScriptDocument, scene:CaseScene):ScriptDocument 
     if(textIndex<0)return;
     const before=[];
     const after=[];
+    if(line.bgm)before.push({type:"token" as const,token:effectToken(`${block.id}-bgm`,"courtroom.bgm",{resource:{packId:courtroomDemoPack.id,id:`audio/bgm/${line.bgm}`}})});
+    if(line.sfx)before.push({type:"token" as const,token:effectToken(`${block.id}-sfx`,"courtroom.sfx",{resource:{packId:courtroomDemoPack.id,id:`audio/sfx/${line.sfx}`}})});
     if(line.focus)before.push({type:"token" as const,token:effectToken(`${block.id}-focus`,"courtroom.focus",{}, {kind:"cast",id:line.focus})});
     if(line.emphasis)before.push({type:"token" as const,token:effectToken(`${block.id}-emphasis`,"courtroom.emphasis",{mode:"strong"})});
     if(line.flash!==undefined)after.push({type:"token" as const,token:effectToken(`${block.id}-flash`,"courtroom.flash",{intensity:line.flash})});

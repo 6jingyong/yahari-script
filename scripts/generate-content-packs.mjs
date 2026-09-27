@@ -20,6 +20,28 @@ const action = (item, label) => ({
   asset: requireResource(item.asset, `${label}.asset`),
 });
 
+const previewAudio = (value, label) => {
+  if (value === undefined) return undefined;
+  if (!value || typeof value !== "object" || !Array.isArray(value.notes) || !value.notes.length) {
+    throw new Error(`${label}.previewAudio must contain notes`);
+  }
+  const waveform=value.waveform ?? "triangle";
+  if (!["sine","square","triangle","sawtooth"].includes(waveform)) throw new Error(`${label}.previewAudio.waveform is unsupported`);
+  const notes=value.notes.map((note,index)=>{
+    if(!note||typeof note!=="object")throw new Error(`${label}.previewAudio.notes[${index}] is invalid`);
+    const frequency=Number(note.frequency),durationMs=Number(note.durationMs);
+    const offsetMs=note.offsetMs===undefined?undefined:Number(note.offsetMs);
+    const gain=note.gain===undefined?undefined:Number(note.gain);
+    if(!Number.isFinite(frequency)||frequency<=0||!Number.isFinite(durationMs)||durationMs<=0)throw new Error(`${label}.previewAudio note values are invalid`);
+    if(offsetMs!==undefined&&(!Number.isFinite(offsetMs)||offsetMs<0))throw new Error(`${label}.previewAudio offset is invalid`);
+    if(gain!==undefined&&(!Number.isFinite(gain)||gain<=0||gain>1))throw new Error(`${label}.previewAudio gain is invalid`);
+    return {frequency,durationMs,...(offsetMs===undefined?{}:{offsetMs}),...(gain===undefined?{}:{gain})};
+  });
+  const loopMs=value.loopMs===undefined?undefined:Number(value.loopMs);
+  if(loopMs!==undefined&&(!Number.isFinite(loopMs)||loopMs<250))throw new Error(`${label}.previewAudio.loopMs is invalid`);
+  return {waveform,notes,...(loopMs===undefined?{}:{loopMs})};
+};
+
 const pack = {
   id: requiredString(catalog.id, "id"),
   version: requiredString(catalog.version, "version"),
@@ -47,11 +69,13 @@ const pack = {
       id: requiredString(item.id, "sfx.id"),
       label: requiredString(item.label, `sfx ${item.id}.label`),
       resource: requireResource(item.resource, `sfx ${item.id}.resource`),
+      ...(previewAudio(item.previewAudio,`sfx ${item.id}`)?{previewAudio:previewAudio(item.previewAudio,`sfx ${item.id}`)}:{}),
     })),
     bgm: (catalog.audio?.bgm ?? []).map((item) => ({
       id: requiredString(item.id, "bgm.id"),
       label: requiredString(item.label, `bgm ${item.id}.label`),
       resource: requireResource(item.resource, `bgm ${item.id}.resource`),
+      ...(previewAudio(item.previewAudio,`bgm ${item.id}`)?{previewAudio:previewAudio(item.previewAudio,`bgm ${item.id}`)}:{}),
     })),
   },
 };

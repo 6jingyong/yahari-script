@@ -411,3 +411,5 @@ button:focus-visible{outline:2px solid #267145;outline-offset:3px}
 @media (prefers-reduced-motion: reduce){
   .preview-stage,.preview-stage canvas,.preview-dialogue{transition:none}
 }
+
+.preview-header-actions{display:flex;gap:8px;align-items:center}.preview-header-actions [data-audio][aria-pressed="true"]{border-color:#79a989;background:#e8f6ec;color:#176135}
