@@ -1,3 +1,13 @@
+## Rehearsal presentation effects (2026-09-28)
+
+- Rehearsal now renders flash, shake, emphasis and explicit focus as visible effects rather than text-only state hints.
+- Added an edge-triggered presentation layer: persistent paragraph presentation state is separated from transient effect events, so character-by-character re-renders do not replay flash/shake.
+- Focus now performs a short visual camera cut while continuing to use the existing ResourceRef-driven character/stage resolution.
+- Shake/flash intensity and duration are clamped; `prefers-reduced-motion` suppresses shake and reduces flash/focus motion.
+- Preview action labels now come from the active content pack instead of a hard-coded action dictionary, fixing new actions such as von Karma `accuse/breakdown` and Yogi `broken`.
+- Existing wait semantics remain unchanged and covered by playback tests; project schema is unchanged.
+- Verification: 81 tests pass, 42 browser modules resolve, and the 14-character / 61-action / 11-scene material check remains green.
+
 ## Long-form material stress test (2026-09-28)
 
 - Built-in samples are reduced to one case: **《告别逆转 · 最后的异议》**, an original fan-demo inspired by the AA1-4 endgame structure without reproducing the original transcript.

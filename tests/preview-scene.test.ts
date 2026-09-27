@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { sceneAt } from '../apps/editor/src/preview-scene.js';
+import { courtroomActionLabel } from '../apps/editor/src/preview-visuals.js';
 import { demoManifest } from '../examples/courtroom-demo-project/fixture.js';
 import type { CourtroomInstruction } from '../packages/adapters/courtroom/src/index.js';
 import { courtroomDemoPack } from '../content-packs/courtroom-demo/pack.js';
@@ -20,4 +21,14 @@ test('explicit location and camera override defaults; later actions stay in sequ
  const opening=sceneAt(commands,3,demoManifest,presentation);assert.equal(opening.speaker,'maya');assert.equal(opening.camera,'witness');assert.equal(opening.pose,'normal');assert.ok(opening.visual.backdrop?.endsWith('lobby.png'));assert.equal(opening.visual.foreground,undefined);
  assert.equal(sceneAt(commands,5,demoManifest,presentation).pose,'shocked');
  const next=sceneAt(commands,7,demoManifest,presentation);assert.equal(next.camera,'maya');assert.equal(next.pose,'normal');assert.ok(next.visual.backdrop?.endsWith('lobby.png'));
+});
+
+
+test('content-pack labels cover newly added action vocabulary without preview hard-coding',()=>{
+ const vonKarma={packId:courtroomDemoPack.id,id:'von-karma'};
+ const yogi={packId:courtroomDemoPack.id,id:'yogi'};
+ assert.equal(courtroomActionLabel(presentation,vonKarma,'accuse'),'压迫指证');
+ assert.equal(courtroomActionLabel(presentation,vonKarma,'breakdown'),'失控');
+ assert.equal(courtroomActionLabel(presentation,yogi,'broken'),'崩溃');
+ assert.equal(courtroomActionLabel(presentation,vonKarma,'missing'),undefined);
 });

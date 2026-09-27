@@ -383,3 +383,31 @@ button:focus-visible{outline:2px solid #267145;outline-offset:3px}
 .editor-header-main{display:flex;align-items:center;gap:12px;min-width:0}
 .editor-header-title{min-width:0}
 @media(max-width:760px){.editor-header-main{gap:10px;min-width:0}.editor-header-title{min-width:0;flex:1}}
+
+
+/* Rehearsal presentation effects */
+.preview-stage{transform-origin:center;will-change:transform}
+.preview-stage canvas{position:relative;z-index:0;transform-origin:center;will-change:transform,opacity}
+.preview-dialogue{z-index:2;transition:border-color .12s,background .12s,box-shadow .12s}
+.preview-dialogue.is-emphasis{
+  border-top-color:#fff0a8;
+  background:#0b1222f5;
+  box-shadow:0 -8px 24px #00000038;
+}
+.preview-dialogue.is-emphasis .preview-text{
+  font-weight:800;
+  letter-spacing:.015em;
+  text-shadow:0 0 10px #fff3a844;
+}
+.preview-flash{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+  background:#fff;
+  opacity:0;
+  mix-blend-mode:screen;
+}
+@media (prefers-reduced-motion: reduce){
+  .preview-stage,.preview-stage canvas,.preview-dialogue{transition:none}
+}
