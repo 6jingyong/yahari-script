@@ -113,8 +113,6 @@ const importInput = requireElement<HTMLInputElement>("#import-input");
 const projectDialog = requireElement<HTMLDialogElement>("#project-dialog");
 const projectNameInput = requireElement<HTMLInputElement>("#project-name-input");
 const toast = requireElement<HTMLElement>("#toast");
-const addCueButton = requireElement<HTMLButtonElement>("#add-cue-button");
-const addDialogueButton = requireElement<HTMLButtonElement>("#add-dialogue-button");
 
 let selectedBlockId: string | null = store.document.blocks[0]?.id ?? null;
 let selectedTokenId: string | null = null;
@@ -1296,32 +1294,6 @@ function createNewProject(title: string): void {
   if (!activateProject(createProjectFile(manifest, [document]))) return;
   showToast(`已创建「${manifest.title}」。`);
 }
-
-requireElement<HTMLButtonElement>("#add-cue-button").addEventListener("click", () => {
-  openCuePicker(selectedBlockId ?? undefined);
-});
-
-requireElement<HTMLButtonElement>("#add-dialogue-button").addEventListener("click", () => {
-  store.commitEditSession();
-  const id = `blk-${++blockSerial}`;
-  const firstCast = currentProject.manifest.cast[0]?.castId;
-  store.addDialogueBlock(
-    {
-      id,
-      type: "dialogue",
-      speaker: firstCast ? { castId: firstCast } : null,
-      content: [],
-    },
-    selectedBlockId ?? undefined,
-  );
-  selectedBlockId = id;
-  persist();
-  renderAll();
-  window.setTimeout(() => {
-    const editor = canvas.querySelector<HTMLElement>(`.rich-editor[data-block-id="${CSS.escape(id)}"]`);
-    editor?.focus();
-  }, 0);
-});
 
 undoButton.addEventListener("click", () => {
   store.undo();
