@@ -1,3 +1,12 @@
+## 0.9 architecture foundation (2026-09-27)
+
+- Portable project/file schema remains unchanged at file version 0.7; this is an internal boundary refactor rather than a migration.
+- Courtroom material metadata now has one declarative source in `content-packs/courtroom-demo/catalog.json`. Build generation produces the typed runtime registry instead of manually maintaining separate pack and visual-path tables.
+- Added generic `packages/presentation` ResourceRef resolution. Courtroom preview no longer contains the `official.courtroom-demo` special case and is regression-tested with a second synthetic content pack.
+- Story AI is split into adapter-neutral outline/model/plan layers and Courtroom-specific scene emission under the Courtroom Adapter.
+- Editor entry responsibilities started splitting into dedicated project persistence/export and Work → Chapter → Scene outline modules.
+- Verification: 77 tests pass, 40 browser modules resolve, 9 bindable characters expose 46 actions across 7 scenes, and 59 unique local image files pass provenance/hash/crop checks through 60 resource IDs.
+
 ## Automatic deployment increment (2026-09-27)
 
 - Static URLs are subpath-safe and the build outputs a portable `out` directory.
