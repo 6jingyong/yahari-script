@@ -37,8 +37,8 @@ for(const url of urls) {
   else if(gif){width=bytes.readUInt16LE(6);height=bytes.readUInt16LE(8);}
   else {
     const text=bytes.toString('utf8');
-    width=Number(text.match(/<svg[^>]*\\bwidth="([0-9.]+)"/)?.[1]);
-    height=Number(text.match(/<svg[^>]*\\bheight="([0-9.]+)"/)?.[1]);
+    width=Number(text.match(/<svg[^>]*\bwidth="([0-9.]+)"/)?.[1]);
+    height=Number(text.match(/<svg[^>]*\bheight="([0-9.]+)"/)?.[1]);
     assert.ok(width>0&&height>0,`SVG dimensions missing: ${url}`);
   }
   const [x,y,w,h]=visuals.frames[url]??[0,0,256,192];
