@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createSampleStory, normalizeSampleCast, sampleStories } from '../examples/courtroom-demo-project/story-cases.js';
 import { courtroomAdapter } from '../packages/adapters/courtroom/src/index.js';
 import { courtroomDemoPack } from '../content-packs/courtroom-demo/pack.js';
+import { defaultDemoCharacterIds } from '../content-packs/courtroom-demo/cast.js';
 import { decodeProjectFile } from '../packages/core/src/index.js';
 
 test('built-in cases retain ordered scenes and playable dialogue after export/import', () => {
@@ -15,8 +16,10 @@ test('built-in cases retain ordered scenes and playable dialogue after export/im
     assert.equal(decoded.ok && decoded.kind === 'project', true, sample.title);
     assert.equal(file.manifest.narrative?.chapters.length, sample.chapters);
     assert.equal(file.documents.length, sample.scenes);
-    assert.deepEqual(file.manifest.cast.map(person=>person.displayName),courtroomDemoPack.characters.map(person=>person.name));
-    assert.deepEqual(file.manifest.cast.map(person=>person.castId),courtroomDemoPack.characters.map(person=>person.id));
+    const expectedNames=defaultDemoCharacterIds.map(id=>courtroomDemoPack.characters.find(person=>person.id===id)?.name);
+    assert.deepEqual(file.manifest.cast.map(person=>person.displayName),expectedNames);
+    assert.deepEqual(file.manifest.cast.map(person=>person.castId),[...defaultDemoCharacterIds]);
+    assert.ok(!file.manifest.cast.some(person=>person.castId==='apollo'));
     assert.deepEqual(file.manifest.narrative?.chapters.flatMap(chapter => chapter.documentIds), file.documents.map(doc => doc.documentId));
     for (const doc of file.documents) {
       assert.ok(doc.summary);
