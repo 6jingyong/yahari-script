@@ -1,5 +1,6 @@
 import { installStoryDialog } from "./story-dialog.js";
 import { renderOutlineTree } from "./outline-view.js";
+import { sceneBackgroundRef, withSceneBackground } from "./scene-settings.js";
 import {
   LEGACY_STORAGE_KEY,
   STORAGE_KEY,
@@ -211,38 +212,79 @@ function loadDraft(): void {
   renderRichContent(composeInput,{id:'draft',type:'dialogue',speaker:composingAs?{castId:composingAs}:null,content:draftNodes},new Set());
   decorateDraft();
 }
-function renderIdentities(): void {
-  if(composingAs && !currentProject.manifest.cast.some(c=>c.castId===composingAs)) composingAs=currentProject.manifest.cast[0]?.castId??null;
-  const list=requireElement<HTMLElement>('#identity-list');list.replaceChildren();
-  for(const id of [...currentProject.manifest.cast.map(c=>c.castId),null]) {
-    const button=document.createElement('button');button.type='button';
-    button.className='identity-button';button.setAttribute('aria-pressed',String(id===composingAs));
-    button.textContent=castName(id);button.disabled=projectAvailability!=='ready';
-    button.addEventListener('click',()=>{closePicker(false);composingAs=id;saveDraft();renderRichContent(composeInput,{id:'draft',type:'dialogue',speaker:id?{castId:id}:null,content:draftNodes},new Set());decorateDraft();draftRange=null;renderIdentities();composeInput.focus();});list.append(button);
+function castPortraitUrl(castId:string|null|undefined):string|undefined {
+  if(!castId)return undefined;
+  const cast=currentProject.manifest.cast.find(item=>item.castId===castId);
+  if(!cast)return undefined;
+  const pack=currentProject.contentPacks.find(item=>item.id===cast.characterRef.packId);
+  const character=pack?.characters.find(item=>item.id===cast.characterRef.id);
+  return character ? courtroomDemoResolver.resolve(character.portraits.base)?.url : undefined;
+}
+
+function renderSpeakerAvatar(button:HTMLButtonElement,castId:string|null|undefined):void {
+  button.replaceChildren();
+  const url=castPortraitUrl(castId);
+  if(url){
+    const image=document.createElement('img');image.src=url;image.alt='';image.loading='eager';button.append(image);
+  }else{
+    const fallback=document.createElement('span');fallback.textContent=castInitial(castId);button.append(fallback);
   }
-  const missing = courtroomDemoPack.characters.filter(character => !currentProject.manifest.cast.some(cast => cast.characterRef.packId === courtroomDemoPack.id && cast.characterRef.id === character.id));
-  if (missing.length && projectAvailability === 'ready') {
-    const add = document.createElement('button'); add.type = 'button'; add.className = 'identity-button'; add.textContent = '＋ 角色';
-    add.addEventListener('click', () => {
-      const choices = requireElement<HTMLElement>('#cast-options'); choices.replaceChildren();
-      for (const character of missing) {
-        const button = document.createElement('button'); button.type = 'button'; button.className = 'identity-button'; button.textContent = character.name;
-        button.addEventListener('click', () => {
-          saveDraft();
-          currentProject.manifest = addDemoCharacter(currentProject.manifest, character.id);
-          persist(); renderAll(); requireElement<HTMLDialogElement>('#cast-dialog').close();
-          showToast(`已加入${character.name}，可在身份栏切换。`);
-        });
-        choices.append(button);
-      }
-      requireElement<HTMLDialogElement>('#cast-dialog').showModal();
+  button.title=castName(castId);
+  button.setAttribute('aria-label',`切换人物，当前：${castName(castId)}`);
+  button.disabled=projectAvailability!=='ready';
+}
+
+let speakerSelectionHandler:((castId:string|null)=>void)|null=null;
+function openSpeakerDialog(current:string|null,select:(castId:string|null)=>void):void {
+  speakerSelectionHandler=select;
+  const options=requireElement<HTMLElement>('#speaker-options');options.replaceChildren();
+  for(const castId of [...currentProject.manifest.cast.map(c=>c.castId),null]){
+    const button=document.createElement('button');button.type='button';button.className='speaker-option';
+    button.setAttribute('aria-pressed',String(castId===current));
+    const portrait=document.createElement('span');portrait.className='speaker-option-avatar';
+    const url=castPortraitUrl(castId);
+    if(url){const image=document.createElement('img');image.src=url;image.alt='';portrait.append(image);}
+    else portrait.textContent=castInitial(castId);
+    const label=document.createElement('span');label.textContent=castName(castId);
+    button.append(portrait,label);
+    button.addEventListener('click',()=>{speakerSelectionHandler?.(castId);requireElement<HTMLDialogElement>('#speaker-dialog').close();});
+    options.append(button);
+  }
+  requireElement<HTMLDialogElement>('#speaker-dialog').showModal();
+}
+
+function openAddCharacterDialog():void {
+  const missing=courtroomDemoPack.characters.filter(character=>!currentProject.manifest.cast.some(cast=>cast.characterRef.packId===courtroomDemoPack.id&&cast.characterRef.id===character.id));
+  const choices=requireElement<HTMLElement>('#cast-options');choices.replaceChildren();
+  for(const character of missing){
+    const button=document.createElement('button');button.type='button';button.className='identity-button';button.textContent=character.name;
+    button.addEventListener('click',()=>{
+      saveDraft();
+      currentProject.manifest=addDemoCharacter(currentProject.manifest,character.id);
+      const added=currentProject.manifest.cast.find(cast=>cast.characterRef.packId===courtroomDemoPack.id&&cast.characterRef.id===character.id);
+      persist();renderAll();requireElement<HTMLDialogElement>('#cast-dialog').close();
+      if(added)speakerSelectionHandler?.(added.castId);
+      showToast(`已加入${character.name}。`);
     });
-    list.append(add);
+    choices.append(button);
   }
-  requireElement('#compose-name').textContent=castName(composingAs);
+  if(!missing.length){
+    const empty=document.createElement('p');empty.className='project-note';empty.textContent='素材库中的人物已经全部加入当前作品。';choices.append(empty);
+  }
+  requireElement<HTMLDialogElement>('#cast-dialog').showModal();
+}
+
+function setComposerSpeaker(castId:string|null):void {
+  closePicker(false);composingAs=castId;saveDraft();
+  renderRichContent(composeInput,{id:'draft',type:'dialogue',speaker:castId?{castId}:null,content:draftNodes},new Set());
+  decorateDraft();draftRange=null;renderIdentities();composeInput.focus();
+}
+
+function renderIdentities(): void {
+  if(composingAs&&!currentProject.manifest.cast.some(c=>c.castId===composingAs))composingAs=currentProject.manifest.cast[0]?.castId??null;
+  renderSpeakerAvatar(requireElement<HTMLButtonElement>('#compose-avatar'),composingAs);
   composeInput.contentEditable=String(projectAvailability==='ready');
   requireElement<HTMLButtonElement>('#compose-action').disabled=projectAvailability!=='ready';
-  requireElement<HTMLButtonElement>('#compose-cue').disabled=projectAvailability!=='ready';
   composeSend.disabled=projectAvailability!=='ready'||!draftNodes.some(n=>n.type==='token'||n.text.trim());
 }
 function openDraftPicker(): void {
@@ -500,39 +542,38 @@ function switchScene(id: string): void {
   selectedBlockId = next.blocks[0]?.id ?? null; selectedTokenId = null;
   loadDraft(); persist(); renderAll();
 }
+function sceneBackgroundId(documentId:string):string|undefined {
+  const document=documentsWithActiveEdit().find(item=>item.documentId===documentId);
+  const resource=document?sceneBackgroundRef(document):undefined;
+  return resource
+    ? courtroomDemoPack.backgrounds.find(item=>item.resource.packId===resource.packId&&item.resource.id===resource.id)?.id
+    : undefined;
+}
+
+function setSceneBackground(documentId:string,backgroundId:string):void {
+  if(projectAvailability!=='ready')return;
+  const background=courtroomDemoPack.backgrounds.find(item=>item.id===backgroundId);
+  if(!background)return;
+  store.commitEditSession();saveDraft();
+  if(documentId===store.document.documentId){
+    store.replaceDocument(withSceneBackground(store.document,background.resource));
+  }else{
+    projectFile.documents=projectFile.documents.map(document=>document.documentId===documentId?withSceneBackground(document,background.resource):document);
+  }
+  persist();renderOutline();
+}
+
 function renderOutline(): void {
   renderOutlineTree(outline,{
     manifest:currentProject.manifest,
     documents:documentsWithActiveEdit(),
     activeDocumentId:store.document.documentId,
     folded:foldedOutline,
+    sceneOptions:courtroomDemoPack.backgrounds.map(item=>({id:item.id,label:item.label})),
+    sceneOptionFor:sceneBackgroundId,
+    onSceneOptionChange:setSceneBackground,
     onSelect:id=>{switchScene(id);setPanel('outline',false,false);},
   });
-}
-
-function speakerSelect(block: DialogueBlock): HTMLSelectElement {
-  const select = document.createElement("select");
-  select.className = "speaker-select";
-  select.title = "选择人物会绑定开场形象与默认站位；句首动作可覆盖初始姿态。";
-  const none = document.createElement("option");
-  none.value = "";
-  none.textContent = "旁白";
-  select.append(none);
-  for (const cast of currentProject.manifest.cast) {
-    const option = document.createElement("option");
-    option.value = cast.castId;
-    option.textContent = castName(cast.castId);
-    select.append(option);
-  }
-  select.value = block.speaker?.castId ?? "";
-  select.disabled = projectAvailability !== "ready";
-  select.addEventListener("change", () => {
-    store.commitEditSession();
-    store.updateSpeaker(block.id, select.value ? { castId: select.value } : null);
-    persist();
-    renderAll();
-  });
-  return select;
 }
 
 function renderEditor(): void {
@@ -553,6 +594,7 @@ function renderEditor(): void {
 
   for (const block of doc.blocks) {
     if (block.type === "cue") {
+      if(block.cue.type==='courtroom.background')continue;
       const row = document.createElement("article");
       row.className = `dialogue-row cue-row${selectedBlockId === block.id ? " is-selected" : ""}`;
       row.dataset.blockId = block.id;
@@ -611,24 +653,21 @@ function renderEditor(): void {
     row.className = `dialogue-row${selectedBlockId === block.id ? " is-selected" : ""}`;
     row.dataset.blockId = block.id;
 
-    const avatar = document.createElement("div");
-    avatar.className = "avatar";
-    avatar.textContent = castInitial(block.speaker?.castId);
-    const castIndex=currentProject.manifest.cast.findIndex(c=>c.castId===block.speaker?.castId);
-    row.classList.toggle('chat-right',castIndex===0);
-    avatar.style.background=castIndex===0?'#326452':castIndex===1?'#6a506f':'#677887';
+    const avatar = document.createElement("button");
+    avatar.type='button';avatar.className = "speaker-avatar dialogue-avatar";
+    renderSpeakerAvatar(avatar,block.speaker?.castId);
+    avatar.addEventListener('click',event=>{
+      event.stopPropagation();
+      openSpeakerDialog(block.speaker?.castId??null,castId=>{
+        store.commitEditSession();store.updateSpeaker(block.id,castId?{castId}:null);persist();renderAll();
+      });
+    });
 
     const card = document.createElement("div");
     card.className = "dialogue-card";
-    const meta = document.createElement("div");
-    meta.className = "dialogue-meta";
-    meta.append(speakerSelect(block));
-    const blockId = document.createElement("span");
-    blockId.className = "block-id";
-    blockId.textContent = block.id;
     const removeMessage=document.createElement('button');removeMessage.className='message-remove';removeMessage.textContent='删除';removeMessage.setAttribute('aria-label','删除这条台词');removeMessage.disabled=projectAvailability!=='ready';
     removeMessage.addEventListener('click',()=>{store.commitEditSession();store.removeBlock(block.id);selectedBlockId=store.document.blocks.at(-1)?.id??null;persist();renderAll();});
-    meta.append(removeMessage);
+    card.append(removeMessage);
 
     const editor = document.createElement("div");
     editor.className = "rich-editor";
@@ -676,7 +715,7 @@ function renderEditor(): void {
       }
     });
 
-    card.append(meta, editor);
+    card.append(editor);
     row.append(avatar, card);
     canvas.append(row);
   }
@@ -936,22 +975,15 @@ function renderAll(): void {
 }
 
 function showPicker(): void {
-  pickerReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  pickerReturnFocus=document.activeElement instanceof HTMLElement?document.activeElement:null;
   document.body.classList.add('picker-open');
-  const select=requireElement<HTMLSelectElement>('#action-target');
-  select.replaceChildren(new Option('当前身份',''));
-  for(const cast of currentProject.manifest.cast)select.append(new Option(castName(cast.castId),cast.castId));
-  select.value='';
-  select.parentElement!.hidden=pickerState?.mode==='cue';
   picker.classList.remove("is-hidden");
-  picker.setAttribute("aria-hidden", "false");
-  pickerSearch.value = "";
+  picker.setAttribute("aria-hidden","false");
+  pickerSearch.value="";
   renderPickerCandidates();
-  // Touch users can choose an action without first opening the keyboard.
-  if (isMobile()) requireElement<HTMLElement>('#picker-close').focus({preventScroll:true});
+  if(isMobile())requireElement<HTMLElement>('#picker-close').focus({preventScroll:true});
   else pickerSearch.focus({preventScroll:true});
 }
-
 function openInlinePicker(blockId: string, range: Range): void {
   store.commitEditSession();
   pickerState = { mode: "inline", blockId, range };
@@ -1046,16 +1078,15 @@ function renderPickerCandidates(): void {
     undefined,
   );
 
-  const chosenTarget=requireElement<HTMLSelectElement>('#action-target').value;
   const currentSpeaker=pickerState.mode==='draft'?composingAs:pickerState.mode==='inline'?findDialogueBlock(pickerState.blockId)?.speaker?.castId:null;
-  const targeted=allCandidates.filter(candidate=>{
-    if(candidate.subject?.kind==='cast')return chosenTarget!==''&&candidate.subject.id===chosenTarget;
-    if(candidate.subject?.kind==='speaker')return chosenTarget===''||chosenTarget===currentSpeaker;
+  const currentOnly=allCandidates.filter(candidate=>{
+    if(candidate.tokenType==='courtroom.background')return false;
+    if(candidate.subject?.kind==='cast')return candidate.subject.id===currentSpeaker;
+    if(candidate.subject?.kind==='speaker')return Boolean(currentSpeaker);
     return true;
   });
-  const bound=targeted.map(candidate=>chosenTarget&&candidate.subject?.kind==='speaker'?{...candidate,subject:{kind:'cast' as const,id:chosenTarget}}:candidate);
-  const candidates=bound.filter(candidate=>!query||`${actionLabel(createTokenFromCandidate('preview',candidate))} ${candidate.label} ${candidate.tokenType}`.toLowerCase().includes(query.toLowerCase()));
-  pickerContext.textContent = '';
+  const candidates=currentOnly.filter(candidate=>!query||`${actionLabel(createTokenFromCandidate('preview',candidate))} ${candidate.label} ${candidate.tokenType}`.toLowerCase().includes(query.toLowerCase()));
+  pickerContext.textContent = currentSpeaker?`${castName(currentSpeaker)} · 当前人物动作`:'旁白 · 节奏与声音';
   pickerList.replaceChildren();
   if (candidates.length === 0) {
     const empty = document.createElement("div");
@@ -1075,7 +1106,7 @@ function renderPickerCandidates(): void {
   for (const [category, group] of groups) {
     const label = document.createElement("div");
     label.className = "picker-group-label";
-    label.textContent = ({Character:'角色表情',Presentation:'节奏与特效',Audio:'声音',Scene:'场景与镜头'} as Record<string,string>)[category]??category;
+    label.textContent = ({Character:'当前人物',Presentation:'节奏与特效',Audio:'声音',Scene:'镜头'} as Record<string,string>)[category]??category;
     pickerList.append(label);
     for (const candidate of group) {
       const button = document.createElement("button");
@@ -1376,8 +1407,9 @@ composeInput.addEventListener('keydown',event=>{
 document.addEventListener('selectionchange',()=>{const sel=window.getSelection();if(sel?.rangeCount&&composeInput.contains(sel.getRangeAt(0).commonAncestorContainer))draftRange=sel.getRangeAt(0).cloneRange();});
 composeSend.addEventListener('click',sendDialogue);
 requireElement('#compose-action').addEventListener('click',openDraftPicker);
-requireElement('#compose-cue').addEventListener('click',()=>openCuePicker());
-requireElement('#action-target').addEventListener('change',renderPickerCandidates);
+requireElement('#compose-avatar').addEventListener('click',()=>openSpeakerDialog(composingAs,setComposerSpeaker));
+requireElement('#speaker-close').addEventListener('click',()=>requireElement<HTMLDialogElement>('#speaker-dialog').close());
+requireElement('#speaker-add').addEventListener('click',()=>{requireElement<HTMLDialogElement>('#speaker-dialog').close();openAddCharacterDialog();});
 requireElement('#inspector-close').addEventListener('click',()=>setPanel('inspector',false));
 const openStory = installStoryDialog(demoManifest, next => {
   store.commitEditSession(); persist();
