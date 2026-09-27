@@ -1274,12 +1274,12 @@ function createNewProject(title: string): void {
   manifest.narrative = { summary: '', chapters: [{ id: `chapter-${serial}`, title: '第一章', summary: '', documentIds: [manifest.entryDocumentId] }] };
   const document: ScriptDocument = pendingLegacyDocument
     ? structuredClone(pendingLegacyDocument)
-    : {
+    : withSceneBackground({
         schemaVersion: "0.7",
         documentId: manifest.entryDocumentId,
         title: "场景 1",
         blocks: [],
-      };
+      }, courtroomDemoPack.backgrounds[0].resource);
   pendingLegacyDocument = null;
   if (!activateProject(createProjectFile(manifest, [document]))) return;
   showToast(`已创建「${manifest.title}」。`);
@@ -1463,7 +1463,8 @@ requireElement('#new-scene-button').addEventListener('click',()=>{
   if(projectAvailability!=='ready')return;
   store.commitEditSession();saveDraft();persist();
   const previousId=store.document.documentId;const id=`scene-${crypto.randomUUID()}`;
-  const doc:ScriptDocument={schemaVersion:'0.7',documentId:id,title:`新场景 ${projectFile.documents.length+1}`,summary:'',blocks:[]};
+  const inherited=sceneBackgroundRef(store.document)??courtroomDemoPack.backgrounds[0].resource;
+  const doc:ScriptDocument=withSceneBackground({schemaVersion:'0.7',documentId:id,title:`新场景 ${projectFile.documents.length+1}`,summary:'',blocks:[]},inherited);
   projectFile.documents.push(doc);currentProject.manifest.documents.push({id,path:`${id}.yahari.json`});
   const chapter=currentProject.manifest.narrative?.chapters.find(c=>c.documentIds.includes(previousId));chapter?.documentIds.push(id);
   switchScene(id);requireElement<HTMLButtonElement>('#structure-button').click();
