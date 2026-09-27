@@ -173,3 +173,14 @@ test("cue blocks lower in document order without inventing a speaker", () => {
     resource: { packId: "official.courtroom-demo", id: "background/courtroom" },
   });
 });
+
+
+test("authoring candidates never expose another character from the same dialogue",()=>{
+  const candidates=courtroomAdapter.getTokenCandidates(
+    {...contextFor("phoenix"),insertionScope:"inline"},
+    demoProject,
+  );
+  assert.equal(candidates.some(candidate=>candidate.subject?.kind==="cast"),false);
+  assert.equal(candidates.filter(candidate=>candidate.category==="Character").every(candidate=>candidate.subject?.kind==="speaker"),true);
+  assert.equal(candidates.some(candidate=>candidate.tokenType==="courtroom.focus"&&candidate.subject?.kind==="speaker"),true);
+});
