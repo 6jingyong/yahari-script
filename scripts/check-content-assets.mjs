@@ -30,8 +30,17 @@ for(const url of urls) {
   assert.equal(createHash('sha256').update(bytes).digest('hex'),source.sha256,`Asset hash mismatch: ${url}`);
   const png=bytes.subarray(0,8).toString('hex')==='89504e470d0a1a0a';
   const gif=bytes.subarray(0,3).toString()==='GIF';
-  assert.ok(png||gif,`Not a supported image: ${url}`);
-  const width=png?bytes.readUInt32BE(16):bytes.readUInt16LE(6),height=png?bytes.readUInt32BE(20):bytes.readUInt16LE(8);
+  const svg=bytes.subarray(0,256).toString('utf8').includes('<svg');
+  assert.ok(png||gif||svg,`Not a supported image: ${url}`);
+  let width,height;
+  if(png){width=bytes.readUInt32BE(16);height=bytes.readUInt32BE(20);}
+  else if(gif){width=bytes.readUInt16LE(6);height=bytes.readUInt16LE(8);}
+  else {
+    const text=bytes.toString('utf8');
+    width=Number(text.match(/<svg[^>]*\\bwidth="([0-9.]+)"/)?.[1]);
+    height=Number(text.match(/<svg[^>]*\\bheight="([0-9.]+)"/)?.[1]);
+    assert.ok(width>0&&height>0,`SVG dimensions missing: ${url}`);
+  }
   const [x,y,w,h]=visuals.frames[url]??[0,0,256,192];
   assert.ok(x>=0&&y>=0&&w>0&&h>0&&x+w<=width&&y+h<=height,`Invalid frame crop: ${url}`);
 }
