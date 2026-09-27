@@ -20,13 +20,17 @@ test('recovered showcase covers all five actors and compiles', () => {
 test('all recovered character actions can be selected, validated and compiled', () => {
   for (const character of courtroomDemoPack.characters) {
     for (const [type, actions] of [['pose',character.poses],['reaction',character.reactions]] as const) {
-      const context = {projectId:demoManifest.projectId, documentId:'coverage', adapterId:demoManifest.adapter.id, adapterVersion:demoManifest.adapter.version, insertionScope:'inline' as const, speaker:{castId:character.id}};
-      const candidates = courtroomAdapter.getTokenCandidates(context, demoProject, {type:`courtroom.${type}`});
+      const manifest = addDemoCharacter(demoManifest, character.id);
+      const project = {manifest, contentPacks:[courtroomDemoPack]};
+      const castId = manifest.cast.find(c => c.characterRef.id === character.id)?.castId;
+      assert.ok(castId, `missing opt-in cast for ${character.id}`);
+      const context = {projectId:manifest.projectId, documentId:'coverage', adapterId:manifest.adapter.id, adapterVersion:manifest.adapter.version, insertionScope:'inline' as const, speaker:{castId}};
+      const candidates = courtroomAdapter.getTokenCandidates(context, project, {type:`courtroom.${type}`});
       for (const action of actions) {
         const candidate = candidates.find(c => c.subject?.kind === 'speaker' && c.params[type] === action.id);
         assert.ok(candidate?.enabled, `${character.id}/${type}/${action.id}`);
         const document: ScriptDocument = {schemaVersion:'0.7',documentId:'coverage',title:'coverage',blocks:[{id:'line',type:'dialogue',speaker:context.speaker,content:[{type:'token',token:createTokenFromCandidate('action',candidate)}]}]};
-        const plan = courtroomAdapter.compile(document, demoProject);
+        const plan = courtroomAdapter.compile(document, project);
         assert.ok(plan.instructions.some(i => i.op === type));
       }
     }
