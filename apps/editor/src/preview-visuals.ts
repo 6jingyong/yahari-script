@@ -1,14 +1,59 @@
 import type { ResourceRef } from '../../../packages/core/src/index.js';
-import { courtroomVisuals as visuals } from '../../../content-packs/courtroom-demo/visuals.js';
+import type { CourtroomContentPack } from '../../../packages/adapters/courtroom/src/index.js';
+import type { ResourceResolver } from '../../../packages/presentation/src/index.js';
+import { sameResource } from '../../../packages/presentation/src/index.js';
 
-/** Resolve only presentation resources; no authoring semantics live here. */
-export function resolveCourtroomVisual(character: string | undefined, pose: string, background?: ResourceRef) {
-  const supported = !background || (background.packId === 'official.courtroom-demo' && background.id in visuals.scenes);
-  const scene = supported ? (background?.id ?? 'background/courtroom') : undefined;
-  const stage = character ? visuals.stages[character] : undefined;
-  const automaticStage = scene === 'background/courtroom';
-  const backdrop = !scene ? undefined : automaticStage ? stage?.background ?? visuals.scenes[scene] : visuals.scenes[scene];
-  const foreground = automaticStage ? stage?.foreground : scene === 'background/witness-stand' ? visuals.stages.witness?.foreground : undefined;
-  const sprite = character ? visuals.characters[character]?.[pose] : undefined;
-  return {supported, backdrop, foreground, sprite, frame: sprite ? visuals.frames[sprite] : undefined};
+export interface CourtroomPresentationContext {
+  packs: readonly CourtroomContentPack[];
+  resolver: ResourceResolver;
+}
+
+function packFor(context: CourtroomPresentationContext, packId: string | undefined): CourtroomContentPack | undefined {
+  return packId ? context.packs.find(pack => pack.id === packId) : undefined;
+}
+
+export function courtroomBackgroundLabel(context: CourtroomPresentationContext, resource: ResourceRef): string | undefined {
+  return packFor(context, resource.packId)?.backgrounds.find(item => sameResource(item.resource, resource))?.label;
+}
+
+/** Resolve Courtroom presentation through pack declarations and ResourceRef, never pack-specific file tables. */
+export function resolveCourtroomVisual(
+  context: CourtroomPresentationContext,
+  characterRef: ResourceRef | undefined,
+  pose: string,
+  background?: ResourceRef,
+) {
+  const characterPack = packFor(context, characterRef?.packId);
+  const character = characterRef ? characterPack?.characters.find(item => item.id === characterRef.id) : undefined;
+  const scenePack = packFor(context, background?.packId) ?? characterPack ?? context.packs[0];
+  const activeBackground = background ?? scenePack?.stageScene;
+  const backgroundDefinition = activeBackground
+    ? packFor(context, activeBackground.packId)?.backgrounds.find(item => sameResource(item.resource, activeBackground))
+    : undefined;
+  const automaticStage = !!scenePack && sameResource(activeBackground, scenePack.stageScene);
+
+  const backdropRef = automaticStage && character?.stage.background
+    ? character.stage.background
+    : activeBackground;
+  const foregroundRef = automaticStage
+    ? character?.stage.foreground
+    : backgroundDefinition?.foreground;
+
+  const action = character
+    ? [...character.poses, ...character.reactions].find(item => item.id === pose)
+    : undefined;
+  const spriteRef = action?.asset ?? (pose === 'normal' ? character?.portraits.base : undefined);
+
+  const backdrop = backdropRef ? context.resolver.resolve(backdropRef) : undefined;
+  const foreground = foregroundRef ? context.resolver.resolve(foregroundRef) : undefined;
+  const sprite = spriteRef ? context.resolver.resolve(spriteRef) : undefined;
+  const supported = !background || Boolean(backgroundDefinition && backdrop);
+
+  return {
+    supported,
+    backdrop: backdrop?.url,
+    foreground: foreground?.url,
+    sprite: sprite?.url,
+    frame: sprite?.frame,
+  };
 }
