@@ -243,6 +243,76 @@
       "file": "apollo-sweat.png",
       "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/sweats(blink).png",
       "sha256": "bb4ebb597af84ec3f19ea6d9d7752d1c624512054d2cebaad91af65ba6c94573"
+    },
+    {
+      "file": "klavier-normal.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/normal(blink).png",
+      "sha256": "74efed2e93879cda0d071bdb8bdc6587789b54ffb57347269c46101486f609ca"
+    },
+    {
+      "file": "klavier-fist.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/fist(blink).png",
+      "sha256": "3c396fc79c184af782cb4cbfba70bf6bd5aa9ad486276432268703ab2b126836"
+    },
+    {
+      "file": "klavier-laugh.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/laughs(blink).png",
+      "sha256": "070c6f25808bae5cf8ca20d1d19954a5e8a670af5bf229a16048897cbf86dc52"
+    },
+    {
+      "file": "klavier-damaged.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/damage.png",
+      "sha256": "f11e6be99833074f68a2d6ad3a7ccaeee86ead9142be9da49168db56a73416f5"
+    },
+    {
+      "file": "ema-normal.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/normal(blink).png",
+      "sha256": "05ea95ad67f2cb29719ad37cb8759fd580ea9298a4956e7e46f5844377c144d9"
+    },
+    {
+      "file": "ema-science.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/science(blink).png",
+      "sha256": "05f2253878b45f12d3bb0c8a994d919749d07f46bb39989cb9d33dd2cdfa1f8b"
+    },
+    {
+      "file": "ema-smug.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/smug(blink).png",
+      "sha256": "ed04e900631555c5e90a1f6b853707635d8ba8a36ea0b7acc631e3199640696a"
+    },
+    {
+      "file": "ema-mad.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/mad(blink).png",
+      "sha256": "12c34268f43fce2ec1bf59d769b2a1b9c7918e9c7cbceac616ea2b6d22bf778c"
+    },
+    {
+      "file": "ema-surprised.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/surprised(blink).png",
+      "sha256": "d3d5f3afc04a28b8184e575b4186f7d14969525c52a230226198d7dfd73dd897"
+    },
+    {
+      "file": "trucy-normal.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/normal(blink).png",
+      "sha256": "9b3a8ed6d554a70322775752dafde71fc9a9e732b3a18cef826ace1350019968"
+    },
+    {
+      "file": "trucy-cheer.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/pumped(blink).png",
+      "sha256": "cf2c63ae3399cf911e93bb6ff3d354963e4361b0d6447527940156fb7b1586f9"
+    },
+    {
+      "file": "trucy-think.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/thoughtful(blink).png",
+      "sha256": "baac62a4534f3a4a11d4147662d6b2b31cdc404fdfea610837630a97e67caf57"
+    },
+    {
+      "file": "trucy-sad.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/sad(blink).png",
+      "sha256": "c516ac56556184291fcfb4ec6664512f4a3dbb6927441ed197388a13f68c0ef8"
+    },
+    {
+      "file": "trucy-surprised.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/surprised(blink).png",
+      "sha256": "8cf2d21de3e05875ce639c263e0d035cc7663a47942b21b432977868cd6e7304"
     }
   ],
   "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
