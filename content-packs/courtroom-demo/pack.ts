@@ -82,7 +82,11 @@ export const courtroomDemoPack: CourtroomContentPack = {
   backgrounds: [
     { id: "courtroom", label: "法庭 · 审理中", resource: ref("background/courtroom") },
     { id: "witness-stand", label: "证人席", resource: ref("background/witness-stand") },
-    { id: "lobby", label: "被告人候审室", resource: ref("background/lobby") },
+    { id: "lobby", label: "法院候审室", resource: ref("background/lobby") },
+    { id: "office", label: "律师事务所", resource: ref("background/office") },
+    { id: "detention-room", label: "拘留会见室", resource: ref("background/detention-room") },
+    { id: "police-records", label: "警署资料室", resource: ref("background/police-records") },
+    { id: "night-corridor", label: "夜间走廊", resource: ref("background/night-corridor") },
   ],
   audio: {
     sfx: [
