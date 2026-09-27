@@ -29,7 +29,7 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 26 action image mappings, file hashes and crop bounds. Current milestone: 73 tests, zero failures. Static deployment uses `node scripts/build-static.mjs` after compilation. GitHub source updates do not automatically redeploy the existing Site.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 26 action image mappings, file hashes and crop bounds. Current milestone: 75 tests, zero failures. Static deployment uses `node scripts/build-static.mjs` after compilation. Every verified `main` commit is handed to `.github/workflows/deploy-pages.yml` for GitHub Pages publication. The repository needs a one-time Pages setup (`Settings → Pages → Source: GitHub Actions`); the older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics and its performance plan. EditorStore owns document mutations/history. The browser UI and preview consume these layers. DOM is an input surface, never canonical script data.
