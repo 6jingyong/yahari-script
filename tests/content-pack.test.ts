@@ -73,3 +73,39 @@ test('presentation resolves character stations and explicit backgrounds without 
   assert.equal(missing.backdrop,undefined);
   assert.equal(resolveCourtroomVisual('maya','unavailable').sprite,undefined);
 });
+
+
+test('scene and presentation material catalogs expose the new usable presets', () => {
+  assert.equal(courtroomDemoPack.backgrounds.length, 7);
+  for (const id of ['office','detention-room','police-records','night-corridor']) {
+    const scene = courtroomDemoPack.backgrounds.find(item => item.id === id);
+    assert.ok(scene, id);
+    const visual = resolveCourtroomVisual('phoenix','normal',scene.resource);
+    assert.ok(visual.supported && visual.backdrop, id);
+  }
+
+  const context = {
+    projectId: demoManifest.projectId,
+    documentId: 'material-coverage',
+    adapterId: demoManifest.adapter.id,
+    adapterVersion: demoManifest.adapter.version,
+    insertionScope: 'inline' as const,
+    speaker: {castId:'phoenix'},
+  };
+  const candidates = courtroomAdapter.getTokenCandidates(context, demoProject);
+  for (const id of ['wait:1000','emphasis:strong','flash:soft','flash:strong','shake:soft','shake:strong']) {
+    const candidate = candidates.find(item => item.id === id);
+    assert.ok(candidate?.enabled, id);
+    const document: ScriptDocument = {
+      schemaVersion:'0.7',
+      documentId:`material-${id}`,
+      title:id,
+      blocks:[{id:'line',type:'dialogue',speaker:context.speaker,content:[{type:'token',token:createTokenFromCandidate(`token-${id}`,candidate)}]}],
+    };
+    assert.ok(courtroomAdapter.compile(document,demoProject).instructions.length > 1, id);
+  }
+  const focus = candidates.filter(item => item.tokenType === 'courtroom.focus');
+  assert.equal(focus.length,demoManifest.cast.length);
+  assert.equal(focus.find(item => item.id === 'focus:phoenix')?.subject?.kind,'speaker');
+  assert.equal(focus.find(item => item.id === 'focus:edgeworth')?.subject?.kind,'cast');
+});
