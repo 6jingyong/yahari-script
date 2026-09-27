@@ -23,9 +23,11 @@ for (const scene of pack.backgrounds) {
   urls.add(visual.backdrop);
 }
 for(const url of urls) {
-  assert.ok(url.startsWith('/content-packs/courtroom-demo/assets/'),`Non-local asset: ${url}`);
-  assert.ok(existsSync('.'+url),`Missing file: ${url}`);
-  const bytes=readFileSync('.'+url), source=sources.get(url.split('/').at(-1));
+  const assetPrefix='../../content-packs/courtroom-demo/assets/';
+  assert.ok(url.startsWith(assetPrefix),`Non-local asset: ${url}`);
+  const localPath='content-packs/courtroom-demo/assets/'+url.slice(assetPrefix.length);
+  assert.ok(existsSync(localPath),`Missing file: ${url}`);
+  const bytes=readFileSync(localPath), source=sources.get(url.split('/').at(-1));
   assert.ok(source,`Missing provenance: ${url}`);
   assert.equal(createHash('sha256').update(bytes).digest('hex'),source.sha256,`Asset hash mismatch: ${url}`);
   const png=bytes.subarray(0,8).toString('hex')==='89504e470d0a1a0a';
