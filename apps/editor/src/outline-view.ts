@@ -1,10 +1,18 @@
 import type { ProjectManifest, ScriptDocument } from '../../../packages/core/src/index.js';
 
+export interface OutlineSceneOption {
+  id: string;
+  label: string;
+}
+
 export interface OutlineViewInput {
   manifest: ProjectManifest;
   documents: ScriptDocument[];
   activeDocumentId: string;
   folded: Map<string, boolean>;
+  sceneOptions?: readonly OutlineSceneOption[];
+  sceneOptionFor?(documentId: string): string | undefined;
+  onSceneOptionChange?(documentId: string, optionId: string): void;
   onSelect(documentId: string): void;
 }
 
@@ -53,9 +61,12 @@ export function renderOutlineTree(target: HTMLElement, input: OutlineViewInput):
     for(const id of chapter.documentIds){
       const scene=documents.find(d=>d.documentId===id);
       if(!scene)continue;
+      const entry=document.createElement('div');
+      entry.className=`scene-entry${id===activeDocumentId?' is-selected':''}`;
+
       const item=document.createElement('button');
       item.type='button';
-      item.className=`scene-leaf${id===activeDocumentId?' is-selected':''}`;
+      item.className='scene-leaf';
       if(id===activeDocumentId)item.setAttribute('aria-current','location');
       const title=document.createElement('strong');
       title.textContent=scene.title;
@@ -63,7 +74,24 @@ export function renderOutlineTree(target: HTMLElement, input: OutlineViewInput):
       desc.textContent=scene.summary||'暂无场景摘要';
       item.append(title,desc);
       item.onclick=()=>onSelect(id);
-      section.append(item);
+      entry.append(item);
+
+      if(input.sceneOptions?.length && input.sceneOptionFor && input.onSceneOptionChange){
+        const row=document.createElement('label');
+        row.className='scene-option-row';
+        const label=document.createElement('span');
+        label.textContent='舞台';
+        const select=document.createElement('select');
+        select.setAttribute('aria-label',`${scene.title}的舞台`);
+        for(const option of input.sceneOptions){
+          select.append(new Option(option.label,option.id));
+        }
+        select.value=input.sceneOptionFor(id)??input.sceneOptions[0].id;
+        select.addEventListener('change',()=>input.onSceneOptionChange?.(id,select.value));
+        row.append(label,select);
+        entry.append(row);
+      }
+      section.append(entry);
     }
     work.append(section);
   }
