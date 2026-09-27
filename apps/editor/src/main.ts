@@ -309,8 +309,6 @@ function updateProjectChrome(): void {
   adapterBadge.textContent = `${currentProject.manifest.adapter.id} · ${currentProject.manifest.adapter.version}${projectAvailability === "ready" ? "" : " · READ ONLY"}`;
   requireElement<HTMLButtonElement>("#structure-button").disabled = projectAvailability !== "ready";
   requireElement<HTMLButtonElement>("#new-scene-button").disabled = projectAvailability !== "ready";
-  addCueButton.disabled = projectAvailability !== "ready";
-  addDialogueButton.disabled = projectAvailability !== "ready";
 }
 
 function findDialogueBlock(blockId: string): DialogueBlock | null {
