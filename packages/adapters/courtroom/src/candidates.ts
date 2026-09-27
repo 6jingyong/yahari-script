@@ -61,17 +61,18 @@ export function getCourtroomTokenCandidates(
     });
   }
 
-  if (speakerId) {
+  for (const cast of project.manifest.cast) {
+    const isSpeaker = cast.castId === speakerId;
     candidates.push({
-      id: `focus:${speakerId}`,
+      id: `focus:${cast.castId}`,
       tokenType: "courtroom.focus",
-      label: "Focus current speaker",
-      subject: { kind: "speaker" },
+      label: `镜头：${cast.displayName ?? cast.castId}`,
+      subject: isSpeaker ? { kind: "speaker" } : { kind: "cast", id: cast.castId },
       params: {},
       category: "Scene",
       enabled: true,
-      availability: "recommended",
-      score: 90,
+      availability: isSpeaker ? "recommended" : "available",
+      score: isSpeaker ? 90 : 35,
     });
   }
 
@@ -79,7 +80,7 @@ export function getCourtroomTokenCandidates(
     {
       id: "wait:input",
       tokenType: "courtroom.wait",
-      label: "Wait for input",
+      label: "等待点击",
       params: { mode: "input" },
       category: "Presentation",
       enabled: true,
@@ -89,12 +90,72 @@ export function getCourtroomTokenCandidates(
     {
       id: "wait:500",
       tokenType: "courtroom.wait",
-      label: "Wait 500 ms",
+      label: "停顿 0.5 秒",
       params: { mode: "time", durationMs: 500 },
       category: "Presentation",
       enabled: true,
       availability: "available",
       score: 25,
+    },
+    {
+      id: "wait:1000",
+      tokenType: "courtroom.wait",
+      label: "停顿 1 秒",
+      params: { mode: "time", durationMs: 1000 },
+      category: "Presentation",
+      enabled: true,
+      availability: "available",
+      score: 24,
+    },
+    {
+      id: "emphasis:strong",
+      tokenType: "courtroom.emphasis",
+      label: "强调文字",
+      params: { mode: "strong" },
+      category: "Presentation",
+      enabled: true,
+      availability: "available",
+      score: 28,
+    },
+    {
+      id: "flash:soft",
+      tokenType: "courtroom.flash",
+      label: "轻闪",
+      params: { intensity: 0.45 },
+      category: "Presentation",
+      enabled: true,
+      availability: "available",
+      score: 22,
+    },
+    {
+      id: "flash:strong",
+      tokenType: "courtroom.flash",
+      label: "强闪",
+      params: { intensity: 1 },
+      category: "Presentation",
+      enabled: true,
+      availability: "available",
+      score: 21,
+    },
+    {
+      id: "shake:soft",
+      tokenType: "courtroom.shake",
+      label: "轻微震动",
+      params: { intensity: 0.45, durationMs: 220 },
+      category: "Presentation",
+      enabled: true,
+      availability: "available",
+      score: 20,
+    },
+    {
+      id: "shake:strong",
+      tokenType: "courtroom.shake",
+      label: "强烈震动",
+      params: { intensity: 1, durationMs: 420 },
+      category: "Presentation",
+      enabled: true,
+      availability: "available",
+      score: 19,
     },
   );
 
