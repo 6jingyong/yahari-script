@@ -193,6 +193,26 @@
       "source": "https://dl.luismayo.com/assetsv4.zip",
       "archiveEntry": "characters/larry/larry-sweating.gif",
       "sha256": "0c013226dd566617ff2391cbe756333504a9286f610e387b86f09b3dfbe17d80"
+    },
+    {
+      "file": "office.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "527a1a1acd30cadacee9b17784d8fd8b8d85fd0b595981a03cc1ed0542db0ae9"
+    },
+    {
+      "file": "detention-room.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "f881900f88a972b8d881e655e1fdc72115eb33f3d1c509101d3d3522c43d085b"
+    },
+    {
+      "file": "police-records.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "5199b63abb6020e9f5f1c937bab76a728437dc837324df20d94f08d4e354d7a8"
+    },
+    {
+      "file": "night-corridor.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "3c05f92256a8ee0a6d0fe8887cf208a760c8d6872bf7ad5b0e5f9dedd8ebdf9f"
     }
   ],
   "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
