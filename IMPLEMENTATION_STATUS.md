@@ -3,8 +3,8 @@
 - Static URLs are now subpath-safe, so the same build can run under the legacy root-hosted Site or a GitHub Pages project path.
 - `Verify` remains the quality gate; a successful `main` run triggers `Deploy Pages`, which rebuilds `out` and publishes through the official Pages artifact/deploy actions.
 - Until Pages is enabled once in repository Settings, deployment exits cleanly with setup guidance instead of making the repository verification red.
-- Current verified state: 75 tests pass, 34 browser modules resolve, and 38 local images cover 5 characters / 26 actions / 7 scenes with source hashes and crop bounds.
-- The built-in “凌晨的通行证” now exercises all four newly added investigation scenes, including the detention interview room.
+- Current verified state: 75 tests pass, 34 browser modules resolve, and 58 local images cover 9 bindable characters / 46 actions / 7 scenes with source hashes and crop bounds.
+- The built-in “凌晨的通行证” now exercises all four newly added investigation scenes, including the detention interview room.\n- The material library adds Apollo Justice, Klavier Gavin, Ema Skye and Trucy Wright as opt-in presets while preserving the historical five-person default demo cast.
 
 ## Direct Chat edit increment (2026-09-27)
 
