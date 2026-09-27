@@ -138,7 +138,7 @@ test("missing capability offers replace, retarget, and remove quick fixes", () =
 });
 
 
-test("block picker exposes block-scope cues but not inline-only character actions", () => {
+test("block picker keeps non-scene block cues but background is directory-managed", () => {
   const candidates = courtroomAdapter.getTokenCandidates(
     {
       projectId: demoProject.manifest.projectId,
@@ -150,7 +150,7 @@ test("block picker exposes block-scope cues but not inline-only character action
     },
     demoProject,
   );
-  assert.equal(candidates.some((candidate) => candidate.tokenType === "courtroom.background"), true);
+  assert.equal(candidates.some((candidate) => candidate.tokenType === "courtroom.background"), false);
   assert.equal(candidates.some((candidate) => candidate.tokenType === "courtroom.bgm"), true);
   assert.equal(candidates.some((candidate) => candidate.tokenType === "courtroom.pose"), false);
 });
