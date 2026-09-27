@@ -64,21 +64,23 @@ test('custom casts opt in and occupied cast IDs are never overwritten', () => {
 });
 
 import { resolveCourtroomVisual } from '../apps/editor/src/preview-visuals.js';
+import { courtroomDemoResolver } from '../content-packs/courtroom-demo/presentation.js';
+const presentation={packs:[courtroomDemoPack],resolver:courtroomDemoResolver};
 
 test('presentation resolves character stations and explicit backgrounds without hiding unknown resources', () => {
-  const defence = resolveCourtroomVisual('phoenix','normal');
-  const prosecution = resolveCourtroomVisual('edgeworth','normal');
-  const apollo = resolveCourtroomVisual('apollo','point');
+  const defence = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'phoenix'},'normal');
+  const prosecution = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'edgeworth'},'normal');
+  const apollo = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'apollo'},'point');
   assert.ok(defence.backdrop && prosecution.backdrop && defence.backdrop !== prosecution.backdrop);
   assert.ok(apollo.sprite && apollo.backdrop === defence.backdrop);
   assert.ok(prosecution.sprite && prosecution.foreground);
-  const lobby = resolveCourtroomVisual('maya','cheer',{packId:courtroomDemoPack.id,id:'background/lobby'});
+  const lobby = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'maya'},'cheer',{packId:courtroomDemoPack.id,id:'background/lobby'});
   assert.ok(lobby.supported && lobby.backdrop && lobby.sprite);
   assert.equal(lobby.foreground,undefined);
-  const missing = resolveCourtroomVisual('maya','cheer',{packId:'other',id:'background/courtroom'});
+  const missing = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'maya'},'cheer',{packId:'other',id:'background/courtroom'});
   assert.equal(missing.supported,false);
   assert.equal(missing.backdrop,undefined);
-  assert.equal(resolveCourtroomVisual('maya','unavailable').sprite,undefined);
+  assert.equal(resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'maya'},'unavailable').sprite,undefined);
 });
 
 
@@ -87,7 +89,7 @@ test('scene and presentation material catalogs expose the new usable presets', (
   for (const id of ['office','detention-room','police-records','night-corridor']) {
     const scene = courtroomDemoPack.backgrounds.find(item => item.id === id);
     assert.ok(scene, id);
-    const visual = resolveCourtroomVisual('phoenix','normal',scene.resource);
+    const visual = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'phoenix'},'normal',scene.resource);
     assert.ok(visual.supported && visual.backdrop, id);
   }
 
