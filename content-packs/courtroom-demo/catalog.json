@@ -368,6 +368,11 @@
           "id": "accuse",
           "label": "压迫指证",
           "asset": "character/von-karma/pose/accuse"
+        },
+        {
+          "id": "smug",
+          "label": "轻蔑",
+          "asset": "character/von-karma/pose/smug"
         }
       ],
       "reactions": [
@@ -396,6 +401,11 @@
           "id": "salute",
           "label": "敬礼",
           "asset": "character/gumshoe/pose/salute"
+        },
+        {
+          "id": "point",
+          "label": "指出",
+          "asset": "character/gumshoe/pose/point"
         }
       ],
       "reactions": [
@@ -424,6 +434,11 @@
           "id": "camera",
           "label": "举相机",
           "asset": "character/lotta/pose/camera"
+        },
+        {
+          "id": "grin",
+          "label": "得意",
+          "asset": "character/lotta/pose/grin"
         }
       ],
       "reactions": [
@@ -459,6 +474,11 @@
           "id": "broken",
           "label": "崩溃",
           "asset": "character/yogi/reaction/broken"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/yogi/reaction/shocked"
         }
       ]
     },
@@ -480,6 +500,11 @@
           "id": "point",
           "label": "指证",
           "asset": "character/mia/pose/point"
+        },
+        {
+          "id": "smile",
+          "label": "微笑",
+          "asset": "character/mia/pose/smile"
         }
       ],
       "reactions": [
@@ -547,6 +572,26 @@
       "id": "elevator-hall",
       "label": "旧法院 · 电梯厅",
       "resource": "background/elevator-hall"
+    },
+    {
+      "id": "boathouse",
+      "label": "葫芦湖 · 船屋",
+      "resource": "background/boathouse"
+    },
+    {
+      "id": "records-basement",
+      "label": "法院 · 地下档案库",
+      "resource": "background/records-basement"
+    },
+    {
+      "id": "parking-garage",
+      "label": "地下停车场",
+      "resource": "background/parking-garage"
+    },
+    {
+      "id": "hospital-room",
+      "label": "医院 · 病房",
+      "resource": "background/hospital-room"
     }
   ],
   "audio": {
@@ -1058,6 +1103,33 @@
     },
     "background/elevator-hall": {
       "file": "elevator-hall.svg"
+    },
+    "background/boathouse": {
+      "file": "boathouse.svg"
+    },
+    "background/records-basement": {
+      "file": "records-basement.svg"
+    },
+    "background/parking-garage": {
+      "file": "parking-garage.svg"
+    },
+    "background/hospital-room": {
+      "file": "hospital-room.svg"
+    },
+    "character/von-karma/pose/smug": {
+      "file": "von-karma-smug.svg"
+    },
+    "character/gumshoe/pose/point": {
+      "file": "gumshoe-point.svg"
+    },
+    "character/lotta/pose/grin": {
+      "file": "lotta-grin.svg"
+    },
+    "character/yogi/reaction/shocked": {
+      "file": "yogi-shocked.svg"
+    },
+    "character/mia/pose/smile": {
+      "file": "mia-smile.svg"
     }
   }
 }
