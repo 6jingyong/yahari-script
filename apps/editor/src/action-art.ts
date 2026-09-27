@@ -10,6 +10,9 @@ export function actionLabel(token:TypedToken):string {
  const value=token.params.pose??token.params.reaction;
  if(typeof value==='string')return names[value]??value;
  if(kind==='wait')return token.params.mode==='input'?'等待点击':`等待 ${Number(token.params.durationMs??0)/1000} 秒`;
+ if(kind==='emphasis')return '强调';
+ if(kind==='flash')return Number(token.params.intensity??1)<0.7?'轻闪':'强闪';
+ if(kind==='shake')return Number(token.params.intensity??1)<0.7?'轻震':'强震';
  const resource=token.params.resource as {id?:string}|undefined;
  if(resource?.id){const id=resource.id.split('/').at(-1)!;return names[id]??icons[kind]?.[1]??id;}
  return icons[kind]?.[1]??kind;
