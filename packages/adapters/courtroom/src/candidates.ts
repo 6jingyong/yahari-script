@@ -40,6 +40,7 @@ export function getCourtroomTokenCandidates(
 
   for (const capability of registry.capabilities) {
     const isSpeaker = capability.subject.kind === "cast" && capability.subject.id === speakerId;
+    if (!isSpeaker) continue;
     const value = capability.kind === "courtroom.pose"
       ? capability.params?.pose
       : capability.params?.reaction;
@@ -48,31 +49,28 @@ export function getCourtroomTokenCandidates(
       id: capability.id,
       tokenType: capability.kind,
       label: String(value),
-      // Current-speaker actions are explicitly speaker-bound. Other-character
-      // actions remain fixed cast references. This makes speaker changes
-      // deterministic instead of relying on editor-side retargeting magic.
-      subject: isSpeaker ? { kind: "speaker" } : capability.subject,
+      subject: { kind: "speaker" },
       params: { ...(capability.params ?? {}) },
       category: "Character",
       enabled: true,
-      availability: isSpeaker ? "recommended" : "available",
-      score: isSpeaker ? 100 : 50,
+      availability: "recommended",
+      score: 100,
       preview: capability.source,
     });
   }
 
-  for (const cast of project.manifest.cast) {
-    const isSpeaker = cast.castId === speakerId;
+  const speakerCast=project.manifest.cast.find(cast=>cast.castId===speakerId);
+  if(speakerCast){
     candidates.push({
-      id: `focus:${cast.castId}`,
+      id: `focus:${speakerCast.castId}`,
       tokenType: "courtroom.focus",
-      label: `镜头：${cast.displayName ?? cast.castId}`,
-      subject: isSpeaker ? { kind: "speaker" } : { kind: "cast", id: cast.castId },
+      label: `镜头：${speakerCast.displayName ?? speakerCast.castId}`,
+      subject: { kind: "speaker" },
       params: {},
       category: "Scene",
       enabled: true,
-      availability: isSpeaker ? "recommended" : "available",
-      score: isSpeaker ? 90 : 35,
+      availability: "recommended",
+      score: 90,
     });
   }
 
