@@ -1,8 +1,9 @@
-import { buildScene, generatedManifest, outlinePrompt, requestJson, scenePrompt, validateDetectedOutline, validateOutline, type StoryOutline, type ModelConfig } from '../../../packages/story-ai/src/generation.js';
+import { generatedManifest, outlinePrompt, validateDetectedOutline, validateOutline, type StoryOutline } from '../../../packages/story-ai/src/outline.js';
+import { requestJson, type ModelConfig } from '../../../packages/story-ai/src/model.js';
 import { planPrompt, reviewPrompt, sceneContext, validateSceneCast, validateSemanticReview, validateStoryPlan, type AdaptationMode, type SemanticFinding, type StoryPlan } from '../../../packages/story-ai/src/plan.js';
 import { createProjectFile, type ScriptDocument, type YahariProjectFile, type ProjectManifest } from '../../../packages/core/src/index.js';
 import { courtroomDemoPack as pack } from '../../../content-packs/courtroom-demo/pack.js';
-import { courtroomAdapter } from '../../../packages/adapters/courtroom/src/index.js';
+import { buildCourtroomScene, courtroomAdapter, courtroomScenePrompt } from '../../../packages/adapters/courtroom/src/index.js';
 
 const DRAFT_KEY='yahari:story-draft:v3';
 const OLD_DRAFT_KEYS=['yahari:story-draft:v2','yahari:story-draft:v1'];
@@ -228,8 +229,8 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     plan=validateStoryPlan(plan,outline,source,mode);
     const contract=plan.contracts[index],chapterIndex=contract.chapter-1,sceneIndex=contract.scene-1;
     status('正在生成 '+(index+1)+'/'+total()+'：'+outline.chapters[chapterIndex].scenes[sceneIndex].title);
-    const value=await call(scenePrompt(outline,pack,contract.castIds),JSON.stringify(sceneContext(outline,plan,source,index,docs[index-1])));
-    const doc=buildScene(value,outline,chapterIndex,sceneIndex,pack,prefix);
+    const value=await call(courtroomScenePrompt(outline,pack,contract.castIds),JSON.stringify(sceneContext(outline,plan,source,index,docs[index-1])));
+    const doc=buildCourtroomScene(value,outline,chapterIndex,sceneIndex,pack,prefix);
     validateSceneCast(doc,contract);
     const manifest={...base,cast:outline.cast.map(x=>({castId:x.id,displayName:x.name,characterRef:{packId:pack.id,id:x.characterId}}))};
     const context={manifest,contentPacks:[pack]};
@@ -310,7 +311,7 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
             pose:b.content.find((n:any)=>n.type==='token'&&n.token.type==='courtroom.pose')?.token.params.pose??null,
             reaction:b.content.find((n:any)=>n.type==='token'&&n.token.type==='courtroom.reaction')?.token.params.reaction??null
           }));
-          const doc=buildScene({lines},outline,c,s,pack,prefix);
+          const doc=buildCourtroomScene({lines},outline,c,s,pack,prefix);
           if(plan)validateSceneCast(doc,plan.contracts[i]);
           docs.push(doc);
         }
