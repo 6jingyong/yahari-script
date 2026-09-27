@@ -1,0 +1,61 @@
+name: Vendor Apollo Assets
+
+on:
+  push:
+    paths:
+      - '.github/workflows/vendor-apollo-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download pinned Apollo sprites
+        run: |
+          set -euo pipefail
+          base='https://raw.githubusercontent.com/crxtrdude/pywright/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo'
+          dir='content-packs/courtroom-demo/assets'
+          curl -fL "$base/normal%28blink%29.png" -o "$dir/apollo-normal.png"
+          curl -fL "$base/thinking%28blink%29.png" -o "$dir/apollo-think.png"
+          curl -fL "$base/pointing%28blink%29.png" -o "$dir/apollo-point.png"
+          curl -fL "$base/confident%28blink%29.png" -o "$dir/apollo-confident.png"
+          curl -fL "$base/ohshit.png" -o "$dir/apollo-shocked.png"
+          curl -fL "$base/sweats%28blink%29.png" -o "$dir/apollo-sweat.png"
+      - name: Record provenance hashes
+        run: |
+          node --input-type=module <<'NODE'
+          import {createHash} from 'node:crypto';
+          import {readFileSync,writeFileSync} from 'node:fs';
+          const commit='a71527b62c072d89c84054b0674b3a65e1227c48';
+          const files=[
+            ['apollo-normal.png','normal(blink).png'],
+            ['apollo-think.png','thinking(blink).png'],
+            ['apollo-point.png','pointing(blink).png'],
+            ['apollo-confident.png','confident(blink).png'],
+            ['apollo-shocked.png','ohshit.png'],
+            ['apollo-sweat.png','sweats(blink).png'],
+          ];
+          const path='content-packs/courtroom-demo/assets/sources.json';
+          const data=JSON.parse(readFileSync(path,'utf8'));
+          for(const [file,sourceName] of files){
+            const bytes=readFileSync('content-packs/courtroom-demo/assets/'+file);
+            const sha256=createHash('sha256').update(bytes).digest('hex');
+            const source='https://github.com/crxtrdude/pywright/blob/'+commit+'/data/art/port/apollo/'+sourceName;
+            const next={file,source,sha256};
+            const i=data.assets.findIndex(asset=>asset.file===file);
+            if(i>=0)data.assets[i]=next;else data.assets.push(next);
+          }
+          writeFileSync(path,JSON.stringify(data,null,2)+'\n');
+          NODE
+      - name: Commit vendored assets and remove one-shot importer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content-packs/courtroom-demo/assets
+          git rm .github/workflows/vendor-apollo-assets.yml
+          git commit -m "Vendor pinned Apollo courtroom assets"
+          git push
