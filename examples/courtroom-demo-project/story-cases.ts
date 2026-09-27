@@ -158,7 +158,7 @@ const stories: CaseStory[] = [
         ],
       },
     ],
-  },,
+  },
   {
     id: "midnight-pass",
     title: "凌晨的通行证",
