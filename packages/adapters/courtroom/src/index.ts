@@ -6,3 +6,4 @@ export * from "./candidates.js";
 export * from "./validator.js";
 export * from "./compiler.js";
 export * from "./adapter.js";
+export * from "./story-generation.js";
