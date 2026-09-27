@@ -10,6 +10,7 @@ import type { ScriptDocument } from '../packages/core/src/index.js';
 
 test('recovered showcase covers all five actors and compiles', () => {
   assert.ok(courtroomDemoPack.characters.some(c => c.id === 'apollo'));
+  for (const id of ['von-karma','gumshoe','lotta','yogi','mia']) assert.ok(courtroomDemoPack.characters.some(c => c.id === id), id);
   assert.deepEqual([...defaultDemoCharacterIds], ['phoenix','edgeworth','maya','judge','witness']);
   const speakers = new Set(demoShowcaseDocument.blocks.filter(b => b.type === 'dialogue').map(b => b.speaker?.castId));
   assert.equal(speakers.size, 5);
@@ -85,8 +86,8 @@ test('presentation resolves character stations and explicit backgrounds without 
 
 
 test('scene and presentation material catalogs expose the new usable presets', () => {
-  assert.equal(courtroomDemoPack.backgrounds.length, 7);
-  for (const id of ['office','detention-room','police-records','night-corridor']) {
+  assert.equal(courtroomDemoPack.backgrounds.length, 11);
+  for (const id of ['office','detention-room','police-records','night-corridor','lake-dock','evidence-room','prosecutor-office','elevator-hall']) {
     const scene = courtroomDemoPack.backgrounds.find(item => item.id === id);
     assert.ok(scene, id);
     const visual = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'phoenix'},'normal',scene.resource);
