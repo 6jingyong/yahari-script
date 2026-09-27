@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,7 +23,7 @@ jobs:
       - run: npm run check
 
   deploy-pages:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request'
     needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -30,6 +31,9 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -43,20 +47,11 @@ jobs:
       - run: npm run build
       - run: node scripts/build-static.mjs
       - name: Configure Pages
-        id: pages
-        continue-on-error: true
         uses: actions/configure-pages@v6
-      - name: Pages setup required
-        if: steps.pages.outcome != 'success'
-        run: |
-          echo "GitHub Pages is not enabled yet."
-          echo "After the repository is public, open Settings > Pages and set Source to GitHub Actions once." >> "$GITHUB_STEP_SUMMARY"
       - name: Upload Pages artifact
-        if: steps.pages.outcome == 'success'
         uses: actions/upload-pages-artifact@v4
         with:
           path: out
       - name: Deploy Pages
-        if: steps.pages.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
