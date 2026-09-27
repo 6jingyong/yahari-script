@@ -100,7 +100,7 @@ const story: CaseStory = {
             { speaker: "phoenix", pose: "point", text: "异议。我们现在讨论的不是被告是否去过湖边，而是两声枪响之间谁在移动。", emphasis: true, flash: 0.55 },
             { speaker: "judge", reaction: "confused", text: "照片上确实还有一处细长反光。" },
             { speaker: "lotta", reaction: "shocked", text: "它在连续两张底片上的位置变了。要么是水面反射，要么确实有东西在动。" },
-            { speaker: "edgeworth", pose: "think", text: "如果是第二艘小艇，就意味着我记忆里的距离关系可能从一开始就错了。" },
+            { speaker: "edgeworth", pose: "normal", text: "如果是第二艘小艇，就意味着我记忆里的距离关系可能从一开始就错了。" },
             { speaker: "von-karma", pose: "accuse", text: "被告的记忆没有证据价值。" },
             { speaker: "phoenix", pose: "desk", text: "所以我没有把它当证据。我只要求检方停止把一张照片解释成它没有拍到的身份。", shake: 0.5 },
             { speaker: "judge", pose: "stern", text: "准许。照片暂时只能证明湖面存在无法识别的第二移动反光。" },
