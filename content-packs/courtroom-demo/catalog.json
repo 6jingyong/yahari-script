@@ -1,0 +1,640 @@
+{
+  "id": "official.courtroom-demo",
+  "version": "0.1.0",
+  "name": "Courtroom Demo Pack",
+  "stageScene": "background/courtroom",
+  "characters": [
+    {
+      "id": "phoenix",
+      "name": "成步堂",
+      "portrait": "character/phoenix/pose/normal",
+      "stage": {
+        "background": "stage/defense/background",
+        "foreground": "stage/defense/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/phoenix/pose/normal"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/phoenix/pose/think"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/phoenix/pose/point"
+        },
+        {
+          "id": "desk",
+          "label": "拍桌",
+          "asset": "character/phoenix/pose/desk"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "sweat",
+          "label": "冒汗",
+          "asset": "character/phoenix/reaction/sweat"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/phoenix/reaction/shocked"
+        }
+      ]
+    },
+    {
+      "id": "apollo",
+      "name": "王泥喜",
+      "portrait": "character/apollo/pose/normal",
+      "stage": {
+        "background": "stage/defense/background",
+        "foreground": "stage/defense/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/apollo/pose/normal"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/apollo/pose/think"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/apollo/pose/point"
+        },
+        {
+          "id": "confident",
+          "label": "自信",
+          "asset": "character/apollo/pose/confident"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/apollo/reaction/shocked"
+        },
+        {
+          "id": "sweat",
+          "label": "冒汗",
+          "asset": "character/apollo/reaction/sweat"
+        }
+      ]
+    },
+    {
+      "id": "klavier",
+      "name": "牙琉响也",
+      "portrait": "character/klavier/pose/normal",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/klavier/pose/normal"
+        },
+        {
+          "id": "fist",
+          "label": "握拳",
+          "asset": "character/klavier/pose/fist"
+        },
+        {
+          "id": "laugh",
+          "label": "轻笑",
+          "asset": "character/klavier/pose/laugh"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "damaged",
+          "label": "受创",
+          "asset": "character/klavier/reaction/damaged"
+        }
+      ]
+    },
+    {
+      "id": "ema",
+      "name": "宝月茜",
+      "portrait": "character/ema/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/ema/pose/normal"
+        },
+        {
+          "id": "science",
+          "label": "科学调查",
+          "asset": "character/ema/pose/science"
+        },
+        {
+          "id": "smug",
+          "label": "得意",
+          "asset": "character/ema/pose/smug"
+        },
+        {
+          "id": "mad",
+          "label": "恼火",
+          "asset": "character/ema/pose/mad"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/ema/reaction/surprised"
+        }
+      ]
+    },
+    {
+      "id": "trucy",
+      "name": "美贯",
+      "portrait": "character/trucy/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/trucy/pose/normal"
+        },
+        {
+          "id": "cheer",
+          "label": "加油",
+          "asset": "character/trucy/pose/cheer"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/trucy/pose/think"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "sad",
+          "label": "沮丧",
+          "asset": "character/trucy/reaction/sad"
+        },
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/trucy/reaction/surprised"
+        }
+      ]
+    },
+    {
+      "id": "edgeworth",
+      "name": "御剑",
+      "portrait": "character/edgeworth/pose/normal",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/edgeworth/pose/normal"
+        },
+        {
+          "id": "bow",
+          "label": "致意",
+          "asset": "character/edgeworth/pose/bow"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/edgeworth/pose/point"
+        },
+        {
+          "id": "smug",
+          "label": "从容",
+          "asset": "character/edgeworth/pose/smug"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/edgeworth/reaction/surprised"
+        },
+        {
+          "id": "damaged",
+          "label": "受创",
+          "asset": "character/edgeworth/reaction/damaged"
+        }
+      ]
+    },
+    {
+      "id": "maya",
+      "name": "真宵",
+      "portrait": "character/maya/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/maya/pose/normal"
+        },
+        {
+          "id": "cheer",
+          "label": "加油",
+          "asset": "character/maya/pose/cheer"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/maya/pose/think"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/maya/reaction/surprised"
+        },
+        {
+          "id": "sad",
+          "label": "沮丧",
+          "asset": "character/maya/reaction/sad"
+        }
+      ]
+    },
+    {
+      "id": "judge",
+      "name": "裁判长",
+      "portrait": "character/judge/pose/normal",
+      "stage": {
+        "background": "stage/judge/background"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/judge/pose/normal"
+        },
+        {
+          "id": "stern",
+          "label": "严肃",
+          "asset": "character/judge/pose/stern"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/judge/reaction/surprised"
+        },
+        {
+          "id": "confused",
+          "label": "困惑",
+          "asset": "character/judge/reaction/confused"
+        }
+      ]
+    },
+    {
+      "id": "witness",
+      "name": "矢张（证人）",
+      "portrait": "character/witness/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/witness/pose/normal"
+        },
+        {
+          "id": "nervous",
+          "label": "紧张",
+          "asset": "character/witness/pose/nervous"
+        },
+        {
+          "id": "confident",
+          "label": "自信",
+          "asset": "character/witness/pose/confident"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/witness/reaction/shocked"
+        },
+        {
+          "id": "sweat",
+          "label": "冒汗",
+          "asset": "character/witness/reaction/sweat"
+        }
+      ]
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "courtroom",
+      "label": "法庭 · 审理中",
+      "resource": "background/courtroom"
+    },
+    {
+      "id": "witness-stand",
+      "label": "证人席",
+      "resource": "background/witness-stand",
+      "foreground": "stage/witness/foreground"
+    },
+    {
+      "id": "lobby",
+      "label": "法院候审室",
+      "resource": "background/lobby"
+    },
+    {
+      "id": "office",
+      "label": "律师事务所",
+      "resource": "background/office"
+    },
+    {
+      "id": "detention-room",
+      "label": "拘留会见室",
+      "resource": "background/detention-room"
+    },
+    {
+      "id": "police-records",
+      "label": "警署资料室",
+      "resource": "background/police-records"
+    },
+    {
+      "id": "night-corridor",
+      "label": "夜间走廊",
+      "resource": "background/night-corridor"
+    }
+  ],
+  "audio": {
+    "sfx": [
+      {
+        "id": "objection",
+        "label": "异议！",
+        "resource": "audio/sfx/objection"
+      },
+      {
+        "id": "hold-it",
+        "label": "等一下！",
+        "resource": "audio/sfx/hold-it"
+      },
+      {
+        "id": "desk-slam",
+        "label": "拍桌",
+        "resource": "audio/sfx/desk-slam"
+      },
+      {
+        "id": "gavel",
+        "label": "法槌",
+        "resource": "audio/sfx/gavel"
+      },
+      {
+        "id": "impact",
+        "label": "冲击",
+        "resource": "audio/sfx/impact"
+      }
+    ],
+    "bgm": [
+      {
+        "id": "trial",
+        "label": "开庭",
+        "resource": "audio/bgm/trial"
+      },
+      {
+        "id": "cross-examination",
+        "label": "询问",
+        "resource": "audio/bgm/cross-examination"
+      },
+      {
+        "id": "suspense",
+        "label": "疑点",
+        "resource": "audio/bgm/suspense"
+      },
+      {
+        "id": "pursuit",
+        "label": "追击",
+        "resource": "audio/bgm/pursuit"
+      }
+    ]
+  },
+  "resources": {
+    "background/courtroom": {
+      "file": "courtroom.png"
+    },
+    "background/witness-stand": {
+      "file": "witness-stand.png"
+    },
+    "background/lobby": {
+      "file": "lobby.png"
+    },
+    "background/office": {
+      "file": "office.svg"
+    },
+    "background/detention-room": {
+      "file": "detention-room.svg"
+    },
+    "background/police-records": {
+      "file": "police-records.svg"
+    },
+    "background/night-corridor": {
+      "file": "night-corridor.svg"
+    },
+    "stage/defense/background": {
+      "file": "defence.png"
+    },
+    "stage/defense/foreground": {
+      "file": "defence-bench.png",
+      "colorKey": "magenta"
+    },
+    "stage/prosecution/background": {
+      "file": "prosecution.png"
+    },
+    "stage/prosecution/foreground": {
+      "file": "prosecution-bench.png",
+      "colorKey": "magenta"
+    },
+    "stage/witness/background": {
+      "file": "witness-stand.png"
+    },
+    "stage/witness/foreground": {
+      "file": "witness-bench.png",
+      "colorKey": "magenta"
+    },
+    "stage/judge/background": {
+      "file": "judgestand.png"
+    },
+    "character/phoenix/pose/normal": {
+      "file": "phoenix-normal.png"
+    },
+    "character/phoenix/pose/think": {
+      "file": "phoenix-think.png"
+    },
+    "character/phoenix/pose/point": {
+      "file": "phoenix-point.png"
+    },
+    "character/phoenix/pose/desk": {
+      "file": "phoenix-desk.png",
+      "frame": [
+        256,
+        0,
+        256,
+        192
+      ]
+    },
+    "character/phoenix/reaction/sweat": {
+      "file": "phoenix-sweat.png"
+    },
+    "character/phoenix/reaction/shocked": {
+      "file": "phoenix-shocked.png",
+      "frame": [
+        0,
+        384,
+        256,
+        192
+      ]
+    },
+    "character/apollo/pose/normal": {
+      "file": "apollo-normal.png"
+    },
+    "character/apollo/pose/think": {
+      "file": "apollo-think.png"
+    },
+    "character/apollo/pose/point": {
+      "file": "apollo-point.png"
+    },
+    "character/apollo/pose/confident": {
+      "file": "apollo-confident.png"
+    },
+    "character/apollo/reaction/shocked": {
+      "file": "apollo-shocked.png"
+    },
+    "character/apollo/reaction/sweat": {
+      "file": "apollo-sweat.png"
+    },
+    "character/klavier/pose/normal": {
+      "file": "klavier-normal.png"
+    },
+    "character/klavier/pose/fist": {
+      "file": "klavier-fist.png"
+    },
+    "character/klavier/pose/laugh": {
+      "file": "klavier-laugh.png"
+    },
+    "character/klavier/reaction/damaged": {
+      "file": "klavier-damaged.png"
+    },
+    "character/ema/pose/normal": {
+      "file": "ema-normal.png"
+    },
+    "character/ema/pose/science": {
+      "file": "ema-science.png"
+    },
+    "character/ema/pose/smug": {
+      "file": "ema-smug.png"
+    },
+    "character/ema/pose/mad": {
+      "file": "ema-mad.png"
+    },
+    "character/ema/reaction/surprised": {
+      "file": "ema-surprised.png"
+    },
+    "character/trucy/pose/normal": {
+      "file": "trucy-normal.png"
+    },
+    "character/trucy/pose/cheer": {
+      "file": "trucy-cheer.png"
+    },
+    "character/trucy/pose/think": {
+      "file": "trucy-think.png"
+    },
+    "character/trucy/reaction/sad": {
+      "file": "trucy-sad.png"
+    },
+    "character/trucy/reaction/surprised": {
+      "file": "trucy-surprised.png"
+    },
+    "character/edgeworth/pose/normal": {
+      "file": "edgeworth-normal.gif"
+    },
+    "character/edgeworth/pose/bow": {
+      "file": "edgeworth-bow.gif"
+    },
+    "character/edgeworth/pose/point": {
+      "file": "edgeworth-point.gif"
+    },
+    "character/edgeworth/pose/smug": {
+      "file": "edgeworth-smug.gif"
+    },
+    "character/edgeworth/reaction/surprised": {
+      "file": "edgeworth-surprised.gif"
+    },
+    "character/edgeworth/reaction/damaged": {
+      "file": "edgeworth-damaged.gif"
+    },
+    "character/maya/pose/normal": {
+      "file": "maya-normal.gif"
+    },
+    "character/maya/pose/cheer": {
+      "file": "maya-cheer.gif"
+    },
+    "character/maya/pose/think": {
+      "file": "maya-think.gif"
+    },
+    "character/maya/reaction/surprised": {
+      "file": "maya-surprised.gif"
+    },
+    "character/maya/reaction/sad": {
+      "file": "maya-sad.gif"
+    },
+    "character/judge/pose/normal": {
+      "file": "judge-normal.png"
+    },
+    "character/judge/pose/stern": {
+      "file": "judge-stern.png"
+    },
+    "character/judge/reaction/surprised": {
+      "file": "judge-surprised.png"
+    },
+    "character/judge/reaction/confused": {
+      "file": "judge-confused.png"
+    },
+    "character/witness/pose/normal": {
+      "file": "witness-normal.gif"
+    },
+    "character/witness/pose/nervous": {
+      "file": "witness-nervous.gif"
+    },
+    "character/witness/pose/confident": {
+      "file": "witness-confident.gif"
+    },
+    "character/witness/reaction/shocked": {
+      "file": "witness-shocked.gif"
+    },
+    "character/witness/reaction/sweat": {
+      "file": "witness-sweat.gif"
+    }
+  }
+}

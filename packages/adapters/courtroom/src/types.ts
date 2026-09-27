@@ -18,6 +18,10 @@ export interface CourtroomCharacterDefinition {
   portraits: {
     base: ResourceRef;
   };
+  stage: {
+    background: ResourceRef;
+    foreground?: ResourceRef;
+  };
   poses: CourtroomPoseDefinition[];
   reactions: CourtroomReactionDefinition[];
   metadata?: Record<string, unknown>;
@@ -27,9 +31,12 @@ export interface CourtroomNamedResource {
   id: string;
   label: string;
   resource: ResourceRef;
+  foreground?: ResourceRef;
 }
 
 export interface CourtroomContentPack extends ContentPackBase {
+  /** Scene resource that activates character-specific courtroom stations. */
+  stageScene: ResourceRef;
   characters: CourtroomCharacterDefinition[];
   backgrounds: CourtroomNamedResource[];
   audio: {

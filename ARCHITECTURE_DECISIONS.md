@@ -1,4 +1,4 @@
-# Yahari Script architecture decisions — through P1-a
+# Yahari Script architecture decisions — through 0.9 foundation
 
 1. **Project is Adapter-bound.** `ProjectManifest.adapter` is required and versioned.
 2. **Core is adapter-agnostic.** Core knows typed tokens, not Courtroom semantics.

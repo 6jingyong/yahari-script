@@ -4,6 +4,9 @@ import { preloadAssets, type PreloadProgress } from '../apps/editor/src/preview-
 import { collectSceneAssets, sceneAt } from '../apps/editor/src/preview-scene.js';
 import { demoManifest, demoProject, demoShowcaseDocument } from '../examples/courtroom-demo-project/fixture.js';
 import { courtroomAdapter } from '../packages/adapters/courtroom/src/index.js';
+import { courtroomDemoPack } from '../content-packs/courtroom-demo/pack.js';
+import { courtroomDemoResolver } from '../content-packs/courtroom-demo/presentation.js';
+const presentation={packs:[courtroomDemoPack],resolver:courtroomDemoResolver};
 
 test('preload deduplicates and reports settled assets with bounded concurrency',async()=>{
  let active=0,peak=0;const calls:string[]=[];const progress:PreloadProgress[]=[];
@@ -25,8 +28,8 @@ test('closing preload stops queued work and suppresses late progress',async()=>{
 test('empty preload completes and collected showcase resources cover every render position',async()=>{
  assert.deepEqual(await preloadAssets([],async()=>{throw new Error('unexpected');},()=>{}),{completed:0,total:0,failed:0});
  const plan=courtroomAdapter.compile(demoShowcaseDocument,demoProject);
- const urls=collectSceneAssets(plan.instructions,demoManifest);assert.equal(urls.length,new Set(urls).size);
+ const urls=collectSceneAssets(plan.instructions,demoManifest,presentation);assert.equal(urls.length,new Set(urls).size);
  for(let position=0;position<=plan.instructions.length;position++){
-   for(const url of sceneAt(plan.instructions,position,demoManifest).urls)assert.ok(urls.includes(url),`unprepared ${url}`);
+   for(const url of sceneAt(plan.instructions,position,demoManifest,presentation).urls)assert.ok(urls.includes(url),`unprepared ${url}`);
  }
 });

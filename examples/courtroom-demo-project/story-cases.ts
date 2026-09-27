@@ -1,5 +1,6 @@
 import { createProjectFile, type ProjectManifest, type YahariProjectFile } from "../../packages/core/src/index.js";
-import { buildScene, generatedManifest, type StoryOutline } from "../../packages/story-ai/src/generation.js";
+import { generatedManifest, type StoryOutline } from "../../packages/story-ai/src/outline.js";
+import { buildCourtroomScene } from "../../packages/adapters/courtroom/src/story-generation.js";
 import { courtroomDemoPack } from "../../content-packs/courtroom-demo/pack.js";
 import { demoManifest } from "./fixture.js";
 
@@ -272,6 +273,6 @@ export function createSampleStory(id: string, prefix: string): YahariProjectFile
   };
   const docs = story.chapters.flatMap((chapter, chapterIndex) =>
     chapter.scenes.map((scene, sceneIndex) =>
-      buildScene({ lines: scene.lines }, outline, chapterIndex, sceneIndex, courtroomDemoPack, prefix)));
+      buildCourtroomScene({ lines: scene.lines }, outline, chapterIndex, sceneIndex, courtroomDemoPack, prefix)));
   return createProjectFile(generatedManifest(demoManifest, outline, docs, prefix), docs);
 }

@@ -2,13 +2,22 @@ import { preloadAssets } from './preview-preload.js';
 import { collectSceneAssets, sceneAt } from './preview-scene.js';
 import { PreviewPlayback, type PlaybackSnapshot } from './preview-playback.js';
 import type { CourtroomPerformancePlan } from '../../../packages/adapters/courtroom/src/index.js';
-import type { ProjectManifest, ResourceRef } from '../../../packages/core/src/index.js';
-import { courtroomVisuals as visuals } from '../../../content-packs/courtroom-demo/visuals.js';
+import type { ProjectContext, ResourceRef } from '../../../packages/core/src/index.js';
+import type { CourtroomContentPack } from '../../../packages/adapters/courtroom/src/index.js';
+import type { ResourceResolver } from '../../../packages/presentation/src/index.js';
+import { courtroomBackgroundLabel, type CourtroomPresentationContext } from './preview-visuals.js';
 
 // Reuse decoded images when opening another rehearsal in this browser session.
 const decodedAssets=new Map<string,HTMLCanvasElement>();
 
-export function openPreview(plan: CourtroomPerformancePlan, name: (id: string|null)=>string, manifest: ProjectManifest): void {
+export function openPreview(
+  plan: CourtroomPerformancePlan,
+  name: (id: string|null)=>string,
+  project: ProjectContext<CourtroomContentPack>,
+  resolver: ResourceResolver,
+): void {
+  const manifest=project.manifest;
+  const presentation:CourtroomPresentationContext={packs:project.contentPacks,resolver};
   const dialog = document.createElement('dialog');
   dialog.className = 'performance-preview';
   dialog.setAttribute('aria-labelledby','preview-title');
@@ -46,7 +55,7 @@ export function openPreview(plan: CourtroomPerformancePlan, name: (id: string|nu
             // Freeze a representative frame and finish color-key conversion before playback.
             const layer=document.createElement('canvas');layer.width=img.width;layer.height=img.height;
             const ctx=layer.getContext('2d')!;ctx.drawImage(img,0,0);
-            if(visuals.colorKeySources.includes(url)){
+            if(resolver.findByUrl(url)?.colorKey==='magenta'){
               const pixels=ctx.getImageData(0,0,layer.width,layer.height);
               for(let i=0;i<pixels.data.length;i+=4){
                 if(pixels.data[i]===255&&pixels.data[i+1]===0&&pixels.data[i+2]===255)pixels.data[i+3]=0;
@@ -65,7 +74,7 @@ export function openPreview(plan: CourtroomPerformancePlan, name: (id: string|nu
     loads.set(url,task);return task;
   };
   const prepare=(position:number):Promise<void>|void=>{
-    const missing=sceneAt(plan.instructions,position,manifest).urls.filter(url=>!cache.has(url)&&!failed.has(url));
+    const missing=sceneAt(plan.instructions,position,manifest,presentation).urls.filter(url=>!cache.has(url)&&!failed.has(url));
     if(missing.length)return Promise.all(missing.map(loadAsset)).then(()=>{});
   };
   const asset=(url:string)=>cache.get(url);
@@ -81,13 +90,14 @@ export function openPreview(plan: CourtroomPerformancePlan, name: (id: string|nu
       else if(command.op==='focus'){camera=command.castId;state=`镜头：${name(camera)}`;}
       else if(command.op==='background'){
         backgroundResource=command.resource;
-        state=command.resource.packId==='official.courtroom-demo' && command.resource.id in visuals.scenes ? `场景：${visuals.sceneLabels[command.resource.id]}` : '这个背景暂时无法显示';
+        const label=courtroomBackgroundLabel(presentation,command.resource);
+        state=label?`场景：${label}`:'这个背景暂时无法显示';
       }
       else if(command.op==='wait') state=command.mode==='input'?'等待继续':`等待 ${command.durationMs??0} ms`;
       else if('resource' in command) state=command.op==='sfx'?'音效（暂未播放）':'音乐（暂未播放）';
       else state=({emphasis:'强调',flash:'闪光',shake:'震动'} as Record<string,string>)[command.op]??'';
     }
-    const {pose,visual}=sceneAt(plan.instructions,position,manifest);
+    const {pose,visual}=sceneAt(plan.instructions,position,manifest,presentation);
     const layers:string[]=[];
     context.fillStyle='#192133';context.fillRect(0,0,256,192);
     context.imageSmoothingEnabled=false;
@@ -144,7 +154,7 @@ export function openPreview(plan: CourtroomPerformancePlan, name: (id: string|nu
   };
   const preload=async()=>{
     actions.hidden=true;
-    const result=await preloadAssets(collectSceneAssets(plan.instructions,manifest),async url=>{
+    const result=await preloadAssets(collectSceneAssets(plan.instructions,manifest,presentation),async url=>{
       await loadAsset(url);return cache.has(url);
     },p=>{
       if(closed)return;

@@ -1,6 +1,6 @@
 # Yahari Script
 
-Adapter-bound structured rich script editor and performance compiler, with a Courtroom adapter and browser preview. The editor is available at [yahari-script-qyc.qyc001.chatgpt.site](https://yahari-script-qyc.qyc001.chatgpt.site).
+Adapter-bound structured rich script editor and performance compiler, with a Courtroom adapter and browser preview. The current public preview is [6jingyong.github.io/yahari-script](https://6jingyong.github.io/yahari-script/); the older chatgpt.site build is a legacy snapshot.
 
 ## Current capabilities
 - Chat-style composer and editable dialogue with atomic action chips.
@@ -29,16 +29,16 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 46 action image mappings, file hashes and crop bounds. Current milestone: 75 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. After the repository is public and Pages is enabled once with Source = `GitHub Actions`, future verified `main` pushes publish automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 46 action image mappings, file hashes and crop bounds. Current milestone: 77 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. After the repository is public and Pages is enabled once with Source = `GitHub Actions`, future verified `main` pushes publish automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
-Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics and its performance plan. EditorStore owns document mutations/history. The browser UI and preview consume these layers. DOM is an input surface, never canonical script data.
+Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics, Courtroom scene generation and its performance plan. Story AI owns adapter-neutral outlining, fact/scene contracts and model transport. Presentation resources are resolved from ResourceRef through the generic presentation resolver. EditorStore owns document mutations/history. DOM is an input surface, never canonical script data.
 
 See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.md for invariants and `.astra-code/PROJECT_STATE.md` for continuation guidance. Historical v0.6/P1 documents describe earlier checkpoints and are not current feature inventories.
 
 ## Assets, trademarks and privacy
 
-Yahari Script is an independent, unofficial technical prototype. The Courtroom demo contains prototype visual assets derived from or depicting CAPCOM's Ace Attorney series. Provenance and file hashes are recorded in `content-packs/courtroom-demo/assets/sources.json`.
+Yahari Script is an independent, unofficial technical prototype. The Courtroom demo's character/scene/action declarations live in `content-packs/courtroom-demo/catalog.json`, while provenance and file hashes live in `content-packs/courtroom-demo/assets/sources.json`. The pack contains prototype visual assets derived from or depicting CAPCOM's Ace Attorney series.
 
 CAPCOM and the respective rights holders retain all rights in Ace Attorney characters, artwork, names and trademarks. No affiliation, endorsement or license from CAPCOM is claimed. Any license applied to Yahari Script's original code does not grant rights to third-party assets. See [THIRD_PARTY_ASSETS.md](./THIRD_PARTY_ASSETS.md) for the full boundary and [docs/CAPCOM_PITCH.md](./docs/CAPCOM_PITCH.md) for the project's technical introduction aimed at CAPCOM or other rights holders.
 
