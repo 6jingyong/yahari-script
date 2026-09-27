@@ -186,19 +186,6 @@ export function getCourtroomTokenCandidates(
         preview: item.resource,
       });
     }
-    for (const item of pack.backgrounds) {
-      candidates.push({
-        id: `background:${pack.id}:${item.id}`,
-        tokenType: "courtroom.background",
-        label: item.label,
-        params: { resource: item.resource },
-        category: "Scene",
-        enabled: true,
-        availability: "available",
-        score: 10,
-        preview: item.resource,
-      });
-    }
   }
 
   return candidates
