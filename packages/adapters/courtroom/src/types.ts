@@ -27,11 +27,25 @@ export interface CourtroomCharacterDefinition {
   metadata?: Record<string, unknown>;
 }
 
+export interface CourtroomPreviewAudioNote {
+  frequency: number;
+  durationMs: number;
+  offsetMs?: number;
+  gain?: number;
+}
+
+export interface CourtroomPreviewAudioCue {
+  waveform?: "sine" | "square" | "triangle" | "sawtooth";
+  notes: CourtroomPreviewAudioNote[];
+  loopMs?: number;
+}
+
 export interface CourtroomNamedResource {
   id: string;
   label: string;
   resource: ResourceRef;
   foreground?: ResourceRef;
+  previewAudio?: CourtroomPreviewAudioCue;
 }
 
 export interface CourtroomContentPack extends ContentPackBase {
