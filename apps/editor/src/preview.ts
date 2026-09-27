@@ -1,0 +1,164 @@
+import { preloadAssets } from './preview-preload.js';
+import { collectSceneAssets, sceneAt } from './preview-scene.js';
+import { PreviewPlayback, type PlaybackSnapshot } from './preview-playback.js';
+import type { CourtroomPerformancePlan } from '../../../packages/adapters/courtroom/src/index.js';
+import type { ProjectManifest, ResourceRef } from '../../../packages/core/src/index.js';
+import { courtroomVisuals as visuals } from '../../../content-packs/courtroom-demo/visuals.js';
+
+// Reuse decoded images when opening another rehearsal in this browser session.
+const decodedAssets=new Map<string,HTMLCanvasElement>();
+
+export function openPreview(plan: CourtroomPerformancePlan, name: (id: string|null)=>string, manifest: ProjectManifest): void {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'performance-preview';
+  dialog.setAttribute('aria-labelledby','preview-title');
+  dialog.innerHTML = `<header><strong id="preview-title">演出排练</strong><button data-close>关闭</button></header>
+
+    <section class="preview-preload" aria-labelledby="preload-title">
+      <h2 id="preload-title">正在准备整段排练</h2>
+      <progress max="1" value="0" aria-label="排练图像预加载进度"></progress>
+      <p data-load-status role="status" aria-live="polite">正在整理所需图像…</p>
+      <div data-load-actions hidden><button data-retry>重试失败图像</button><button data-continue>继续查看（缺失图像）</button></div>
+    </section>
+    <section class="preview-stage" hidden><canvas width="256" height="192" role="img" aria-label="法庭排练画面"></canvas><div class="preview-dialogue"><h2></h2><div class="preview-text"></div></div></section>
+    <p class="preview-state"></p><p class="preview-assets" role="status"></p><p class="preview-progress"></p>
+    <footer hidden><button data-restart>重新开始</button><button data-back>上一句</button><button data-next>下一句</button></footer>
+    <details class="preview-credits"><summary>素材来源与排练说明</summary><p>素材：<a href="https://github.com/crxtrdude/pywright" target="_blank" rel="noopener noreferrer">PyWright / Court Records</a>、<a href="https://github.com/LuisMayo/objection_engine" target="_blank" rel="noopener noreferrer">Objection Engine</a>，原作图像 © CAPCOM。当前展示动作的代表帧；文字逐字显示，点击可补全或进入下一句；音频和部分特效暂以文字提示。</p></details>`;
+  document.body.append(dialog);
+  let position=0, closed=false, preloading=true;
+  let playbackState:PlaybackSnapshot={position:0,partialText:'',page:0,count:0,complete:true,waiting:false,loading:false};
+  const canvas=dialog.querySelector('canvas')!;
+  const context=canvas.getContext('2d')!;
+  const cache=decodedAssets;
+  const failed=new Set<string>();
+  const loads=new Map<string,Promise<void>>();
+  const cancellations=new Set<()=>void>();
+  const loadAsset=(url:string):Promise<void>=>{
+    if(cache.has(url))return Promise.resolve();
+    const prior=loads.get(url);if(prior)return prior;
+    const task=new Promise<void>(resolve=>{
+      const img=new Image();let done=false;
+      const settle=(ok:boolean)=>{
+        if(done)return;done=true;window.clearTimeout(timeout);cancellations.delete(cancel);
+        img.onload=null;img.onerror=null;
+        if(ok){
+          try {
+            // Freeze a representative frame and finish color-key conversion before playback.
+            const layer=document.createElement('canvas');layer.width=img.width;layer.height=img.height;
+            const ctx=layer.getContext('2d')!;ctx.drawImage(img,0,0);
+            if(visuals.colorKeySources.includes(url)){
+              const pixels=ctx.getImageData(0,0,layer.width,layer.height);
+              for(let i=0;i<pixels.data.length;i+=4){
+                if(pixels.data[i]===255&&pixels.data[i+1]===0&&pixels.data[i+2]===255)pixels.data[i+3]=0;
+              }
+              ctx.putImageData(pixels,0,0);
+            }
+            cache.set(url,layer);
+          } catch {failed.add(url);}
+        }else failed.add(url);
+        resolve();
+      };
+      const cancel=()=>{settle(false);img.src='';};
+      const timeout=window.setTimeout(cancel,10000);cancellations.add(cancel);
+      img.onload=()=>settle(true);img.onerror=()=>settle(false);img.src=url;
+    });
+    loads.set(url,task);return task;
+  };
+  const prepare=(position:number):Promise<void>|void=>{
+    const missing=sceneAt(plan.instructions,position,manifest).urls.filter(url=>!cache.has(url)&&!failed.has(url));
+    if(missing.length)return Promise.all(missing.map(loadAsset)).then(()=>{});
+  };
+  const asset=(url:string)=>cache.get(url);
+  const render=()=>{
+    let speaker:string|null=null, camera:string|null=null, text='', state='';
+    let backgroundResource: ResourceRef | undefined;
+    const characters=new Map<string,string>();
+    for(const command of plan.instructions.slice(0,position)){
+      if(command.op==='speaker'){speaker=command.castId;camera=speaker;text='';characters.clear();}
+      else if(command.op==='showText') text+=command.text;
+      else if(command.op==='pose') characters.set(command.castId,command.pose);
+      else if(command.op==='reaction') characters.set(command.castId,command.reaction);
+      else if(command.op==='focus'){camera=command.castId;state=`镜头：${name(camera)}`;}
+      else if(command.op==='background'){
+        backgroundResource=command.resource;
+        state=command.resource.packId==='official.courtroom-demo' && command.resource.id in visuals.scenes ? `场景：${visuals.sceneLabels[command.resource.id]}` : '这个背景暂时无法显示';
+      }
+      else if(command.op==='wait') state=command.mode==='input'?'等待继续':`等待 ${command.durationMs??0} ms`;
+      else if('resource' in command) state=command.op==='sfx'?'音效（暂未播放）':'音乐（暂未播放）';
+      else state=({emphasis:'强调',flash:'闪光',shake:'震动'} as Record<string,string>)[command.op]??'';
+    }
+    const {pose,visual}=sceneAt(plan.instructions,position,manifest);
+    const layers:string[]=[];
+    context.fillStyle='#192133';context.fillRect(0,0,256,192);
+    context.imageSmoothingEnabled=false;
+    if(!playbackState.loading && visual.backdrop){
+      layers.push(visual.backdrop);const bg=asset(visual.backdrop);if(bg)context.drawImage(bg,0,0,256,192);
+    }
+    if(!playbackState.loading && visual.sprite){
+      layers.push(visual.sprite);const sprite=asset(visual.sprite);
+      if(sprite){
+        const [x,y,w,h]=visual.frame ?? [0,0,256,192];
+        context.drawImage(sprite,x,y,w,h,0,0,256,192);
+      }
+    }
+    if(!playbackState.loading && visual.foreground){
+      layers.push(visual.foreground);const bench=asset(visual.foreground);if(bench)context.drawImage(bench,0,0,256,192);
+    }
+    canvas.setAttribute('aria-label',`${visual.supported?'法庭场景':'未收录场景'} · ${name(camera)} · ${pose}`);
+    dialog.querySelector('.preview-dialogue h2')!.textContent=name(speaker);
+    const textBox=dialog.querySelector<HTMLElement>('.preview-text')!;
+    textBox.textContent=playbackState.loading?'':text+playbackState.partialText||(playbackState.count?'…':'还没有台词，先写一段对话吧。');
+    const dialogue=dialog.querySelector<HTMLElement>('.preview-dialogue')!;dialogue.scrollTop=dialogue.scrollHeight;
+    dialog.querySelector('.preview-state')!.textContent=[...characters].map(([id,p])=>`${name(id)} · ${({normal:'平常',point:'指证',sweat:'冒汗',surprised:'惊讶',think:'思考',desk:'拍桌',shocked:'震惊',bow:'致意',smug:'从容',damaged:'受创',cheer:'加油',sad:'沮丧',stern:'严肃',confused:'困惑',nervous:'紧张',confident:'自信'} as Record<string,string>)[p]??'动作'}`).concat(state?[state]:[]).join(' / ');
+    dialog.querySelector('.preview-assets')!.textContent=playbackState.loading?'正在准备本句画面…':layers.some(url=>failed.has(url))?'部分图像加载失败，台词与指令仍可继续。':camera&&!visual.sprite?'当前角色或动作暂无对应图像。':'';
+    dialog.querySelector('.preview-progress')!.textContent=playbackState.count?`${playbackState.page+1} / ${playbackState.count}`:'';
+    (dialog.querySelector('[data-back]') as HTMLButtonElement).disabled=playbackState.page===0;
+    const next=dialog.querySelector<HTMLButtonElement>('[data-next]')!;
+    const ended=playbackState.complete&&playbackState.page+1>=playbackState.count;
+    next.disabled=ended||playbackState.loading;
+    next.textContent=playbackState.loading?'准备画面中…':ended?'已结束':playbackState.waiting?'继续':playbackState.complete?'下一句':'显示全文';
+  };
+  const player=new PreviewPlayback(plan.instructions,{
+    schedule(callback,delay){const timer=window.setTimeout(callback,delay);return ()=>window.clearTimeout(timer);},
+  },snapshot=>{playbackState=snapshot;position=snapshot.position;render();},undefined,prepare);
+  dialog.querySelector('[data-next]')!.addEventListener('click',()=>{if(!preloading)player.next();});
+  dialog.querySelector('[data-back]')!.addEventListener('click',()=>{if(!preloading)player.back();});
+  dialog.querySelector('[data-restart]')!.addEventListener('click',()=>{if(!preloading)player.start();});
+  dialog.querySelector('[data-close]')!.addEventListener('click',()=>dialog.close());
+  dialog.querySelector('.preview-stage')!.addEventListener('click',()=>{if(!preloading)player.next();});
+  dialog.addEventListener('keydown',event=>{
+    if(preloading||event.isComposing||event.repeat)return;
+    if((event.key===' '||event.key==='Enter')&&!(event.target instanceof HTMLButtonElement)&&!(event.target instanceof HTMLAnchorElement)&&!(event.target instanceof HTMLElement&&event.target.closest('summary'))){event.preventDefault();player.next();}
+  });
+  dialog.addEventListener('close',()=>{closed=true;player.dispose();for(const cancel of [...cancellations])cancel();dialog.remove();});
+  const panel=dialog.querySelector<HTMLElement>('.preview-preload')!;
+  const progress=panel.querySelector('progress')!;
+  const status=panel.querySelector<HTMLElement>('[data-load-status]')!;
+  const actions=panel.querySelector<HTMLElement>('[data-load-actions]')!;
+  const begin=()=>{
+    if(closed)return;
+    preloading=false;panel.hidden=true;
+    dialog.querySelector<HTMLElement>('.preview-stage')!.hidden=false;
+    dialog.querySelector<HTMLElement>('footer')!.hidden=false;
+    player.start();
+  };
+  const preload=async()=>{
+    actions.hidden=true;
+    const result=await preloadAssets(collectSceneAssets(plan.instructions,manifest),async url=>{
+      await loadAsset(url);return cache.has(url);
+    },p=>{
+      if(closed)return;
+      progress.max=Math.max(1,p.total);progress.value=p.completed;
+      const percent=p.total?Math.round(p.completed/p.total*100):100;
+      status.textContent=`已准备 ${p.completed} / ${p.total} 张图像 · ${percent}%${p.failed?` · ${p.failed} 张失败`:''}`;
+    },()=>closed);
+    if(closed)return;
+    if(result.failed){status.textContent=`${result.failed} 张图像未能加载。可以重试，或继续查看已有画面。`;actions.hidden=false;}
+    else begin();
+  };
+  panel.querySelector('[data-retry]')!.addEventListener('click',()=>{
+    for(const url of failed)loads.delete(url);failed.clear();void preload();
+  });
+  panel.querySelector('[data-continue]')!.addEventListener('click',begin);
+  dialog.showModal();void preload();
+}

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+  <title>矢张剧本 · Yahari Script</title>
+<meta name="description" content="像聊天一样写剧本，插入动作并逐步排练。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%237c3aed%22/%3E%3Ctext%20x%3D%2212%22%20y%3D%2247%22%20font-size%3D%2243%22%20fill%3D%22white%22%3E%E7%9F%A2%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">矢</div>
+        <div>
+          <div class="brand-title">矢张剧本</div>
+          <div id="project-title" class="brand-subtitle">Yahari Courtroom P0 Demo</div>
+        </div>
+      </div>
+      <div class="topbar-center">
+        <span id="adapter-badge" class="adapter-badge">official.courtroom · 0.1.0</span>
+        <span id="save-status" class="save-status">Local draft</span>
+      </div>
+      <div class="toolbar"><button id="diagnostics-button" class="small-button" type="button" aria-expanded="false">检查</button>
+<button id="preview-button" class="small-button">排练</button>
+        <button id="undo-button" class="icon-button" title="撤销" aria-label="撤销">↶</button>
+        <button id="redo-button" class="icon-button" title="重做" aria-label="重做">↷</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="outline-panel panel" aria-label="场景目录" tabindex="-1">
+<button id="outline-close" class="small-button" type="button">返回写作</button>
+        <div class="panel-heading">
+          <div>
+            <div class="eyebrow">DOCUMENT</div>
+            <h2 id="document-title">Opening</h2>
+          </div>
+          <div class="heading-actions"><button id="add-cue-button" class="small-button">＋ 舞台指令</button><button id="add-dialogue-button" class="small-button">＋ 空白台词</button></div>
+        </div>
+        <div class="hierarchy-actions"><button id="structure-button" class="small-button">编辑分层 / 摘要</button><button id="new-scene-button" class="small-button">＋ 新场景</button><button id="samples-button" class="small-button" type="button">案例故事</button></div>
+        <section class="project-actions" aria-label="作品操作">
+          <h3>作品操作</h3>
+          <div><button id="new-project-button" class="small-button" type="button">新建作品</button><button id="story-button" class="small-button" type="button">故事转剧本</button><button id="import-button" class="small-button" type="button">导入项目</button><button id="export-button" class="small-button" type="button">导出项目</button><button id="restore-story-button" class="small-button" type="button">恢复导入前作品</button><button id="reset-button" class="small-button danger-quiet" type="button">重置示例</button></div>
+          <input id="import-input" type="file" accept="application/json,.json" hidden />
+        </section>
+        <div id="outline" class="outline-list"></div>
+      </aside>
+
+      <section class="editor-panel">
+        <div class="editor-header">
+          <div>
+            <div class="eyebrow">群聊剧本</div>
+            <h1 id="editor-title">Opening</h1>
+          </div>
+          <div class="scene-header-actions"><button id="navigator-button" class="small-button" type="button" aria-haspopup="dialog">目录</button></div>
+        </div>
+        <div id="editor-canvas" class="editor-canvas" aria-label="剧本对话"></div>
+        <section class="chat-composer" aria-label="发送台词">
+<div id="first-run-hint" hidden>选角色写台词，用「动作」加入演出。<button id="dismiss-hint" type="button">知道了</button></div>
+          <div class="identity-heading"><span>以谁的身份发言</span><span id="compose-name"></span></div>
+          <div id="identity-list" class="identity-list" aria-label="选择发言身份"></div>
+          <div class="compose-box"><div id="compose-input" contenteditable="true" role="textbox" aria-label="台词输入框" aria-multiline="true" data-placeholder="输入台词…" spellcheck="false"></div></div>
+          <div class="compose-tools"><div><button id="compose-action" type="button">😊 动作</button><button id="compose-cue" type="button">场景</button></div><span class="send-hint">Enter 发送 · Shift+Enter 换行</span><button id="compose-send" type="button">发送</button></div>
+        </section>
+      </section>
+
+      <aside class="inspector-panel panel" aria-label="剧本检查" tabindex="-1">
+        <div class="inspector-tabs" role="tablist">
+          <button class="inspector-tab is-active" data-tab="diagnostics">检查</button>
+
+          <button class="inspector-tab" data-tab="token">动作详情</button>
+        </div>
+        <button id="inspector-close" class="small-button" type="button">收起</button>
+        <div id="inspector-content" class="inspector-content"></div>
+      </aside>
+    </main>
+  </div>
+
+  <dialog id="project-dialog" class="project-dialog">
+    <form id="project-form" method="dialog">
+      <div class="eyebrow">新建剧本</div>
+      <h2>新建剧本</h2>
+      <label class="field-label" for="project-name-input">剧本名称</label>
+      <input id="project-name-input" class="text-field" type="text" maxlength="80" required />
+      <p class="project-note">开场自动绑定说话人与默认站位；句首动作设定起始姿态，句中动作随台词触发。</p>
+      <p class="project-note">预加载版 2026.09.26 · 5 人 / 26 个动作</p>
+      <div class="dialog-actions">
+        <button id="project-cancel-button" type="button" class="secondary-button">取消</button>
+        <button type="submit" class="create-button">创建</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="samples-dialog" class="project-dialog story-dialog" aria-labelledby="samples-title">
+    <div class="story-body">
+      <div class="story-heading"><h2 id="samples-title">案例故事</h2><button id="samples-close" class="small-button" type="button">返回写作</button></div>
+      <p>选择一部作品，按章节与场景阅读、改写和排练。打开前会保存当前作品的本机备份，可从目录侧边栏恢复。</p>
+      <div id="samples-list" class="samples-list"></div>
+    </div>
+  </dialog>
+  <dialog id="structure-dialog" class="project-dialog story-dialog" aria-labelledby="structure-title">
+    <form id="structure-form"><h2 id="structure-title">分层与摘要</h2>
+      <p class="project-note">章节名相同的场景归为一章；改为新章名可移动当前场景。摘要由你维护，编辑台词不会自动重写摘要。</p>
+      <label>作品名<input id="structure-project-title" required maxlength="150"></label>
+      <label>作品摘要<textarea id="structure-project-summary" rows="2"></textarea></label>
+      <label>所属章节<input id="structure-chapter-title" required maxlength="150"></label>
+      <label>章节摘要<textarea id="structure-chapter-summary" rows="2"></textarea></label>
+      <label>场景名<input id="structure-scene-title" required maxlength="150"></label>
+      <label>场景摘要<textarea id="structure-scene-summary" rows="3"></textarea></label>
+      <div class="dialog-actions"><button id="structure-close" type="button" class="secondary-button">取消</button><button type="submit" class="create-button">保存</button></div>
+    </form>
+  </dialog>
+  <dialog id="cast-dialog" class="project-dialog" aria-labelledby="cast-title">
+    <div class="cast-dialog-content"><h2 id="cast-title">添加角色</h2><div id="cast-options"></div><button id="cast-close" class="secondary-button" type="button">返回写作</button></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="picker" class="picker is-hidden" aria-hidden="true">
+    <div class="picker-card" role="dialog" aria-label="表情和动作">
+      <div class="picker-search-row">
+        <span class="picker-slash">/</span>
+        <input id="picker-search" type="text" autocomplete="off" placeholder="搜索表情或动作…" />
+        <button id="picker-close" type="button" aria-label="关闭表情面板">×</button>
+      </div>
+      <div class="picker-target-row"><label for="action-target">执行者</label><select id="action-target"><option value="">当前身份</option></select><span id="picker-context" class="picker-context"></span></div>
+      <div id="picker-list" class="picker-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/dist/apps/editor/src/main.js"></script>
+</body>
+</html>

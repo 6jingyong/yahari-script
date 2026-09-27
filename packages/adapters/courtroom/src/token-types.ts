@@ -1,0 +1,110 @@
+import type { TokenTypeDefinition } from "../../../core/src/index.js";
+
+const stringParam = (name: string) => ({
+  type: "object",
+  required: [name],
+  properties: { [name]: { type: "string" } },
+  additionalProperties: false,
+});
+
+export const courtroomTokenTypes: TokenTypeDefinition[] = [
+  {
+    type: "courtroom.pose",
+    label: "Pose",
+    category: "Character",
+    scope: "inline",
+    paramsSchema: stringParam("pose"),
+    subjectPolicy: { allowedKinds: ["speaker", "cast"], defaultFromSpeaker: true, required: true },
+    capabilityQuery: { kind: "courtroom.pose", subjectFrom: "token", paramKeys: ["pose"] },
+    editor: { displayMode: "chip", priority: 100 },
+  },
+  {
+    type: "courtroom.reaction",
+    label: "Reaction",
+    category: "Character",
+    scope: "inline",
+    paramsSchema: stringParam("reaction"),
+    subjectPolicy: { allowedKinds: ["speaker", "cast"], defaultFromSpeaker: true, required: true },
+    capabilityQuery: { kind: "courtroom.reaction", subjectFrom: "token", paramKeys: ["reaction"] },
+    editor: { displayMode: "chip", priority: 95 },
+  },
+  {
+    type: "courtroom.wait",
+    label: "Wait",
+    category: "Presentation",
+    scope: "both",
+    paramsSchema: {
+      type: "object",
+      required: ["mode"],
+      properties: {
+        mode: { enum: ["time", "input"] },
+        durationMs: { type: "number", minimum: 0 },
+      },
+      additionalProperties: false,
+    },
+    editor: { displayMode: "chip", priority: 80 },
+  },
+  {
+    type: "courtroom.emphasis",
+    label: "Emphasis",
+    category: "Presentation",
+    scope: "inline",
+    paramsSchema: stringParam("mode"),
+    editor: { displayMode: "chip", priority: 70 },
+  },
+  {
+    type: "courtroom.flash",
+    label: "Flash",
+    category: "Presentation",
+    scope: "both",
+    paramsSchema: { type: "object", properties: { intensity: { type: "number" } } },
+    editor: { displayMode: "chip", priority: 60 },
+  },
+  {
+    type: "courtroom.shake",
+    label: "Shake",
+    category: "Presentation",
+    scope: "both",
+    paramsSchema: {
+      type: "object",
+      properties: {
+        intensity: { type: "number" },
+        durationMs: { type: "number", minimum: 0 },
+      },
+    },
+    editor: { displayMode: "chip", priority: 60 },
+  },
+  {
+    type: "courtroom.sfx",
+    label: "SFX",
+    category: "Audio",
+    scope: "both",
+    paramsSchema: { type: "object", required: ["resource"], properties: { resource: { type: "object" } } },
+    editor: { displayMode: "chip", priority: 50 },
+  },
+  {
+    type: "courtroom.bgm",
+    label: "BGM",
+    category: "Audio",
+    scope: "both",
+    paramsSchema: { type: "object", required: ["resource"], properties: { resource: { type: "object" } } },
+    editor: { displayMode: "chip", priority: 40 },
+  },
+  {
+    type: "courtroom.background",
+    label: "Background",
+    category: "Scene",
+    scope: "block",
+    paramsSchema: { type: "object", required: ["resource"], properties: { resource: { type: "object" } } },
+    editor: { displayMode: "chip", priority: 35 },
+  },
+  {
+    type: "courtroom.focus",
+    label: "Focus",
+    category: "Scene",
+    scope: "both",
+    paramsSchema: { type: "object", properties: {}, additionalProperties: false },
+    subjectPolicy: { allowedKinds: ["speaker", "cast"], defaultFromSpeaker: true, required: true },
+    editor: { displayMode: "chip", priority: 65 },
+  },
+];

@@ -1,0 +1,199 @@
+{
+  "retrieved": "2026-09-26",
+  "credit": "PyWright / Court Records / Objection Engine; original game artwork CAPCOM",
+  "licenseNote": "Repository code license does not grant a separate commercial license for CAPCOM artwork. No game engine code copied.",
+  "assets": [
+    {
+      "file": "defence.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/defence.png",
+      "sha256": "bcfb15469e5bb47d3e1360bdd0fd994bdb0a311515cae5e3a11b2fbcc683a067"
+    },
+    {
+      "file": "courtroom.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/courtroom.png",
+      "sha256": "3beaa2360f4de2d8fe820ea793bf8efc9002789fa39a36af341a3d936f8fde63"
+    },
+    {
+      "file": "judgestand.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/judgestand.png",
+      "sha256": "181410f10b774e4e96f6cf52b853d90afaefe2b8dfedfd9fa859e2c3778e8b66"
+    },
+    {
+      "file": "defence-bench.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/fg/dbench.png",
+      "sha256": "c29617826b17c36204602fc658aebdd69de8e1e44c89bdafd3dfdc1f001278a2"
+    },
+    {
+      "file": "phoenix-normal.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/normal(blink).png",
+      "sha256": "dde042d5b059dcbc1ed48991bd49321765713b7e0eadb66ce3c9caaf8e84d11e"
+    },
+    {
+      "file": "phoenix-point.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/pointing(blink).png",
+      "sha256": "1115b924f6337477f26e727fa83d317d4873087817e4ad6dd8b5d27468200e11"
+    },
+    {
+      "file": "phoenix-sweat.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/sweating(blink).png",
+      "sha256": "05c860762a5ee8d9041cd12c2c6e746a5ee09ed724a75fade58c7566eed061f5"
+    },
+    {
+      "file": "judge-normal.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/normal(blink).png",
+      "sha256": "f541e7dae1147e2a425fb02169fdc78915faa3a993c6c32235c17a73ea2b199c"
+    },
+    {
+      "file": "judge-surprised.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/surprised(blink).png",
+      "sha256": "9d6314b25c94907a373423033e1acdbe3814e45694215ebfa79131c4e6c6892d"
+    },
+    {
+      "file": "phoenix-think.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/thinking(blink).png",
+      "sha256": "f861b029bd5286ab7db91e6a085bb3e0f97c2eb6866337f037b01effbae991c8"
+    },
+    {
+      "file": "phoenix-desk.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/deskslam.png",
+      "sha256": "6c8c42f55ce2ae3159d8f5ca05d52d1d6808318c3a49ef2d09b9471f4ff16575"
+    },
+    {
+      "file": "phoenix-shocked.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/ohshit.png",
+      "sha256": "40f7f03a470fb65b287600bb6bbf3cc2d3614df4c96d2a1640e1ab8a74e72ba8"
+    },
+    {
+      "file": "judge-stern.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/warning(blink).png",
+      "sha256": "68e233bc3e9be478fd08b92063384a768302c876d82c869c19d6c244864e37ec"
+    },
+    {
+      "file": "judge-confused.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/thinking.png",
+      "sha256": "aafb609a45b917e2f767f233bf9314d6857af4cc32a71a68e39e9fd722e3ae73"
+    },
+    {
+      "file": "witness-stand.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/witness.png",
+      "sha256": "8f1f6e75803e6b228a3d2300840935e0b3d3530b7b426b0124079a50cf93b831"
+    },
+    {
+      "file": "prosecution.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/prosecution.png",
+      "sha256": "c4e7effc0fdfb28eaddd4e9afaff7af3e385ca013b69d690afa979d39f05aa85"
+    },
+    {
+      "file": "lobby.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/lobby.png",
+      "sha256": "69ab8927efb1bcdb14c09842ae901d13c87a3ff63eeb20e9acc45c1f2c43ea46"
+    },
+    {
+      "file": "prosecution-bench.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/fg/pbench.png",
+      "sha256": "aa44d58888ca8d1b20c688e1b43da0016d1821defae6efd1a946d20184e293b9"
+    },
+    {
+      "file": "witness-bench.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/fg/wbench.png",
+      "sha256": "03b53512d84538e8411e5efc8c70cd71fc49f5e4998670018713499b910e5719"
+    },
+    {
+      "file": "edgeworth-normal.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/edgeworth/edgeworth-normal-idle.gif",
+      "sha256": "fcca5c2fca38e11f90a689dbed13ee0d1a9e3e7fde5629fcd50960444b85534f"
+    },
+    {
+      "file": "edgeworth-bow.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/edgeworth/edgeworth-bow.gif",
+      "sha256": "2ebeff451ddb192baad4a36c590fb6c88ad9a84898d658f63c7342da665d35ed"
+    },
+    {
+      "file": "edgeworth-point.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/edgeworth/edgeworth-pointing-idle.gif",
+      "sha256": "45bbd19cf0c5f9bf7166a5499529227020c91b5ab858b22a3f5687b69ef4392b"
+    },
+    {
+      "file": "edgeworth-smug.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/edgeworth/edgeworth-confident-idle.gif",
+      "sha256": "cb44333e2a3fa92503d18c862ca23f432b469167d5e80e1b62403d1005ab216c"
+    },
+    {
+      "file": "edgeworth-surprised.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/edgeworth/edgeworth-damage.gif",
+      "sha256": "17e7550ba6e3b50af7851a54d49809649dfd6c2d61a94ee0617f9ede2a93dd7a"
+    },
+    {
+      "file": "edgeworth-damaged.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/edgeworth/edgeworth-strained-idle.gif",
+      "sha256": "495c15b46a054561eae5e2602d05be79aaa3260af4cd58ee54e2bfb52bea43d4"
+    },
+    {
+      "file": "maya-normal.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/maya/maya-normal-idle.gif",
+      "sha256": "437bc6bb6d87b7e6b138d782beb8a15cd1e275d10f97a2273f6a83ab9b2dbb40"
+    },
+    {
+      "file": "maya-cheer.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/maya/maya-pumped-idle.gif",
+      "sha256": "8e47aadd677e0e58d478eb5ee1cc6aa2726a172bbd7092dfe6ed230021caa90e"
+    },
+    {
+      "file": "maya-think.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/maya/maya-thinking-idle.gif",
+      "sha256": "08b284f16c8dba90d1941d794b8be8299563aaa6c363a37d61006cb013ceed29"
+    },
+    {
+      "file": "maya-surprised.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/maya/maya-surprised-idle.gif",
+      "sha256": "831abe186f3e57676f76bba2065517542d400bbe4c85186460b0ae12985aef9b"
+    },
+    {
+      "file": "maya-sad.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/maya/maya-sad-idle.gif",
+      "sha256": "1981e2533aba74a5a0879772a2423d40d8cfdd0645bf4740571dfef5c9585dcb"
+    },
+    {
+      "file": "witness-normal.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/larry/larry-normal-idle.gif",
+      "sha256": "b03d3eb70f469f33247e5c97365723b714e15aad62deb3601f321c03738acf56"
+    },
+    {
+      "file": "witness-nervous.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/larry/larry-nervous-idle.gif",
+      "sha256": "30c843d31d860a302cfc4aaa41c0197a44d138fd7970479a1648d851635cbe91"
+    },
+    {
+      "file": "witness-confident.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/larry/larry-thumbsup-idle.gif",
+      "sha256": "3d9e2b42a429aea4a3066fa4ce76001616fa0550e672ecba941ec250c666045c"
+    },
+    {
+      "file": "witness-shocked.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/larry/larry-nervous-idle.gif",
+      "sha256": "30c843d31d860a302cfc4aaa41c0197a44d138fd7970479a1648d851635cbe91"
+    },
+    {
+      "file": "witness-sweat.gif",
+      "source": "https://dl.luismayo.com/assetsv4.zip",
+      "archiveEntry": "characters/larry/larry-sweating.gif",
+      "sha256": "0c013226dd566617ff2391cbe756333504a9286f610e387b86f09b3dfbe17d80"
+    }
+  ],
+  "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
+}
