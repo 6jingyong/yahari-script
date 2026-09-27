@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="192" viewBox="0 0 256 192">
+<rect width="256" height="192" fill="#9aa3a8"/>
+<rect y="122" width="256" height="70" fill="#555e63"/>
+<rect x="14" y="18" width="228" height="92" fill="#c5d2d5" stroke="#4d565b" stroke-width="5"/>
+<path d="M128 18v92" stroke="#4d565b" stroke-width="4"/>
+<path d="M24 28h94v72H24zM138 28h94v72h-94z" fill="#aab8bc" opacity=".55"/>
+<path d="M28 34l86 58M142 34l86 58" stroke="#dce7e9" stroke-width="2" opacity=".7"/>
+<rect x="34" y="124" width="188" height="15" fill="#3d4549"/>
+<rect x="47" y="139" width="12" height="37" fill="#353b3e"/><rect x="197" y="139" width="12" height="37" fill="#353b3e"/>
+<rect x="103" y="50" width="50" height="18" rx="3" fill="#69777c"/><circle cx="116" cy="59" r="4" fill="#242a2d"/><circle cx="140" cy="59" r="4" fill="#242a2d"/>
+<rect x="19" y="129" width="22" height="35" fill="#738087"/><rect x="215" y="129" width="22" height="35" fill="#738087"/>
+<text x="128" y="188" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#dfe6e8">拘留会见室 · DETENTION</text>
+</svg>
