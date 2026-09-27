@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateDetectedOutline, validateOutline, buildScene, generatedManifest, requestJson } from '../packages/story-ai/src/generation.js';
+import { generatedManifest, validateDetectedOutline, validateOutline } from '../packages/story-ai/src/outline.js';
+import { requestJson } from '../packages/story-ai/src/model.js';
+import { buildCourtroomScene } from '../packages/adapters/courtroom/src/story-generation.js';
 import { courtroomDemoPack as pack } from '../content-packs/courtroom-demo/pack.js';
 import { demoManifest } from '../examples/courtroom-demo-project/fixture.js';
 import { courtroomAdapter } from '../packages/adapters/courtroom/src/index.js';
@@ -9,7 +11,7 @@ const fixture={title:'消失的信',summary:'一封信让朋友重逢。',cast:[
 const catalog={adapters:[{id:'official.courtroom',version:'0.1.0'}],contentPacks:[{id:pack.id,version:pack.version}]};
 const lines={lines:[{speaker:'lin',text:'这封信一直都在。',pose:'think',reaction:null},{speaker:null,text:'他把信放在桌上。',pose:null,reaction:null}]};
 test('two generated scenes preserve chapter order, aliases, summaries and playable actions through export/import',()=>{
- const outline=validateOutline(fixture,pack);const docs=[0,1].map(i=>buildScene(lines,outline,0,i,pack,'test'));
+ const outline=validateOutline(fixture,pack);const docs=[0,1].map(i=>buildCourtroomScene(lines,outline,0,i,pack,'test'));
  const manifest=generatedManifest(demoManifest,outline,docs,'test');
  for(const doc of docs){assert.equal(courtroomAdapter.validate(doc,{manifest,contentPacks:[pack]}).filter(d=>d.severity==='error').length,0);assert.ok(courtroomAdapter.compile(doc,{manifest,contentPacks:[pack]}));}
  const file=createProjectFile(manifest,docs);const decoded=decodeProjectFile(JSON.parse(JSON.stringify(file)),catalog);
@@ -18,9 +20,9 @@ test('two generated scenes preserve chapter order, aliases, summaries and playab
 });
 test('unknown actors and unavailable motions are rejected before document creation',()=>{
  const o=validateOutline(fixture,pack);
- assert.throws(()=>buildScene({lines:[{speaker:'unknown',text:'x'}]},o,0,0,pack,'t'),/人物不存在/);
- assert.throws(()=>buildScene({lines:[{speaker:'lin',text:'x',pose:'flying'}]},o,0,0,pack,'t'),/动作不可用/);
- assert.throws(()=>buildScene({lines:[{speaker:null,text:'x',pose:'normal'}]},o,0,0,pack,'t'),/动作不可用/);
+ assert.throws(()=>buildCourtroomScene({lines:[{speaker:'unknown',text:'x'}]},o,0,0,pack,'t'),/人物不存在/);
+ assert.throws(()=>buildCourtroomScene({lines:[{speaker:'lin',text:'x',pose:'flying'}]},o,0,0,pack,'t'),/动作不可用/);
+ assert.throws(()=>buildCourtroomScene({lines:[{speaker:null,text:'x',pose:'normal'}]},o,0,0,pack,'t'),/动作不可用/);
  const bad=structuredClone(fixture);bad.cast.push({...bad.cast[0]});assert.throws(()=>validateOutline(bad,pack),/重复/);
 });
 test('detected story characters stay unbound even when a model proposes a preset',()=>{
@@ -31,7 +33,7 @@ test('detected story characters stay unbound even when a model proposes a preset
  assert.equal(validateOutline(detected,pack).cast[0].characterId,'maya');
 });
 test('invalid chapter references do not enter existing projects',()=>{
- const o=validateOutline(fixture,pack);const docs=[0,1].map(i=>buildScene(lines,o,0,i,pack,'t'));const m=generatedManifest(demoManifest,o,docs,'t');
+ const o=validateOutline(fixture,pack);const docs=[0,1].map(i=>buildCourtroomScene(lines,o,0,i,pack,'t'));const m=generatedManifest(demoManifest,o,docs,'t');
  m.narrative!.chapters[0].documentIds.push('missing');assert.equal(decodeProjectFile(createProjectFile(m,docs),catalog).ok,false);
  m.narrative!.chapters[0].documentIds=['t-c1-s1','t-c1-s1'];assert.equal(decodeProjectFile(createProjectFile(m,docs),catalog).ok,false);
 });
