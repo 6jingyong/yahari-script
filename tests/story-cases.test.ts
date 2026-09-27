@@ -38,3 +38,15 @@ test('old sample aliases display preset identities while preserving authored lin
   assert.equal(file.manifest.cast[0].displayName,'林律师');
   assert.equal(JSON.stringify(file.documents),before);
 });
+
+
+test('new scene pack is exercised by a built-in case',()=>{
+  const file=createSampleStory('midnight-pass','sample-materials');
+  const backgrounds=new Set(file.documents.flatMap(doc=>doc.blocks)
+    .filter(block=>block.type==='cue' && block.cue.type==='courtroom.background')
+    .map(block=>(block.type==='cue' ? (block.cue.params.resource as {id?:string})?.id : undefined))
+    .filter((id): id is string=>Boolean(id)));
+  for(const id of ['background/office','background/detention-room','background/police-records','background/night-corridor']){
+    assert.ok(backgrounds.has(id),id);
+  }
+});
