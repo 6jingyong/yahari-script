@@ -52,7 +52,7 @@ export class PreviewSynthAudio {
   private bgmTimer:number|undefined;
   private desiredBgm:ResourceRef|undefined;
   private playingBgmKey='';
-  private enabled=true;
+  private enabled=false;
 
   constructor(private packs:readonly CourtroomContentPack[]){}
 
@@ -78,6 +78,7 @@ export class PreviewSynthAudio {
       return true;
     }
     const unlocked=await this.unlock();
+    this.enabled=unlocked;
     if(unlocked)this.syncBgm(this.desiredBgm,true);
     return unlocked;
   }
