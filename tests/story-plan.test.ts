@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateOutline, buildScene } from '../packages/story-ai/src/generation.js';
+import { validateOutline } from '../packages/story-ai/src/outline.js';
+import { buildCourtroomScene } from '../packages/adapters/courtroom/src/story-generation.js';
 import { sceneContext, sceneSourceContext, validateSceneCast, validateSemanticReview, validateStoryPlan } from '../packages/story-ai/src/plan.js';
 import { courtroomDemoPack as pack } from '../content-packs/courtroom-demo/pack.js';
 
@@ -42,7 +43,7 @@ test('long source packs relevant excerpts and scene cast rejects an unplanned sp
   const excerpt=sceneSourceContext(long,plan,plan.contracts[0]);
   assert.ok(excerpt.includes('八点五十分，东侧走廊断电。'));
   assert.ok(excerpt.length<=10000);
-  const doc=buildScene({lines:[{speaker:'lin',text:'证词需要核对。'}]},outline,0,0,pack,'sample');
+  const doc=buildCourtroomScene({lines:[{speaker:'lin',text:'证词需要核对。'}]},outline,0,0,pack,'sample');
   validateSceneCast(doc,plan.contracts[0]);
   const limited=structuredClone(plan.contracts[0]);limited.castIds=['wu'];
   assert.throws(()=>validateSceneCast(doc,limited),/未允许人物/);
