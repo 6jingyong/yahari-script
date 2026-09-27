@@ -1,10 +1,11 @@
 ## Automatic deployment increment (2026-09-27)
 
-- Static URLs are now subpath-safe, so the same build can run under the legacy root-hosted Site or a GitHub Pages project path.
-- `Verify` remains the quality gate; a successful `main` run triggers `Deploy Pages`, which rebuilds `out` and publishes through the official Pages artifact/deploy actions.
-- Until Pages is enabled once in repository Settings, deployment exits cleanly with setup guidance instead of making the repository verification red.
+- Static URLs are subpath-safe and the build outputs a portable `out` directory.
+- Production hosting is now configured for Vercel instead of GitHub Pages. `vercel.json` runs `npm run check` before producing `out`, so failed tests cannot become a successful Vercel deployment.
+- After the private personal GitHub repository is connected to Vercel once, `main` pushes become automatic production deployments; no GitHub Pages plan upgrade is required.
 - Current verified state: 75 tests pass, 34 browser modules resolve, and 58 local images cover 9 bindable characters / 46 actions / 7 scenes with source hashes and crop bounds.
-- The built-in “凌晨的通行证” now exercises all four newly added investigation scenes, including the detention interview room.\n- The material library adds Apollo Justice, Klavier Gavin, Ema Skye and Trucy Wright as opt-in presets while preserving the historical five-person default demo cast.
+- The built-in “凌晨的通行证” exercises all four newly added investigation scenes, including the detention interview room.
+- The material library adds Apollo Justice, Klavier Gavin, Ema Skye and Trucy Wright as opt-in presets while preserving the historical five-person default demo cast.
 
 ## Direct Chat edit increment (2026-09-27)
 
