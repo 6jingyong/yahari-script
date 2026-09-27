@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { courtroomDemoPack } from '../content-packs/courtroom-demo/pack.js';
-import { addDemoCharacter, completeDemoCast } from '../content-packs/courtroom-demo/cast.js';
+import { addDemoCharacter, completeDemoCast, defaultDemoCharacterIds } from '../content-packs/courtroom-demo/cast.js';
 import { demoManifest, demoProject, demoShowcaseDocument } from '../examples/courtroom-demo-project/fixture.js';
 import { courtroomAdapter } from '../packages/adapters/courtroom/src/index.js';
 import { createTokenFromCandidate } from '../packages/editor-core/src/index.js';
@@ -9,7 +9,8 @@ import { createProjectFile, decodeProjectFile } from '../packages/core/src/index
 import type { ScriptDocument } from '../packages/core/src/index.js';
 
 test('recovered showcase covers all five actors and compiles', () => {
-  assert.deepEqual(courtroomDemoPack.characters.map(c => c.id), ['phoenix','edgeworth','maya','judge','witness']);
+  assert.ok(courtroomDemoPack.characters.some(c => c.id === 'apollo'));
+  assert.deepEqual([...defaultDemoCharacterIds], ['phoenix','edgeworth','maya','judge','witness']);
   const speakers = new Set(demoShowcaseDocument.blocks.filter(b => b.type === 'dialogue').map(b => b.speaker?.castId));
   assert.equal(speakers.size, 5);
   assert.equal(courtroomAdapter.validate(demoShowcaseDocument, demoProject).filter(d => d.severity === 'error').length, 0);
@@ -63,7 +64,9 @@ import { resolveCourtroomVisual } from '../apps/editor/src/preview-visuals.js';
 test('presentation resolves character stations and explicit backgrounds without hiding unknown resources', () => {
   const defence = resolveCourtroomVisual('phoenix','normal');
   const prosecution = resolveCourtroomVisual('edgeworth','normal');
+  const apollo = resolveCourtroomVisual('apollo','point');
   assert.ok(defence.backdrop && prosecution.backdrop && defence.backdrop !== prosecution.backdrop);
+  assert.ok(apollo.sprite && apollo.backdrop === defence.backdrop);
   assert.ok(prosecution.sprite && prosecution.foreground);
   const lobby = resolveCourtroomVisual('maya','cheer',{packId:courtroomDemoPack.id,id:'background/lobby'});
   assert.ok(lobby.supported && lobby.backdrop && lobby.sprite);
