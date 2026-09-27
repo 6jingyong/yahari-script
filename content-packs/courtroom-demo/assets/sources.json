@@ -408,6 +408,51 @@
       "file": "elevator-hall.svg",
       "source": "original:Yahari Script vector scene",
       "sha256": "bb3d6d66a86d8fa7762bdfaab8c323d0843303266d959fa88e6620b50df67135"
+    },
+    {
+      "file": "boathouse.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "c94ea10d57854635c915db56159a26f585703776e35b1dc2afadde43ca2ab8ed"
+    },
+    {
+      "file": "records-basement.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "df670622eaf75307720c692712c4561d1891378ad41fb308264300b631d58d82"
+    },
+    {
+      "file": "parking-garage.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "1c47a3467b2ad2fad852e4dfadf7456e0605fc0522dcb4c0fa7b05df98b7feff"
+    },
+    {
+      "file": "hospital-room.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "cc20eef7c3f74431bc71d042a1290e09eb5cadabacd95fdb10ceef81e9f9ebc7"
+    },
+    {
+      "file": "von-karma-smug.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "0367c9c6b1cd22aa8b32c79962f148e909945154af8d4ad9632e806b12e83b9a"
+    },
+    {
+      "file": "gumshoe-point.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "ab1dfde5269d69d890e2a77f92c325cdeadbbfa6bb04d8cadd1506ff13548b0e"
+    },
+    {
+      "file": "lotta-grin.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "999bf6e7fc50c423f1bdc5b22f812af4513d7694efa17bae5b62890c453156d2"
+    },
+    {
+      "file": "yogi-shocked.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "b59d9ce4272583b58d38ff32a09d5a6e3802343b9f81c0908ce21c4863ae7c24"
+    },
+    {
+      "file": "mia-smile.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "fc6cb5715dbb5a6330849f920dab27f0af848c20365037b655a987a458501c14"
     }
   ],
   "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
