@@ -213,6 +213,36 @@
       "file": "night-corridor.svg",
       "source": "original:Yahari Script vector scene",
       "sha256": "3c05f92256a8ee0a6d0fe8887cf208a760c8d6872bf7ad5b0e5f9dedd8ebdf9f"
+    },
+    {
+      "file": "apollo-normal.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/normal(blink).png",
+      "sha256": "6dcce0dee511f19524a934a13a5c10518925c0cb54fb0f4a2fe17da2679810fa"
+    },
+    {
+      "file": "apollo-think.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/thinking(blink).png",
+      "sha256": "ae395c85496a39ca07b79ff0b76400f3fa22fcdf463426fc5849455f108ee1e0"
+    },
+    {
+      "file": "apollo-point.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/pointing(blink).png",
+      "sha256": "93b638ce18d22a12b934bb6c85b2278967ed9772bbf7c67e25cee9b08d42a614"
+    },
+    {
+      "file": "apollo-confident.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/confident(blink).png",
+      "sha256": "453f236874101c92ea8df24f4225685b97497639f774a6eb69bf6da226626e3c"
+    },
+    {
+      "file": "apollo-shocked.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/ohshit.png",
+      "sha256": "9b733da2cd672e81b36bfdfea83573946218a79655aa81b09b620c06c67a8fb5"
+    },
+    {
+      "file": "apollo-sweat.png",
+      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/sweats(blink).png",
+      "sha256": "bb4ebb597af84ec3f19ea6d9d7752d1c624512054d2cebaad91af65ba6c94573"
     }
   ],
   "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
