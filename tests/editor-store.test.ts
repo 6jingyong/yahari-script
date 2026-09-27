@@ -115,3 +115,17 @@ test("loading an imported document resets undo and redo history", () => {
   assert.equal(store.canUndo, false);
   assert.equal(store.canRedo, false);
 });
+
+
+test("full document replacement participates in undo history",()=>{
+  const store=new EditorStore(demoDocument);
+  const changed=structuredClone(demoDocument);
+  changed.title="Scene with another background";
+  store.replaceDocument(changed);
+  assert.equal(store.document.title,"Scene with another background");
+  assert.equal(store.canUndo,true);
+  store.undo();
+  assert.equal(store.document.title,demoDocument.title);
+  store.redo();
+  assert.equal(store.document.title,"Scene with another background");
+});
