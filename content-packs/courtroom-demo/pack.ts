@@ -23,6 +23,21 @@ export const courtroomDemoPack: CourtroomContentPack = {
       ],
     },
     {
+      id: "apollo",
+      name: "王泥喜",
+      portraits: { base: ref("character/apollo/portrait") },
+      poses: [
+        { id: "normal", label: "平常", asset: ref("character/apollo/pose/normal") },
+        { id: "think", label: "思考", asset: ref("character/apollo/pose/think") },
+        { id: "point", label: "指证", asset: ref("character/apollo/pose/point") },
+        { id: "confident", label: "自信", asset: ref("character/apollo/pose/confident") },
+      ],
+      reactions: [
+        { id: "shocked", label: "震惊", asset: ref("character/apollo/reaction/shocked") },
+        { id: "sweat", label: "冒汗", asset: ref("character/apollo/reaction/sweat") },
+      ],
+    },
+    {
       id: "edgeworth",
       name: "御剑",
       portraits: { base: ref("character/edgeworth/portrait") },
