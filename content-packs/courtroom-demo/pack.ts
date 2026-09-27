@@ -38,6 +38,47 @@ export const courtroomDemoPack: CourtroomContentPack = {
       ],
     },
     {
+      id: "klavier",
+      name: "牙琉响也",
+      portraits: { base: ref("character/klavier/portrait") },
+      poses: [
+        { id: "normal", label: "平常", asset: ref("character/klavier/pose/normal") },
+        { id: "fist", label: "握拳", asset: ref("character/klavier/pose/fist") },
+        { id: "laugh", label: "轻笑", asset: ref("character/klavier/pose/laugh") },
+      ],
+      reactions: [
+        { id: "damaged", label: "受创", asset: ref("character/klavier/reaction/damaged") },
+      ],
+    },
+    {
+      id: "ema",
+      name: "宝月茜",
+      portraits: { base: ref("character/ema/portrait") },
+      poses: [
+        { id: "normal", label: "平常", asset: ref("character/ema/pose/normal") },
+        { id: "science", label: "科学调查", asset: ref("character/ema/pose/science") },
+        { id: "smug", label: "得意", asset: ref("character/ema/pose/smug") },
+        { id: "mad", label: "恼火", asset: ref("character/ema/pose/mad") },
+      ],
+      reactions: [
+        { id: "surprised", label: "惊讶", asset: ref("character/ema/reaction/surprised") },
+      ],
+    },
+    {
+      id: "trucy",
+      name: "美贯",
+      portraits: { base: ref("character/trucy/portrait") },
+      poses: [
+        { id: "normal", label: "平常", asset: ref("character/trucy/pose/normal") },
+        { id: "cheer", label: "加油", asset: ref("character/trucy/pose/cheer") },
+        { id: "think", label: "思考", asset: ref("character/trucy/pose/think") },
+      ],
+      reactions: [
+        { id: "sad", label: "沮丧", asset: ref("character/trucy/reaction/sad") },
+        { id: "surprised", label: "惊讶", asset: ref("character/trucy/reaction/surprised") },
+      ],
+    },
+    {
       id: "edgeworth",
       name: "御剑",
       portraits: { base: ref("character/edgeworth/portrait") },
