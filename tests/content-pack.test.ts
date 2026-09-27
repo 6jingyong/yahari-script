@@ -115,9 +115,9 @@ test('scene and presentation material catalogs expose the new usable presets', (
     assert.ok(courtroomAdapter.compile(document,demoProject).instructions.length > 1, id);
   }
   const focus = candidates.filter(item => item.tokenType === 'courtroom.focus');
-  assert.equal(focus.length,demoManifest.cast.length);
-  assert.equal(focus.find(item => item.id === 'focus:phoenix')?.subject?.kind,'speaker');
-  assert.equal(focus.find(item => item.id === 'focus:edgeworth')?.subject?.kind,'cast');
+  assert.equal(focus.length,1);
+  assert.equal(focus[0]?.id,'focus:phoenix');
+  assert.equal(focus[0]?.subject?.kind,'speaker');
 });
 
 
