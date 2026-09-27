@@ -13,8 +13,11 @@ export function addDemoCharacter(manifest: ProjectManifest, characterId: string)
   return next;
 }
 
+/** Keep the historical five-person demo stable even as the bindable material pack grows. */
+export const defaultDemoCharacterIds = ['phoenix','edgeworth','maya','judge','witness'] as const;
+
 /** Only the built-in sample is upgraded automatically; other projects opt in. */
 export function completeDemoCast(manifest: ProjectManifest): ProjectManifest {
   if (manifest.projectId !== 'demo-courtroom') return structuredClone(manifest);
-  return courtroomDemoPack.characters.reduce((next, character) => addDemoCharacter(next, character.id), manifest);
+  return defaultDemoCharacterIds.reduce((next, characterId) => addDemoCharacter(next, characterId), manifest);
 }
