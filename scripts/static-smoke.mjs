@@ -25,5 +25,5 @@ function walkModule(path) {
 walkModule(entryJs);
 
 const html = readFileSync(entryHtml, "utf8");
-if (!html.includes('/dist/apps/editor/src/main.js')) throw new Error("Editor HTML is not wired to compiled entry module.");
+if (!html.includes('../../dist/apps/editor/src/main.js')) throw new Error("Editor HTML is not wired to the portable compiled entry module.");
 console.log(`Static smoke passed: ${visited.size} browser modules resolved.`);
