@@ -29,7 +29,7 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 46 action image mappings, file hashes and crop bounds. Current milestone: 75 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. Production hosting is configured for Vercel through `vercel.json`: each deployment runs `npm run check` first, then builds `out`. Once the private GitHub repository is connected to a Vercel project, pushes to `main` deploy automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 46 action image mappings, file hashes and crop bounds. Current milestone: 75 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. Production hosting is configured for Render through `render.yaml`: the private GitHub repo stays private, GitHub `Verify` remains the quality gate, and Render waits for linked-branch checks to pass before auto-deploying `main` to its public static-site URL. The older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics and its performance plan. EditorStore owns document mutations/history. The browser UI and preview consume these layers. DOM is an input surface, never canonical script data.
