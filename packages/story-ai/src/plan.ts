@@ -1,5 +1,5 @@
 import type { ScriptDocument } from '../../core/src/index.js';
-import type { StoryOutline } from './generation.js';
+import type { StoryOutline } from './outline.js';
 
 export type AdaptationMode = 'faithful' | 'expand' | 'original';
 export type FactKind = 'established' | 'claim' | 'inference' | 'unknown' | 'invented';
