@@ -16,3 +16,7 @@ The Courtroom demo currently contains a number of prototype visual assets derive
 - Rights holders may request removal or replacement of third-party assets. The project architecture intentionally keeps content packs separable so proprietary art can be replaced without changing the core editor/compiler.
 
 For provenance details, see `content-packs/courtroom-demo/assets/sources.json`.
+
+## Rehearsal audio
+
+The repository does not bundle Ace Attorney music, voice clips, or sound-effect files for the rehearsal audio path. The default preview cues are procedurally synthesized rehearsal audio declared as note/timing metadata in the content catalog. They are intentionally simple functional placeholders and are not intended to reproduce CAPCOM recordings or compositions.
