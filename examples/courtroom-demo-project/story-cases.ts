@@ -197,6 +197,17 @@ const stories: CaseStory[] = [
               { speaker: "edgeworth", pose: "bow", text: "证人负责当晚设备检查。法庭上让他说明。" },
             ],
           },
+          {
+            title: "会见室里的缺口", background: "detention-room",
+            summary: "会见室中，被告无法证明自己从未拿到测试卡，但提供了一个可核验的细节：维护人员当天曾把两张外观相同的卡一起放在桌上。",
+            lines: [
+              { speaker: "phoenix", pose: "normal", text: "我不会替你补记忆。你只说能确定的：昨天有没有见过那张测试卡？" },
+              { speaker: "witness", pose: "nervous", text: "我不是被告……不过我负责维护。我记得把原卡和测试卡一起放在桌上，后来只确认原卡回了卡套。" },
+              { speaker: "maya", pose: "think", text: "所以测试卡什么时候离开桌面，你其实没看到。" },
+              { speaker: "witness", reaction: "sweat", text: "对。我当时以为两张都收好了。" },
+              { speaker: "phoenix", pose: "think", text: "这仍不能证明谁拿走了它，但足以解释为什么归还记录会是空白。" },
+            ],
+          },
         ],
       },
       {
