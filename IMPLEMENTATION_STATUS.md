@@ -1,3 +1,11 @@
+## Direct Chat edit increment (2026-09-27)
+
+- Directory navigation now enters from the left side of the writing header; directory-only authoring shortcuts for stage cues and blank dialogue were removed so the directory remains navigation/project management.
+- Courtroom content pack now exposes seven usable scenes. Four new repository-local original SVG scenes cover a law office, detention interview room, police records room and night corridor; provenance/hash checks include SVG assets.
+- Added the built-in case “凌晨的通行证” to exercise all four new scenes through the normal chapter/scene/editor/rehearsal path.
+- Presentation picker now exposes previously unreachable adapter capabilities: 1 s wait, emphasis, soft/strong flash, soft/strong shake, and camera focus for every bound cast member.
+- Added GitHub Actions verification for direct Chat-to-repository edits. CI availability still depends on repository Actions settings.
+
 ## Story generation milestone (2026-09-27)
 
 Implemented chapter/scene hierarchy, editable fold summaries, scene switching and isolated drafts, two-stage BYOK compatible model generation, scene validation, resumable drafts and reversible import. See docs/STORY_GENERATION.md for boundaries and verification. Real provider calls await a user-supplied API key. Root AGENTS.md removed per user request.
