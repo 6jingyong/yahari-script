@@ -16,6 +16,17 @@ export function courtroomBackgroundLabel(context: CourtroomPresentationContext, 
   return packFor(context, resource.packId)?.backgrounds.find(item => sameResource(item.resource, resource))?.label;
 }
 
+export function courtroomActionLabel(
+  context: CourtroomPresentationContext,
+  characterRef: ResourceRef | undefined,
+  actionId: string,
+): string | undefined {
+  const character=characterRef ? packFor(context,characterRef.packId)?.characters.find(item=>item.id===characterRef.id) : undefined;
+  return character
+    ? [...character.poses,...character.reactions].find(item=>item.id===actionId)?.label
+    : undefined;
+}
+
 /** Resolve Courtroom presentation through pack declarations and ResourceRef, never pack-specific file tables. */
 export function resolveCourtroomVisual(
   context: CourtroomPresentationContext,
