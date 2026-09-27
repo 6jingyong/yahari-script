@@ -2,7 +2,7 @@
 
 Yahari Script is an independent, unofficial authoring and performance-compilation project.
 
-The software architecture, editor, document model, adapter interfaces, compiler logic, sample stories, and repository-original vector scenes are developed for this project.
+The software architecture, editor, document model, adapter interfaces, compiler logic, sample stories, repository-original vector scenes, and repository-original vector character stand-ins are developed for this project. Some of those stand-ins depict CAPCOM-owned Ace Attorney characters; originality of the drawing does not imply ownership of the underlying character IP.
 
 The Courtroom demo currently contains a number of prototype visual assets derived from or depicting CAPCOM's Ace Attorney series. Those files are listed with source provenance and hashes in `content-packs/courtroom-demo/assets/sources.json`.
 

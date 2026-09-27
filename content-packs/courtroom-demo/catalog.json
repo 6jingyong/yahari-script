@@ -349,6 +349,146 @@
           "asset": "character/witness/reaction/sweat"
         }
       ]
+    },
+    {
+      "id": "von-karma",
+      "name": "狩魔豪",
+      "portrait": "character/von-karma/pose/normal",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "冷静",
+          "asset": "character/von-karma/pose/normal"
+        },
+        {
+          "id": "accuse",
+          "label": "压迫指证",
+          "asset": "character/von-karma/pose/accuse"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "breakdown",
+          "label": "失控",
+          "asset": "character/von-karma/reaction/breakdown"
+        }
+      ]
+    },
+    {
+      "id": "gumshoe",
+      "name": "糸锯圭介",
+      "portrait": "character/gumshoe/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "报告",
+          "asset": "character/gumshoe/pose/normal"
+        },
+        {
+          "id": "salute",
+          "label": "敬礼",
+          "asset": "character/gumshoe/pose/salute"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "nervous",
+          "label": "慌张",
+          "asset": "character/gumshoe/reaction/nervous"
+        }
+      ]
+    },
+    {
+      "id": "lotta",
+      "name": "大泽木夏美",
+      "portrait": "character/lotta/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/lotta/pose/normal"
+        },
+        {
+          "id": "camera",
+          "label": "举相机",
+          "asset": "character/lotta/pose/camera"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/lotta/reaction/shocked"
+        }
+      ]
+    },
+    {
+      "id": "yogi",
+      "name": "灰根高太郎",
+      "portrait": "character/yogi/pose/normal",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "疲惫",
+          "asset": "character/yogi/pose/normal"
+        },
+        {
+          "id": "stern",
+          "label": "严肃",
+          "asset": "character/yogi/pose/stern"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "broken",
+          "label": "崩溃",
+          "asset": "character/yogi/reaction/broken"
+        }
+      ]
+    },
+    {
+      "id": "mia",
+      "name": "绫里千寻",
+      "portrait": "character/mia/pose/normal",
+      "stage": {
+        "background": "stage/defense/background",
+        "foreground": "stage/defense/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平静",
+          "asset": "character/mia/pose/normal"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/mia/pose/point"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "concerned",
+          "label": "担忧",
+          "asset": "character/mia/reaction/concerned"
+        }
+      ]
     }
   ],
   "backgrounds": [
@@ -387,6 +527,26 @@
       "id": "night-corridor",
       "label": "夜间走廊",
       "resource": "background/night-corridor"
+    },
+    {
+      "id": "lake-dock",
+      "label": "葫芦湖 · 夜间码头",
+      "resource": "background/lake-dock"
+    },
+    {
+      "id": "evidence-room",
+      "label": "警署 · 证物保管室",
+      "resource": "background/evidence-room"
+    },
+    {
+      "id": "prosecutor-office",
+      "label": "检察官办公室",
+      "resource": "background/prosecutor-office"
+    },
+    {
+      "id": "elevator-hall",
+      "label": "旧法院 · 电梯厅",
+      "resource": "background/elevator-hall"
     }
   ],
   "audio": {
@@ -635,6 +795,63 @@
     },
     "character/witness/reaction/sweat": {
       "file": "witness-sweat.gif"
+    },
+    "character/von-karma/pose/normal": {
+      "file": "von-karma-normal.svg"
+    },
+    "character/von-karma/pose/accuse": {
+      "file": "von-karma-accuse.svg"
+    },
+    "character/von-karma/reaction/breakdown": {
+      "file": "von-karma-breakdown.svg"
+    },
+    "character/gumshoe/pose/normal": {
+      "file": "gumshoe-normal.svg"
+    },
+    "character/gumshoe/pose/salute": {
+      "file": "gumshoe-salute.svg"
+    },
+    "character/gumshoe/reaction/nervous": {
+      "file": "gumshoe-nervous.svg"
+    },
+    "character/lotta/pose/normal": {
+      "file": "lotta-normal.svg"
+    },
+    "character/lotta/pose/camera": {
+      "file": "lotta-camera.svg"
+    },
+    "character/lotta/reaction/shocked": {
+      "file": "lotta-shocked.svg"
+    },
+    "character/yogi/pose/normal": {
+      "file": "yogi-normal.svg"
+    },
+    "character/yogi/pose/stern": {
+      "file": "yogi-stern.svg"
+    },
+    "character/yogi/reaction/broken": {
+      "file": "yogi-broken.svg"
+    },
+    "character/mia/pose/normal": {
+      "file": "mia-normal.svg"
+    },
+    "character/mia/pose/point": {
+      "file": "mia-point.svg"
+    },
+    "character/mia/reaction/concerned": {
+      "file": "mia-concerned.svg"
+    },
+    "background/lake-dock": {
+      "file": "lake-dock.svg"
+    },
+    "background/evidence-room": {
+      "file": "evidence-room.svg"
+    },
+    "background/prosecutor-office": {
+      "file": "prosecutor-office.svg"
+    },
+    "background/elevator-hall": {
+      "file": "elevator-hall.svg"
     }
   }
 }

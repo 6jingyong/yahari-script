@@ -1,3 +1,13 @@
+## Long-form material stress test (2026-09-28)
+
+- Built-in samples are reduced to one case: **《告别逆转 · 最后的异议》**, an original fan-demo inspired by the AA1-4 endgame structure without reproducing the original transcript.
+- Scale: 4 chapters, 8 scenes, 123 dialogue blocks and 10 speaking roles. The case deliberately combines investigation scenes, witness transitions and a dense final courtroom sequence.
+- Added original repository-local vector stand-ins for Manfred von Karma, Dick Gumshoe, Lotta Hart, Yanni Yogi and Mia Fey, plus four original scenes: lake dock, evidence room, prosecutor office and elevator hall.
+- Material catalog now exposes 14 bindable characters, 61 actions and 11 scenes. Verification covers 78 unique local image files through 79 resource IDs, with provenance/hash/crop checks.
+- The stress case explicitly compiles focus, emphasis, flash, shake and wait tokens. This makes a remaining renderer gap visible: flash/shake/emphasis are represented in the performance plan and preview state, but are not yet fully animated as visual effects; audio remains declared but not played.
+- First CI pass caught an invalid Edgeworth pose that shorter examples never exercised, validating the long-case approach as an architecture/material compatibility test.
+- Verification: 77 tests pass, 40 browser modules resolve, content/material checks pass.
+
 ## 0.9 architecture foundation (2026-09-27)
 
 - Portable project/file schema remains unchanged at file version 0.7; this is an internal boundary refactor rather than a migration.

@@ -1,5 +1,5 @@
 {
-  "retrieved": "2026-09-26",
+  "retrieved": "2026-09-28",
   "credit": "PyWright / Court Records / Objection Engine; original game artwork CAPCOM",
   "licenseNote": "Repository code license does not grant a separate commercial license for CAPCOM artwork. No game engine code copied.",
   "assets": [
@@ -313,6 +313,101 @@
       "file": "trucy-surprised.png",
       "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/surprised(blink).png",
       "sha256": "8cf2d21de3e05875ce639c263e0d035cc7663a47942b21b432977868cd6e7304"
+    },
+    {
+      "file": "von-karma-normal.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "16a01ca5c2b1b3f29bb9ff89725fb136f075e25dc80aac985aabefb5c6c466ef"
+    },
+    {
+      "file": "von-karma-accuse.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "08210406c0fa80d7bf2373a4c239cf3d6dbacba9f1e7303c96cab9432f9cdd75"
+    },
+    {
+      "file": "von-karma-breakdown.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "bd5682f0ed6848b928d5f34393d87a33b58bd1ce999e8788cdf88e9fafc80e54"
+    },
+    {
+      "file": "gumshoe-normal.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "b02c7f95994eb75abc21e9fc7ea6e69c0a21696c7c5c5f40a014a6ca909ac7b8"
+    },
+    {
+      "file": "gumshoe-salute.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "dcbceb99b0c79edc36a2ae377ba76f0a213f2cbaef0ee3504d851b04fb20c62c"
+    },
+    {
+      "file": "gumshoe-nervous.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "a018e0eec84941c19b5e8af657c3235cf60bece7096ce869d578b26768060281"
+    },
+    {
+      "file": "lotta-normal.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "d39fb096a698b580b212b7f9d8b1fca544c5e40443bb1ef7ba221e6d31650445"
+    },
+    {
+      "file": "lotta-camera.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "25478ceb84e6a3e1f84df25573c0456360e94b3ee4ec724484fac0db51cd2abc"
+    },
+    {
+      "file": "lotta-shocked.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "be453668ee4c3b34dae3781a12c57c9ace9bcad6e95310a5b071dae72bc80af3"
+    },
+    {
+      "file": "yogi-normal.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "b3032d689e189c2469b3a2f6e261844d992586891b83634822ea0f5523e84bb4"
+    },
+    {
+      "file": "yogi-stern.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "b3032d689e189c2469b3a2f6e261844d992586891b83634822ea0f5523e84bb4"
+    },
+    {
+      "file": "yogi-broken.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "b59d9ce4272583b58d38ff32a09d5a6e3802343b9f81c0908ce21c4863ae7c24"
+    },
+    {
+      "file": "mia-normal.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "0bafd39ab51cb377786ecb52621b0a9e539cc21c741aec9fc733acbe7cd3938b"
+    },
+    {
+      "file": "mia-point.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "4b2de8cad7067d1b341d7a4c42085e9c2b3b756b1e04d68f43bb97250c10fd9a"
+    },
+    {
+      "file": "mia-concerned.svg",
+      "source": "original:Yahari Script vector character stand-in",
+      "sha256": "072a7d769702664aedca507ff12d76f12f2d7a578803195f3ce53972b51e970c"
+    },
+    {
+      "file": "lake-dock.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "bd395fa20433bf5658027ce5bef887ba494c6619e9cd34611980e8529eef9f43"
+    },
+    {
+      "file": "evidence-room.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "cda37d03154416132de97d1669911cfed8dcfd95c017023f3924287086968295"
+    },
+    {
+      "file": "prosecutor-office.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "7e35a7917a203302b6b461d82e0b7c156ac4f38610e04fe0a85c54aa25368340"
+    },
+    {
+      "file": "elevator-hall.svg",
+      "source": "original:Yahari Script vector scene",
+      "sha256": "bb3d6d66a86d8fa7762bdfaab8c323d0843303266d959fa88e6620b50df67135"
     }
   ],
   "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
