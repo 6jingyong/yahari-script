@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: yahari-script
-    runtime: static
-    buildCommand: npm ci && npm run build && node scripts/build-static.mjs
-    staticPublishPath: ./out
-    autoDeployTrigger: checksPass
