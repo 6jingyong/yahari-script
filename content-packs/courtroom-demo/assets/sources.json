@@ -1,459 +1,324 @@
 {
   "retrieved": "2026-09-28",
-  "credit": "PyWright / Court Records / Objection Engine; original game artwork CAPCOM",
-  "licenseNote": "Repository code license does not grant a separate commercial license for CAPCOM artwork. No game engine code copied.",
+  "credit": "AI-generated chibi illustration produced for the Yahari Script prototype",
+  "licenseNote": "Generated depictions of Ace Attorney characters remain subject to CAPCOM's underlying character rights. Original game artwork is no longer bundled in this pack.",
+  "generation": {
+    "mode": "built-in image generation",
+    "sourceAtlases": "content-packs/courtroom-demo/art-source/",
+    "recipe": "scripts/build-chibi-art.py",
+    "mapping": "scripts/map-chibi-art.py",
+    "note": "Each character has neutral, gesture, reaction artwork. Related legacy action IDs may share one of these three pictures until dedicated poses are drawn."
+  },
   "assets": [
     {
-      "file": "defence.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/defence.png",
-      "sha256": "bcfb15469e5bb47d3e1360bdd0fd994bdb0a311515cae5e3a11b2fbcc683a067"
+      "file": "chibi-apollo-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "fba40038b7ea7f29731836bdb12fb8c9a5f877396cb49a1111b460531b957fb0"
     },
     {
-      "file": "courtroom.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/courtroom.png",
-      "sha256": "3beaa2360f4de2d8fe820ea793bf8efc9002789fa39a36af341a3d936f8fde63"
+      "file": "chibi-apollo-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "a7cd16d1265043eb38bd911b1cb116ffcf512f1f48b5de633661daf0242b3093"
     },
     {
-      "file": "judgestand.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/judgestand.png",
-      "sha256": "181410f10b774e4e96f6cf52b853d90afaefe2b8dfedfd9fa859e2c3778e8b66"
+      "file": "chibi-apollo-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "147b45dfd087449967f2aac72b46f98d00b2cf2f59f7884508c1c57f4cb3f3bf"
     },
     {
-      "file": "defence-bench.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/fg/dbench.png",
-      "sha256": "c29617826b17c36204602fc658aebdd69de8e1e44c89bdafd3dfdc1f001278a2"
+      "file": "chibi-boathouse.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "d8889445a960da42455eb0a67ac131787529332b82d6e5d5acbe5931df51f180"
     },
     {
-      "file": "phoenix-normal.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/normal(blink).png",
-      "sha256": "dde042d5b059dcbc1ed48991bd49321765713b7e0eadb66ce3c9caaf8e84d11e"
+      "file": "chibi-courtroom.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "b4c00e732eb837678597ea0802e0aa10366d4727e6e74613b4bc0344748f680f"
     },
     {
-      "file": "phoenix-point.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/pointing(blink).png",
-      "sha256": "1115b924f6337477f26e727fa83d317d4873087817e4ad6dd8b5d27468200e11"
+      "file": "chibi-detention-room.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "73bedba9cc5b8a033bcf3672c75806a020ee147e4debee450f1d495ff12d0a33"
     },
     {
-      "file": "phoenix-sweat.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/sweating(blink).png",
-      "sha256": "05c860762a5ee8d9041cd12c2c6e746a5ee09ed724a75fade58c7566eed061f5"
+      "file": "chibi-edgeworth-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "605f791d4ad5f152ad471e8ee8076c8697e68332905eb26cac8fbb2f9f8dcfc0"
     },
     {
-      "file": "judge-normal.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/normal(blink).png",
-      "sha256": "f541e7dae1147e2a425fb02169fdc78915faa3a993c6c32235c17a73ea2b199c"
+      "file": "chibi-edgeworth-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "2f1129bc7c4ec3374938183937a85b8be3a36942775933292edb92ec4dcc0a40"
     },
     {
-      "file": "judge-surprised.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/surprised(blink).png",
-      "sha256": "9d6314b25c94907a373423033e1acdbe3814e45694215ebfa79131c4e6c6892d"
+      "file": "chibi-edgeworth-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "a6578474d673a47316ce2c0b478f5cee03e2d6f2ea7eeec6a7740f4d7b7bc2f8"
     },
     {
-      "file": "phoenix-think.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/thinking(blink).png",
-      "sha256": "f861b029bd5286ab7db91e6a085bb3e0f97c2eb6866337f037b01effbae991c8"
+      "file": "chibi-elevator-hall.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "9cc017d97fe4846868bd79ebaf5dc14ad1be51d9265ba0b4b5a725749de2e442"
     },
     {
-      "file": "phoenix-desk.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/deskslam.png",
-      "sha256": "6c8c42f55ce2ae3159d8f5ca05d52d1d6808318c3a49ef2d09b9471f4ff16575"
+      "file": "chibi-ema-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "256b5eb9533660a4f26964e50fbe7c90a442a1ea286a8cf3a81c8d5d2f1400d3"
     },
     {
-      "file": "phoenix-shocked.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/examples/data/art/port/phoenix/ohshit.png",
-      "sha256": "40f7f03a470fb65b287600bb6bbf3cc2d3614df4c96d2a1640e1ab8a74e72ba8"
+      "file": "chibi-ema-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "8010bdfb7c2b8ec922d1a6f02ff11d8c3b7e11b3403703eb08b136db9f9037eb"
     },
     {
-      "file": "judge-stern.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/warning(blink).png",
-      "sha256": "68e233bc3e9be478fd08b92063384a768302c876d82c869c19d6c244864e37ec"
+      "file": "chibi-ema-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "07736267a152cfe422fb7b2193045ceec61aa16792368cc0eb7f7f51ffca2a77"
     },
     {
-      "file": "judge-confused.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/judge/thinking.png",
-      "sha256": "aafb609a45b917e2f767f233bf9314d6857af4cc32a71a68e39e9fd722e3ae73"
+      "file": "chibi-evidence-room.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "5478c87a56b30ec3bd53c00c004e53974aef05c55ddda9daa8e3f44926c63cc6"
     },
     {
-      "file": "witness-stand.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/witness.png",
-      "sha256": "8f1f6e75803e6b228a3d2300840935e0b3d3530b7b426b0124079a50cf93b831"
+      "file": "chibi-gumshoe-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "645e891e2de10eef065e74f852e988daa39ec513597521ae87537ab4cc0e5e3e"
     },
     {
-      "file": "prosecution.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/prosecution.png",
-      "sha256": "c4e7effc0fdfb28eaddd4e9afaff7af3e385ca013b69d690afa979d39f05aa85"
+      "file": "chibi-gumshoe-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "71c26cf90bb1100835bfd61c3a08ef5edd7bd2b0724d9e3a8464c9e687a1a4f2"
     },
     {
-      "file": "lobby.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/bg/lobby.png",
-      "sha256": "69ab8927efb1bcdb14c09842ae901d13c87a3ff63eeb20e9acc45c1f2c43ea46"
+      "file": "chibi-gumshoe-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "565746f575d3de17d49b18756c1cc665bddfd87c388764ce59eaf4c2e06eb989"
     },
     {
-      "file": "prosecution-bench.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/fg/pbench.png",
-      "sha256": "aa44d58888ca8d1b20c688e1b43da0016d1821defae6efd1a946d20184e293b9"
+      "file": "chibi-hospital-room.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "be33a43b95b6ac0c7433329516eae906724261d7f32d6cb9e49e3400cd2d5159"
     },
     {
-      "file": "witness-bench.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/fg/wbench.png",
-      "sha256": "03b53512d84538e8411e5efc8c70cd71fc49f5e4998670018713499b910e5719"
+      "file": "chibi-judge-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "ad6a0df9c706680b49d636a887e554ba2674aa46c504fd29a634a3306b30d6c4"
     },
     {
-      "file": "edgeworth-normal.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/edgeworth/edgeworth-normal-idle.gif",
-      "sha256": "fcca5c2fca38e11f90a689dbed13ee0d1a9e3e7fde5629fcd50960444b85534f"
+      "file": "chibi-judge-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "47e3e239c7432d2013dba02e6b0d9a0fbd73d4c3f96443564e71a8f31816e1c9"
     },
     {
-      "file": "edgeworth-bow.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/edgeworth/edgeworth-bow.gif",
-      "sha256": "2ebeff451ddb192baad4a36c590fb6c88ad9a84898d658f63c7342da665d35ed"
+      "file": "chibi-judge-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "4ad71860b8a5fb7bdbfb25311f63e328b89d67b43e9a049e076072d3c48bdee7"
     },
     {
-      "file": "edgeworth-point.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/edgeworth/edgeworth-pointing-idle.gif",
-      "sha256": "45bbd19cf0c5f9bf7166a5499529227020c91b5ab858b22a3f5687b69ef4392b"
+      "file": "chibi-klavier-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "e5a4b334c68b3384a05eaeacfb436b40f19a99af024ad48e235b8ea92e354106"
     },
     {
-      "file": "edgeworth-smug.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/edgeworth/edgeworth-confident-idle.gif",
-      "sha256": "cb44333e2a3fa92503d18c862ca23f432b469167d5e80e1b62403d1005ab216c"
+      "file": "chibi-klavier-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "e4e6e2befdd6ac0f0cefe74af40e688ae8166c171bcbb21f4ff7489771d0ef05"
     },
     {
-      "file": "edgeworth-surprised.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/edgeworth/edgeworth-damage.gif",
-      "sha256": "17e7550ba6e3b50af7851a54d49809649dfd6c2d61a94ee0617f9ede2a93dd7a"
+      "file": "chibi-klavier-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "98c68658234485742a88a3f3ef733a04e75e82bb08bfff4718d8d25aca51fc1c"
     },
     {
-      "file": "edgeworth-damaged.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/edgeworth/edgeworth-strained-idle.gif",
-      "sha256": "495c15b46a054561eae5e2602d05be79aaa3260af4cd58ee54e2bfb52bea43d4"
+      "file": "chibi-lake-dock.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "014bd3e1264bd854bb06ba0ff264adfb6ab005557ea4c3d46f2e89105f5ebf9b"
     },
     {
-      "file": "maya-normal.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/maya/maya-normal-idle.gif",
-      "sha256": "437bc6bb6d87b7e6b138d782beb8a15cd1e275d10f97a2273f6a83ab9b2dbb40"
+      "file": "chibi-lobby.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "34189397515cef0c6f15d3b939864e62dedcf7c6ead1a82986f939d718d4f937"
     },
     {
-      "file": "maya-cheer.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/maya/maya-pumped-idle.gif",
-      "sha256": "8e47aadd677e0e58d478eb5ee1cc6aa2726a172bbd7092dfe6ed230021caa90e"
+      "file": "chibi-lotta-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "09fa93be58061bb0ca52367cc382ab63c2d1c1217155221ae3626398f4097af8"
     },
     {
-      "file": "maya-think.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/maya/maya-thinking-idle.gif",
-      "sha256": "08b284f16c8dba90d1941d794b8be8299563aaa6c363a37d61006cb013ceed29"
+      "file": "chibi-lotta-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "0dad35758d6e0bdeb6b823379ef90bec445a06a888f2e9393138379654165893"
     },
     {
-      "file": "maya-surprised.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/maya/maya-surprised-idle.gif",
-      "sha256": "831abe186f3e57676f76bba2065517542d400bbe4c85186460b0ae12985aef9b"
+      "file": "chibi-lotta-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "0b601fce105632796eb77a01b7b7ad08db014bf39dd2137941f1294e115f0d2f"
     },
     {
-      "file": "maya-sad.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/maya/maya-sad-idle.gif",
-      "sha256": "1981e2533aba74a5a0879772a2423d40d8cfdd0645bf4740571dfef5c9585dcb"
+      "file": "chibi-maya-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "1c2fdba498a0f428bbe3dbfb28bf6cb1e64081fe2fa8fb9554dd341a8dad9fee"
     },
     {
-      "file": "witness-normal.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/larry/larry-normal-idle.gif",
-      "sha256": "b03d3eb70f469f33247e5c97365723b714e15aad62deb3601f321c03738acf56"
+      "file": "chibi-maya-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "07bec1e44edc1dbad62b179767b3ca72ee8f74ec698eb6c19603bde96cdbc6ec"
     },
     {
-      "file": "witness-nervous.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/larry/larry-nervous-idle.gif",
-      "sha256": "30c843d31d860a302cfc4aaa41c0197a44d138fd7970479a1648d851635cbe91"
+      "file": "chibi-maya-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "389367f4e68e13ddb023d49f1dde485d17ea6a1620153ded8ceaf5a0eb5de606"
     },
     {
-      "file": "witness-confident.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/larry/larry-thumbsup-idle.gif",
-      "sha256": "3d9e2b42a429aea4a3066fa4ce76001616fa0550e672ecba941ec250c666045c"
+      "file": "chibi-mia-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "bc2b58cfba06d66f6cd91659684a6c09efb7bd7ada3a353b1ec1e790010563dd"
     },
     {
-      "file": "witness-shocked.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/larry/larry-nervous-idle.gif",
-      "sha256": "30c843d31d860a302cfc4aaa41c0197a44d138fd7970479a1648d851635cbe91"
+      "file": "chibi-mia-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "4d444e34f69438c63383c2dc96fdfae6f2586e86f4923f2e31d9534a72699306"
     },
     {
-      "file": "witness-sweat.gif",
-      "source": "https://dl.luismayo.com/assetsv4.zip",
-      "archiveEntry": "characters/larry/larry-sweating.gif",
-      "sha256": "0c013226dd566617ff2391cbe756333504a9286f610e387b86f09b3dfbe17d80"
+      "file": "chibi-mia-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "5d89113c9a8e046ca3c3deb028740bb08e90ba027b94db773c74bc8ae7ea6a66"
     },
     {
-      "file": "office.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "527a1a1acd30cadacee9b17784d8fd8b8d85fd0b595981a03cc1ed0542db0ae9"
+      "file": "chibi-night-corridor.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "2ba6b04bbef2d1e20f874b01097dba24ba1f8ca9596d824a92eb7da681c00e00"
     },
     {
-      "file": "detention-room.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "f881900f88a972b8d881e655e1fdc72115eb33f3d1c509101d3d3522c43d085b"
+      "file": "chibi-office.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "aa4dee38b1ad01a072339844c0734720c771d447cb6206532df424ae5b831fb6"
     },
     {
-      "file": "police-records.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "5199b63abb6020e9f5f1c937bab76a728437dc837324df20d94f08d4e354d7a8"
+      "file": "chibi-parking-garage.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "0621782277634290c657b5d2b1f64646587d2534d869428ed4ce77515598a38d"
     },
     {
-      "file": "night-corridor.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "3c05f92256a8ee0a6d0fe8887cf208a760c8d6872bf7ad5b0e5f9dedd8ebdf9f"
+      "file": "chibi-phoenix-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "cfb7aa508db9fbc1f65f28b06a8777cee8d6736d71e7b07f827e7d729e5de0df"
     },
     {
-      "file": "apollo-normal.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/normal(blink).png",
-      "sha256": "6dcce0dee511f19524a934a13a5c10518925c0cb54fb0f4a2fe17da2679810fa"
+      "file": "chibi-phoenix-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "29fece6c330e0d3f2b89ed1ed4828e6d239f26012f8da67089f98dfb3becb754"
     },
     {
-      "file": "apollo-think.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/thinking(blink).png",
-      "sha256": "ae395c85496a39ca07b79ff0b76400f3fa22fcdf463426fc5849455f108ee1e0"
+      "file": "chibi-phoenix-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "33c21046b71c265b5e72bf4b972b9b0fa3f38baa4abbef746d1807262bef2bdc"
     },
     {
-      "file": "apollo-point.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/pointing(blink).png",
-      "sha256": "93b638ce18d22a12b934bb6c85b2278967ed9772bbf7c67e25cee9b08d42a614"
+      "file": "chibi-police-records.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "983cf53fc1ef16e77ca90a5a95ae58a8826cc8327a3390ef01cfba763503a595"
     },
     {
-      "file": "apollo-confident.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/confident(blink).png",
-      "sha256": "453f236874101c92ea8df24f4225685b97497639f774a6eb69bf6da226626e3c"
+      "file": "chibi-prosecutor-office.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "77e8008cafc52bef948be88d0ad0c8a3cea51a0361a66a62e59dc68e50386356"
     },
     {
-      "file": "apollo-shocked.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/ohshit.png",
-      "sha256": "9b733da2cd672e81b36bfdfea83573946218a79655aa81b09b620c06c67a8fb5"
+      "file": "chibi-records-basement.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "05c824bccd8335490db245bbf3ac4037059a9846b9f091ad500eb28a09657bdc"
     },
     {
-      "file": "apollo-sweat.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/apollo/sweats(blink).png",
-      "sha256": "bb4ebb597af84ec3f19ea6d9d7752d1c624512054d2cebaad91af65ba6c94573"
+      "file": "chibi-stage-defense-foreground.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "25cbdcb86b8ae54c94d785b81f0676a2500937208105fd6e26f3c10481c7ccec"
     },
     {
-      "file": "klavier-normal.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/normal(blink).png",
-      "sha256": "74efed2e93879cda0d071bdb8bdc6587789b54ffb57347269c46101486f609ca"
+      "file": "chibi-stage-defense.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "65557eb76785ae2bb9cc0760c6b5f746aea26e522eb4f19f946e418ec12a00d7"
     },
     {
-      "file": "klavier-fist.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/fist(blink).png",
-      "sha256": "3c396fc79c184af782cb4cbfba70bf6bd5aa9ad486276432268703ab2b126836"
+      "file": "chibi-stage-prosecution-foreground.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "d83b67954ec649077c1faf517bd8c141704492ba1c4ec890292c9be654ed934c"
     },
     {
-      "file": "klavier-laugh.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/laughs(blink).png",
-      "sha256": "070c6f25808bae5cf8ca20d1d19954a5e8a670af5bf229a16048897cbf86dc52"
+      "file": "chibi-stage-prosecution.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "a733c504a8561a8d26a2cba7f5a24b553b6a5c172d83c47d2c5bf255146b2d1b"
     },
     {
-      "file": "klavier-damaged.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/klavier/damage.png",
-      "sha256": "f11e6be99833074f68a2d6ad3a7ccaeee86ead9142be9da49168db56a73416f5"
+      "file": "chibi-stage-witness-foreground.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "85bc0d98b002ce0112c84f50bf4a438648c9009f8d1c93c71f13dc2d4e369ada"
     },
     {
-      "file": "ema-normal.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/normal(blink).png",
-      "sha256": "05ea95ad67f2cb29719ad37cb8759fd580ea9298a4956e7e46f5844377c144d9"
+      "file": "chibi-trucy-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "e92437e8a94eb79b6d74f5b8271d7500e533de978cb0aeb4c264abc8b6e1c39e"
     },
     {
-      "file": "ema-science.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/science(blink).png",
-      "sha256": "05f2253878b45f12d3bb0c8a994d919749d07f46bb39989cb9d33dd2cdfa1f8b"
+      "file": "chibi-trucy-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "d4316f511a07c5840f7ebde1eb754d7edba9c4dab3d86320088014d4d0ef159d"
     },
     {
-      "file": "ema-smug.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/smug(blink).png",
-      "sha256": "ed04e900631555c5e90a1f6b853707635d8ba8a36ea0b7acc631e3199640696a"
+      "file": "chibi-trucy-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "346cd8c529913ea1f29ecf798e2c63e56585dc4b4f68be349046a2a214962e0a"
     },
     {
-      "file": "ema-mad.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/mad(blink).png",
-      "sha256": "12c34268f43fce2ec1bf59d769b2a1b9c7918e9c7cbceac616ea2b6d22bf778c"
+      "file": "chibi-von-karma-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "c14e4e113f1a23a0945355f7885ed3f876c20aba90549f1befe38a71499d1cd7"
     },
     {
-      "file": "ema-surprised.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/skye/surprised(blink).png",
-      "sha256": "d3d5f3afc04a28b8184e575b4186f7d14969525c52a230226198d7dfd73dd897"
+      "file": "chibi-von-karma-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "ce8400bb7107eda8725c92ac3f729d3c11a614b337b270d6ce77c99f0d006fc6"
     },
     {
-      "file": "trucy-normal.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/normal(blink).png",
-      "sha256": "9b3a8ed6d554a70322775752dafde71fc9a9e732b3a18cef826ace1350019968"
+      "file": "chibi-von-karma-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "f0eed322681a8814235d3d0fc83fe5ce438312679e8b338b553cd33902f4aea5"
     },
     {
-      "file": "trucy-cheer.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/pumped(blink).png",
-      "sha256": "cf2c63ae3399cf911e93bb6ff3d354963e4361b0d6447527940156fb7b1586f9"
+      "file": "chibi-witness-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "2bf47ac1a2cac281bc5f7f897e314482b82dc449e713d4dbd080291f2c7ecdd9"
     },
     {
-      "file": "trucy-think.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/thoughtful(blink).png",
-      "sha256": "baac62a4534f3a4a11d4147662d6b2b31cdc404fdfea610837630a97e67caf57"
+      "file": "chibi-witness-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "4f77fa4231f3d65eec62f3580ee1cd148105bd655b7f45e9e45dcff6957b261e"
     },
     {
-      "file": "trucy-sad.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/sad(blink).png",
-      "sha256": "c516ac56556184291fcfb4ec6664512f4a3dbb6927441ed197388a13f68c0ef8"
+      "file": "chibi-witness-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "735189576a0b2890a9013adb1d8b3b736bcb7fc07e8ecc88da23203aa066c4aa"
     },
     {
-      "file": "trucy-surprised.png",
-      "source": "https://github.com/crxtrdude/pywright/blob/a71527b62c072d89c84054b0674b3a65e1227c48/data/art/port/trucy/surprised(blink).png",
-      "sha256": "8cf2d21de3e05875ce639c263e0d035cc7663a47942b21b432977868cd6e7304"
+      "file": "chibi-witness-stand.jpg",
+      "source": "generated:chibi-atlas",
+      "sha256": "07440def912bbffe906ebc524feba9d49ef5e7d927d55e2a2b9f487d769f3a72"
     },
     {
-      "file": "von-karma-normal.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "16a01ca5c2b1b3f29bb9ff89725fb136f075e25dc80aac985aabefb5c6c466ef"
+      "file": "chibi-yogi-gesture.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "f87333c1f7b000b0eeb98994fef88099d601103586f3013532ea7fd9a6286e17"
     },
     {
-      "file": "von-karma-accuse.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "08210406c0fa80d7bf2373a4c239cf3d6dbacba9f1e7303c96cab9432f9cdd75"
+      "file": "chibi-yogi-neutral.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "3edd78f06853011ca858779424847a1fe56812d1e39448e062a083ea104e192b"
     },
     {
-      "file": "von-karma-breakdown.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "bd5682f0ed6848b928d5f34393d87a33b58bd1ce999e8788cdf88e9fafc80e54"
-    },
-    {
-      "file": "gumshoe-normal.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "b02c7f95994eb75abc21e9fc7ea6e69c0a21696c7c5c5f40a014a6ca909ac7b8"
-    },
-    {
-      "file": "gumshoe-salute.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "dcbceb99b0c79edc36a2ae377ba76f0a213f2cbaef0ee3504d851b04fb20c62c"
-    },
-    {
-      "file": "gumshoe-nervous.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "a018e0eec84941c19b5e8af657c3235cf60bece7096ce869d578b26768060281"
-    },
-    {
-      "file": "lotta-normal.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "d39fb096a698b580b212b7f9d8b1fca544c5e40443bb1ef7ba221e6d31650445"
-    },
-    {
-      "file": "lotta-camera.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "25478ceb84e6a3e1f84df25573c0456360e94b3ee4ec724484fac0db51cd2abc"
-    },
-    {
-      "file": "lotta-shocked.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "be453668ee4c3b34dae3781a12c57c9ace9bcad6e95310a5b071dae72bc80af3"
-    },
-    {
-      "file": "yogi-normal.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "b3032d689e189c2469b3a2f6e261844d992586891b83634822ea0f5523e84bb4"
-    },
-    {
-      "file": "yogi-stern.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "b3032d689e189c2469b3a2f6e261844d992586891b83634822ea0f5523e84bb4"
-    },
-    {
-      "file": "yogi-broken.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "b59d9ce4272583b58d38ff32a09d5a6e3802343b9f81c0908ce21c4863ae7c24"
-    },
-    {
-      "file": "mia-normal.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "0bafd39ab51cb377786ecb52621b0a9e539cc21c741aec9fc733acbe7cd3938b"
-    },
-    {
-      "file": "mia-point.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "4b2de8cad7067d1b341d7a4c42085e9c2b3b756b1e04d68f43bb97250c10fd9a"
-    },
-    {
-      "file": "mia-concerned.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "072a7d769702664aedca507ff12d76f12f2d7a578803195f3ce53972b51e970c"
-    },
-    {
-      "file": "lake-dock.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "bd395fa20433bf5658027ce5bef887ba494c6619e9cd34611980e8529eef9f43"
-    },
-    {
-      "file": "evidence-room.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "cda37d03154416132de97d1669911cfed8dcfd95c017023f3924287086968295"
-    },
-    {
-      "file": "prosecutor-office.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "7e35a7917a203302b6b461d82e0b7c156ac4f38610e04fe0a85c54aa25368340"
-    },
-    {
-      "file": "elevator-hall.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "bb3d6d66a86d8fa7762bdfaab8c323d0843303266d959fa88e6620b50df67135"
-    },
-    {
-      "file": "boathouse.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "c94ea10d57854635c915db56159a26f585703776e35b1dc2afadde43ca2ab8ed"
-    },
-    {
-      "file": "records-basement.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "df670622eaf75307720c692712c4561d1891378ad41fb308264300b631d58d82"
-    },
-    {
-      "file": "parking-garage.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "1c47a3467b2ad2fad852e4dfadf7456e0605fc0522dcb4c0fa7b05df98b7feff"
-    },
-    {
-      "file": "hospital-room.svg",
-      "source": "original:Yahari Script vector scene",
-      "sha256": "cc20eef7c3f74431bc71d042a1290e09eb5cadabacd95fdb10ceef81e9f9ebc7"
-    },
-    {
-      "file": "von-karma-smug.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "0367c9c6b1cd22aa8b32c79962f148e909945154af8d4ad9632e806b12e83b9a"
-    },
-    {
-      "file": "gumshoe-point.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "ab1dfde5269d69d890e2a77f92c325cdeadbbfa6bb04d8cadd1506ff13548b0e"
-    },
-    {
-      "file": "lotta-grin.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "999bf6e7fc50c423f1bdc5b22f812af4513d7694efa17bae5b62890c453156d2"
-    },
-    {
-      "file": "yogi-shocked.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "b59d9ce4272583b58d38ff32a09d5a6e3802343b9f81c0908ce21c4863ae7c24"
-    },
-    {
-      "file": "mia-smile.svg",
-      "source": "original:Yahari Script vector character stand-in",
-      "sha256": "fc6cb5715dbb5a6330849f920dab27f0af848c20365037b655a987a458501c14"
+      "file": "chibi-yogi-reaction.png",
+      "source": "generated:chibi-atlas",
+      "sha256": "e2ad797f08f0f1b26403b91e9279930fe77ccbdf1861593d313f9ebb4ba3da5f"
     }
-  ],
-  "archiveEvidence": "https://github.com/LuisMayo/objection_engine/blob/ebf4a2346028df8a130b45da71eb8fa72d3a8a39/objection_engine/utils.py"
+  ]
 }

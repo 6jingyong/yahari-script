@@ -1,22 +1,18 @@
-# Third-party assets and trademarks
+# Character rights and generated demo art
 
 Yahari Script is an independent, unofficial authoring and performance-compilation project.
+The Courtroom demo now uses generated chibi character illustrations, scene backgrounds,
+and transparent courtroom foregrounds. The previous game sprite files and vector
+stand-ins are no longer bundled in the active content pack. The source atlases,
+cutting recipe, resource mapping, and file hashes are retained under
+`content-packs/courtroom-demo/`.
 
-The software architecture, editor, document model, adapter interfaces, compiler logic, sample stories, repository-original vector scenes, and repository-original vector character stand-ins are developed for this project. Some of those stand-ins depict CAPCOM-owned Ace Attorney characters; originality of the drawing does not imply ownership of the underlying character IP.
+Ace Attorney, its characters, names, logos, and related intellectual property
+belong to CAPCOM Co., Ltd. and/or their respective rights holders. Generated
+depictions of those characters do not confer ownership or a separate license
+to the underlying characters. This unofficial demo is neither endorsed nor
+sponsored by CAPCOM. The repository's code license does not grant rights to
+third-party characters or trademarks.
 
-The Courtroom demo currently contains a number of prototype visual assets derived from or depicting CAPCOM's Ace Attorney series. Those files are listed with source provenance and hashes in `content-packs/courtroom-demo/assets/sources.json`.
-
-## Rights boundary
-
-- Ace Attorney, its characters, game artwork, names, logos, and related intellectual property belong to CAPCOM Co., Ltd. and/or their respective rights holders.
-- No ownership of CAPCOM artwork or trademarks is claimed by this repository.
-- No permission, endorsement, sponsorship, or affiliation with CAPCOM is implied.
-- Any license applied to Yahari Script's original source code does **not** grant rights to third-party artwork or trademarks.
-- The prototype assets are included for technical demonstration and interoperability research. This notice is not a claim that their redistribution is licensed or otherwise legally exempt.
-- Rights holders may request removal or replacement of third-party assets. The project architecture intentionally keeps content packs separable so proprietary art can be replaced without changing the core editor/compiler.
-
-For provenance details, see `content-packs/courtroom-demo/assets/sources.json`.
-
-## Rehearsal audio
-
-The repository does not bundle Ace Attorney music, voice clips, or sound-effect files for the rehearsal audio path. The default preview cues are procedurally synthesized rehearsal audio declared as note/timing metadata in the content catalog. They are intentionally simple functional placeholders and are not intended to reproduce CAPCOM recordings or compositions.
+The demo's rehearsal audio remains procedurally synthesized from simple
+note/timing metadata. It does not bundle game recordings or compositions.

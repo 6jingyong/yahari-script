@@ -31,7 +31,7 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 61 action image mappings, file hashes and crop bounds. Current milestone: 88 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. After the repository is public and Pages is enabled once with Source = `GitHub Actions`, future verified `main` pushes publish automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 66 action image mappings, file hashes, full PNG/JPEG integrity and crop bounds. Current milestone: 88 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. The older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics, Courtroom scene generation and its performance plan. Story AI owns adapter-neutral outlining, fact/scene contracts and model transport. Presentation resources are resolved from ResourceRef through the generic presentation resolver. EditorStore owns document mutations/history. DOM is an input surface, never canonical script data.
@@ -40,13 +40,13 @@ See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.
 
 ## Assets, trademarks and privacy
 
-Yahari Script is an independent, unofficial technical prototype. The Courtroom demo's character/scene/action declarations live in `content-packs/courtroom-demo/catalog.json`, while provenance and file hashes live in `content-packs/courtroom-demo/assets/sources.json`. The pack contains prototype visual assets derived from or depicting CAPCOM's Ace Attorney series.
+Yahari Script is an independent, unofficial technical prototype. The Courtroom demo's character/scene/action declarations live in `content-packs/courtroom-demo/catalog.json`, while provenance and file hashes live in `content-packs/courtroom-demo/assets/sources.json`. The current pack uses generated Q-style depictions of Ace Attorney characters and generated environment art. Source atlases and a reproducible cutting recipe live alongside the pack.
 
 CAPCOM and the respective rights holders retain all rights in Ace Attorney characters, artwork, names and trademarks. No affiliation, endorsement or license from CAPCOM is claimed. Any license applied to Yahari Script's original code does not grant rights to third-party assets. See [THIRD_PARTY_ASSETS.md](./THIRD_PARTY_ASSETS.md) for the full boundary and [docs/CAPCOM_PITCH.md](./docs/CAPCOM_PITCH.md) for the project's technical introduction aimed at CAPCOM or other rights holders.
 
 The browser keeps the model API Key in memory and does not include it in project exports or local drafts.
 
-The current demo material catalog exposes 14 bindable character presets, 66 character actions and 15 scenes. Five newer presets (Manfred von Karma, Dick Gumshoe, Lotta Hart, Yanni Yogi and Mia Fey) use repository-original vector stand-ins rather than additional ripped game sprites; the underlying character identities and trademarks remain CAPCOM property.
+The current demo material catalog exposes 14 bindable character presets, 66 character actions and 15 scenes. Each character has three distinct generated images (neutral, gesture, reaction); related action IDs temporarily share these images. The next art pass can add dedicated poses without changing existing scripts. See [ART_DIRECTION.md](./content-packs/courtroom-demo/ART_DIRECTION.md).
 
 ## Mobile authoring increment (2026-09-24)
 

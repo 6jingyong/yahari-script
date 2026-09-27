@@ -1,6 +1,6 @@
 {
   "id": "official.courtroom-demo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "name": "Courtroom Demo Pack",
   "stageScene": "background/courtroom",
   "characters": [
@@ -853,283 +853,664 @@
   },
   "resources": {
     "background/courtroom": {
-      "file": "courtroom.png"
+      "file": "chibi-courtroom.jpg"
     },
     "background/witness-stand": {
-      "file": "witness-stand.png"
+      "file": "chibi-witness-stand.jpg"
     },
     "background/lobby": {
-      "file": "lobby.png"
+      "file": "chibi-lobby.jpg"
     },
     "background/office": {
-      "file": "office.svg"
+      "file": "chibi-office.jpg"
     },
     "background/detention-room": {
-      "file": "detention-room.svg"
+      "file": "chibi-detention-room.jpg"
     },
     "background/police-records": {
-      "file": "police-records.svg"
+      "file": "chibi-police-records.jpg"
     },
     "background/night-corridor": {
-      "file": "night-corridor.svg"
+      "file": "chibi-night-corridor.jpg"
     },
     "stage/defense/background": {
-      "file": "defence.png"
-    },
-    "stage/defense/foreground": {
-      "file": "defence-bench.png",
-      "colorKey": "magenta"
+      "file": "chibi-stage-defense.jpg"
     },
     "stage/prosecution/background": {
-      "file": "prosecution.png"
-    },
-    "stage/prosecution/foreground": {
-      "file": "prosecution-bench.png",
-      "colorKey": "magenta"
+      "file": "chibi-stage-prosecution.jpg"
     },
     "stage/witness/background": {
-      "file": "witness-stand.png"
-    },
-    "stage/witness/foreground": {
-      "file": "witness-bench.png",
-      "colorKey": "magenta"
+      "file": "chibi-witness-stand.jpg"
     },
     "stage/judge/background": {
-      "file": "judgestand.png"
+      "file": "chibi-courtroom.jpg"
     },
     "character/phoenix/pose/normal": {
-      "file": "phoenix-normal.png"
+      "file": "chibi-phoenix-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/phoenix/pose/think": {
-      "file": "phoenix-think.png"
+      "file": "chibi-phoenix-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/phoenix/pose/point": {
-      "file": "phoenix-point.png"
+      "file": "chibi-phoenix-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/phoenix/pose/desk": {
-      "file": "phoenix-desk.png",
+      "file": "chibi-phoenix-gesture.png",
       "frame": [
-        256,
         0,
-        256,
-        192
+        0,
+        512,
+        384
       ]
     },
     "character/phoenix/reaction/sweat": {
-      "file": "phoenix-sweat.png"
-    },
-    "character/phoenix/reaction/shocked": {
-      "file": "phoenix-shocked.png",
+      "file": "chibi-phoenix-reaction.png",
       "frame": [
         0,
-        384,
-        256,
-        192
+        0,
+        512,
+        384
+      ]
+    },
+    "character/phoenix/reaction/shocked": {
+      "file": "chibi-phoenix-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
       ]
     },
     "character/apollo/pose/normal": {
-      "file": "apollo-normal.png"
+      "file": "chibi-apollo-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/apollo/pose/think": {
-      "file": "apollo-think.png"
+      "file": "chibi-apollo-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/apollo/pose/point": {
-      "file": "apollo-point.png"
+      "file": "chibi-apollo-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/apollo/pose/confident": {
-      "file": "apollo-confident.png"
+      "file": "chibi-apollo-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/apollo/reaction/shocked": {
-      "file": "apollo-shocked.png"
+      "file": "chibi-apollo-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/apollo/reaction/sweat": {
-      "file": "apollo-sweat.png"
+      "file": "chibi-apollo-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/klavier/pose/normal": {
-      "file": "klavier-normal.png"
+      "file": "chibi-klavier-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/klavier/pose/fist": {
-      "file": "klavier-fist.png"
+      "file": "chibi-klavier-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/klavier/pose/laugh": {
-      "file": "klavier-laugh.png"
+      "file": "chibi-klavier-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/klavier/reaction/damaged": {
-      "file": "klavier-damaged.png"
+      "file": "chibi-klavier-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/ema/pose/normal": {
-      "file": "ema-normal.png"
+      "file": "chibi-ema-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/ema/pose/science": {
-      "file": "ema-science.png"
+      "file": "chibi-ema-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/ema/pose/smug": {
-      "file": "ema-smug.png"
+      "file": "chibi-ema-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/ema/pose/mad": {
-      "file": "ema-mad.png"
+      "file": "chibi-ema-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/ema/reaction/surprised": {
-      "file": "ema-surprised.png"
+      "file": "chibi-ema-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/trucy/pose/normal": {
-      "file": "trucy-normal.png"
+      "file": "chibi-trucy-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/trucy/pose/cheer": {
-      "file": "trucy-cheer.png"
+      "file": "chibi-trucy-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/trucy/pose/think": {
-      "file": "trucy-think.png"
+      "file": "chibi-trucy-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/trucy/reaction/sad": {
-      "file": "trucy-sad.png"
+      "file": "chibi-trucy-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/trucy/reaction/surprised": {
-      "file": "trucy-surprised.png"
+      "file": "chibi-trucy-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/edgeworth/pose/normal": {
-      "file": "edgeworth-normal.gif"
+      "file": "chibi-edgeworth-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/edgeworth/pose/bow": {
-      "file": "edgeworth-bow.gif"
+      "file": "chibi-edgeworth-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/edgeworth/pose/point": {
-      "file": "edgeworth-point.gif"
+      "file": "chibi-edgeworth-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/edgeworth/pose/smug": {
-      "file": "edgeworth-smug.gif"
+      "file": "chibi-edgeworth-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/edgeworth/reaction/surprised": {
-      "file": "edgeworth-surprised.gif"
+      "file": "chibi-edgeworth-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/edgeworth/reaction/damaged": {
-      "file": "edgeworth-damaged.gif"
+      "file": "chibi-edgeworth-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/maya/pose/normal": {
-      "file": "maya-normal.gif"
+      "file": "chibi-maya-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/maya/pose/cheer": {
-      "file": "maya-cheer.gif"
+      "file": "chibi-maya-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/maya/pose/think": {
-      "file": "maya-think.gif"
+      "file": "chibi-maya-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/maya/reaction/surprised": {
-      "file": "maya-surprised.gif"
+      "file": "chibi-maya-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/maya/reaction/sad": {
-      "file": "maya-sad.gif"
+      "file": "chibi-maya-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/judge/pose/normal": {
-      "file": "judge-normal.png"
+      "file": "chibi-judge-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/judge/pose/stern": {
-      "file": "judge-stern.png"
+      "file": "chibi-judge-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/judge/reaction/surprised": {
-      "file": "judge-surprised.png"
+      "file": "chibi-judge-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/judge/reaction/confused": {
-      "file": "judge-confused.png"
+      "file": "chibi-judge-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/witness/pose/normal": {
-      "file": "witness-normal.gif"
+      "file": "chibi-witness-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/witness/pose/nervous": {
-      "file": "witness-nervous.gif"
+      "file": "chibi-witness-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/witness/pose/confident": {
-      "file": "witness-confident.gif"
+      "file": "chibi-witness-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/witness/reaction/shocked": {
-      "file": "witness-shocked.gif"
+      "file": "chibi-witness-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/witness/reaction/sweat": {
-      "file": "witness-sweat.gif"
+      "file": "chibi-witness-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/von-karma/pose/normal": {
-      "file": "von-karma-normal.svg"
+      "file": "chibi-von-karma-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/von-karma/pose/accuse": {
-      "file": "von-karma-accuse.svg"
+      "file": "chibi-von-karma-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/von-karma/reaction/breakdown": {
-      "file": "von-karma-breakdown.svg"
+      "file": "chibi-von-karma-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/gumshoe/pose/normal": {
-      "file": "gumshoe-normal.svg"
+      "file": "chibi-gumshoe-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/gumshoe/pose/salute": {
-      "file": "gumshoe-salute.svg"
+      "file": "chibi-gumshoe-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/gumshoe/reaction/nervous": {
-      "file": "gumshoe-nervous.svg"
+      "file": "chibi-gumshoe-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/lotta/pose/normal": {
-      "file": "lotta-normal.svg"
+      "file": "chibi-lotta-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/lotta/pose/camera": {
-      "file": "lotta-camera.svg"
+      "file": "chibi-lotta-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/lotta/reaction/shocked": {
-      "file": "lotta-shocked.svg"
+      "file": "chibi-lotta-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/yogi/pose/normal": {
-      "file": "yogi-normal.svg"
+      "file": "chibi-yogi-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/yogi/pose/stern": {
-      "file": "yogi-stern.svg"
+      "file": "chibi-yogi-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/yogi/reaction/broken": {
-      "file": "yogi-broken.svg"
+      "file": "chibi-yogi-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/mia/pose/normal": {
-      "file": "mia-normal.svg"
+      "file": "chibi-mia-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/mia/pose/point": {
-      "file": "mia-point.svg"
+      "file": "chibi-mia-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/mia/reaction/concerned": {
-      "file": "mia-concerned.svg"
+      "file": "chibi-mia-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "background/lake-dock": {
-      "file": "lake-dock.svg"
+      "file": "chibi-lake-dock.jpg"
     },
     "background/evidence-room": {
-      "file": "evidence-room.svg"
+      "file": "chibi-evidence-room.jpg"
     },
     "background/prosecutor-office": {
-      "file": "prosecutor-office.svg"
+      "file": "chibi-prosecutor-office.jpg"
     },
     "background/elevator-hall": {
-      "file": "elevator-hall.svg"
+      "file": "chibi-elevator-hall.jpg"
     },
     "background/boathouse": {
-      "file": "boathouse.svg"
+      "file": "chibi-boathouse.jpg"
     },
     "background/records-basement": {
-      "file": "records-basement.svg"
+      "file": "chibi-records-basement.jpg"
     },
     "background/parking-garage": {
-      "file": "parking-garage.svg"
+      "file": "chibi-parking-garage.jpg"
     },
     "background/hospital-room": {
-      "file": "hospital-room.svg"
+      "file": "chibi-hospital-room.jpg"
     },
     "character/von-karma/pose/smug": {
-      "file": "von-karma-smug.svg"
+      "file": "chibi-von-karma-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/gumshoe/pose/point": {
-      "file": "gumshoe-point.svg"
+      "file": "chibi-gumshoe-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/lotta/pose/grin": {
-      "file": "lotta-grin.svg"
+      "file": "chibi-lotta-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/yogi/reaction/shocked": {
-      "file": "yogi-shocked.svg"
+      "file": "chibi-yogi-reaction.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
     },
     "character/mia/pose/smile": {
-      "file": "mia-smile.svg"
+      "file": "chibi-mia-gesture.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "stage/defense/foreground": {
+      "file": "chibi-stage-defense-foreground.png"
+    },
+    "stage/prosecution/foreground": {
+      "file": "chibi-stage-prosecution-foreground.png"
+    },
+    "stage/witness/foreground": {
+      "file": "chibi-stage-witness-foreground.png"
     }
   }
 }

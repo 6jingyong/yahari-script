@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { inflateSync } from 'node:zlib';
 import { courtroomDemoPack as pack } from '../dist/content-packs/courtroom-demo/pack.js';
 import { courtroomDemoResources } from '../dist/content-packs/courtroom-demo/generated.js';
 import { courtroomDemoResolver } from '../dist/content-packs/courtroom-demo/presentation.js';
@@ -39,11 +40,40 @@ for(const [url,descriptor] of uniqueFiles) {
   assert.ok(source,`Missing provenance: ${url}`);
   assert.equal(createHash('sha256').update(bytes).digest('hex'),source.sha256,`Asset hash mismatch: ${url}`);
   const png=bytes.subarray(0,8).toString('hex')==='89504e470d0a1a0a';
+  const jpeg=bytes.subarray(0,2).toString('hex')==='ffd8';
   const gif=bytes.subarray(0,3).toString()==='GIF';
   const svg=bytes.subarray(0,256).toString('utf8').includes('<svg');
-  assert.ok(png||gif||svg,`Not a supported image: ${url}`);
+  assert.ok(png||jpeg||gif||svg,`Not a supported image: ${url}`);
   let width,height;
-  if(png){width=bytes.readUInt32BE(16);height=bytes.readUInt32BE(20);}
+  if(png){
+    width=bytes.readUInt32BE(16);height=bytes.readUInt32BE(20);
+    let offset=8, ended=false;const idat=[];
+    while(offset+12<=bytes.length){
+      const length=bytes.readUInt32BE(offset),type=bytes.toString('ascii',offset+4,offset+8);
+      assert.ok(offset+12+length<=bytes.length,`Truncated PNG chunk: ${url}`);
+      if(type==='IDAT')idat.push(bytes.subarray(offset+8,offset+8+length));
+      offset+=12+length;
+      if(type==='IEND'){ended=true;break;}
+    }
+    assert.ok(ended&&offset===bytes.length&&idat.length,`Incomplete PNG: ${url}`);
+    assert.doesNotThrow(()=>inflateSync(Buffer.concat(idat)),`Corrupt PNG image data: ${url}`);
+  }
+  else if(jpeg){
+    assert.equal(bytes.subarray(-2).toString('hex'),'ffd9',`Incomplete JPEG: ${url}`);
+    let offset=2;
+    while(offset+4<bytes.length){
+      assert.equal(bytes[offset],0xff,`Invalid JPEG marker: ${url}`);
+      const marker=bytes[offset+1];offset+=2;
+      if(marker===0xd9||marker===0xda)break;
+      const length=bytes.readUInt16BE(offset);
+      assert.ok(length>=2&&offset+length<=bytes.length,`Invalid JPEG segment: ${url}`);
+      if([0xc0,0xc1,0xc2,0xc3].includes(marker)){
+        height=bytes.readUInt16BE(offset+3);width=bytes.readUInt16BE(offset+5);
+      }
+      offset+=length;
+    }
+    assert.ok(width>0&&height>0,`JPEG dimensions missing: ${url}`);
+  }
   else if(gif){width=bytes.readUInt16LE(6);height=bytes.readUInt16LE(8);}
   else {
     const text=bytes.toString('utf8');
