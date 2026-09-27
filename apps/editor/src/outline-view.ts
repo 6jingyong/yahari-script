@@ -83,11 +83,12 @@ export function renderOutlineTree(target: HTMLElement, input: OutlineViewInput):
         label.textContent='舞台';
         const select=document.createElement('select');
         select.setAttribute('aria-label',`${scene.title}的舞台`);
+        select.append(new Option('选择舞台…',''));
         for(const option of input.sceneOptions){
           select.append(new Option(option.label,option.id));
         }
-        select.value=input.sceneOptionFor(id)??input.sceneOptions[0].id;
-        select.addEventListener('change',()=>input.onSceneOptionChange?.(id,select.value));
+        select.value=input.sceneOptionFor(id)??'';
+        select.addEventListener('change',()=>{if(select.value)input.onSceneOptionChange?.(id,select.value);});
         row.append(label,select);
         entry.append(row);
       }
