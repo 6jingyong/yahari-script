@@ -36,11 +36,20 @@ jobs:
       - run: npm run build
       - run: node scripts/build-static.mjs
       - name: Configure Pages
+        id: pages
+        continue-on-error: true
         uses: actions/configure-pages@v5
+      - name: Pages setup required
+        if: steps.pages.outcome != 'success'
+        run: |
+          echo "GitHub Pages is not enabled yet."
+          echo "Open Settings > Pages and set Source to GitHub Actions once. Future verified commits will deploy automatically." >> "$GITHUB_STEP_SUMMARY"
       - name: Upload Pages artifact
+        if: steps.pages.outcome == 'success'
         uses: actions/upload-pages-artifact@v4
         with:
           path: out
       - name: Deploy
+        if: steps.pages.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
