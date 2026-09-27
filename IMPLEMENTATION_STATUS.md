@@ -1,11 +1,12 @@
 ## Automatic deployment increment (2026-09-27)
 
 - Static URLs are subpath-safe and the build outputs a portable `out` directory.
-- Production hosting is now configured for Render instead of GitHub Pages/Vercel. `render.yaml` builds the static `out` directory and uses `autoDeployTrigger: checksPass`, so Render only deploys after linked GitHub checks pass.
-- After the private GitHub repository is connected to Render once, `main` pushes become automatic public static-site deployments; no GitHub Pages or Vercel account upgrade is required.
+- Deployment is consolidated back onto GitHub Pages for the public-repository path. The `Verify` workflow gates deployment: only a successful push to `main` proceeds to build `out` and publish it.
+- After repository visibility is changed to Public and Pages Source is set to `GitHub Actions` once, subsequent verified `main` pushes deploy automatically without an external hosting account.
 - Current verified state: 75 tests pass, 34 browser modules resolve, and 58 local images cover 9 bindable characters / 46 actions / 7 scenes with source hashes and crop bounds.
 - The built-in “凌晨的通行证” exercises all four newly added investigation scenes, including the detention interview room.
 - The material library adds Apollo Justice, Klavier Gavin, Ema Skye and Trucy Wright as opt-in presets while preserving the historical five-person default demo cast.
+- Public-release documentation now separates original code from CAPCOM-owned prototype artwork via `THIRD_PARTY_ASSETS.md`, and includes a bilingual `docs/CAPCOM_PITCH.md` for presenting the authoring/compiler concept to the rights holder.
 
 ## Direct Chat edit increment (2026-09-27)
 
