@@ -1,4 +1,13 @@
 import { installStoryDialog } from "./story-dialog.js";
+import { renderOutlineTree } from "./outline-view.js";
+import {
+  LEGACY_STORAGE_KEY,
+  STORAGE_KEY,
+  documentsWithActiveEdit as mergeActiveDocument,
+  downloadProject,
+  loadStoredProject,
+  saveProject,
+} from "./project-storage.js";
 import { addDemoCharacter, completeDemoCast } from '../../../content-packs/courtroom-demo/cast.js';
 import { courtroomDemoPack } from '../../../content-packs/courtroom-demo/pack.js';
 import { courtroomDemoResolver } from '../../../content-packs/courtroom-demo/presentation.js';
@@ -39,8 +48,6 @@ import {
 } from "../../../examples/courtroom-demo-project/fixture.js";
 import { createSampleStory, normalizeSampleCast, sampleStories } from "../../../examples/courtroom-demo-project/story-cases.js";
 
-const STORAGE_KEY = "yahari-script:p1b:project";
-const LEGACY_STORAGE_KEY = "yahari-script:p1a:demo-document";
 const PROJECT_FILE_CATALOG = {
   adapters: [{ id: courtroomAdapter.manifest.id, version: courtroomAdapter.manifest.version }],
   contentPacks: demoProject.contentPacks.map((pack) => ({ id: pack.id, version: pack.version })),
@@ -64,20 +71,13 @@ function defaultProjectFile(): YahariProjectFile {
 }
 
 function loadInitialProject(): YahariProjectFile {
-  for (const key of [STORAGE_KEY, LEGACY_STORAGE_KEY]) {
-    try {
-      const raw = localStorage.getItem(key);
-      if (!raw) continue;
-      const decoded = decodeProjectFile(JSON.parse(raw), PROJECT_FILE_CATALOG, demoManifest);
-      if (decoded.ok && decoded.kind === "project") {
-        if (decoded.availability === 'ready') decoded.project.manifest = normalizeSampleCast(completeDemoCast(decoded.project.manifest));
-        return decoded.project;
-      }
-    } catch {
-      // Try the next source, then fall through to the fixture.
-    }
-  }
-  return defaultProjectFile();
+  return loadStoredProject(
+    localStorage,
+    PROJECT_FILE_CATALOG,
+    demoManifest,
+    defaultProjectFile,
+    manifest => normalizeSampleCast(completeDemoCast(manifest)),
+  );
 }
 
 let projectFile = loadInitialProject();
@@ -270,9 +270,8 @@ function persist(): void {
     window.clearTimeout(persistTimer);
     persistTimer = null;
   }
-  projectFile = createProjectFile(currentProject.manifest, documentsWithActiveEdit());
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(projectFile));
+    projectFile = saveProject(localStorage,currentProject.manifest,documentsWithActiveEdit());
   } catch {
     saveStatus.textContent = "保存失败";
     showToast("未能保存，请导出剧本以免丢失。", "error");
@@ -291,9 +290,7 @@ function schedulePersist(): void {
 }
 
 function documentsWithActiveEdit(): ScriptDocument[] {
-  const active = store.document;
-  const existing = projectFile.documents.map(document => document.documentId === active.documentId ? active : document);
-  return existing.some(document => document.documentId === active.documentId) ? existing : [...existing, active];
+  return mergeActiveDocument(projectFile,store.document);
 }
 
 function showToast(message: string, tone: "normal" | "error" = "normal"): void {
@@ -504,40 +501,13 @@ function switchScene(id: string): void {
   loadDraft(); persist(); renderAll();
 }
 function renderOutline(): void {
-  const active = store.document;
-  const docs = documentsWithActiveEdit();
-  outline.replaceChildren();
-  const work = document.createElement('details'); work.className='work-tree';
-  const workKey=`work:${currentProject.manifest.projectId}`;
-  work.open=foldedOutline.get(workKey)??true;
-  work.addEventListener('toggle',()=>foldedOutline.set(workKey,work.open));
-  const workHeading=document.createElement('summary');
-  const workLabel=document.createElement('span');workLabel.className='tree-label';workLabel.textContent='作品';
-  const workTitle=document.createElement('strong');workTitle.textContent=currentProject.manifest.title;
-  const workCount=document.createElement('span');workCount.className='tree-count';workCount.textContent=`${docs.length} 场`;
-  workHeading.append(workLabel,workTitle,workCount);
-  const summary = document.createElement('small');summary.textContent=currentProject.manifest.narrative?.summary || '暂无作品摘要';workHeading.append(summary);
-  work.append(workHeading);
-  const chapters = [...(currentProject.manifest.narrative?.chapters ?? [])];
-  const assigned = new Set(chapters.flatMap(c=>c.documentIds));
-  const loose = docs.filter(d=>!assigned.has(d.documentId));
-  if(loose.length)chapters.push({id:'unassigned',title:'未分章',summary:'',documentIds:loose.map(d=>d.documentId)});
-  for(const chapter of chapters){
-    const section=document.createElement('details');section.className='chapter-tree';section.open=foldedOutline.get(chapter.id)??true;
-    section.addEventListener('toggle',()=>foldedOutline.set(chapter.id,section.open));
-    const heading=document.createElement('summary');heading.textContent=`${chapter.title} · ${chapter.documentIds.length} 场`;
-    const note=document.createElement('small');note.textContent=chapter.summary;heading.append(note);section.append(heading);
-    for(const id of chapter.documentIds){
-      const scene=docs.find(d=>d.documentId===id);if(!scene)continue;
-      const item=document.createElement('button');item.type='button';item.className=`scene-leaf${id===active.documentId?' is-selected':''}`;
-      if(id===active.documentId)item.setAttribute('aria-current','location');
-      const title=document.createElement('strong');title.textContent=scene.title;
-      const desc=document.createElement('small');desc.textContent=scene.summary||'暂无场景摘要';
-      item.append(title,desc);item.onclick=()=>{switchScene(id);setPanel('outline',false,false)};
-      section.append(item);
-    }work.append(section);
-  }
-  outline.append(work);
+  renderOutlineTree(outline,{
+    manifest:currentProject.manifest,
+    documents:documentsWithActiveEdit(),
+    activeDocumentId:store.document.documentId,
+    folded:foldedOutline,
+    onSelect:id=>{switchScene(id);setPanel('outline',false,false);},
+  });
 }
 
 function speakerSelect(block: DialogueBlock): HTMLSelectElement {
@@ -1196,23 +1166,13 @@ function escapeHtml(value: string): string {
     .replaceAll("'", "&#039;");
 }
 
-function safeFileName(value: string): string {
-  return value.trim().replace(/[^\p{L}\p{N}._-]+/gu, "-").replace(/^-+|-+$/g, "") || "yahari-project";
-}
-
 function exportProject(): void {
   store.commitEditSession();
   const exported = createProjectFile(currentProject.manifest, documentsWithActiveEdit(), {
     exportedAt: new Date().toISOString(),
     generator: "Yahari Script P1-d Cast Recovery",
   });
-  const blob = new Blob([JSON.stringify(exported, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `${safeFileName(currentProject.manifest.title)}.yahari-project.json`;
-  anchor.click();
-  URL.revokeObjectURL(url);
+  downloadProject(exported);
 }
 
 function activateProject(next: YahariProjectFile): boolean {
