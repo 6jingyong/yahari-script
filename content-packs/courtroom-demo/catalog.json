@@ -554,49 +554,255 @@
       {
         "id": "objection",
         "label": "异议！",
-        "resource": "audio/sfx/objection"
+        "resource": "audio/sfx/objection",
+        "previewAudio": {
+          "waveform": "sawtooth",
+          "notes": [
+            {
+              "frequency": 220,
+              "durationMs": 95,
+              "gain": 0.075
+            },
+            {
+              "frequency": 277.18,
+              "durationMs": 95,
+              "offsetMs": 70,
+              "gain": 0.07
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 130,
+              "offsetMs": 140,
+              "gain": 0.065
+            }
+          ]
+        }
       },
       {
         "id": "hold-it",
         "label": "等一下！",
-        "resource": "audio/sfx/hold-it"
+        "resource": "audio/sfx/hold-it",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 392,
+              "durationMs": 80,
+              "gain": 0.055
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 120,
+              "offsetMs": 80,
+              "gain": 0.05
+            }
+          ]
+        }
       },
       {
         "id": "desk-slam",
         "label": "拍桌",
-        "resource": "audio/sfx/desk-slam"
+        "resource": "audio/sfx/desk-slam",
+        "previewAudio": {
+          "waveform": "sine",
+          "notes": [
+            {
+              "frequency": 92,
+              "durationMs": 150,
+              "gain": 0.09
+            },
+            {
+              "frequency": 62,
+              "durationMs": 190,
+              "offsetMs": 35,
+              "gain": 0.065
+            }
+          ]
+        }
       },
       {
         "id": "gavel",
         "label": "法槌",
-        "resource": "audio/sfx/gavel"
+        "resource": "audio/sfx/gavel",
+        "previewAudio": {
+          "waveform": "triangle",
+          "notes": [
+            {
+              "frequency": 520,
+              "durationMs": 55,
+              "gain": 0.065
+            },
+            {
+              "frequency": 260,
+              "durationMs": 150,
+              "offsetMs": 45,
+              "gain": 0.075
+            }
+          ]
+        }
       },
       {
         "id": "impact",
         "label": "冲击",
-        "resource": "audio/sfx/impact"
+        "resource": "audio/sfx/impact",
+        "previewAudio": {
+          "waveform": "sawtooth",
+          "notes": [
+            {
+              "frequency": 110,
+              "durationMs": 100,
+              "gain": 0.075
+            },
+            {
+              "frequency": 73,
+              "durationMs": 180,
+              "offsetMs": 25,
+              "gain": 0.055
+            }
+          ]
+        }
       }
     ],
     "bgm": [
       {
         "id": "trial",
         "label": "开庭",
-        "resource": "audio/bgm/trial"
+        "resource": "audio/bgm/trial",
+        "previewAudio": {
+          "waveform": "triangle",
+          "loopMs": 2400,
+          "notes": [
+            {
+              "frequency": 130.81,
+              "durationMs": 160,
+              "offsetMs": 0,
+              "gain": 0.025
+            },
+            {
+              "frequency": 164.81,
+              "durationMs": 160,
+              "offsetMs": 600,
+              "gain": 0.025
+            },
+            {
+              "frequency": 196,
+              "durationMs": 160,
+              "offsetMs": 1200,
+              "gain": 0.025
+            },
+            {
+              "frequency": 164.81,
+              "durationMs": 160,
+              "offsetMs": 1800,
+              "gain": 0.025
+            }
+          ]
+        }
       },
       {
         "id": "cross-examination",
         "label": "询问",
-        "resource": "audio/bgm/cross-examination"
+        "resource": "audio/bgm/cross-examination",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 2000,
+          "notes": [
+            {
+              "frequency": 174.61,
+              "durationMs": 110,
+              "offsetMs": 0,
+              "gain": 0.018
+            },
+            {
+              "frequency": 196,
+              "durationMs": 110,
+              "offsetMs": 500,
+              "gain": 0.018
+            },
+            {
+              "frequency": 220,
+              "durationMs": 110,
+              "offsetMs": 1000,
+              "gain": 0.018
+            },
+            {
+              "frequency": 196,
+              "durationMs": 110,
+              "offsetMs": 1500,
+              "gain": 0.018
+            }
+          ]
+        }
       },
       {
         "id": "suspense",
         "label": "疑点",
-        "resource": "audio/bgm/suspense"
+        "resource": "audio/bgm/suspense",
+        "previewAudio": {
+          "waveform": "sine",
+          "loopMs": 3000,
+          "notes": [
+            {
+              "frequency": 110,
+              "durationMs": 520,
+              "offsetMs": 0,
+              "gain": 0.022
+            },
+            {
+              "frequency": 116.54,
+              "durationMs": 520,
+              "offsetMs": 1000,
+              "gain": 0.02
+            },
+            {
+              "frequency": 103.83,
+              "durationMs": 520,
+              "offsetMs": 2000,
+              "gain": 0.022
+            }
+          ]
+        }
       },
       {
         "id": "pursuit",
         "label": "追击",
-        "resource": "audio/bgm/pursuit"
+        "resource": "audio/bgm/pursuit",
+        "previewAudio": {
+          "waveform": "sawtooth",
+          "loopMs": 1600,
+          "notes": [
+            {
+              "frequency": 220,
+              "durationMs": 90,
+              "offsetMs": 0,
+              "gain": 0.018
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 90,
+              "offsetMs": 320,
+              "gain": 0.018
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 90,
+              "offsetMs": 640,
+              "gain": 0.018
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 90,
+              "offsetMs": 960,
+              "gain": 0.018
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 90,
+              "offsetMs": 1280,
+              "gain": 0.018
+            }
+          ]
+        }
       }
     ]
   },
