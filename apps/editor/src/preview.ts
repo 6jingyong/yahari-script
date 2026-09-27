@@ -5,7 +5,7 @@ import type { CourtroomPerformancePlan } from '../../../packages/adapters/courtr
 import type { ProjectContext } from '../../../packages/core/src/index.js';
 import type { CourtroomContentPack } from '../../../packages/adapters/courtroom/src/index.js';
 import type { ResourceResolver } from '../../../packages/presentation/src/index.js';
-import { courtroomBackgroundLabel, type CourtroomPresentationContext } from './preview-visuals.js';
+import { courtroomActionLabel, courtroomBackgroundLabel, type CourtroomPresentationContext } from './preview-visuals.js';
 import { presentationStateAt, transientEffectsBetween } from './preview-effects.js';
 import { playPreviewEffects } from './preview-effect-player.js';
 
@@ -124,7 +124,10 @@ export function openPreview(
     dialogue.classList.toggle('is-emphasis',Boolean(presentationState.emphasis));
     dialogue.dataset.emphasis=presentationState.emphasis??'';
     dialogue.scrollTop=dialogue.scrollHeight;
-    dialog.querySelector('.preview-state')!.textContent=[...characters].map(([id,p])=>`${name(id)} · ${({normal:'平常',point:'指证',sweat:'冒汗',surprised:'惊讶',think:'思考',desk:'拍桌',shocked:'震惊',bow:'致意',smug:'从容',damaged:'受创',cheer:'加油',sad:'沮丧',stern:'严肃',confused:'困惑',nervous:'紧张',confident:'自信'} as Record<string,string>)[p]??'动作'}`).concat(state?[state]:[]).join(' / ');
+    dialog.querySelector('.preview-state')!.textContent=[...characters].map(([id,actionId])=>{
+      const characterRef=manifest.cast.find(c=>c.castId===id)?.characterRef;
+      return `${name(id)} · ${courtroomActionLabel(presentation,characterRef,actionId)??actionId}`;
+    }).concat(state?[state]:[]).join(' / ');
     dialog.querySelector('.preview-assets')!.textContent=playbackState.loading?'正在准备本句画面…':layers.some(url=>failed.has(url))?'部分图像加载失败，台词与指令仍可继续。':camera&&!visual.sprite?'当前角色或动作暂无对应图像。':'';
     dialog.querySelector('.preview-progress')!.textContent=playbackState.count?`${playbackState.page+1} / ${playbackState.count}`:'';
     (dialog.querySelector('[data-back]') as HTMLButtonElement).disabled=playbackState.page===0;
@@ -149,8 +152,8 @@ export function openPreview(
   });
   dialog.querySelector('[data-restart]')!.addEventListener('click',()=>{
     if(preloading)return;
-    effectCursor=player.pages[playbackState.page]?.start??0;
-    player.start(playbackState.page);
+    effectCursor=player.pages[0]?.start??0;
+    player.start();
   });
   dialog.querySelector('[data-close]')!.addEventListener('click',()=>dialog.close());
   dialog.querySelector('.preview-stage')!.addEventListener('click',()=>{if(!preloading)player.next();});
