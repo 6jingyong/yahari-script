@@ -29,16 +29,20 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 46 action image mappings, file hashes and crop bounds. Current milestone: 75 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. Production hosting is configured for Render through `render.yaml`: the private GitHub repo stays private, GitHub `Verify` remains the quality gate, and Render waits for linked-branch checks to pass before auto-deploying `main` to its public static-site URL. The older `chatgpt.site` preview remains an independent legacy deployment.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 46 action image mappings, file hashes and crop bounds. Current milestone: 75 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. After the repository is public and Pages is enabled once with Source = `GitHub Actions`, future verified `main` pushes publish automatically. The older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics and its performance plan. EditorStore owns document mutations/history. The browser UI and preview consume these layers. DOM is an input surface, never canonical script data.
 
 See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.md for invariants and `.astra-code/PROJECT_STATE.md` for continuation guidance. Historical v0.6/P1 documents describe earlier checkpoints and are not current feature inventories.
 
-## Assets and privacy
+## Assets, trademarks and privacy
 
-The Courtroom demo includes CAPCOM game artwork collected through third-party projects. Provenance and file hashes are recorded in `content-packs/courtroom-demo/assets/sources.json`; possession of this repository does not grant a commercial license for that artwork. Keep the repository private until those rights are resolved or the assets are replaced. The browser keeps the model API Key in memory and does not include it in project exports or local drafts.
+Yahari Script is an independent, unofficial technical prototype. The Courtroom demo contains prototype visual assets derived from or depicting CAPCOM's Ace Attorney series. Provenance and file hashes are recorded in `content-packs/courtroom-demo/assets/sources.json`.
+
+CAPCOM and the respective rights holders retain all rights in Ace Attorney characters, artwork, names and trademarks. No affiliation, endorsement or license from CAPCOM is claimed. Any license applied to Yahari Script's original code does not grant rights to third-party assets. See [THIRD_PARTY_ASSETS.md](./THIRD_PARTY_ASSETS.md) for the full boundary and [docs/CAPCOM_PITCH.md](./docs/CAPCOM_PITCH.md) for the project's technical introduction aimed at CAPCOM or other rights holders.
+
+The browser keeps the model API Key in memory and does not include it in project exports or local drafts.
 
 ## Mobile authoring increment (2026-09-24)
 
