@@ -2,7 +2,7 @@ import { preloadAssets } from './preview-preload.js';
 import { collectSceneAssets, sceneAt } from './preview-scene.js';
 import { PreviewPlayback, type PlaybackSnapshot } from './preview-playback.js';
 import type { CourtroomPerformancePlan } from '../../../packages/adapters/courtroom/src/index.js';
-import type { ProjectContext, ResourceRef } from '../../../packages/core/src/index.js';
+import type { ProjectContext } from '../../../packages/core/src/index.js';
 import type { CourtroomContentPack } from '../../../packages/adapters/courtroom/src/index.js';
 import type { ResourceResolver } from '../../../packages/presentation/src/index.js';
 import { courtroomBackgroundLabel, type CourtroomPresentationContext } from './preview-visuals.js';
