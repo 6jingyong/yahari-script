@@ -1,6 +1,7 @@
 import { installStoryDialog } from "./story-dialog.js";
 import { addDemoCharacter, completeDemoCast } from '../../../content-packs/courtroom-demo/cast.js';
 import { courtroomDemoPack } from '../../../content-packs/courtroom-demo/pack.js';
+import { courtroomDemoResolver } from '../../../content-packs/courtroom-demo/presentation.js';
 import { actionArt, actionLabel } from "./action-art.js";
 import { openPreview } from "./preview.js";
 import {
@@ -1481,7 +1482,7 @@ renderAll();
 requireElement<HTMLButtonElement>("#preview-button").addEventListener("click", () => {
   if (diagnostics().some(item => item.severity === "error")) { setPanel('inspector', true); inspectorTab="diagnostics";activateInspectorTab();renderInspector();showToast("请先修复检查中的错误，再开始排练。", "error"); return; }
   store.commitEditSession();
-  openPreview(courtroomAdapter.compile(store.document,currentProject),castName,currentProject.manifest);
+  openPreview(courtroomAdapter.compile(store.document,currentProject),castName,currentProject,courtroomDemoResolver);
 });
 
 requireElement('#navigator-button').addEventListener('click', () => { renderOutline(); setPanel('outline', true); });
