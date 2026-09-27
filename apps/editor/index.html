@@ -59,11 +59,14 @@
         </div>
         <div id="editor-canvas" class="editor-canvas" aria-label="剧本对话"></div>
         <section class="chat-composer" aria-label="发送台词">
-<div id="first-run-hint" hidden>选角色写台词，用「动作」加入演出。<button id="dismiss-hint" type="button">知道了</button></div>
-          <div class="identity-heading"><span>以谁的身份发言</span><span id="compose-name"></span></div>
-          <div id="identity-list" class="identity-list" aria-label="选择发言身份"></div>
-          <div class="compose-box"><div id="compose-input" contenteditable="true" role="textbox" aria-label="台词输入框" aria-multiline="true" data-placeholder="输入台词…" spellcheck="false"></div></div>
-          <div class="compose-tools"><div><button id="compose-action" type="button">😊 动作</button><button id="compose-cue" type="button">场景</button></div><span class="send-hint">Enter 发送 · Shift+Enter 换行</span><button id="compose-send" type="button">发送</button></div>
+<div id="first-run-hint" hidden>点左侧头像切换发言人物，用「动作」加入当前人物的演出。<button id="dismiss-hint" type="button">知道了</button></div>
+          <div class="compose-row">
+            <button id="compose-avatar" class="speaker-avatar composer-avatar" type="button" aria-label="切换发言人物"></button>
+            <div class="compose-stack">
+              <div class="compose-box"><div id="compose-input" contenteditable="true" role="textbox" aria-label="台词输入框" aria-multiline="true" data-placeholder="输入台词…" spellcheck="false"></div></div>
+              <div class="compose-tools"><div><button id="compose-action" type="button">😊 动作</button></div><span class="send-hint">Enter 发送 · Shift+Enter 换行</span><button id="compose-send" type="button">发送</button></div>
+            </div>
+          </div>
         </section>
       </section>
 
@@ -86,7 +89,7 @@
       <label class="field-label" for="project-name-input">剧本名称</label>
       <input id="project-name-input" class="text-field" type="text" maxlength="80" required />
       <p class="project-note">开场自动绑定说话人与默认站位；句首动作设定起始姿态，句中动作随台词触发。</p>
-      <p class="project-note">预加载版 2026.09.26 · 5 人 / 26 个动作</p>
+      <p class="project-note">当前素材库 · 14 人 / 66 个动作 / 15 个场景</p>
       <div class="dialog-actions">
         <button id="project-cancel-button" type="button" class="secondary-button">取消</button>
         <button type="submit" class="create-button">创建</button>
@@ -113,6 +116,9 @@
       <div class="dialog-actions"><button id="structure-close" type="button" class="secondary-button">取消</button><button type="submit" class="create-button">保存</button></div>
     </form>
   </dialog>
+  <dialog id="speaker-dialog" class="project-dialog speaker-dialog" aria-labelledby="speaker-title">
+    <div class="cast-dialog-content"><h2 id="speaker-title">选择发言人物</h2><div id="speaker-options" class="speaker-options"></div><div class="dialog-actions"><button id="speaker-add" class="secondary-button" type="button">＋ 添加角色</button><button id="speaker-close" class="secondary-button" type="button">返回写作</button></div></div>
+  </dialog>
   <dialog id="cast-dialog" class="project-dialog" aria-labelledby="cast-title">
     <div class="cast-dialog-content"><h2 id="cast-title">添加角色</h2><div id="cast-options"></div><button id="cast-close" class="secondary-button" type="button">返回写作</button></div>
   </dialog>
@@ -125,7 +131,7 @@
         <input id="picker-search" type="text" autocomplete="off" placeholder="搜索表情或动作…" />
         <button id="picker-close" type="button" aria-label="关闭表情面板">×</button>
       </div>
-      <div class="picker-target-row"><label for="action-target">执行者</label><select id="action-target"><option value="">当前身份</option></select><span id="picker-context" class="picker-context"></span></div>
+      <div class="picker-target-row"><span id="picker-context" class="picker-context"></span></div>
       <div id="picker-list" class="picker-list"></div>
     </div>
   </div>

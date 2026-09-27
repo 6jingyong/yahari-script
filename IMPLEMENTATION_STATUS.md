@@ -1,3 +1,15 @@
+## Avatar-first dialogue and scene authoring (2026-09-28)
+
+- Dialogue cards no longer show a speaker-name select above the text. A miniature portrait sits to the left of each dialogue; clicking it opens the speaker picker and changes that block's speaker.
+- The composer uses the same single active portrait instead of a persistent identity strip. The speaker picker also retains the explicit "add character" path.
+- Authoring candidates are current-speaker-only at the Adapter layer. Ordinary dialogue authoring no longer exposes other cast members' pose/reaction/focus candidates.
+- The composer-level Scene button and action-target selector are removed.
+- Background is now authored as a Scene property from the directory. Each Work → Chapter → Scene entry has a stage selector. The portable 0.7 format remains compatible by normalizing that selection into exactly one leading `courtroom.background` CueBlock, which is hidden from the chat transcript.
+- New scenes inherit the active scene's background (or the pack default); unset legacy scenes are shown explicitly as "选择舞台…" rather than pretending a background is active.
+- Added four repository-original vector scenes (boathouse, records basement, parking garage, hospital room) and five new original stand-in actions for von Karma, Gumshoe, Lotta, Yogi and Mia.
+- Current material catalog: 14 characters, 66 character actions, 15 scenes, 87 local image files / 88 resource IDs.
+- Verification: 88 tests pass and 44 browser modules resolve.
+
 ## Original synthesized rehearsal audio (2026-09-28)
 
 - Courtroom content packs can now declare `previewAudio` synthesis metadata for named SFX/BGM resources; build generation validates waveform, note timing, gain and loop values.

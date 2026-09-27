@@ -86,8 +86,8 @@ test('presentation resolves character stations and explicit backgrounds without 
 
 
 test('scene and presentation material catalogs expose the new usable presets', () => {
-  assert.equal(courtroomDemoPack.backgrounds.length, 11);
-  for (const id of ['office','detention-room','police-records','night-corridor','lake-dock','evidence-room','prosecutor-office','elevator-hall']) {
+  assert.equal(courtroomDemoPack.backgrounds.length, 15);
+  for (const id of ['office','detention-room','police-records','night-corridor','lake-dock','evidence-room','prosecutor-office','elevator-hall','boathouse','records-basement','parking-garage','hospital-room']) {
     const scene = courtroomDemoPack.backgrounds.find(item => item.id === id);
     assert.ok(scene, id);
     const visual = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'phoenix'},'normal',scene.resource);
@@ -115,7 +115,20 @@ test('scene and presentation material catalogs expose the new usable presets', (
     assert.ok(courtroomAdapter.compile(document,demoProject).instructions.length > 1, id);
   }
   const focus = candidates.filter(item => item.tokenType === 'courtroom.focus');
-  assert.equal(focus.length,demoManifest.cast.length);
-  assert.equal(focus.find(item => item.id === 'focus:phoenix')?.subject?.kind,'speaker');
-  assert.equal(focus.find(item => item.id === 'focus:edgeworth')?.subject?.kind,'cast');
+  assert.equal(focus.length,1);
+  assert.equal(focus[0]?.id,'focus:phoenix');
+  assert.equal(focus[0]?.subject?.kind,'speaker');
+});
+
+
+test('expanded original stand-ins expose the richer action vocabulary',()=>{
+  const action=(characterId:string,actionId:string)=> {
+    const character=courtroomDemoPack.characters.find(c=>c.id===characterId);
+    return [...(character?.poses??[]),...(character?.reactions??[])].find(item=>item.id===actionId)?.label;
+  };
+  assert.equal(action('von-karma','smug'),'轻蔑');
+  assert.equal(action('gumshoe','point'),'指出');
+  assert.equal(action('lotta','grin'),'得意');
+  assert.equal(action('yogi','shocked'),'震惊');
+  assert.equal(action('mia','smile'),'微笑');
 });

@@ -41,6 +41,20 @@ export class EditorStore {
     return this.#future.length > 0;
   }
 
+  /** Replaces the full active document while preserving undo/redo semantics. */
+  replaceDocument(document: ScriptDocument, recordHistory = true): void {
+    const next=clone(document);
+    if(sameDocument(this.#document,next))return;
+    const before=clone(this.#document);
+    this.#document=next;
+    this.#editSessionStart=null;
+    if(recordHistory){
+      this.#past.push(before);
+      this.#future=[];
+    }
+    this.#emit();
+  }
+
   /** Replaces the active document and starts a fresh editing history. */
   loadDocument(document: ScriptDocument): void {
     this.#document = clone(document);
