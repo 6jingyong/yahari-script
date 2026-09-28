@@ -1,6 +1,6 @@
 {
   "id": "official.courtroom-demo",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "name": "Courtroom Demo Pack",
   "stageScene": "background/courtroom",
   "characters": [
@@ -890,8 +890,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/phoenix/pose/think": {
@@ -899,8 +899,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/phoenix/pose/point": {
@@ -908,8 +908,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/phoenix/pose/desk": {
@@ -917,8 +917,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/phoenix/reaction/sweat": {
@@ -926,8 +926,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/phoenix/reaction/shocked": {
@@ -935,8 +935,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/apollo/pose/normal": {
@@ -1124,8 +1124,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/edgeworth/pose/bow": {
@@ -1133,8 +1133,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/edgeworth/pose/point": {
@@ -1142,8 +1142,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/edgeworth/pose/smug": {
@@ -1151,8 +1151,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/edgeworth/reaction/surprised": {
@@ -1160,8 +1160,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/edgeworth/reaction/damaged": {
@@ -1169,8 +1169,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/maya/pose/normal": {
@@ -1178,8 +1178,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/maya/pose/cheer": {
@@ -1187,8 +1187,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/maya/pose/think": {
@@ -1196,8 +1196,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        256,
+        192
       ]
     },
     "character/maya/reaction/surprised": {
@@ -1205,8 +1205,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/maya/reaction/sad": {
@@ -1214,8 +1214,8 @@
       "frame": [
         0,
         0,
-        512,
-        384
+        160,
+        120
       ]
     },
     "character/judge/pose/normal": {

@@ -7,7 +7,7 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Each character has neutral, gesture, reaction artwork. Related legacy action IDs may share one of these three pictures until dedicated poses are drawn."
+    "note": "Phoenix, Maya, and Edgeworth now use the latest generated character sheets; courtroom, defense, prosecution, and witness backgrounds use the latest generated courtroom sheet. Other legacy action IDs may still share neutral, gesture, or reaction art until dedicated poses are mapped."
   },
   "assets": [
     {
@@ -33,7 +33,7 @@
     {
       "file": "chibi-courtroom.jpg",
       "source": "generated:chibi-atlas",
-      "sha256": "b4c00e732eb837678597ea0802e0aa10366d4727e6e74613b4bc0344748f680f"
+      "sha256": "4db664bcd29603da9fd8df6b7548dbbcaf0b6cd12b5f56f04e2bdec37ae4c081"
     },
     {
       "file": "chibi-detention-room.jpg",
@@ -43,17 +43,17 @@
     {
       "file": "chibi-edgeworth-gesture.png",
       "source": "generated:chibi-atlas",
-      "sha256": "605f791d4ad5f152ad471e8ee8076c8697e68332905eb26cac8fbb2f9f8dcfc0"
+      "sha256": "9d2540759ddad1c9e121a234110cd19e85fffb31e26b9cd8c24ebc56813c947a"
     },
     {
       "file": "chibi-edgeworth-neutral.png",
       "source": "generated:chibi-atlas",
-      "sha256": "2f1129bc7c4ec3374938183937a85b8be3a36942775933292edb92ec4dcc0a40"
+      "sha256": "8688ccbdb0e3bd71679f4c40d51c96e43772b2f675e96c10d4f512cc2ad2aa6e"
     },
     {
       "file": "chibi-edgeworth-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "a6578474d673a47316ce2c0b478f5cee03e2d6f2ea7eeec6a7740f4d7b7bc2f8"
+      "sha256": "5c2ee2ce6bd7915d34e4ea5aa6918deb98ed1370f552e657ab0f102080353f86"
     },
     {
       "file": "chibi-elevator-hall.jpg",
@@ -158,17 +158,17 @@
     {
       "file": "chibi-maya-gesture.png",
       "source": "generated:chibi-atlas",
-      "sha256": "1c2fdba498a0f428bbe3dbfb28bf6cb1e64081fe2fa8fb9554dd341a8dad9fee"
+      "sha256": "cd6eedd915b904aaad4a34a883099520e8c2c604af667e1f718bfb8635bc30aa"
     },
     {
       "file": "chibi-maya-neutral.png",
       "source": "generated:chibi-atlas",
-      "sha256": "07bec1e44edc1dbad62b179767b3ca72ee8f74ec698eb6c19603bde96cdbc6ec"
+      "sha256": "e8e291ea7fbef252fa3d8a01f6226103e163d30835d4c81a8d127841da99bf32"
     },
     {
       "file": "chibi-maya-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "389367f4e68e13ddb023d49f1dde485d17ea6a1620153ded8ceaf5a0eb5de606"
+      "sha256": "abc83b733732155ddfe3934cbf0d4cdab3e4b4e748eaa9a2ddb9e36748462f26"
     },
     {
       "file": "chibi-mia-gesture.png",
@@ -203,17 +203,17 @@
     {
       "file": "chibi-phoenix-gesture.png",
       "source": "generated:chibi-atlas",
-      "sha256": "cfb7aa508db9fbc1f65f28b06a8777cee8d6736d71e7b07f827e7d729e5de0df"
+      "sha256": "059e429c580d8dc18c288597c4c1a125d527aeb41cdd1c9bffa109ca6589158d"
     },
     {
       "file": "chibi-phoenix-neutral.png",
       "source": "generated:chibi-atlas",
-      "sha256": "29fece6c330e0d3f2b89ed1ed4828e6d239f26012f8da67089f98dfb3becb754"
+      "sha256": "773ce4f229b7d325d8e57df4d298dcbd37c6cabc3f01dd3d47a608ae92710392"
     },
     {
       "file": "chibi-phoenix-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "33c21046b71c265b5e72bf4b972b9b0fa3f38baa4abbef746d1807262bef2bdc"
+      "sha256": "dffb2119a0871a6cb0b4399315eeab5fa733c1ba7fc4923e0942db1ea185ecf5"
     },
     {
       "file": "chibi-police-records.jpg",
@@ -238,7 +238,7 @@
     {
       "file": "chibi-stage-defense.jpg",
       "source": "generated:chibi-atlas",
-      "sha256": "65557eb76785ae2bb9cc0760c6b5f746aea26e522eb4f19f946e418ec12a00d7"
+      "sha256": "6f193b88379ab5e0d5245d8e17cb34c06bec477c7f215fd24a427112e928e2f0"
     },
     {
       "file": "chibi-stage-prosecution-foreground.png",
@@ -248,7 +248,7 @@
     {
       "file": "chibi-stage-prosecution.jpg",
       "source": "generated:chibi-atlas",
-      "sha256": "a733c504a8561a8d26a2cba7f5a24b553b6a5c172d83c47d2c5bf255146b2d1b"
+      "sha256": "95eb7924c3ab5db1d6efabdb7e4ac3a925a99174ae66a1237ac7e9fb870869ba"
     },
     {
       "file": "chibi-stage-witness-foreground.png",
@@ -303,7 +303,7 @@
     {
       "file": "chibi-witness-stand.jpg",
       "source": "generated:chibi-atlas",
-      "sha256": "07440def912bbffe906ebc524feba9d49ef5e7d927d55e2a2b9f487d769f3a72"
+      "sha256": "faba597b67fd12bc89131265fa19c102e76fca2f5de5c84e0d9ec95936ee64e9"
     },
     {
       "file": "chibi-yogi-gesture.png",

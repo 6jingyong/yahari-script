@@ -18,6 +18,18 @@ reactions = {
     "breakdown", "broken", "confused", "concerned",
 }
 
+render_sizes = {
+    "chibi-phoenix-neutral.png": (256, 192),
+    "chibi-phoenix-gesture.png": (256, 192),
+    "chibi-phoenix-reaction.png": (256, 192),
+    "chibi-maya-neutral.png": (256, 192),
+    "chibi-maya-gesture.png": (256, 192),
+    "chibi-maya-reaction.png": (160, 120),
+    "chibi-edgeworth-neutral.png": (160, 120),
+    "chibi-edgeworth-gesture.png": (160, 120),
+    "chibi-edgeworth-reaction.png": (160, 120),
+}
+
 for character in catalog["characters"]:
     station = character["stage"]["background"].split("/")[1]
     if station in {"defense", "prosecution", "witness"}:
@@ -25,9 +37,11 @@ for character in catalog["characters"]:
     for action in (*character["poses"], *character["reactions"]):
         action_id = action["id"]
         variant = "gesture" if action_id in gestures else "reaction" if action_id in reactions else "neutral"
+        filename = f"chibi-{character['id']}-{variant}.png"
+        width, height = render_sizes.get(filename, (512, 384))
         catalog["resources"][action["asset"]] = {
-            "file": f"chibi-{character['id']}-{variant}.png",
-            "frame": [0, 0, 512, 384],
+            "file": filename,
+            "frame": [0, 0, width, height],
         }
 
 scene_files = {entry["id"]: f"chibi-{entry['id']}.jpg" for entry in catalog["backgrounds"]}
@@ -47,7 +61,7 @@ for resource_id, filename in scene_files.items():
     key = resource_id if resource_id.startswith("stage/") else f"background/{resource_id}"
     catalog["resources"][key] = {"file": filename}
 
-catalog["version"] = "0.2.0"
+catalog["version"] = "0.3.0"
 CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
 
 files = sorted({item["file"] for item in catalog["resources"].values() if "file" in item})
