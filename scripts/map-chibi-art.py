@@ -1,6 +1,7 @@
 """Bind new chibi art without replacing existing curated resource mappings."""
 import hashlib
 import json
+import re
 from pathlib import Path
 from PIL import Image
 
@@ -45,8 +46,17 @@ ACTION_ATLASES = {
 def grid_frames(filename: str, actions: tuple[str, ...]) -> dict[str, list[int]]:
     """Derive eight independent resource crops from an exact 4x2 atlas."""
     assert len(actions) == 8
-    with Image.open(ASSETS / filename) as sheet:
-        width, height = sheet.size
+    path = ASSETS / filename
+    if path.suffix.lower() == ".svg":
+        text = path.read_text()
+        width_match = re.search(r'<svg[^>]*\bwidth="([0-9.]+)"', text)
+        height_match = re.search(r'<svg[^>]*\bheight="([0-9.]+)"', text)
+        if not width_match or not height_match:
+            raise ValueError(f"SVG action sheet needs numeric dimensions: {filename}")
+        width, height = float(width_match.group(1)), float(height_match.group(1))
+    else:
+        with Image.open(path) as sheet:
+            width, height = sheet.size
     return {
         action: [
             round((index % 4) * width / 4),
@@ -144,7 +154,7 @@ sources = {
     "assets": [
         {
             "file": name,
-            "source": previous_assets.get(name, {}).get("source", "generated:portrait" if name in portrait_files else "generated:8-pose-atlas"),
+            "source": previous_assets.get(name, {}).get("source", "generated:portrait" if name in portrait_files else "generated:vector-8-pose-atlas" if name.endswith(".svg") else "generated:8-pose-atlas"),
             "sha256": hashlib.sha256((ASSETS / name).read_bytes()).hexdigest(),
         }
         for name in sorted(set(files) | set(previous_assets))

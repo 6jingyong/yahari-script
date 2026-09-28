@@ -142,6 +142,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     judge:['normal','stern','gavel-strike','listen','think','relieved','surprised','confused'],
     gumshoe:['normal','salute','point','present-report','think','determined','nervous','embarrassed'],
     franziska:['normal','crossed-arms','point','whip-ready','whip-strike','smirk','surprised','frustrated'],
+    'von-karma':['normal','crossed-arms','accuse','objection','smug','glare','shocked','breakdown'],
   } as const;
   for(const [characterId,ids] of Object.entries(expected)){
     const character=courtroomDemoPack.characters.find(item=>item.id===characterId);
@@ -152,7 +153,8 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     for(const id of ids){
       const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
       assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
-      assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe|franziska)-actions\.png$/);
+      if(characterId==='von-karma') assert.match(visual.sprite!,/chibi-von-karma-actions\.svg$/);
+      else assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe|franziska)-actions\.png$/);
     }
     assert.equal(new Set(actions.map(item=>JSON.stringify(resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},item.id).frame))).size,8,characterId);
   }
@@ -167,4 +169,12 @@ test('Franziska stays opt-in with a separate portrait and prosecution foreground
   assert.ok(visual.foreground?.includes('chibi-stage-prosecution-foreground.png'));
   const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:'character/franziska/portrait'});
   assert.ok(portrait?.url.endsWith('chibi-franziska-neutral.png'));
+});
+
+
+test('von Karma keeps a separate portrait while all eight actions use the vector atlas',()=>{
+  const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:'character/von-karma/portrait'});
+  assert.ok(portrait?.url.endsWith('chibi-von-karma-neutral.png'));
+  const character=courtroomDemoPack.characters.find(item=>item.id==='von-karma');
+  assert.equal(character?.portrait,'character/von-karma/portrait');
 });

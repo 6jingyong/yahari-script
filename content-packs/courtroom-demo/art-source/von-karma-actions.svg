@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1024" viewBox="0 0 2048 1024">
+  <defs>
+    <style>
+      .skin{fill:#f3c8a5;stroke:#302b37;stroke-width:8;stroke-linejoin:round;stroke-linecap:round}
+      .hair{fill:#d8d8dc;stroke:#302b37;stroke-width:8;stroke-linejoin:round}
+      .coat{fill:#24384b;stroke:#302b37;stroke-width:9;stroke-linejoin:round;stroke-linecap:round}
+      .vest{fill:#5d2134;stroke:#302b37;stroke-width:7;stroke-linejoin:round}
+      .shirt{fill:#f7f1dc;stroke:#302b37;stroke-width:6;stroke-linejoin:round}
+      .shoe{fill:#20242b;stroke:#302b37;stroke-width:7}
+      .line{fill:none;stroke:#302b37;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+      .eye{fill:#302b37}
+      .brow{fill:none;stroke:#302b37;stroke-width:8;stroke-linecap:round}
+      .motion{fill:none;stroke:#8f2f3f;stroke-width:8;stroke-linecap:round}
+      .mouthopen{fill:#5a3038;stroke:#302b37;stroke-width:7}
+    </style>
+    <g id="body">
+      <path class="coat" d="M156 255 Q256 210 356 255 L390 445 Q336 488 256 490 Q176 488 122 445 Z"/>
+      <path class="vest" d="M214 276 L298 276 L322 430 L190 430 Z"/>
+      <path class="shirt" d="M224 252 L288 252 L306 306 L256 337 L206 306 Z"/>
+      <path class="shirt" d="M220 294 L256 333 L292 294 L280 365 L256 350 L232 365 Z"/>
+      <path class="coat" d="M178 430 L225 430 L218 486 L160 486 Z"/>
+      <path class="coat" d="M287 430 L334 430 L352 486 L294 486 Z"/>
+      <ellipse class="shoe" cx="188" cy="490" rx="42" ry="15"/>
+      <ellipse class="shoe" cx="324" cy="490" rx="42" ry="15"/>
+      <ellipse class="skin" cx="256" cy="155" rx="92" ry="99"/>
+      <path class="hair" d="M172 145 Q165 62 234 48 Q257 20 286 50 Q360 56 340 151 Q320 111 295 94 Q278 126 251 89 Q230 121 202 95 Q192 123 172 145 Z"/>
+      <path class="hair" d="M176 124 L142 93 L151 153 Z"/><path class="hair" d="M336 121 L370 91 L362 154 Z"/>
+      <path class="brow" d="M205 137 Q224 125 240 136"/><path class="brow" d="M272 136 Q291 124 309 137"/>
+      <ellipse class="eye" cx="225" cy="151" rx="7" ry="8"/><ellipse class="eye" cx="289" cy="151" rx="7" ry="8"/>
+      <path class="line" d="M238 186 Q256 178 275 186"/>
+    </g>
+    <g id="hand"><circle class="skin" cx="0" cy="0" r="24"/></g>
+  </defs>
+  <g transform="translate(0 0)"><use href="#body"/><path class="coat" d="M145 292 Q112 342 148 405"/><path class="coat" d="M367 292 Q400 342 364 405"/><use href="#hand" x="148" y="405"/><use href="#hand" x="364" y="405"/></g>
+  <g transform="translate(512 0)"><use href="#body"/><path class="coat" d="M145 295 Q190 340 311 385"/><path class="coat" d="M367 295 Q323 337 202 386"/><use href="#hand" x="311" y="385"/><use href="#hand" x="202" y="386"/></g>
+  <g transform="translate(1024 0)"><use href="#body"/><path class="coat" d="M153 300 Q188 330 220 370"/><use href="#hand" x="220" y="370"/><path class="coat" d="M359 298 Q405 278 452 250"/><use href="#hand" x="452" y="250"/><path class="skin" d="M468 247 L505 232 L470 269 Z"/><path class="line" d="M236 186 Q257 173 279 184"/></g>
+  <g transform="translate(1536 0)"><use href="#body"/><path class="coat" d="M150 302 Q181 329 217 371"/><use href="#hand" x="217" y="371"/><path class="coat" d="M360 299 Q399 257 414 189"/><use href="#hand" x="414" y="189"/><path class="skin" d="M398 169 L398 116 M414 166 L421 111 M430 171 L443 121"/><ellipse class="mouthopen" cx="256" cy="190" rx="15" ry="19"/><path class="motion" d="M457 152 L487 123 M460 181 L500 174"/></g>
+  <g transform="translate(0 512)"><use href="#body"/><path class="coat" d="M147 295 Q177 335 213 367"/><use href="#hand" x="213" y="367"/><path class="coat" d="M367 294 Q338 324 317 349"/><use href="#hand" x="317" y="349"/><path class="line" d="M238 182 Q265 202 292 179"/><path class="brow" d="M204 134 Q226 119 242 132"/><path class="brow" d="M273 132 Q293 121 312 138"/></g>
+  <g transform="translate(512 512)"><g transform="translate(0 26) scale(1 0.95)"><use href="#body"/></g><path class="coat" d="M145 312 Q176 350 210 393"/><path class="coat" d="M368 311 Q337 351 303 394"/><use href="#hand" x="210" y="393"/><use href="#hand" x="303" y="394"/><path class="brow" d="M201 141 L239 151"/><path class="brow" d="M274 151 L313 141"/><path class="line" d="M238 191 L274 191"/><path class="motion" d="M118 224 L78 206 M393 224 L434 206"/></g>
+  <g transform="translate(1024 512)"><g transform="translate(0 -12)"><use href="#body"/></g><path class="coat" d="M145 282 Q114 246 91 213"/><use href="#hand" x="91" y="213"/><path class="coat" d="M367 282 Q399 245 422 213"/><use href="#hand" x="422" y="213"/><ellipse class="eye" cx="225" cy="141" rx="10" ry="13"/><ellipse class="eye" cx="289" cy="141" rx="10" ry="13"/><ellipse class="mouthopen" cx="256" cy="190" rx="15" ry="20"/><path class="motion" d="M86 106 L55 70 M426 106 L456 69 M256 34 L256 3"/></g>
+  <g transform="translate(1536 512)"><g transform="translate(0 42) scale(1 0.92)"><use href="#body"/></g><path class="coat" d="M146 330 Q176 390 221 430"/><path class="coat" d="M366 330 Q337 390 292 430"/><use href="#hand" x="221" y="430"/><use href="#hand" x="292" y="430"/><path class="brow" d="M198 137 Q219 158 241 145"/><path class="brow" d="M271 145 Q294 158 315 137"/><path class="line" d="M235 191 Q256 171 278 193"/><path class="motion" d="M105 183 Q70 210 86 246 M407 184 Q443 211 426 248 M129 110 L92 78 M382 110 L420 78"/></g>
+</svg>

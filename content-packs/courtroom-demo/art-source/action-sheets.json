@@ -6,21 +6,48 @@
       "source": "maya-actions.png",
       "file": "chibi-maya-actions.png",
       "portrait": "chibi-maya-neutral.png",
-      "actions": ["normal", "wave", "cheer", "point", "think", "thumbs-up", "surprised", "sad"]
+      "actions": [
+        "normal",
+        "wave",
+        "cheer",
+        "point",
+        "think",
+        "thumbs-up",
+        "surprised",
+        "sad"
+      ]
     },
     {
       "id": "judge",
       "source": "judge-actions.png",
       "file": "chibi-judge-actions.png",
       "portrait": "chibi-judge-neutral.png",
-      "actions": ["normal", "stern", "gavel-strike", "listen", "surprised", "confused", "think", "relieved"]
+      "actions": [
+        "normal",
+        "stern",
+        "gavel-strike",
+        "listen",
+        "surprised",
+        "confused",
+        "think",
+        "relieved"
+      ]
     },
     {
       "id": "gumshoe",
       "source": "gumshoe-actions.png",
       "file": "chibi-gumshoe-actions.png",
       "portrait": "chibi-gumshoe-neutral.png",
-      "actions": ["normal", "salute", "point", "present-report", "think", "determined", "nervous", "embarrassed"]
+      "actions": [
+        "normal",
+        "salute",
+        "point",
+        "present-report",
+        "think",
+        "determined",
+        "nervous",
+        "embarrassed"
+      ]
     },
     {
       "id": "franziska",
@@ -28,7 +55,32 @@
       "file": "chibi-franziska-actions.png",
       "portraitSource": "franziska-portrait.png",
       "portrait": "chibi-franziska-neutral.png",
-      "actions": ["normal", "crossed-arms", "point", "whip-ready", "whip-strike", "smirk", "surprised", "frustrated"]
+      "actions": [
+        "normal",
+        "crossed-arms",
+        "point",
+        "whip-ready",
+        "whip-strike",
+        "smirk",
+        "surprised",
+        "frustrated"
+      ]
+    },
+    {
+      "id": "von-karma",
+      "source": "von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.svg",
+      "portrait": "chibi-von-karma-neutral.png",
+      "actions": [
+        "normal",
+        "crossed-arms",
+        "accuse",
+        "objection",
+        "smug",
+        "glare",
+        "shocked",
+        "breakdown"
+      ]
     }
   ]
 }

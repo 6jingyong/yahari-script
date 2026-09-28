@@ -408,7 +408,7 @@
     {
       "id": "von-karma",
       "name": "狩魔豪",
-      "portrait": "character/von-karma/pose/normal",
+      "portrait": "character/von-karma/portrait",
       "stage": {
         "background": "stage/prosecution/background",
         "foreground": "stage/prosecution/foreground"
@@ -420,17 +420,37 @@
           "asset": "character/von-karma/pose/normal"
         },
         {
+          "id": "crossed-arms",
+          "label": "抱臂",
+          "asset": "character/von-karma/pose/crossed-arms"
+        },
+        {
           "id": "accuse",
           "label": "压迫指证",
           "asset": "character/von-karma/pose/accuse"
         },
         {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/von-karma/pose/objection"
+        },
+        {
           "id": "smug",
           "label": "轻蔑",
           "asset": "character/von-karma/pose/smug"
+        },
+        {
+          "id": "glare",
+          "label": "怒视",
+          "asset": "character/von-karma/pose/glare"
         }
       ],
       "reactions": [
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/von-karma/reaction/shocked"
+        },
         {
           "id": "breakdown",
           "label": "失控",
@@ -1464,30 +1484,30 @@
       ]
     },
     "character/von-karma/pose/normal": {
-      "file": "chibi-von-karma-neutral.png",
+      "file": "chibi-von-karma-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/von-karma/pose/accuse": {
-      "file": "chibi-von-karma-gesture.png",
+      "file": "chibi-von-karma-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "character/von-karma/reaction/breakdown": {
-      "file": "chibi-von-karma-reaction.png",
+      "file": "chibi-von-karma-actions.svg",
       "frame": [
-        0,
-        0,
+        1536,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/gumshoe/pose/normal": {
@@ -1623,12 +1643,12 @@
       "file": "chibi-hospital-room.jpg"
     },
     "character/von-karma/pose/smug": {
-      "file": "chibi-von-karma-gesture.png",
+      "file": "chibi-von-karma-actions.svg",
       "frame": [
         0,
-        0,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/gumshoe/pose/point": {
@@ -1935,6 +1955,51 @@
         444,
         444,
         443
+      ]
+    },
+    "character/von-karma/portrait": {
+      "file": "chibi-von-karma-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/von-karma/pose/crossed-arms": {
+      "file": "chibi-von-karma-actions.svg",
+      "frame": [
+        512,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/von-karma/pose/objection": {
+      "file": "chibi-von-karma-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/von-karma/pose/glare": {
+      "file": "chibi-von-karma-actions.svg",
+      "frame": [
+        512,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/von-karma/reaction/shocked": {
+      "file": "chibi-von-karma-actions.svg",
+      "frame": [
+        1024,
+        512,
+        512,
+        512
       ]
     }
   }

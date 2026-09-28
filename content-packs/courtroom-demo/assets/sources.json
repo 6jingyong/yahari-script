@@ -7,7 +7,7 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
+    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. PNG and repository-original SVG atlases are both supported; dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
   },
   "assets": [
     {
@@ -304,6 +304,11 @@
       "file": "chibi-trucy-reaction.png",
       "source": "generated:chibi-atlas",
       "sha256": "346cd8c529913ea1f29ecf798e2c63e56585dc4b4f68be349046a2a214962e0a"
+    },
+    {
+      "file": "chibi-von-karma-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "1d394d4fc2b69a393adf68dc70baad354c82d12eebe8f4ef83241991cb2ea544"
     },
     {
       "file": "chibi-von-karma-gesture.png",
