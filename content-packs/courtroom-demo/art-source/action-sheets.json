@@ -145,6 +145,22 @@
         "concerned",
         "shocked"
       ]
+    },
+    {
+      "id": "apollo",
+      "source": "apollo-actions.svg",
+      "file": "chibi-apollo-actions.svg",
+      "portrait": "chibi-apollo-neutral.png",
+      "actions": [
+        "normal",
+        "think",
+        "point",
+        "objection",
+        "desk",
+        "confident",
+        "shocked",
+        "sweat"
+      ]
     }
   ]
 }

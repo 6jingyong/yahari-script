@@ -11,6 +11,11 @@
   },
   "assets": [
     {
+      "file": "chibi-apollo-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "92f2df63d4224912c63cc518c22d415a420f28026de86733746992cf8f48c34d"
+    },
+    {
       "file": "chibi-apollo-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "fba40038b7ea7f29731836bdb12fb8c9a5f877396cb49a1111b460531b957fb0"

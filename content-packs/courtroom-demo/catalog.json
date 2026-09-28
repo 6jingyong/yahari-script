@@ -60,7 +60,7 @@
     {
       "id": "apollo",
       "name": "王泥喜",
-      "portrait": "character/apollo/pose/normal",
+      "portrait": "character/apollo/portrait",
       "stage": {
         "background": "stage/defense/background",
         "foreground": "stage/defense/foreground"
@@ -80,6 +80,16 @@
           "id": "point",
           "label": "指证",
           "asset": "character/apollo/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/apollo/pose/objection"
+        },
+        {
+          "id": "desk",
+          "label": "拍桌",
+          "asset": "character/apollo/pose/desk"
         },
         {
           "id": "confident",
@@ -1199,57 +1209,57 @@
       ]
     },
     "character/apollo/pose/normal": {
-      "file": "chibi-apollo-neutral.png",
+      "file": "chibi-apollo-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/apollo/pose/think": {
-      "file": "chibi-apollo-neutral.png",
+      "file": "chibi-apollo-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/apollo/pose/point": {
-      "file": "chibi-apollo-gesture.png",
+      "file": "chibi-apollo-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "character/apollo/pose/confident": {
-      "file": "chibi-apollo-gesture.png",
+      "file": "chibi-apollo-actions.svg",
       "frame": [
-        0,
-        0,
         512,
-        384
+        512,
+        512,
+        512
       ]
     },
     "character/apollo/reaction/shocked": {
-      "file": "chibi-apollo-reaction.png",
+      "file": "chibi-apollo-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/apollo/reaction/sweat": {
-      "file": "chibi-apollo-reaction.png",
+      "file": "chibi-apollo-actions.svg",
       "frame": [
-        0,
-        0,
+        1536,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/klavier/pose/normal": {
@@ -2243,6 +2253,33 @@
       "file": "chibi-mia-actions.svg",
       "frame": [
         1536,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/apollo/portrait": {
+      "file": "chibi-apollo-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/apollo/pose/objection": {
+      "file": "chibi-apollo-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/apollo/pose/desk": {
+      "file": "chibi-apollo-actions.svg",
+      "frame": [
+        0,
         512,
         512,
         512
