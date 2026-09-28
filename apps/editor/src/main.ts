@@ -238,40 +238,48 @@ let speakerSelectionHandler:((castId:string|null)=>void)|null=null;
 function openSpeakerDialog(current:string|null,select:(castId:string|null)=>void):void {
   speakerSelectionHandler=select;
   const options=requireElement<HTMLElement>('#speaker-options');options.replaceChildren();
-  for(const castId of [...currentProject.manifest.cast.map(c=>c.castId),null]){
+  const representedBuiltIns=new Set(
+    currentProject.manifest.cast
+      .filter(cast=>cast.characterRef.packId===courtroomDemoPack.id)
+      .map(cast=>cast.characterRef.id),
+  );
+  const choices:Array<{castId:string|null;characterId?:string;label:string;portraitUrl?:string}> = [];
+  for(const cast of currentProject.manifest.cast){
+    choices.push({castId:cast.castId,label:castName(cast.castId),portraitUrl:castPortraitUrl(cast.castId)});
+  }
+  for(const character of courtroomDemoPack.characters){
+    if(representedBuiltIns.has(character.id))continue;
+    choices.push({
+      castId:null,
+      characterId:character.id,
+      label:character.name,
+      portraitUrl:courtroomDemoResolver.resolve(character.portraits.base)?.url,
+    });
+  }
+  choices.push({castId:null,label:castName(null)});
+  for(const choice of choices){
     const button=document.createElement('button');button.type='button';button.className='speaker-option';
-    button.setAttribute('aria-pressed',String(castId===current));
+    button.setAttribute('aria-pressed',String(choice.characterId===undefined&&choice.castId===current));
     const portrait=document.createElement('span');portrait.className='speaker-option-avatar';
-    const url=castPortraitUrl(castId);
-    if(url){const image=document.createElement('img');image.src=url;image.alt='';portrait.append(image);}
-    else portrait.textContent=castInitial(castId);
-    const label=document.createElement('span');label.textContent=castName(castId);
+    if(choice.portraitUrl){const image=document.createElement('img');image.src=choice.portraitUrl;image.alt='';portrait.append(image);}
+    else portrait.textContent=choice.label.slice(0,1);
+    const label=document.createElement('span');label.textContent=choice.label;
     button.append(portrait,label);
-    button.addEventListener('click',()=>{speakerSelectionHandler?.(castId);requireElement<HTMLDialogElement>('#speaker-dialog').close();});
+    button.addEventListener('click',()=>{
+      if(choice.characterId){
+        saveDraft();
+        currentProject.manifest=addDemoCharacter(currentProject.manifest,choice.characterId);
+        const added=currentProject.manifest.cast.find(cast=>cast.characterRef.packId===courtroomDemoPack.id&&cast.characterRef.id===choice.characterId);
+        if(!added){showToast(`无法使用${choice.label}。`,'error');return;}
+        persist();speakerSelectionHandler?.(added.castId);renderAll();
+      }else{
+        speakerSelectionHandler?.(choice.castId);
+      }
+      requireElement<HTMLDialogElement>('#speaker-dialog').close();
+    });
     options.append(button);
   }
   requireElement<HTMLDialogElement>('#speaker-dialog').showModal();
-}
-
-function openAddCharacterDialog():void {
-  const missing=courtroomDemoPack.characters.filter(character=>!currentProject.manifest.cast.some(cast=>cast.characterRef.packId===courtroomDemoPack.id&&cast.characterRef.id===character.id));
-  const choices=requireElement<HTMLElement>('#cast-options');choices.replaceChildren();
-  for(const character of missing){
-    const button=document.createElement('button');button.type='button';button.className='identity-button';button.textContent=character.name;
-    button.addEventListener('click',()=>{
-      saveDraft();
-      currentProject.manifest=addDemoCharacter(currentProject.manifest,character.id);
-      const added=currentProject.manifest.cast.find(cast=>cast.characterRef.packId===courtroomDemoPack.id&&cast.characterRef.id===character.id);
-      persist();renderAll();requireElement<HTMLDialogElement>('#cast-dialog').close();
-      if(added)speakerSelectionHandler?.(added.castId);
-      showToast(`已加入${character.name}。`);
-    });
-    choices.append(button);
-  }
-  if(!missing.length){
-    const empty=document.createElement('p');empty.className='project-note';empty.textContent='素材库中的人物已经全部加入当前作品。';choices.append(empty);
-  }
-  requireElement<HTMLDialogElement>('#cast-dialog').showModal();
 }
 
 function setComposerSpeaker(castId:string|null):void {
@@ -1446,7 +1454,6 @@ composeSend.addEventListener('click',sendDialogue);
 requireElement('#compose-action').addEventListener('click',openDraftPicker);
 requireElement('#compose-avatar').addEventListener('click',()=>openSpeakerDialog(composingAs,setComposerSpeaker));
 requireElement('#speaker-close').addEventListener('click',()=>requireElement<HTMLDialogElement>('#speaker-dialog').close());
-requireElement('#speaker-add').addEventListener('click',()=>{requireElement<HTMLDialogElement>('#speaker-dialog').close();openAddCharacterDialog();});
 requireElement('#inspector-close').addEventListener('click',()=>setPanel('inspector',false));
 const openStory = installStoryDialog(demoManifest, next => {
   store.commitEditSession(); persist();
@@ -1547,4 +1554,3 @@ requireElement('#dismiss-hint').addEventListener('click', () => {
   try { localStorage.setItem('yahari:p1d:hint','seen'); } catch { /* Hint is optional. */ }
 });
 
-requireElement("#cast-close").addEventListener("click", () => requireElement<HTMLDialogElement>("#cast-dialog").close());
