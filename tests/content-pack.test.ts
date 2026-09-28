@@ -176,5 +176,5 @@ test('von Karma keeps a separate portrait while all eight actions use the vector
   const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:'character/von-karma/portrait'});
   assert.ok(portrait?.url.endsWith('chibi-von-karma-neutral.png'));
   const character=courtroomDemoPack.characters.find(item=>item.id==='von-karma');
-  assert.equal(character?.portrait,'character/von-karma/portrait');
+  assert.equal(character?.portraits.base.id,'character/von-karma/portrait');
 });
