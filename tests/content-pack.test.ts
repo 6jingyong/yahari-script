@@ -149,7 +149,7 @@ test('core trio exposes eight distinct generated action states',()=>{
     for(const id of ids){
       const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
       assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
-      assert.match(visual.sprite,/chibi-(phoenix|maya|edgeworth)-actions\.png$/);
+      assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth)-actions\.png$/);
     }
   }
 });
