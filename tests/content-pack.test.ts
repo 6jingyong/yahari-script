@@ -132,3 +132,24 @@ test('expanded original stand-ins expose the richer action vocabulary',()=>{
   assert.equal(action('yogi','shocked'),'震惊');
   assert.equal(action('mia','smile'),'微笑');
 });
+
+
+test('core trio exposes eight distinct generated action states',()=>{
+  const expected={
+    phoenix:['normal','think','point','objection','desk','smile','sweat','shocked'],
+    maya:['normal','wave','cheer','point','think','thumbs-up','surprised','sad'],
+    edgeworth:['normal','bow','point','objection','desk','smug','surprised','damaged'],
+  } as const;
+  for(const [characterId,ids] of Object.entries(expected)){
+    const character=courtroomDemoPack.characters.find(item=>item.id===characterId);
+    assert.ok(character,characterId);
+    const actions=[...character.poses,...character.reactions];
+    assert.equal(actions.length,8,characterId);
+    assert.deepEqual(actions.map(item=>item.id),[...ids],characterId);
+    for(const id of ids){
+      const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
+      assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
+      assert.match(visual.sprite,/chibi-(phoenix|maya|edgeworth)-actions\.png$/);
+    }
+  }
+});

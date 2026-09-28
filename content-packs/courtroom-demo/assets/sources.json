@@ -7,7 +7,7 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Phoenix, Maya, and Edgeworth use the latest generated character-sheet crops; courtroom, defense, prosecution, and witness backgrounds use the latest generated courtroom-sheet crops. Existing legacy action IDs still map onto neutral, gesture, or reaction slots until dedicated eight-pose mapping is added."
+    "note": "Phoenix, Maya, and Edgeworth now expose eight distinct action states from dedicated transparent 4x2 action atlases. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
   },
   "assets": [
     {
@@ -39,6 +39,11 @@
       "file": "chibi-detention-room.jpg",
       "source": "generated:chibi-atlas",
       "sha256": "73bedba9cc5b8a033bcf3672c75806a020ee147e4debee450f1d495ff12d0a33"
+    },
+    {
+      "file": "chibi-edgeworth-actions.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "b4d39a81384b07319aa21015c2d664fd57d4bea90999281b94d0602b397cbdcd"
     },
     {
       "file": "chibi-edgeworth-gesture.png",
@@ -156,6 +161,11 @@
       "sha256": "0b601fce105632796eb77a01b7b7ad08db014bf39dd2137941f1294e115f0d2f"
     },
     {
+      "file": "chibi-maya-actions.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "2af94b04cdf291bdd2db157d26b05330ffe86f56ee05baca3c6a6ed925a9d5c0"
+    },
+    {
       "file": "chibi-maya-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "4b4a1a0f4cb555ebf6ac3f1ae19e21c062233ad2397e51f23538920c6e6df0f8"
@@ -199,6 +209,11 @@
       "file": "chibi-parking-garage.jpg",
       "source": "generated:chibi-atlas",
       "sha256": "0621782277634290c657b5d2b1f64646587d2534d869428ed4ce77515598a38d"
+    },
+    {
+      "file": "chibi-phoenix-actions.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "f9c5bf0afb6252c76c0f18d193f27191ec3d126f6c1e3cd13106b7e6d143a08a"
     },
     {
       "file": "chibi-phoenix-gesture.png",

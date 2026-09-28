@@ -1,13 +1,13 @@
 {
   "id": "official.courtroom-demo",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "name": "Courtroom Demo Pack",
   "stageScene": "background/courtroom",
   "characters": [
     {
       "id": "phoenix",
       "name": "成步堂",
-      "portrait": "character/phoenix/pose/normal",
+      "portrait": "character/phoenix/portrait",
       "stage": {
         "background": "stage/defense/background",
         "foreground": "stage/defense/foreground"
@@ -29,9 +29,19 @@
           "asset": "character/phoenix/pose/point"
         },
         {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/phoenix/pose/objection"
+        },
+        {
           "id": "desk",
           "label": "拍桌",
           "asset": "character/phoenix/pose/desk"
+        },
+        {
+          "id": "smile",
+          "label": "轻松",
+          "asset": "character/phoenix/pose/smile"
         }
       ],
       "reactions": [
@@ -202,7 +212,7 @@
     {
       "id": "edgeworth",
       "name": "御剑",
-      "portrait": "character/edgeworth/pose/normal",
+      "portrait": "character/edgeworth/portrait",
       "stage": {
         "background": "stage/prosecution/background",
         "foreground": "stage/prosecution/foreground"
@@ -215,13 +225,23 @@
         },
         {
           "id": "bow",
-          "label": "致意",
+          "label": "抱臂",
           "asset": "character/edgeworth/pose/bow"
         },
         {
           "id": "point",
           "label": "指证",
           "asset": "character/edgeworth/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/edgeworth/pose/objection"
+        },
+        {
+          "id": "desk",
+          "label": "拍桌",
+          "asset": "character/edgeworth/pose/desk"
         },
         {
           "id": "smug",
@@ -237,7 +257,7 @@
         },
         {
           "id": "damaged",
-          "label": "受创",
+          "label": "崩溃",
           "asset": "character/edgeworth/reaction/damaged"
         }
       ]
@@ -245,7 +265,7 @@
     {
       "id": "maya",
       "name": "真宵",
-      "portrait": "character/maya/pose/normal",
+      "portrait": "character/maya/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -257,14 +277,29 @@
           "asset": "character/maya/pose/normal"
         },
         {
+          "id": "wave",
+          "label": "挥手",
+          "asset": "character/maya/pose/wave"
+        },
+        {
           "id": "cheer",
           "label": "加油",
           "asset": "character/maya/pose/cheer"
         },
         {
+          "id": "point",
+          "label": "指向",
+          "asset": "character/maya/pose/point"
+        },
+        {
           "id": "think",
           "label": "思考",
           "asset": "character/maya/pose/think"
+        },
+        {
+          "id": "thumbs-up",
+          "label": "鼓励",
+          "asset": "character/maya/pose/thumbs-up"
         }
       ],
       "reactions": [
@@ -853,10 +888,22 @@
   },
   "resources": {
     "background/courtroom": {
-      "file": "chibi-courtroom.jpg"
+      "file": "chibi-courtroom.jpg",
+      "frame": [
+        0,
+        0,
+        240,
+        180
+      ]
     },
     "background/witness-stand": {
-      "file": "chibi-witness-stand.jpg"
+      "file": "chibi-witness-stand.jpg",
+      "frame": [
+        0,
+        0,
+        240,
+        180
+      ]
     },
     "background/lobby": {
       "file": "chibi-lobby.jpg"
@@ -874,69 +921,93 @@
       "file": "chibi-night-corridor.jpg"
     },
     "stage/defense/background": {
-      "file": "chibi-stage-defense.jpg"
-    },
-    "stage/prosecution/background": {
-      "file": "chibi-stage-prosecution.jpg"
-    },
-    "stage/witness/background": {
-      "file": "chibi-witness-stand.jpg"
-    },
-    "stage/judge/background": {
-      "file": "chibi-courtroom.jpg"
-    },
-    "character/phoenix/pose/normal": {
-      "file": "chibi-phoenix-neutral.png",
+      "file": "chibi-stage-defense.jpg",
       "frame": [
         0,
         0,
-        256,
-        192
+        240,
+        180
+      ]
+    },
+    "stage/prosecution/background": {
+      "file": "chibi-stage-prosecution.jpg",
+      "frame": [
+        0,
+        0,
+        240,
+        180
+      ]
+    },
+    "stage/witness/background": {
+      "file": "chibi-witness-stand.jpg",
+      "frame": [
+        0,
+        0,
+        240,
+        180
+      ]
+    },
+    "stage/judge/background": {
+      "file": "chibi-courtroom.jpg",
+      "frame": [
+        0,
+        0,
+        240,
+        180
+      ]
+    },
+    "character/phoenix/pose/normal": {
+      "file": "chibi-phoenix-actions.png",
+      "frame": [
+        3,
+        5,
+        33,
+        64
       ]
     },
     "character/phoenix/pose/think": {
-      "file": "chibi-phoenix-neutral.png",
+      "file": "chibi-phoenix-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        1,
+        68,
+        37,
+        66
       ]
     },
     "character/phoenix/pose/point": {
-      "file": "chibi-phoenix-gesture.png",
+      "file": "chibi-phoenix-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        43,
+        3,
+        43,
+        66
       ]
     },
     "character/phoenix/pose/desk": {
-      "file": "chibi-phoenix-gesture.png",
+      "file": "chibi-phoenix-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        134,
+        12,
+        47,
+        55
       ]
     },
     "character/phoenix/reaction/sweat": {
-      "file": "chibi-phoenix-reaction.png",
+      "file": "chibi-phoenix-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        95,
+        69,
+        35,
+        65
       ]
     },
     "character/phoenix/reaction/shocked": {
-      "file": "chibi-phoenix-reaction.png",
+      "file": "chibi-phoenix-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        41,
+        70,
+        46,
+        63
       ]
     },
     "character/apollo/pose/normal": {
@@ -1120,102 +1191,102 @@
       ]
     },
     "character/edgeworth/pose/normal": {
-      "file": "chibi-edgeworth-neutral.png",
+      "file": "chibi-edgeworth-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        3,
+        6,
+        34,
+        65
       ]
     },
     "character/edgeworth/pose/bow": {
-      "file": "chibi-edgeworth-gesture.png",
+      "file": "chibi-edgeworth-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        43,
+        3,
+        36,
+        68
       ]
     },
     "character/edgeworth/pose/point": {
-      "file": "chibi-edgeworth-gesture.png",
+      "file": "chibi-edgeworth-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        92,
+        4,
+        43,
+        67
       ]
     },
     "character/edgeworth/pose/smug": {
-      "file": "chibi-edgeworth-gesture.png",
+      "file": "chibi-edgeworth-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        50,
+        69,
+        37,
+        64
       ]
     },
     "character/edgeworth/reaction/surprised": {
-      "file": "chibi-edgeworth-reaction.png",
+      "file": "chibi-edgeworth-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        87,
+        71,
+        45,
+        62
       ]
     },
     "character/edgeworth/reaction/damaged": {
-      "file": "chibi-edgeworth-reaction.png",
+      "file": "chibi-edgeworth-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        137,
+        71,
+        41,
+        62
       ]
     },
     "character/maya/pose/normal": {
-      "file": "chibi-maya-neutral.png",
+      "file": "chibi-maya-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        4,
+        1,
+        36,
+        68
       ]
     },
     "character/maya/pose/cheer": {
-      "file": "chibi-maya-gesture.png",
+      "file": "chibi-maya-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        89,
+        4,
+        47,
+        65
       ]
     },
     "character/maya/pose/think": {
-      "file": "chibi-maya-neutral.png",
+      "file": "chibi-maya-actions.png",
       "frame": [
-        0,
-        0,
-        256,
-        192
+        7,
+        67,
+        36,
+        67
       ]
     },
     "character/maya/reaction/surprised": {
-      "file": "chibi-maya-reaction.png",
+      "file": "chibi-maya-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        46,
+        69,
+        46,
+        65
       ]
     },
     "character/maya/reaction/sad": {
-      "file": "chibi-maya-reaction.png",
+      "file": "chibi-maya-actions.png",
       "frame": [
-        0,
-        0,
-        160,
-        120
+        96,
+        68,
+        37,
+        66
       ]
     },
     "character/judge/pose/normal": {
@@ -1511,6 +1582,96 @@
     },
     "stage/witness/foreground": {
       "file": "chibi-stage-witness-foreground.png"
+    },
+    "character/phoenix/portrait": {
+      "file": "chibi-phoenix-neutral.png",
+      "frame": [
+        0,
+        0,
+        256,
+        192
+      ]
+    },
+    "character/phoenix/pose/objection": {
+      "file": "chibi-phoenix-actions.png",
+      "frame": [
+        87,
+        2,
+        46,
+        67
+      ]
+    },
+    "character/phoenix/pose/smile": {
+      "file": "chibi-phoenix-actions.png",
+      "frame": [
+        137,
+        69,
+        43,
+        65
+      ]
+    },
+    "character/edgeworth/portrait": {
+      "file": "chibi-edgeworth-neutral.png",
+      "frame": [
+        0,
+        0,
+        160,
+        120
+      ]
+    },
+    "character/edgeworth/pose/objection": {
+      "file": "chibi-edgeworth-actions.png",
+      "frame": [
+        137,
+        6,
+        44,
+        64
+      ]
+    },
+    "character/edgeworth/pose/desk": {
+      "file": "chibi-edgeworth-actions.png",
+      "frame": [
+        1,
+        76,
+        51,
+        55
+      ]
+    },
+    "character/maya/portrait": {
+      "file": "chibi-maya-neutral.png",
+      "frame": [
+        0,
+        0,
+        256,
+        192
+      ]
+    },
+    "character/maya/pose/wave": {
+      "file": "chibi-maya-actions.png",
+      "frame": [
+        46,
+        3,
+        42,
+        66
+      ]
+    },
+    "character/maya/pose/point": {
+      "file": "chibi-maya-actions.png",
+      "frame": [
+        136,
+        4,
+        45,
+        65
+      ]
+    },
+    "character/maya/pose/thumbs-up": {
+      "file": "chibi-maya-actions.png",
+      "frame": [
+        136,
+        68,
+        44,
+        66
+      ]
     }
   }
 }

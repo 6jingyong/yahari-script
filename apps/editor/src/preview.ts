@@ -113,8 +113,15 @@ export function openPreview(
     if(!playbackState.loading && visual.sprite){
       layers.push(visual.sprite);const sprite=asset(visual.sprite);
       if(sprite){
-        const [x,y,w,h]=visual.frame ?? [0,0,256,192];
-        context.drawImage(sprite,x,y,w,h,0,0,256,192);
+        const [x,y,w,h]=visual.frame ?? [0,0,sprite.width,sprite.height];
+        const scale=Math.min(256/w,192/h);
+        const dw=Math.max(1,Math.round(w*scale));
+        const dh=Math.max(1,Math.round(h*scale));
+        const dx=Math.round((256-dw)/2);
+        const dy=192-dh;
+        context.imageSmoothingEnabled=true;
+        context.drawImage(sprite,x,y,w,h,dx,dy,dw,dh);
+        context.imageSmoothingEnabled=false;
       }
     }
     if(!playbackState.loading && visual.foreground){
