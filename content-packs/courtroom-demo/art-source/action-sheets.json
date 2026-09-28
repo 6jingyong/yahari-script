@@ -1,0 +1,26 @@
+{
+  "layout": "4x2",
+  "sheets": [
+    {
+      "id": "maya",
+      "source": "maya-actions.png",
+      "file": "chibi-maya-actions.png",
+      "portrait": "chibi-maya-neutral.png",
+      "actions": ["normal", "wave", "cheer", "point", "think", "thumbs-up", "surprised", "sad"]
+    },
+    {
+      "id": "judge",
+      "source": "judge-actions.png",
+      "file": "chibi-judge-actions.png",
+      "portrait": "chibi-judge-neutral.png",
+      "actions": ["normal", "stern", "gavel-strike", "listen", "surprised", "confused", "think", "relieved"]
+    },
+    {
+      "id": "gumshoe",
+      "source": "gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.png",
+      "portrait": "chibi-gumshoe-neutral.png",
+      "actions": ["normal", "salute", "point", "present-report", "think", "determined", "nervous", "embarrassed"]
+    }
+  ]
+}

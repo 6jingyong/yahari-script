@@ -30,16 +30,6 @@ ACTION_ATLASES = {
         },
         "portrait": "chibi-phoenix-neutral.png",
     },
-    "maya": {
-        "file": "chibi-maya-actions.png",
-        "frames": {
-            "normal": [4, 1, 36, 68], "wave": [46, 3, 42, 66],
-            "cheer": [89, 4, 47, 65], "point": [136, 4, 45, 65],
-            "think": [7, 67, 36, 67], "surprised": [46, 69, 46, 65],
-            "sad": [96, 68, 37, 66], "thumbs-up": [136, 68, 44, 66],
-        },
-        "portrait": "chibi-maya-neutral.png",
-    },
     "edgeworth": {
         "file": "chibi-edgeworth-actions.png",
         "frames": {
@@ -67,18 +57,23 @@ def grid_frames(filename: str, actions: tuple[str, ...]) -> dict[str, list[int]]
         for index, action in enumerate(actions)
     }
 
-ACTION_ATLASES["maya"]["frames"] = grid_frames(
-    "chibi-maya-actions.png",
-    ("normal", "wave", "cheer", "point", "think", "thumbs-up", "surprised", "sad"),
-)
-ACTION_ATLASES["judge"] = {
-    "file": "chibi-judge-actions.png",
-    "frames": grid_frames(
-        "chibi-judge-actions.png",
-        ("normal", "stern", "gavel-strike", "listen", "surprised", "confused", "think", "relieved"),
-    ),
-    "portrait": "chibi-judge-neutral.png",
-}
+sheet_manifest = json.loads((PACK / "art-source/action-sheets.json").read_text())
+characters_by_id = {character["id"]: character for character in catalog["characters"]}
+for sheet in sheet_manifest["sheets"]:
+    if sheet["id"] in ACTION_ATLASES:
+        raise ValueError(f"Duplicate action sheet: {sheet['id']}")
+    if len(sheet["actions"]) != 8 or len(set(sheet["actions"])) != 8:
+        raise ValueError(f"Expected eight unique actions: {sheet['id']}")
+    character = characters_by_id.get(sheet["id"])
+    if not character or set(sheet["actions"]) != {
+        item["id"] for item in (*character["poses"], *character["reactions"])
+    }:
+        raise ValueError(f"Action sheet and character capabilities differ: {sheet['id']}")
+    ACTION_ATLASES[sheet["id"]] = {
+        "file": sheet["file"],
+        "frames": grid_frames(sheet["file"], tuple(sheet["actions"])),
+        "portrait": sheet["portrait"],
+    }
 
 def full_frame(filename: str) -> list[int]:
     with Image.open(ASSETS / filename) as image:
@@ -143,7 +138,7 @@ sources = {
     **{key: value for key, value in previous_sources.items() if key not in {"assets", "generation"}},
     "generation": {
         **previous_sources["generation"],
-        "note": "Phoenix, Maya, Edgeworth, and Judge expose eight distinct actions from dedicated transparent 4x2 atlases. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas.",
+        "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas.",
     },
     "assets": [
         {

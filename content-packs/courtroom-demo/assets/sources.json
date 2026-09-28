@@ -7,7 +7,7 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Phoenix, Maya, Edgeworth, and Judge expose eight distinct actions from dedicated transparent 4x2 atlases. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
+    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
   },
   "assets": [
     {
@@ -84,6 +84,11 @@
       "file": "chibi-evidence-room.jpg",
       "source": "generated:chibi-atlas",
       "sha256": "5478c87a56b30ec3bd53c00c004e53974aef05c55ddda9daa8e3f44926c63cc6"
+    },
+    {
+      "file": "chibi-gumshoe-actions.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "e519fda849b64e77a098a6417c8f702e5b90a87dc7f65c56b5c0208e484593ab"
     },
     {
       "file": "chibi-gumshoe-gesture.png",

@@ -70,7 +70,7 @@ const story: CaseStory = {
           background: "evidence-room",
           summary: "证物保管室。糸锯找到旧案封存物的编号错位；一件金属证物曾被重新登记，但经手签名缺失。",
           lines: [
-            { speaker: "gumshoe", pose: "normal", text: "旧案的箱号是D-6-17，可这张再登记单写成了D-6-71。两个箱子都真实存在。", bgm: "suspense" },
+            { speaker: "gumshoe", pose: "present-report", text: "旧案的箱号是D-6-17，可这张再登记单写成了D-6-71。两个箱子都真实存在。", bgm: "suspense" },
             { speaker: "phoenix", pose: "think", text: "抄错数字不稀奇，稀奇的是为什么有人为错号开过一次柜门。" },
             { speaker: "maya", pose: "think", text: "经手人那栏被空着了。" },
             { speaker: "gumshoe", reaction: "nervous", text: "按规程不该空。可十五年前的纸档里，确实就这一页没有签名。" },
@@ -78,7 +78,7 @@ const story: CaseStory = {
             { speaker: "phoenix", reaction: "shocked", text: "千寻姐……" },
             { speaker: "maya", reaction: "surprised", text: "姐姐能维持的时间不长，你快问重点。" },
             { speaker: "phoenix", pose: "point", text: "如果那件证物后来又出现在别的案件里，就会留下新的登记痕迹。" },
-            { speaker: "gumshoe", pose: "salute", text: "我去查跨案转移记录。只查编号和日期，不碰推论。" },
+            { speaker: "gumshoe", pose: "determined", text: "我去查跨案转移记录。只查编号和日期，不碰推论。" },
             { speaker: "mia", pose: "point", text: "很好。把对手最擅长的东西还给他——精确。", emphasis: true },
             { speaker: null, text: "证物室的门重新上锁。真正危险的不是缺失的签名，而是有人曾经相信它永远不会被追问。", wait: "input" },
           ],

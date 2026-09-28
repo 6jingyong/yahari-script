@@ -140,6 +140,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     maya:['normal','wave','cheer','point','think','thumbs-up','surprised','sad'],
     edgeworth:['normal','bow','point','objection','desk','smug','surprised','damaged'],
     judge:['normal','stern','gavel-strike','listen','think','relieved','surprised','confused'],
+    gumshoe:['normal','salute','point','present-report','think','determined','nervous','embarrassed'],
   } as const;
   for(const [characterId,ids] of Object.entries(expected)){
     const character=courtroomDemoPack.characters.find(item=>item.id===characterId);
@@ -150,7 +151,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     for(const id of ids){
       const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
       assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
-      assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge)-actions\.png$/);
+      assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe)-actions\.png$/);
     }
     assert.equal(new Set(actions.map(item=>JSON.stringify(resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},item.id).frame))).size,8,characterId);
   }

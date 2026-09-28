@@ -441,7 +441,7 @@
     {
       "id": "gumshoe",
       "name": "糸锯圭介",
-      "portrait": "character/gumshoe/pose/normal",
+      "portrait": "character/gumshoe/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -461,6 +461,21 @@
           "id": "point",
           "label": "指出",
           "asset": "character/gumshoe/pose/point"
+        },
+        {
+          "id": "present-report",
+          "label": "出示报告",
+          "asset": "character/gumshoe/pose/present-report"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/gumshoe/pose/think"
+        },
+        {
+          "id": "determined",
+          "label": "坚定",
+          "asset": "character/gumshoe/pose/determined"
         }
       ],
       "reactions": [
@@ -468,6 +483,11 @@
           "id": "nervous",
           "label": "慌张",
           "asset": "character/gumshoe/reaction/nervous"
+        },
+        {
+          "id": "embarrassed",
+          "label": "尴尬",
+          "asset": "character/gumshoe/reaction/embarrassed"
         }
       ]
     },
@@ -1418,30 +1438,30 @@
       ]
     },
     "character/gumshoe/pose/normal": {
-      "file": "chibi-gumshoe-neutral.png",
+      "file": "chibi-gumshoe-actions.png",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/gumshoe/pose/salute": {
-      "file": "chibi-gumshoe-gesture.png",
+      "file": "chibi-gumshoe-actions.png",
       "frame": [
+        444,
         0,
-        0,
-        512,
-        384
+        443,
+        444
       ]
     },
     "character/gumshoe/reaction/nervous": {
-      "file": "chibi-gumshoe-reaction.png",
+      "file": "chibi-gumshoe-actions.png",
       "frame": [
-        0,
-        0,
-        512,
-        384
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/lotta/pose/normal": {
@@ -1559,12 +1579,12 @@
       ]
     },
     "character/gumshoe/pose/point": {
-      "file": "chibi-gumshoe-gesture.png",
+      "file": "chibi-gumshoe-actions.png",
       "frame": [
+        887,
         0,
-        0,
-        512,
-        384
+        443,
+        444
       ]
     },
     "character/lotta/pose/grin": {
@@ -1736,6 +1756,51 @@
         544,
         362,
         543
+      ]
+    },
+    "character/gumshoe/portrait": {
+      "file": "chibi-gumshoe-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/gumshoe/pose/present-report": {
+      "file": "chibi-gumshoe-actions.png",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/gumshoe/pose/think": {
+      "file": "chibi-gumshoe-actions.png",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/gumshoe/pose/determined": {
+      "file": "chibi-gumshoe-actions.png",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/gumshoe/reaction/embarrassed": {
+      "file": "chibi-gumshoe-actions.png",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
       ]
     }
   }
