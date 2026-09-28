@@ -23,7 +23,7 @@ render_sizes = {
     "chibi-phoenix-gesture.png": (256, 192),
     "chibi-phoenix-reaction.png": (256, 192),
     "chibi-maya-neutral.png": (256, 192),
-    "chibi-maya-gesture.png": (256, 192),
+    "chibi-maya-gesture.png": (160, 120),
     "chibi-maya-reaction.png": (160, 120),
     "chibi-edgeworth-neutral.png": (160, 120),
     "chibi-edgeworth-gesture.png": (160, 120),
@@ -61,7 +61,7 @@ for resource_id, filename in scene_files.items():
     key = resource_id if resource_id.startswith("stage/") else f"background/{resource_id}"
     catalog["resources"][key] = {"file": filename}
 
-catalog["version"] = "0.3.0"
+catalog["version"] = "0.3.1"
 CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
 
 files = sorted({item["file"] for item in catalog["resources"].values() if "file" in item})

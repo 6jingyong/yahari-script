@@ -1,6 +1,6 @@
 {
   "id": "official.courtroom-demo",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "name": "Courtroom Demo Pack",
   "stageScene": "background/courtroom",
   "characters": [
@@ -1187,8 +1187,8 @@
       "frame": [
         0,
         0,
-        256,
-        192
+        160,
+        120
       ]
     },
     "character/maya/pose/think": {

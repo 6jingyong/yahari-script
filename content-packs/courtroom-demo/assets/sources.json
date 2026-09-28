@@ -7,7 +7,7 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Phoenix, Maya, and Edgeworth now use the latest generated character sheets; courtroom, defense, prosecution, and witness backgrounds use the latest generated courtroom sheet. Other legacy action IDs may still share neutral, gesture, or reaction art until dedicated poses are mapped."
+    "note": "Phoenix, Maya, and Edgeworth use the latest generated character-sheet crops; courtroom, defense, prosecution, and witness backgrounds use the latest generated courtroom-sheet crops. Existing legacy action IDs still map onto neutral, gesture, or reaction slots until dedicated eight-pose mapping is added."
   },
   "assets": [
     {
@@ -48,7 +48,7 @@
     {
       "file": "chibi-edgeworth-neutral.png",
       "source": "generated:chibi-atlas",
-      "sha256": "8688ccbdb0e3bd71679f4c40d51c96e43772b2f675e96c10d4f512cc2ad2aa6e"
+      "sha256": "f70d907d7d21b34890039d26ca19b04b9c19262f9ac9e55c8ead62160a842b96"
     },
     {
       "file": "chibi-edgeworth-reaction.png",
@@ -158,7 +158,7 @@
     {
       "file": "chibi-maya-gesture.png",
       "source": "generated:chibi-atlas",
-      "sha256": "cd6eedd915b904aaad4a34a883099520e8c2c604af667e1f718bfb8635bc30aa"
+      "sha256": "4b4a1a0f4cb555ebf6ac3f1ae19e21c062233ad2397e51f23538920c6e6df0f8"
     },
     {
       "file": "chibi-maya-neutral.png",
@@ -168,7 +168,7 @@
     {
       "file": "chibi-maya-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "abc83b733732155ddfe3934cbf0d4cdab3e4b4e748eaa9a2ddb9e36748462f26"
+      "sha256": "a1e807b1d67f1ed884cfbadffbd72f61f77825a4f5453cce98577f0d280519d7"
     },
     {
       "file": "chibi-mia-gesture.png",
@@ -203,7 +203,7 @@
     {
       "file": "chibi-phoenix-gesture.png",
       "source": "generated:chibi-atlas",
-      "sha256": "059e429c580d8dc18c288597c4c1a125d527aeb41cdd1c9bffa109ca6589158d"
+      "sha256": "07ad4a1bd8d7e1904666991314792b3f4ebc7bb1b11c19a663bd37c40f69e0b7"
     },
     {
       "file": "chibi-phoenix-neutral.png",
@@ -213,7 +213,7 @@
     {
       "file": "chibi-phoenix-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "dffb2119a0871a6cb0b4399315eeab5fa733c1ba7fc4923e0942db1ea185ecf5"
+      "sha256": "670201c0375ee468b7acfdf0d4de4b719194ee079fb2545965fce50e2a2aad2b"
     },
     {
       "file": "chibi-police-records.jpg",
