@@ -331,6 +331,11 @@
       "sha256": "f0eed322681a8814235d3d0fc83fe5ce438312679e8b338b553cd33902f4aea5"
     },
     {
+      "file": "chibi-witness-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "4d28cb1a991e3546de804630f5ece7c6b2e3fcf1d9a6a6dcf2c6395ec2471dd6"
+    },
+    {
       "file": "chibi-witness-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "2bf47ac1a2cac281bc5f7f897e314482b82dc449e713d4dbd080291f2c7ecdd9"

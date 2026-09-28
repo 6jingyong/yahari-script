@@ -370,7 +370,7 @@
     {
       "id": "witness",
       "name": "矢张（证人）",
-      "portrait": "character/witness/pose/normal",
+      "portrait": "character/witness/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -390,6 +390,21 @@
           "id": "confident",
           "label": "自信",
           "asset": "character/witness/pose/confident"
+        },
+        {
+          "id": "boast",
+          "label": "吹嘘",
+          "asset": "character/witness/pose/boast"
+        },
+        {
+          "id": "plead",
+          "label": "求饶",
+          "asset": "character/witness/pose/plead"
+        },
+        {
+          "id": "point",
+          "label": "指向",
+          "asset": "character/witness/pose/point"
         }
       ],
       "reactions": [
@@ -1459,48 +1474,48 @@
       ]
     },
     "character/witness/pose/normal": {
-      "file": "chibi-witness-neutral.png",
+      "file": "chibi-witness-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/witness/pose/nervous": {
-      "file": "chibi-witness-reaction.png",
+      "file": "chibi-witness-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/witness/pose/confident": {
-      "file": "chibi-witness-gesture.png",
+      "file": "chibi-witness-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "character/witness/reaction/shocked": {
-      "file": "chibi-witness-reaction.png",
+      "file": "chibi-witness-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/witness/reaction/sweat": {
-      "file": "chibi-witness-reaction.png",
+      "file": "chibi-witness-actions.svg",
       "frame": [
-        0,
-        0,
+        1536,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/von-karma/pose/normal": {
@@ -2062,6 +2077,42 @@
       "file": "chibi-lotta-actions.svg",
       "frame": [
         1536,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/witness/portrait": {
+      "file": "chibi-witness-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/witness/pose/boast": {
+      "file": "chibi-witness-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/witness/pose/plead": {
+      "file": "chibi-witness-actions.svg",
+      "frame": [
+        0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/witness/pose/point": {
+      "file": "chibi-witness-actions.svg",
+      "frame": [
+        512,
         512,
         512,
         512

@@ -97,6 +97,22 @@
         "shocked",
         "flustered"
       ]
+    },
+    {
+      "id": "witness",
+      "source": "witness-actions.svg",
+      "file": "chibi-witness-actions.svg",
+      "portrait": "chibi-witness-neutral.png",
+      "actions": [
+        "normal",
+        "nervous",
+        "confident",
+        "boast",
+        "plead",
+        "point",
+        "shocked",
+        "sweat"
+      ]
     }
   ]
 }
