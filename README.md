@@ -31,12 +31,12 @@ Open http://127.0.0.1:4173/apps/editor/ . For checks:
 npm run check
 ```
 
-This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 66 action image mappings, file hashes, full PNG/JPEG integrity and crop bounds. Current milestone: 88 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. The older `chatgpt.site` preview remains an independent legacy deployment.
+This runs strict compilation, Node tests, browser module resolution and entry JavaScript syntax checks, plus all 120 action image mappings, file hashes, full PNG/JPEG integrity and crop bounds. Current milestone: 91 tests, zero failures. Static deployment uses `node scripts/build-static.mjs`. A successful `main` verification is followed by the GitHub Pages deployment job in `.github/workflows/verify.yml`. The older `chatgpt.site` preview remains an independent legacy deployment.
 
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics, Courtroom scene generation and its performance plan. Story AI owns adapter-neutral outlining, fact/scene contracts and model transport. Presentation resources are resolved from ResourceRef through the generic presentation resolver. EditorStore owns document mutations/history. DOM is an input surface, never canonical script data.
 
-See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.md for invariants and `.astra-code/PROJECT_STATE.md` for continuation guidance. Historical v0.6/P1 documents describe earlier checkpoints and are not current feature inventories.
+See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.md for invariants and `.astra-code/PROJECT_STATE.md` for continuation guidance.
 
 ## Assets, trademarks and privacy
 
@@ -46,8 +46,8 @@ CAPCOM and the respective rights holders retain all rights in Ace Attorney chara
 
 The browser keeps the model API Key in memory and does not include it in project exports or local drafts.
 
-The current demo material catalog exposes 14 bindable character presets, 66 character actions and 15 scenes. Each character has three distinct generated images (neutral, gesture, reaction); related action IDs temporarily share these images. The next art pass can add dedicated poses without changing existing scripts. See [ART_DIRECTION.md](./content-packs/courtroom-demo/ART_DIRECTION.md).
+The current demo material catalog exposes 16 bindable character presets, 128 character actions and 21 scenes. Every character has an eight-state action sheet, while portraits stay separate and older base variants remain available. The latest additions are Pearl's eight actions, the spirit-medium village courtyard and an after-hours evidence warehouse. See [ART_DIRECTION.md](./content-packs/courtroom-demo/ART_DIRECTION.md).
 
 ## Mobile authoring increment (2026-09-24)
 
-Directory and diagnostics have dedicated mobile surfaces; undo/redo stay reachable; the composer and picker follow the visible keyboard viewport. Touch pickers open without forcing search focus and restore cue opener focus. A composition lifecycle guard protects against completion Enter issuing commands. See `docs/P1D_VERIFICATION.md`, `ROUTER.md` and `TASKS.md`. Browser/physical phone acceptance remains open.
+Directory and diagnostics have dedicated mobile surfaces; undo/redo stay reachable; the composer and picker follow the visible keyboard viewport. Touch pickers open without forcing search focus and restore cue opener focus. A composition lifecycle guard protects against completion Enter issuing commands. Current evidence is consolidated in `IMPLEMENTATION_STATUS.md` and `.astra-code/PROJECT_STATE.md`. Browser/physical phone acceptance remains open.

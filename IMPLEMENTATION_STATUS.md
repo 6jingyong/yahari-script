@@ -1,14 +1,20 @@
+## Additional investigation backgrounds (2026-09-28, local preview)
+
+- Added police interview room, forensics lab, apartment living room and rainy courthouse entrance as generated empty 4:3 backgrounds. Source PNGs, 768×576 JPEGs, resource IDs and SHA-256 provenance are retained with the pack.
+- The directory scene selector and story generation material list now expose 19 scenes without changing existing Resource IDs or the content-pack version.
+- Current verification: 91 tests pass; 44 browser modules resolve; 15 characters, 120 actions, 19 scenes and 82 local images pass content checks.
+
 ## Avatar-first dialogue and scene authoring (2026-09-28)
 
 - Dialogue cards no longer show a speaker-name select above the text. A miniature portrait sits to the left of each dialogue; clicking it opens the speaker picker and changes that block's speaker.
-- The composer uses the same single active portrait instead of a persistent identity strip. The speaker picker also retains the explicit "add character" path.
+- The composer uses the same single active portrait instead of a persistent identity strip. The speaker picker directly exposes the full built-in character catalog; selecting a built-in character not yet present in the project adds it implicitly, so there is no separate add-character step.
 - Authoring candidates are current-speaker-only at the Adapter layer. Ordinary dialogue authoring no longer exposes other cast members' pose/reaction/focus candidates.
 - The composer-level Scene button and action-target selector are removed.
 - Background is now authored as a Scene property from the directory. Each Work → Chapter → Scene entry has a stage selector. The portable 0.7 format remains compatible by normalizing that selection into exactly one leading `courtroom.background` CueBlock, which is hidden from the chat transcript.
 - New scenes inherit the active scene's background (or the pack default); unset legacy scenes are shown explicitly as "选择舞台…" rather than pretending a background is active.
 - Added four repository-original vector scenes (boathouse, records basement, parking garage, hospital room) and five new original stand-in actions for von Karma, Gumshoe, Lotta, Yogi and Mia.
-- Current material catalog: 14 characters, 66 character actions, 15 scenes, 87 local image files / 88 resource IDs.
-- Verification: 88 tests pass and 44 browser modules resolve.
+- At this earlier checkpoint: 14 characters, 66 character actions, 15 scenes, 87 local image files / 88 resource IDs.
+- At this earlier checkpoint: 88 tests passed and 44 browser modules resolved.
 
 ## Original synthesized rehearsal audio (2026-09-28)
 
@@ -96,12 +102,12 @@ Only the entry document is editable. Storage is local to the browser. No branchi
 
 ## 2026-09-24 mobile increment
 
-See docs/P1D_VERIFICATION.md for current evidence: 47 tests and 26 browser modules pass; mobile directory/diagnostics/picker and IME guard implemented. Browser preview infrastructure blocked visual QA. Physical phone and five-character acceptance remain open. Latest Work AGENTS.md and W2 routing evidence are in repository root.
+At this historical checkpoint, 47 tests and 26 browser modules passed; mobile directory/diagnostics/picker and the IME guard were implemented. Browser preview infrastructure blocked visual QA. Physical phone acceptance remained open. The old milestone-specific verification and routing notes have since been consolidated into the current project state/status documents.
 
 ## 2026-09-26 cast recovery (supersedes earlier counts)
 - Root completed integration directly; no subagent execution in this correction. Previous recovery remained uncommitted and unpublished.
 - Five actors: Phoenix, Edgeworth, Maya, Judge and Larry (witness); 26 actions with local images, three scenes and correct stations. Witness shocked and nervous intentionally share the source nervous expression; actions are not claimed as 26 unique animations.
-- Built-in old sample cast upgrades additively; custom/imported casts can use + Role. Existing dialogue, aliases and drafts remain intact. Five-person showcase opens independently.
+- Built-in old sample cast upgrades additively; custom/imported cast identities remain intact, while missing built-in characters are selected directly from the speaker picker. Existing dialogue, aliases and drafts remain intact. Five-person showcase opens independently.
 - Verification: 52 passing tests, 28 resolved modules, 34 images verified for source hash and crop bounds; composited all 26 actions for manual asset inspection. Browser/mobile interaction remains unverified (previous managed preview infrastructure unavailable).
 - Preview uses representative frames; full animation and audio playback are not implemented.
 
