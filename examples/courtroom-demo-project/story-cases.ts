@@ -14,8 +14,8 @@ type Line = {
   flash?: number;
   shake?: number;
   wait?: "input" | number;
-  sfx?: "objection" | "hold-it" | "desk-slam" | "gavel" | "impact";
-  bgm?: "trial" | "cross-examination" | "suspense" | "pursuit";
+  sfx?: "objection" | "hold-it" | "desk-slam" | "gavel" | "impact" | "evidence-presented" | "truth-reveal" | "whip" | "camera" | "magic";
+  bgm?: "trial" | "cross-examination" | "suspense" | "pursuit" | "investigation" | "resolution";
 };
 type CaseScene = { title: string; summary: string; background: string; lines: Line[] };
 type CaseChapter = { title: string; summary: string; scenes: CaseScene[] };
@@ -53,7 +53,7 @@ const story: CaseStory = {
           background: "lake-dock",
           summary: "葫芦湖夜间码头。夏美带来未提交的底片，糸锯确认时间戳比警方抄录早了几十秒；照片只能证明湖面曾有第二个影子，不能证明身份。",
           lines: [
-            { speaker: "lotta", pose: "camera", text: "我把剩下的底片全翻出来了。别先高兴，照片糊得像隔着一锅汤。", focus: "lotta", bgm: "suspense" },
+            { speaker: "lotta", pose: "camera", text: "我把剩下的底片全翻出来了。别先高兴，照片糊得像隔着一锅汤。", focus: "lotta", bgm: "investigation", sfx: "camera" },
             { speaker: "gumshoe", pose: "salute", text: "时间戳在这里。警方摘要写的是零点十五分，但原片其实早了四十七秒。", focus: "gumshoe" },
             { speaker: "phoenix", pose: "think", text: "四十七秒足够改变两声枪响的先后，却不足以告诉我们第二个人是谁。" },
             { speaker: "maya", pose: "think", text: "这张边缘有一道细长的反光，好像还有一艘船？" },
@@ -70,7 +70,7 @@ const story: CaseStory = {
           background: "evidence-room",
           summary: "证物保管室。糸锯找到旧案封存物的编号错位；一件金属证物曾被重新登记，但经手签名缺失。",
           lines: [
-            { speaker: "gumshoe", pose: "present-report", text: "旧案的箱号是D-6-17，可这张再登记单写成了D-6-71。两个箱子都真实存在。", bgm: "suspense" },
+            { speaker: "gumshoe", pose: "present-report", text: "旧案的箱号是D-6-17，可这张再登记单写成了D-6-71。两个箱子都真实存在。", bgm: "suspense", sfx: "evidence-presented" },
             { speaker: "phoenix", pose: "think", text: "抄错数字不稀奇，稀奇的是为什么有人为错号开过一次柜门。" },
             { speaker: "maya", pose: "think", text: "经手人那栏被空着了。" },
             { speaker: "gumshoe", reaction: "nervous", text: "按规程不该空。可十五年前的纸档里，确实就这一页没有签名。" },
@@ -230,7 +230,7 @@ const story: CaseStory = {
             { speaker: "mia", pose: "point", text: "真正自信的证据，不怕交叉验证。" },
             { speaker: "gumshoe", reaction: "nervous", text: "鉴识组刚送到侧光结果。被划掉的影像编号还能读出来。" },
             { speaker: "judge", reaction: "surprised", text: "立即提交。" },
-            { speaker: "gumshoe", pose: "salute", text: "编号对应的患者登记，使用的是检察系统内部结算码。授权人……狩魔豪。" },
+            { speaker: "gumshoe", pose: "salute", text: "编号对应的患者登记，使用的是检察系统内部结算码。授权人……狩魔豪。", sfx: "truth-reveal" },
             { speaker: "von-karma", reaction: "breakdown", text: "……你们以为这样就结束了？", flash: 0.7, sfx: "impact" },
             { speaker: "witness", reaction: "shocked", text: "哇，连我都听出来这次不妙了。" },
             { speaker: "lotta", reaction: "shocked", text: "相机开着呢。放心，我这次只拍，不替照片写结论。" },
@@ -241,7 +241,7 @@ const story: CaseStory = {
             { speaker: "judge", pose: "stern", text: "准许。并命令保全全部相关记录。" },
             { speaker: "von-karma", reaction: "breakdown", text: "四十年的完美……竟被一群只会说“我不知道”的人逼到这里。", shake: 0.75 },
             { speaker: "mia", pose: "normal", text: "承认不知道，往往是真相开始出现的地方。" },
-            { speaker: "judge", pose: "normal", text: "本庭休庭。下一次开庭，只讨论能够被验证的事实。", sfx: "gavel" },
+            { speaker: "judge", pose: "normal", text: "本庭休庭。下一次开庭，只讨论能够被验证的事实。", sfx: "gavel", bgm: "resolution" },
             { speaker: null, text: "法槌落下。没有人宣布胜利，但围绕十五年的沉默第一次失去了控制叙事的人。", wait: "input" },
           ],
         },

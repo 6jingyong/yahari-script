@@ -47,6 +47,10 @@ test('long case covers all new locations, characters and presentation stress tok
   for(const type of ['courtroom.pose','courtroom.reaction','courtroom.focus','courtroom.emphasis','courtroom.flash','courtroom.shake','courtroom.wait','courtroom.sfx','courtroom.bgm']){
     assert.ok(tokenTypes.has(type),type);
   }
+  const serialized=JSON.stringify(file.documents);
+  for(const id of ['audio/bgm/investigation','audio/bgm/resolution','audio/sfx/camera','audio/sfx/evidence-presented','audio/sfx/truth-reveal']){
+    assert.ok(serialized.includes(`"id":"${id}"`),id);
+  }
   for(const id of ['von-karma','gumshoe','lotta','yogi','mia']){
     assert.ok(file.manifest.cast.some(person=>person.characterRef.id===id),id);
   }
