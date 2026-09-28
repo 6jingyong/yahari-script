@@ -29,6 +29,12 @@ for (const scene of pack.backgrounds) {
 
 const uniqueFiles=new Map();
 for(const descriptor of Object.values(courtroomDemoResources.resources)) uniqueFiles.set(descriptor.url,descriptor);
+// Archived poses and portraits are still shipped with the pack. Check them too,
+// even when no current action points at the file.
+for(const source of provenance.assets){
+  const url=`../../content-packs/courtroom-demo/assets/${source.file}`;
+  if(!uniqueFiles.has(url))uniqueFiles.set(url,{url,frame:[0,0,1,1]});
+}
 
 for(const [url,descriptor] of uniqueFiles) {
   const assetPrefix='../../content-packs/courtroom-demo/assets/';

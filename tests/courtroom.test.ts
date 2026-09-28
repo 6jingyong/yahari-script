@@ -26,7 +26,7 @@ test("Phoenix pose picker recommends capabilities Phoenix actually has", () => {
     .filter((candidate) => candidate.availability === "recommended")
     .map((candidate) => candidate.params.pose);
 
-  assert.deepEqual(phoenixPoses.sort(), ["desk", "normal", "point", "think"]);
+  assert.deepEqual(phoenixPoses.sort(), ["desk", "normal", "objection", "point", "smile", "think"]);
   assert.equal(candidates.every((candidate) => candidate.enabled), true);
 });
 

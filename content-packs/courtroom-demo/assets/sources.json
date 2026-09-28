@@ -7,7 +7,7 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Phoenix, Maya, and Edgeworth now expose eight distinct action states from dedicated transparent 4x2 action atlases. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
+    "note": "Phoenix, Maya, Edgeworth, and Judge expose eight distinct actions from dedicated transparent 4x2 atlases. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
   },
   "assets": [
     {
@@ -53,7 +53,7 @@
     {
       "file": "chibi-edgeworth-neutral.png",
       "source": "generated:chibi-atlas",
-      "sha256": "f70d907d7d21b34890039d26ca19b04b9c19262f9ac9e55c8ead62160a842b96"
+      "sha256": "2f1129bc7c4ec3374938183937a85b8be3a36942775933292edb92ec4dcc0a40"
     },
     {
       "file": "chibi-edgeworth-reaction.png",
@@ -104,6 +104,11 @@
       "file": "chibi-hospital-room.jpg",
       "source": "generated:chibi-atlas",
       "sha256": "be33a43b95b6ac0c7433329516eae906724261d7f32d6cb9e49e3400cd2d5159"
+    },
+    {
+      "file": "chibi-judge-actions.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "fda44f652c7942bea264df9072f32b832d85965174a3ae7cdf6bfa9cc4503412"
     },
     {
       "file": "chibi-judge-gesture.png",
@@ -163,7 +168,7 @@
     {
       "file": "chibi-maya-actions.png",
       "source": "generated:8-pose-atlas",
-      "sha256": "2af94b04cdf291bdd2db157d26b05330ffe86f56ee05baca3c6a6ed925a9d5c0"
+      "sha256": "4846af3b3970bfd12709f9266a34310d245b3e66f4810e3994dd8b7f82c7ee13"
     },
     {
       "file": "chibi-maya-gesture.png",
@@ -178,7 +183,7 @@
     {
       "file": "chibi-maya-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "a1e807b1d67f1ed884cfbadffbd72f61f77825a4f5453cce98577f0d280519d7"
+      "sha256": "389367f4e68e13ddb023d49f1dde485d17ea6a1620153ded8ceaf5a0eb5de606"
     },
     {
       "file": "chibi-mia-gesture.png",
@@ -218,7 +223,7 @@
     {
       "file": "chibi-phoenix-gesture.png",
       "source": "generated:chibi-atlas",
-      "sha256": "07ad4a1bd8d7e1904666991314792b3f4ebc7bb1b11c19a663bd37c40f69e0b7"
+      "sha256": "cfb7aa508db9fbc1f65f28b06a8777cee8d6736d71e7b07f827e7d729e5de0df"
     },
     {
       "file": "chibi-phoenix-neutral.png",
@@ -228,7 +233,7 @@
     {
       "file": "chibi-phoenix-reaction.png",
       "source": "generated:chibi-atlas",
-      "sha256": "670201c0375ee468b7acfdf0d4de4b719194ee079fb2545965fce50e2a2aad2b"
+      "sha256": "33c21046b71c265b5e72bf4b972b9b0fa3f38baa4abbef746d1807262bef2bdc"
     },
     {
       "file": "chibi-police-records.jpg",

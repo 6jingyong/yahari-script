@@ -1,8 +1,4 @@
-"""Bind generated chibi art to stable Courtroom resource IDs.
-
-The three lead characters use explicit 4x2 action atlases. Other characters
-keep the neutral/gesture/reaction fallback until their richer sheets arrive.
-"""
+"""Bind new chibi art without replacing existing curated resource mappings."""
 import hashlib
 import json
 from pathlib import Path
@@ -56,6 +52,34 @@ ACTION_ATLASES = {
     },
 }
 
+def grid_frames(filename: str, actions: tuple[str, ...]) -> dict[str, list[int]]:
+    """Derive eight independent resource crops from an exact 4x2 atlas."""
+    assert len(actions) == 8
+    with Image.open(ASSETS / filename) as sheet:
+        width, height = sheet.size
+    return {
+        action: [
+            round((index % 4) * width / 4),
+            round((index // 4) * height / 2),
+            round(((index % 4) + 1) * width / 4) - round((index % 4) * width / 4),
+            round(((index // 4) + 1) * height / 2) - round((index // 4) * height / 2),
+        ]
+        for index, action in enumerate(actions)
+    }
+
+ACTION_ATLASES["maya"]["frames"] = grid_frames(
+    "chibi-maya-actions.png",
+    ("normal", "wave", "cheer", "point", "think", "thumbs-up", "surprised", "sad"),
+)
+ACTION_ATLASES["judge"] = {
+    "file": "chibi-judge-actions.png",
+    "frames": grid_frames(
+        "chibi-judge-actions.png",
+        ("normal", "stern", "gavel-strike", "listen", "surprised", "confused", "think", "relieved"),
+    ),
+    "portrait": "chibi-judge-neutral.png",
+}
+
 def full_frame(filename: str) -> list[int]:
     with Image.open(ASSETS / filename) as image:
         return [0, 0, image.width, image.height]
@@ -84,10 +108,11 @@ for character in catalog["characters"]:
             continue
         variant = "gesture" if action_id in gestures else "reaction" if action_id in reactions else "neutral"
         filename = f"chibi-{character['id']}-{variant}.png"
-        catalog["resources"][action["asset"]] = {
-            "file": filename,
-            "frame": full_frame(filename),
-        }
+        if action["asset"] not in catalog["resources"]:
+            catalog["resources"][action["asset"]] = {
+                "file": filename,
+                "frame": full_frame(filename),
+            }
 
 scene_files = {entry["id"]: f"chibi-{entry['id']}.jpg" for entry in catalog["backgrounds"]}
 scene_files.update({
@@ -104,30 +129,29 @@ for scene in catalog["backgrounds"]:
         scene["foreground"] = "stage/witness/foreground"
 for resource_id, filename in scene_files.items():
     key = resource_id if resource_id.startswith("stage/") else f"background/{resource_id}"
-    catalog["resources"][key] = {"file": filename, "frame": full_frame(filename)}
+    if key not in catalog["resources"]:
+        catalog["resources"][key] = {"file": filename, "frame": full_frame(filename)}
 
 catalog["version"] = "0.4.0"
 CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
 
 files = sorted({item["file"] for item in catalog["resources"].values() if "file" in item})
+source_path = ASSETS / "sources.json"
+previous_sources = json.loads(source_path.read_text())
+previous_assets = {item["file"]: item for item in previous_sources["assets"]}
 sources = {
-    "retrieved": "2026-09-28",
-    "credit": "AI-generated chibi illustration produced for the Yahari Script prototype",
-    "licenseNote": "Generated depictions of Ace Attorney characters remain subject to CAPCOM's underlying character rights. Original game artwork is no longer bundled in this pack.",
+    **{key: value for key, value in previous_sources.items() if key not in {"assets", "generation"}},
     "generation": {
-        "mode": "built-in image generation",
-        "sourceAtlases": "content-packs/courtroom-demo/art-source/",
-        "recipe": "scripts/build-chibi-art.py",
-        "mapping": "scripts/map-chibi-art.py",
-        "note": "Phoenix, Maya, and Edgeworth expose eight distinct actions from dedicated 4x2 atlases; the remaining cast still uses three representative states.",
+        **previous_sources["generation"],
+        "note": "Phoenix, Maya, Edgeworth, and Judge expose eight distinct actions from dedicated transparent 4x2 atlases. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas.",
     },
     "assets": [
-        {"file": name, "source": "generated:chibi-atlas", "sha256": hashlib.sha256((ASSETS / name).read_bytes()).hexdigest()}
-        for name in files
+        {
+            "file": name,
+            "source": previous_assets.get(name, {}).get("source", "generated:8-pose-atlas"),
+            "sha256": hashlib.sha256((ASSETS / name).read_bytes()).hexdigest(),
+        }
+        for name in sorted(set(files) | set(previous_assets))
     ],
 }
-(ASSETS / "sources.json").write_text(json.dumps(sources, ensure_ascii=False, indent=2) + "\n")
-
-for path in ASSETS.iterdir():
-    if path.is_file() and path.name not in files and path.name != "sources.json":
-        path.unlink()
+source_path.write_text(json.dumps(sources, ensure_ascii=False, indent=2) + "\n")

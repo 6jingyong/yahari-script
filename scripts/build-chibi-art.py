@@ -62,6 +62,11 @@ for filename, names, columns in CAST:
             canvas.alpha_composite(figure, ((512 - figure.width) // 2, 384 - figure.height))
             save_verified(canvas, DEST / f"chibi-{name}-{variant}.png")
 
+# Keep the judge's action sheet intact: resource frames in the catalog select
+# individual cells while the editor only needs to preload one image.
+save_verified(Image.open(SOURCE / "judge-actions.png").convert("RGBA"), DEST / "chibi-judge-actions.png")
+save_verified(Image.open(SOURCE / "maya-actions.png").convert("RGBA"), DEST / "chibi-maya-actions.png")
+
 for filename, columns, names in SCENES:
     image = Image.open(SOURCE / filename).convert("RGB")
     rows = len(names) // columns

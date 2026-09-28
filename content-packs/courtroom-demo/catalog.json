@@ -318,7 +318,7 @@
     {
       "id": "judge",
       "name": "裁判长",
-      "portrait": "character/judge/pose/normal",
+      "portrait": "character/judge/portrait",
       "stage": {
         "background": "stage/judge/background"
       },
@@ -330,8 +330,28 @@
         },
         {
           "id": "stern",
-          "label": "严肃",
+          "label": "严肃指示",
           "asset": "character/judge/pose/stern"
+        },
+        {
+          "id": "gavel-strike",
+          "label": "敲槌",
+          "asset": "character/judge/pose/gavel-strike"
+        },
+        {
+          "id": "listen",
+          "label": "倾听",
+          "asset": "character/judge/pose/listen"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/judge/pose/think"
+        },
+        {
+          "id": "relieved",
+          "label": "宽慰",
+          "asset": "character/judge/pose/relieved"
         }
       ],
       "reactions": [
@@ -1247,82 +1267,82 @@
     "character/maya/pose/normal": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        4,
-        1,
-        36,
-        68
+        0,
+        0,
+        444,
+        444
       ]
     },
     "character/maya/pose/cheer": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        89,
-        4,
-        47,
-        65
+        887,
+        0,
+        443,
+        444
       ]
     },
     "character/maya/pose/think": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        7,
-        67,
-        36,
-        67
+        0,
+        444,
+        444,
+        443
       ]
     },
     "character/maya/reaction/surprised": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        46,
-        69,
-        46,
-        65
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/maya/reaction/sad": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        96,
-        68,
-        37,
-        66
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/judge/pose/normal": {
-      "file": "chibi-judge-neutral.png",
+      "file": "chibi-judge-actions.png",
       "frame": [
         0,
         0,
-        512,
-        384
+        362,
+        544
       ]
     },
     "character/judge/pose/stern": {
-      "file": "chibi-judge-gesture.png",
+      "file": "chibi-judge-actions.png",
       "frame": [
+        362,
         0,
-        0,
-        512,
-        384
+        362,
+        544
       ]
     },
     "character/judge/reaction/surprised": {
-      "file": "chibi-judge-reaction.png",
+      "file": "chibi-judge-actions.png",
       "frame": [
         0,
-        0,
-        512,
-        384
+        544,
+        362,
+        543
       ]
     },
     "character/judge/reaction/confused": {
-      "file": "chibi-judge-reaction.png",
+      "file": "chibi-judge-actions.png",
       "frame": [
-        0,
-        0,
-        512,
-        384
+        362,
+        544,
+        362,
+        543
       ]
     },
     "character/witness/pose/normal": {
@@ -1615,8 +1635,8 @@
       "frame": [
         0,
         0,
-        160,
-        120
+        512,
+        384
       ]
     },
     "character/edgeworth/pose/objection": {
@@ -1649,28 +1669,73 @@
     "character/maya/pose/wave": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        46,
-        3,
-        42,
-        66
+        444,
+        0,
+        443,
+        444
       ]
     },
     "character/maya/pose/point": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        136,
-        4,
-        45,
-        65
+        1330,
+        0,
+        444,
+        444
       ]
     },
     "character/maya/pose/thumbs-up": {
       "file": "chibi-maya-actions.png",
       "frame": [
-        136,
-        68,
-        44,
-        66
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/judge/portrait": {
+      "file": "chibi-judge-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/judge/pose/gavel-strike": {
+      "file": "chibi-judge-actions.png",
+      "frame": [
+        724,
+        0,
+        361,
+        544
+      ]
+    },
+    "character/judge/pose/listen": {
+      "file": "chibi-judge-actions.png",
+      "frame": [
+        1085,
+        0,
+        362,
+        544
+      ]
+    },
+    "character/judge/pose/think": {
+      "file": "chibi-judge-actions.png",
+      "frame": [
+        724,
+        544,
+        361,
+        543
+      ]
+    },
+    "character/judge/pose/relieved": {
+      "file": "chibi-judge-actions.png",
+      "frame": [
+        1085,
+        544,
+        362,
+        543
       ]
     }
   }

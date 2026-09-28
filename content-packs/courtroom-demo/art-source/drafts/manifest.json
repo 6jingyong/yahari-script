@@ -1,7 +1,7 @@
 {
   "version": 1,
   "status": "draft",
-  "note": "Provisional generated eight-pose sheets. Visual likeness is intentionally not approved; these files are parked as draft references and are not wired into catalog.json or runtime.",
+  "note": "Provisional generated eight-pose sheets. The judge preview is superseded by a full-resolution mapped sheet; detective and prosecutor previews remain unbound pending refinement.",
   "imported": "2026-09-28",
   "resolution": "240x120 preview copies for GitHub handoff; replace with refined/full-resolution art in the next Work pass.",
   "sheets": [
@@ -9,7 +9,7 @@
       "id": "judge",
       "file": "judge-actions-v0.webp",
       "layout": "4x2",
-      "status": "needs-redesign"
+      "status": "superseded-by-judge-actions.png"
     },
     {
       "id": "gumshoe",
