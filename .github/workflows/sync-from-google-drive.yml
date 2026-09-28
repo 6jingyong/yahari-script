@@ -67,6 +67,25 @@ jobs:
           test -f "$STAGE/package-lock.json" || { echo "::error::Drive folder is missing package-lock.json"; exit 1; }
           test -f "$STAGE/apps/editor/index.html" || { echo "::error::Drive folder is missing apps/editor/index.html"; exit 1; }
 
+      - name: Reject GitHub-side project changes since last Drive sync
+        run: |
+          # The previous Drive mirror is the common baseline. GitHub-only
+          # tooling lives under .github and is intentionally excluded.
+          BASE="$(git log -1 --format=%H --grep='Drive-Sync: true' || true)"
+          BASE="${BASE:-d05b7e3a507ee36a3444d5b0da0d711f50e08fea}"
+
+          if ! git merge-base --is-ancestor "$BASE" HEAD; then
+            echo "::error::Drive sync baseline is not an ancestor of main."
+            exit 1
+          fi
+
+          CHANGED="$(git diff --name-only "$BASE" HEAD -- . ':(exclude).github')"
+          if [ -n "$CHANGED" ]; then
+            echo "::error::GitHub project files changed after the last Drive sync; reconcile them with Drive before mirroring."
+            echo "$CHANGED"
+            exit 1
+          fi
+
       - name: Mirror Drive into repository
         run: |
           STAGE="$RUNNER_TEMP/drive-project"
@@ -113,7 +132,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add -A
-          git commit -m "${COMMIT_MESSAGE:-Sync Google Drive workspace}"
+          git commit -m "${COMMIT_MESSAGE:-Sync Google Drive workspace}" -m "Drive-Sync: true"
 
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git push origin HEAD:main
