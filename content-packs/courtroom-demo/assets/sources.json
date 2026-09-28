@@ -86,6 +86,16 @@
       "sha256": "5478c87a56b30ec3bd53c00c004e53974aef05c55ddda9daa8e3f44926c63cc6"
     },
     {
+      "file": "chibi-franziska-actions.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "f44d30866e853e424b9855dae6bb1e0de7635b43f5af2cf6f42ef59c1bbd39d9"
+    },
+    {
+      "file": "chibi-franziska-neutral.png",
+      "source": "generated:8-pose-atlas",
+      "sha256": "e65585a6a5dbb8b1ca25258c55604a2b861d9c452107be67b6531add0d71c916"
+    },
+    {
       "file": "chibi-gumshoe-actions.png",
       "source": "generated:8-pose-atlas",
       "sha256": "e519fda849b64e77a098a6417c8f702e5b90a87dc7f65c56b5c0208e484593ab"

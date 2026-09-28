@@ -40,6 +40,17 @@ def install() -> None:
         with Image.open(temporary) as check:
             check.load()
         temporary.replace(output)
+        if "portraitSource" in sheet:
+            with Image.open(SOURCE / sheet["portraitSource"]) as source:
+                portrait = source.convert("RGBA")
+            if portrait.width < 256 or portrait.height < 192 or not portrait.getchannel("A").getbbox():
+                raise ValueError(f"Invalid portrait: {sheet['portraitSource']}")
+            portrait_output = DEST / sheet["portrait"]
+            portrait_temporary = portrait_output.with_suffix(".tmp")
+            portrait.save(portrait_temporary, format="PNG", compress_level=6)
+            with Image.open(portrait_temporary) as check:
+                check.load()
+            portrait_temporary.replace(portrait_output)
         print(f"Installed {sheet['id']}: {len(actions)} actions")
 
 

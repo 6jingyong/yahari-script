@@ -492,6 +492,59 @@
       ]
     },
     {
+      "id": "franziska",
+      "name": "狩魔冥",
+      "portrait": "character/franziska/portrait",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/franziska/pose/normal"
+        },
+        {
+          "id": "crossed-arms",
+          "label": "抱臂",
+          "asset": "character/franziska/pose/crossed-arms"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/franziska/pose/point"
+        },
+        {
+          "id": "whip-ready",
+          "label": "扬鞭",
+          "asset": "character/franziska/pose/whip-ready"
+        },
+        {
+          "id": "whip-strike",
+          "label": "挥鞭",
+          "asset": "character/franziska/pose/whip-strike"
+        },
+        {
+          "id": "smirk",
+          "label": "得意",
+          "asset": "character/franziska/pose/smirk"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/franziska/reaction/surprised"
+        },
+        {
+          "id": "frustrated",
+          "label": "懊恼",
+          "asset": "character/franziska/reaction/frustrated"
+        }
+      ]
+    },
+    {
       "id": "lotta",
       "name": "大泽木夏美",
       "portrait": "character/lotta/pose/normal",
@@ -1796,6 +1849,87 @@
     },
     "character/gumshoe/reaction/embarrassed": {
       "file": "chibi-gumshoe-actions.png",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/franziska/portrait": {
+      "file": "chibi-franziska-neutral.png",
+      "frame": [
+        0,
+        0,
+        1448,
+        1086
+      ]
+    },
+    "character/franziska/pose/normal": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/franziska/pose/crossed-arms": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/franziska/pose/point": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/franziska/pose/whip-ready": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/franziska/pose/whip-strike": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/franziska/pose/smirk": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/franziska/reaction/surprised": {
+      "file": "chibi-franziska-actions.png",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/franziska/reaction/frustrated": {
+      "file": "chibi-franziska-actions.png",
       "frame": [
         1330,
         444,

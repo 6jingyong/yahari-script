@@ -21,6 +21,14 @@
       "file": "chibi-gumshoe-actions.png",
       "portrait": "chibi-gumshoe-neutral.png",
       "actions": ["normal", "salute", "point", "present-report", "think", "determined", "nervous", "embarrassed"]
+    },
+    {
+      "id": "franziska",
+      "source": "franziska-actions.png",
+      "file": "chibi-franziska-actions.png",
+      "portraitSource": "franziska-portrait.png",
+      "portrait": "chibi-franziska-neutral.png",
+      "actions": ["normal", "crossed-arms", "point", "whip-ready", "whip-strike", "smirk", "surprised", "frustrated"]
     }
   ]
 }

@@ -10,7 +10,7 @@ import type { ScriptDocument } from '../packages/core/src/index.js';
 
 test('recovered showcase covers all five actors and compiles', () => {
   assert.ok(courtroomDemoPack.characters.some(c => c.id === 'apollo'));
-  for (const id of ['von-karma','gumshoe','lotta','yogi','mia']) assert.ok(courtroomDemoPack.characters.some(c => c.id === id), id);
+  for (const id of ['von-karma','gumshoe','franziska','lotta','yogi','mia']) assert.ok(courtroomDemoPack.characters.some(c => c.id === id), id);
   assert.deepEqual([...defaultDemoCharacterIds], ['phoenix','edgeworth','maya','judge','witness']);
   const speakers = new Set(demoShowcaseDocument.blocks.filter(b => b.type === 'dialogue').map(b => b.speaker?.castId));
   assert.equal(speakers.size, 5);
@@ -141,6 +141,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     edgeworth:['normal','bow','point','objection','desk','smug','surprised','damaged'],
     judge:['normal','stern','gavel-strike','listen','think','relieved','surprised','confused'],
     gumshoe:['normal','salute','point','present-report','think','determined','nervous','embarrassed'],
+    franziska:['normal','crossed-arms','point','whip-ready','whip-strike','smirk','surprised','frustrated'],
   } as const;
   for(const [characterId,ids] of Object.entries(expected)){
     const character=courtroomDemoPack.characters.find(item=>item.id===characterId);
@@ -151,8 +152,19 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     for(const id of ids){
       const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
       assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
-      assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe)-actions\.png$/);
+      assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe|franziska)-actions\.png$/);
     }
     assert.equal(new Set(actions.map(item=>JSON.stringify(resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},item.id).frame))).size,8,characterId);
   }
+});
+
+test('Franziska stays opt-in with a separate portrait and prosecution foreground',()=>{
+  const manifest=addDemoCharacter(demoManifest,'franziska');
+  assert.equal(demoManifest.cast.some(c=>c.characterRef.id==='franziska'),false);
+  assert.equal(manifest.cast.at(-1)?.characterRef.id,'franziska');
+  const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'franziska'},'whip-strike');
+  assert.ok(visual.sprite?.endsWith('chibi-franziska-actions.png'));
+  assert.ok(visual.foreground?.includes('chibi-stage-prosecution-foreground.png'));
+  const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:'character/franziska/portrait'});
+  assert.ok(portrait?.url.endsWith('chibi-franziska-neutral.png'));
 });

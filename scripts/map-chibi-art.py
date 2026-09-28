@@ -134,6 +134,7 @@ files = sorted({item["file"] for item in catalog["resources"].values() if "file"
 source_path = ASSETS / "sources.json"
 previous_sources = json.loads(source_path.read_text())
 previous_assets = {item["file"]: item for item in previous_sources["assets"]}
+portrait_files = {item["portrait"] for item in sheet_manifest["sheets"] if "portraitSource" in item}
 sources = {
     **{key: value for key, value in previous_sources.items() if key not in {"assets", "generation"}},
     "generation": {
@@ -143,7 +144,7 @@ sources = {
     "assets": [
         {
             "file": name,
-            "source": previous_assets.get(name, {}).get("source", "generated:8-pose-atlas"),
+            "source": previous_assets.get(name, {}).get("source", "generated:portrait" if name in portrait_files else "generated:8-pose-atlas"),
             "sha256": hashlib.sha256((ASSETS / name).read_bytes()).hexdigest(),
         }
         for name in sorted(set(files) | set(previous_assets))
