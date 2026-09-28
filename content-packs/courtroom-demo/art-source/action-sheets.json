@@ -113,6 +113,22 @@
         "shocked",
         "sweat"
       ]
+    },
+    {
+      "id": "yogi",
+      "source": "yogi-actions.svg",
+      "file": "chibi-yogi-actions.svg",
+      "portrait": "chibi-yogi-neutral.png",
+      "actions": [
+        "normal",
+        "stern",
+        "tired",
+        "mutter",
+        "point",
+        "tense",
+        "shocked",
+        "broken"
+      ]
     }
   ]
 }

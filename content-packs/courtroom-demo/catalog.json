@@ -635,7 +635,7 @@
     {
       "id": "yogi",
       "name": "灰根高太郎",
-      "portrait": "character/yogi/pose/normal",
+      "portrait": "character/yogi/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -650,18 +650,38 @@
           "id": "stern",
           "label": "严肃",
           "asset": "character/yogi/pose/stern"
+        },
+        {
+          "id": "tired",
+          "label": "倦怠",
+          "asset": "character/yogi/pose/tired"
+        },
+        {
+          "id": "mutter",
+          "label": "低语",
+          "asset": "character/yogi/pose/mutter"
+        },
+        {
+          "id": "point",
+          "label": "指出",
+          "asset": "character/yogi/pose/point"
+        },
+        {
+          "id": "tense",
+          "label": "紧绷",
+          "asset": "character/yogi/pose/tense"
         }
       ],
       "reactions": [
         {
-          "id": "broken",
-          "label": "崩溃",
-          "asset": "character/yogi/reaction/broken"
-        },
-        {
           "id": "shocked",
           "label": "震惊",
           "asset": "character/yogi/reaction/shocked"
+        },
+        {
+          "id": "broken",
+          "label": "崩溃",
+          "asset": "character/yogi/reaction/broken"
         }
       ]
     },
@@ -1600,30 +1620,30 @@
       ]
     },
     "character/yogi/pose/normal": {
-      "file": "chibi-yogi-neutral.png",
+      "file": "chibi-yogi-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/yogi/pose/stern": {
-      "file": "chibi-yogi-gesture.png",
+      "file": "chibi-yogi-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/yogi/reaction/broken": {
-      "file": "chibi-yogi-reaction.png",
+      "file": "chibi-yogi-actions.svg",
       "frame": [
-        0,
-        0,
+        1536,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/mia/pose/normal": {
@@ -1705,12 +1725,12 @@
       ]
     },
     "character/yogi/reaction/shocked": {
-      "file": "chibi-yogi-reaction.png",
+      "file": "chibi-yogi-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/mia/pose/smile": {
@@ -2111,6 +2131,51 @@
     },
     "character/witness/pose/point": {
       "file": "chibi-witness-actions.svg",
+      "frame": [
+        512,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/yogi/portrait": {
+      "file": "chibi-yogi-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/yogi/pose/tired": {
+      "file": "chibi-yogi-actions.svg",
+      "frame": [
+        1024,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/yogi/pose/mutter": {
+      "file": "chibi-yogi-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/yogi/pose/point": {
+      "file": "chibi-yogi-actions.svg",
+      "frame": [
+        0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/yogi/pose/tense": {
+      "file": "chibi-yogi-actions.svg",
       "frame": [
         512,
         512,

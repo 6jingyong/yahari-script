@@ -356,6 +356,11 @@
       "sha256": "faba597b67fd12bc89131265fa19c102e76fca2f5de5c84e0d9ec95936ee64e9"
     },
     {
+      "file": "chibi-yogi-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "ad9b752a1ddc429c5c3bcfeaeb9f194f8d1da63463cbbe95285978dbf2538a20"
+    },
+    {
       "file": "chibi-yogi-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "f87333c1f7b000b0eeb98994fef88099d601103586f3013532ea7fd9a6286e17"
