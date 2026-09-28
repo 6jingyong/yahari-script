@@ -81,6 +81,22 @@
         "shocked",
         "breakdown"
       ]
+    },
+    {
+      "id": "lotta",
+      "source": "lotta-actions.svg",
+      "file": "chibi-lotta-actions.svg",
+      "portrait": "chibi-lotta-neutral.png",
+      "actions": [
+        "normal",
+        "camera",
+        "grin",
+        "point",
+        "excited",
+        "skeptical",
+        "shocked",
+        "flustered"
+      ]
     }
   ]
 }

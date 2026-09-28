@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1024" viewBox="0 0 2048 1024">
+  <defs>
+    <style>
+      .skin{fill:#efc29d;stroke:#352d36;stroke-width:8;stroke-linejoin:round;stroke-linecap:round}
+      .hair{fill:#9d4c32;stroke:#352d36;stroke-width:8;stroke-linejoin:round}
+      .jacket{fill:#b88a50;stroke:#352d36;stroke-width:9;stroke-linejoin:round;stroke-linecap:round}
+      .shirt{fill:#397b72;stroke:#352d36;stroke-width:7;stroke-linejoin:round}
+      .denim{fill:#35556d;stroke:#352d36;stroke-width:7}
+      .shoe{fill:#2b3037;stroke:#352d36;stroke-width:7}
+      .line{fill:none;stroke:#352d36;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+      .eye{fill:#352d36}
+      .brow{fill:none;stroke:#352d36;stroke-width:8;stroke-linecap:round}
+      .motion{fill:none;stroke:#d15e3e;stroke-width:8;stroke-linecap:round}
+      .mouthopen{fill:#6b3640;stroke:#352d36;stroke-width:7}
+      .camera{fill:#303842;stroke:#352d36;stroke-width:7;stroke-linejoin:round}
+      .lens{fill:#75a9b8;stroke:#352d36;stroke-width:7}
+    </style>
+    <g id="body">
+      <path class="jacket" d="M150 268 Q256 218 362 268 L388 443 Q337 488 256 490 Q175 488 124 443 Z"/>
+      <path class="shirt" d="M207 281 Q256 260 305 281 L317 430 L195 430 Z"/>
+      <path class="denim" d="M173 426 L228 426 L218 487 L157 487 Z"/><path class="denim" d="M284 426 L339 426 L355 487 L294 487 Z"/>
+      <ellipse class="shoe" cx="187" cy="490" rx="43" ry="15"/><ellipse class="shoe" cx="326" cy="490" rx="43" ry="15"/>
+      <ellipse class="skin" cx="256" cy="158" rx="88" ry="94"/>
+      <circle class="hair" cx="190" cy="104" r="48"/><circle class="hair" cx="235" cy="74" r="54"/><circle class="hair" cx="288" cy="74" r="54"/><circle class="hair" cx="329" cy="111" r="47"/>
+      <path class="hair" d="M171 128 Q180 64 247 62 Q319 58 342 133 Q312 111 292 124 Q264 90 236 124 Q205 103 171 128 Z"/>
+      <path class="brow" d="M206 143 Q225 133 240 143"/><path class="brow" d="M272 143 Q291 133 307 143"/>
+      <ellipse class="eye" cx="225" cy="157" rx="7" ry="8"/><ellipse class="eye" cx="289" cy="157" rx="7" ry="8"/>
+      <path class="line" d="M237 190 Q256 198 276 188"/>
+      <path class="line" d="M205 287 Q256 332 308 287"/>
+    </g>
+    <g id="hand"><circle class="skin" cx="0" cy="0" r="23"/></g>
+    <g id="cam"><rect class="camera" x="-45" y="-28" width="90" height="58" rx="10"/><circle class="lens" cx="0" cy="1" r="21"/><rect class="camera" x="-22" y="-42" width="36" height="18" rx="5"/></g>
+  </defs>
+
+  <!-- normal -->
+  <g transform="translate(0 0)"><use href="#body"/><path class="jacket" d="M146 300 Q119 350 153 405"/><path class="jacket" d="M366 300 Q393 350 359 405"/><use href="#hand" x="153" y="405"/><use href="#hand" x="359" y="405"/></g>
+
+  <!-- camera -->
+  <g transform="translate(512 0)"><use href="#body"/><path class="jacket" d="M150 302 Q188 326 219 344"/><path class="jacket" d="M362 302 Q327 326 294 344"/><use href="#hand" x="219" y="344"/><use href="#hand" x="294" y="344"/><use href="#cam" x="257" y="326"/><path class="line" d="M205 289 L236 260 M307 289 L279 260"/></g>
+
+  <!-- grin -->
+  <g transform="translate(1024 0)"><use href="#body"/><path class="jacket" d="M147 298 Q184 332 216 367"/><use href="#hand" x="216" y="367"/><path class="jacket" d="M365 298 Q337 327 320 353"/><use href="#hand" x="320" y="353"/><path class="line" d="M229 188 Q257 213 291 184"/><path class="brow" d="M205 139 Q225 124 243 138"/></g>
+
+  <!-- point -->
+  <g transform="translate(1536 0)"><use href="#body"/><path class="jacket" d="M146 301 Q179 337 211 376"/><use href="#hand" x="211" y="376"/><path class="jacket" d="M364 299 Q403 281 448 251"/><use href="#hand" x="448" y="251"/><path class="skin" d="M464 248 L501 232 L467 270 Z"/><path class="motion" d="M472 220 L498 195"/></g>
+
+  <!-- excited -->
+  <g transform="translate(0 512)"><use href="#body"/><path class="jacket" d="M146 294 Q111 252 93 210"/><path class="jacket" d="M366 294 Q401 252 420 210"/><use href="#hand" x="93" y="210"/><use href="#hand" x="420" y="210"/><path class="line" d="M211 154 Q225 139 239 154 M274 154 Q289 139 304 154"/><ellipse class="mouthopen" cx="257" cy="193" rx="19" ry="16"/><path class="motion" d="M81 176 L50 150 M432 176 L463 150 M256 48 L256 17"/></g>
+
+  <!-- skeptical -->
+  <g transform="translate(512 512)"><use href="#body"/><path class="jacket" d="M147 299 Q181 337 215 370"/><use href="#hand" x="215" y="370"/><path class="jacket" d="M365 299 Q335 330 313 357"/><use href="#hand" x="313" y="357"/><path class="brow" d="M202 139 L241 147"/><path class="brow" d="M273 145 Q292 128 310 135"/><path class="line" d="M240 194 L278 190"/></g>
+
+  <!-- shocked -->
+  <g transform="translate(1024 512)"><g transform="translate(0 -10)"><use href="#body"/></g><path class="jacket" d="M146 286 Q112 257 88 223"/><path class="jacket" d="M366 286 Q401 257 425 223"/><use href="#hand" x="88" y="223"/><use href="#hand" x="425" y="223"/><ellipse class="eye" cx="225" cy="148" rx="10" ry="13"/><ellipse class="eye" cx="289" cy="148" rx="10" ry="13"/><ellipse class="mouthopen" cx="257" cy="194" rx="17" ry="21"/><path class="motion" d="M81 111 L50 77 M431 111 L462 77"/></g>
+
+  <!-- flustered -->
+  <g transform="translate(1536 512)"><use href="#body"/><path class="jacket" d="M146 301 Q177 353 210 397"/><path class="jacket" d="M366 301 Q336 353 303 397"/><use href="#hand" x="210" y="397"/><use href="#hand" x="303" y="397"/><path class="brow" d="M202 146 Q222 160 242 148"/><path class="brow" d="M272 148 Q292 160 312 146"/><path class="line" d="M237 196 Q257 181 278 198"/><path class="motion" d="M171 204 Q151 221 160 244 M341 204 Q362 221 353 244"/></g>
+</svg>

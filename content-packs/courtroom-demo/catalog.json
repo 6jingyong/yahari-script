@@ -567,7 +567,7 @@
     {
       "id": "lotta",
       "name": "大泽木夏美",
-      "portrait": "character/lotta/pose/normal",
+      "portrait": "character/lotta/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -587,6 +587,21 @@
           "id": "grin",
           "label": "得意",
           "asset": "character/lotta/pose/grin"
+        },
+        {
+          "id": "point",
+          "label": "指出",
+          "asset": "character/lotta/pose/point"
+        },
+        {
+          "id": "excited",
+          "label": "兴奋",
+          "asset": "character/lotta/pose/excited"
+        },
+        {
+          "id": "skeptical",
+          "label": "怀疑",
+          "asset": "character/lotta/pose/skeptical"
         }
       ],
       "reactions": [
@@ -594,6 +609,11 @@
           "id": "shocked",
           "label": "震惊",
           "asset": "character/lotta/reaction/shocked"
+        },
+        {
+          "id": "flustered",
+          "label": "慌乱",
+          "asset": "character/lotta/reaction/flustered"
         }
       ]
     },
@@ -1538,30 +1558,30 @@
       ]
     },
     "character/lotta/pose/normal": {
-      "file": "chibi-lotta-neutral.png",
+      "file": "chibi-lotta-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/lotta/pose/camera": {
-      "file": "chibi-lotta-gesture.png",
+      "file": "chibi-lotta-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/lotta/reaction/shocked": {
-      "file": "chibi-lotta-reaction.png",
+      "file": "chibi-lotta-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/yogi/pose/normal": {
@@ -1661,12 +1681,12 @@
       ]
     },
     "character/lotta/pose/grin": {
-      "file": "chibi-lotta-gesture.png",
+      "file": "chibi-lotta-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "character/yogi/reaction/shocked": {
@@ -1997,6 +2017,51 @@
       "file": "chibi-von-karma-actions.svg",
       "frame": [
         1024,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/lotta/portrait": {
+      "file": "chibi-lotta-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/lotta/pose/point": {
+      "file": "chibi-lotta-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/lotta/pose/excited": {
+      "file": "chibi-lotta-actions.svg",
+      "frame": [
+        0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/lotta/pose/skeptical": {
+      "file": "chibi-lotta-actions.svg",
+      "frame": [
+        512,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/lotta/reaction/flustered": {
+      "file": "chibi-lotta-actions.svg",
+      "frame": [
+        1536,
         512,
         512,
         512

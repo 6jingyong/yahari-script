@@ -166,6 +166,11 @@
       "sha256": "34189397515cef0c6f15d3b939864e62dedcf7c6ead1a82986f939d718d4f937"
     },
     {
+      "file": "chibi-lotta-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "f88b8d24067fc121cf6be051cdd4754dca5e2c03d0e18abb962f85765bd72d5a"
+    },
+    {
       "file": "chibi-lotta-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "09fa93be58061bb0ca52367cc382ab63c2d1c1217155221ae3626398f4097af8"
