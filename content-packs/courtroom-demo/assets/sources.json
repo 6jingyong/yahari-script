@@ -206,6 +206,11 @@
       "sha256": "389367f4e68e13ddb023d49f1dde485d17ea6a1620153ded8ceaf5a0eb5de606"
     },
     {
+      "file": "chibi-mia-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "c902d09f38d01a11c42e476811e1e51158501627b1ac924720cf9239c9b91d92"
+    },
+    {
       "file": "chibi-mia-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "bc2b58cfba06d66f6cd91659684a6c09efb7bd7ada3a353b1ec1e790010563dd"

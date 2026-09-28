@@ -129,6 +129,22 @@
         "shocked",
         "broken"
       ]
+    },
+    {
+      "id": "mia",
+      "source": "mia-actions.svg",
+      "file": "chibi-mia-actions.svg",
+      "portrait": "chibi-mia-neutral.png",
+      "actions": [
+        "normal",
+        "point",
+        "smile",
+        "think",
+        "confident",
+        "encourage",
+        "concerned",
+        "shocked"
+      ]
     }
   ]
 }

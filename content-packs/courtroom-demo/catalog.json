@@ -688,7 +688,7 @@
     {
       "id": "mia",
       "name": "绫里千寻",
-      "portrait": "character/mia/pose/normal",
+      "portrait": "character/mia/portrait",
       "stage": {
         "background": "stage/defense/background",
         "foreground": "stage/defense/foreground"
@@ -708,6 +708,21 @@
           "id": "smile",
           "label": "微笑",
           "asset": "character/mia/pose/smile"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/mia/pose/think"
+        },
+        {
+          "id": "confident",
+          "label": "坚定",
+          "asset": "character/mia/pose/confident"
+        },
+        {
+          "id": "encourage",
+          "label": "鼓励",
+          "asset": "character/mia/pose/encourage"
         }
       ],
       "reactions": [
@@ -715,6 +730,11 @@
           "id": "concerned",
           "label": "担忧",
           "asset": "character/mia/reaction/concerned"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/mia/reaction/shocked"
         }
       ]
     }
@@ -1647,30 +1667,30 @@
       ]
     },
     "character/mia/pose/normal": {
-      "file": "chibi-mia-neutral.png",
+      "file": "chibi-mia-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/mia/pose/point": {
-      "file": "chibi-mia-gesture.png",
+      "file": "chibi-mia-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/mia/reaction/concerned": {
-      "file": "chibi-mia-reaction.png",
+      "file": "chibi-mia-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "background/lake-dock": {
@@ -1734,12 +1754,12 @@
       ]
     },
     "character/mia/pose/smile": {
-      "file": "chibi-mia-gesture.png",
+      "file": "chibi-mia-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "stage/defense/foreground": {
@@ -2178,6 +2198,51 @@
       "file": "chibi-yogi-actions.svg",
       "frame": [
         512,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/mia/portrait": {
+      "file": "chibi-mia-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/mia/pose/think": {
+      "file": "chibi-mia-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/mia/pose/confident": {
+      "file": "chibi-mia-actions.svg",
+      "frame": [
+        0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/mia/pose/encourage": {
+      "file": "chibi-mia-actions.svg",
+      "frame": [
+        512,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/mia/reaction/shocked": {
+      "file": "chibi-mia-actions.svg",
+      "frame": [
+        1536,
         512,
         512,
         512
