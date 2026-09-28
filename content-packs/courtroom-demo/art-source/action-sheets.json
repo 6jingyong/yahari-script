@@ -177,6 +177,22 @@
         "surprised",
         "damaged"
       ]
+    },
+    {
+      "id": "ema",
+      "source": "ema-actions.svg",
+      "file": "chibi-ema-actions.svg",
+      "portrait": "chibi-ema-neutral.png",
+      "actions": [
+        "normal",
+        "science",
+        "inspect",
+        "think",
+        "smug",
+        "mad",
+        "surprised",
+        "shocked"
+      ]
     }
   ]
 }

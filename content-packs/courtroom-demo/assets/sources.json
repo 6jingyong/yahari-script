@@ -71,6 +71,11 @@
       "sha256": "9cc017d97fe4846868bd79ebaf5dc14ad1be51d9265ba0b4b5a725749de2e442"
     },
     {
+      "file": "chibi-ema-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "71aa3f0bc22760b39ec498caa1a3097a8ed01f763e9a718cd33140a17ded1b80"
+    },
+    {
       "file": "chibi-ema-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "256b5eb9533660a4f26964e50fbe7c90a442a1ea286a8cf3a81c8d5d2f1400d3"

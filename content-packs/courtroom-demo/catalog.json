@@ -166,7 +166,7 @@
     {
       "id": "ema",
       "name": "宝月茜",
-      "portrait": "character/ema/pose/normal",
+      "portrait": "character/ema/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -181,6 +181,16 @@
           "id": "science",
           "label": "科学调查",
           "asset": "character/ema/pose/science"
+        },
+        {
+          "id": "inspect",
+          "label": "检查证物",
+          "asset": "character/ema/pose/inspect"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/ema/pose/think"
         },
         {
           "id": "smug",
@@ -198,6 +208,11 @@
           "id": "surprised",
           "label": "惊讶",
           "asset": "character/ema/reaction/surprised"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/ema/reaction/shocked"
         }
       ]
     },
@@ -1319,48 +1334,48 @@
       ]
     },
     "character/ema/pose/normal": {
-      "file": "chibi-ema-neutral.png",
+      "file": "chibi-ema-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/ema/pose/science": {
-      "file": "chibi-ema-gesture.png",
+      "file": "chibi-ema-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/ema/pose/smug": {
-      "file": "chibi-ema-gesture.png",
+      "file": "chibi-ema-actions.svg",
       "frame": [
         0,
-        0,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/ema/pose/mad": {
-      "file": "chibi-ema-reaction.png",
+      "file": "chibi-ema-actions.svg",
       "frame": [
-        0,
-        0,
         512,
-        384
+        512,
+        512,
+        512
       ]
     },
     "character/ema/reaction/surprised": {
-      "file": "chibi-ema-reaction.png",
+      "file": "chibi-ema-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/trucy/pose/normal": {
@@ -2345,6 +2360,42 @@
       "file": "chibi-klavier-actions.svg",
       "frame": [
         1024,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/ema/portrait": {
+      "file": "chibi-ema-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/ema/pose/inspect": {
+      "file": "chibi-ema-actions.svg",
+      "frame": [
+        1024,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/ema/pose/think": {
+      "file": "chibi-ema-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/ema/reaction/shocked": {
+      "file": "chibi-ema-actions.svg",
+      "frame": [
+        1536,
         512,
         512,
         512
