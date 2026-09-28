@@ -193,6 +193,22 @@
         "surprised",
         "shocked"
       ]
+    },
+    {
+      "id": "trucy",
+      "source": "trucy-actions.svg",
+      "file": "chibi-trucy-actions.svg",
+      "portrait": "chibi-trucy-neutral.png",
+      "actions": [
+        "normal",
+        "cheer",
+        "think",
+        "magic",
+        "point",
+        "smile",
+        "sad",
+        "surprised"
+      ]
     }
   ]
 }

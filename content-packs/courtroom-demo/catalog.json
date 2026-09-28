@@ -219,7 +219,7 @@
     {
       "id": "trucy",
       "name": "美贯",
-      "portrait": "character/trucy/pose/normal",
+      "portrait": "character/trucy/portrait",
       "stage": {
         "background": "stage/witness/background",
         "foreground": "stage/witness/foreground"
@@ -239,6 +239,21 @@
           "id": "think",
           "label": "思考",
           "asset": "character/trucy/pose/think"
+        },
+        {
+          "id": "magic",
+          "label": "魔术",
+          "asset": "character/trucy/pose/magic"
+        },
+        {
+          "id": "point",
+          "label": "指向",
+          "asset": "character/trucy/pose/point"
+        },
+        {
+          "id": "smile",
+          "label": "微笑",
+          "asset": "character/trucy/pose/smile"
         }
       ],
       "reactions": [
@@ -1379,48 +1394,48 @@
       ]
     },
     "character/trucy/pose/normal": {
-      "file": "chibi-trucy-neutral.png",
+      "file": "chibi-trucy-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/trucy/pose/cheer": {
-      "file": "chibi-trucy-gesture.png",
+      "file": "chibi-trucy-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/trucy/pose/think": {
-      "file": "chibi-trucy-neutral.png",
+      "file": "chibi-trucy-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "character/trucy/reaction/sad": {
-      "file": "chibi-trucy-reaction.png",
+      "file": "chibi-trucy-actions.svg",
       "frame": [
-        0,
-        0,
+        1024,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/trucy/reaction/surprised": {
-      "file": "chibi-trucy-reaction.png",
+      "file": "chibi-trucy-actions.svg",
       "frame": [
-        0,
-        0,
+        1536,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/edgeworth/pose/normal": {
@@ -2396,6 +2411,42 @@
       "file": "chibi-ema-actions.svg",
       "frame": [
         1536,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/trucy/portrait": {
+      "file": "chibi-trucy-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/trucy/pose/magic": {
+      "file": "chibi-trucy-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/trucy/pose/point": {
+      "file": "chibi-trucy-actions.svg",
+      "frame": [
+        0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/trucy/pose/smile": {
+      "file": "chibi-trucy-actions.svg",
+      "frame": [
+        512,
         512,
         512,
         512

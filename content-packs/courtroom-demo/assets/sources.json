@@ -316,6 +316,11 @@
       "sha256": "85bc0d98b002ce0112c84f50bf4a438648c9009f8d1c93c71f13dc2d4e369ada"
     },
     {
+      "file": "chibi-trucy-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "3717825942272afa0e9c4bc403083b941d70640c757d5d6172b394c7e8f849c8"
+    },
+    {
       "file": "chibi-trucy-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "e92437e8a94eb79b6d74f5b8271d7500e533de978cb0aeb4c264abc8b6e1c39e"
