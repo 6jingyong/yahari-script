@@ -989,6 +989,141 @@
             }
           ]
         }
+      },
+      {
+        "id": "evidence-presented",
+        "label": "出示证物",
+        "resource": "audio/sfx/evidence-presented",
+        "previewAudio": {
+          "waveform": "triangle",
+          "notes": [
+            {
+              "frequency": 659.25,
+              "durationMs": 80,
+              "gain": 0.05
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 90,
+              "offsetMs": 55,
+              "gain": 0.048
+            },
+            {
+              "frequency": 987.77,
+              "durationMs": 130,
+              "offsetMs": 115,
+              "gain": 0.045
+            }
+          ]
+        }
+      },
+      {
+        "id": "truth-reveal",
+        "label": "真相揭示",
+        "resource": "audio/sfx/truth-reveal",
+        "previewAudio": {
+          "waveform": "sawtooth",
+          "notes": [
+            {
+              "frequency": 196,
+              "durationMs": 95,
+              "gain": 0.045
+            },
+            {
+              "frequency": 146.83,
+              "durationMs": 120,
+              "offsetMs": 85,
+              "gain": 0.05
+            },
+            {
+              "frequency": 98,
+              "durationMs": 220,
+              "offsetMs": 180,
+              "gain": 0.06
+            }
+          ]
+        }
+      },
+      {
+        "id": "whip",
+        "label": "鞭击",
+        "resource": "audio/sfx/whip",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 1200,
+              "durationMs": 32,
+              "gain": 0.035
+            },
+            {
+              "frequency": 620,
+              "durationMs": 55,
+              "offsetMs": 22,
+              "gain": 0.05
+            },
+            {
+              "frequency": 180,
+              "durationMs": 110,
+              "offsetMs": 58,
+              "gain": 0.07
+            }
+          ]
+        }
+      },
+      {
+        "id": "camera",
+        "label": "快门",
+        "resource": "audio/sfx/camera",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 1600,
+              "durationMs": 24,
+              "gain": 0.035
+            },
+            {
+              "frequency": 800,
+              "durationMs": 32,
+              "offsetMs": 18,
+              "gain": 0.045
+            },
+            {
+              "frequency": 400,
+              "durationMs": 45,
+              "offsetMs": 42,
+              "gain": 0.04
+            }
+          ]
+        }
+      },
+      {
+        "id": "magic",
+        "label": "魔术闪现",
+        "resource": "audio/sfx/magic",
+        "previewAudio": {
+          "waveform": "triangle",
+          "notes": [
+            {
+              "frequency": 523.25,
+              "durationMs": 70,
+              "gain": 0.04
+            },
+            {
+              "frequency": 659.25,
+              "durationMs": 75,
+              "offsetMs": 55,
+              "gain": 0.04
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 120,
+              "offsetMs": 115,
+              "gain": 0.045
+            }
+          ]
+        }
       }
     ],
     "bgm": [
@@ -1128,6 +1263,76 @@
               "durationMs": 90,
               "offsetMs": 1280,
               "gain": 0.018
+            }
+          ]
+        }
+      },
+      {
+        "id": "investigation",
+        "label": "调查",
+        "resource": "audio/bgm/investigation",
+        "previewAudio": {
+          "waveform": "triangle",
+          "loopMs": 2400,
+          "notes": [
+            {
+              "frequency": 146.83,
+              "durationMs": 130,
+              "offsetMs": 0,
+              "gain": 0.02
+            },
+            {
+              "frequency": 174.61,
+              "durationMs": 130,
+              "offsetMs": 600,
+              "gain": 0.02
+            },
+            {
+              "frequency": 220,
+              "durationMs": 130,
+              "offsetMs": 1200,
+              "gain": 0.02
+            },
+            {
+              "frequency": 174.61,
+              "durationMs": 130,
+              "offsetMs": 1800,
+              "gain": 0.02
+            }
+          ]
+        }
+      },
+      {
+        "id": "resolution",
+        "label": "收束",
+        "resource": "audio/bgm/resolution",
+        "previewAudio": {
+          "waveform": "sine",
+          "loopMs": 3200,
+          "notes": [
+            {
+              "frequency": 130.81,
+              "durationMs": 260,
+              "offsetMs": 0,
+              "gain": 0.022
+            },
+            {
+              "frequency": 164.81,
+              "durationMs": 260,
+              "offsetMs": 800,
+              "gain": 0.022
+            },
+            {
+              "frequency": 196,
+              "durationMs": 260,
+              "offsetMs": 1600,
+              "gain": 0.022
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 360,
+              "offsetMs": 2400,
+              "gain": 0.024
             }
           ]
         }

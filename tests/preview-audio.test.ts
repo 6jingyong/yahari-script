@@ -25,9 +25,17 @@ test('BGM is persistent state while SFX stays edge-triggered',()=>{
 
 test('audio synthesis metadata resolves through the active content pack',()=>{
   const objection=resolvePreviewAudio([courtroomDemoPack],ref('audio/sfx/objection'),'sfx');
+  const evidence=resolvePreviewAudio([courtroomDemoPack],ref('audio/sfx/evidence-presented'),'sfx');
   const pursuit=resolvePreviewAudio([courtroomDemoPack],ref('audio/bgm/pursuit'),'bgm');
+  const investigation=resolvePreviewAudio([courtroomDemoPack],ref('audio/bgm/investigation'),'bgm');
+  assert.equal(courtroomDemoPack.audio.sfx.length,10);
+  assert.equal(courtroomDemoPack.audio.bgm.length,6);
   assert.equal(objection?.label,'异议！');
   assert.ok((objection?.cue.notes.length??0)>=2);
+  assert.equal(evidence?.label,'出示证物');
+  assert.ok((evidence?.cue.notes.length??0)>=3);
   assert.equal(pursuit?.cue.loopMs,1600);
+  assert.equal(investigation?.label,'调查');
+  assert.equal(investigation?.cue.loopMs,2400);
   assert.equal(resolvePreviewAudio([courtroomDemoPack],{packId:'other',id:'audio/sfx/objection'},'sfx'),undefined);
 });
