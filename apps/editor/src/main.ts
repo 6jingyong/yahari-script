@@ -407,6 +407,43 @@ function artCharacter(token: TypedToken, speaker?: string | null): string | unde
   const ref=currentProject.manifest.cast.find(c=>c.castId===id)?.characterRef;
   return ref?.packId==='official.courtroom-demo'?ref.id:undefined;
 }
+
+function renderedActionArt(token:TypedToken,speaker?:string|null):HTMLElement {
+  const fallback=actionArt(token,artCharacter(token,speaker));
+  const characterId=artCharacter(token,speaker);
+  if(!characterId)return fallback;
+  const pack=currentProject.contentPacks.find(item=>item.id==='official.courtroom-demo');
+  const character=pack?.characters.find(item=>item.id===characterId);
+  const actionId=tokenValue(token);
+  const action=character?[...character.poses,...character.reactions].find(item=>item.id===actionId):undefined;
+  const resolved=action?courtroomDemoResolver.resolve(action.asset):undefined;
+  if(!resolved?.url||!resolved.frame)return fallback;
+
+  const clip=document.createElement('span');
+  clip.className='action-sprite';
+  const image=document.createElement('img');
+  image.src=resolved.url;
+  image.alt='';
+  image.loading='eager';
+  const [x,y,w,h]=resolved.frame;
+  image.addEventListener('load',()=>{
+    requestAnimationFrame(()=>{
+      const width=fallback.clientWidth||40;
+      const height=fallback.clientHeight||40;
+      const scale=Math.min(width/w,height/h);
+      const drawnWidth=w*scale;
+      const drawnHeight=h*scale;
+      image.style.width=`${image.naturalWidth*scale}px`;
+      image.style.height=`${image.naturalHeight*scale}px`;
+      image.style.left=`${(width-drawnWidth)/2-x*scale}px`;
+      image.style.top=`${height-drawnHeight-y*scale}px`;
+      fallback.classList.add('art-loaded');
+    });
+  },{once:true});
+  clip.append(image);
+  fallback.append(clip);
+  return fallback;
+}
 function createTokenChip(token: TypedToken, invalidTokenIds: Set<string>, speaker?:string|null): HTMLElement {
   tokenRegistry.set(token.id, structuredClone(token));
   const definition = tokenDefinition(token.type);
@@ -430,7 +467,7 @@ function createTokenChip(token: TypedToken, invalidTokenIds: Set<string>, speake
   chip.classList.add('visual-token');
   chip.title=`${token.subject?.kind==='cast'?castName(token.subject.id)+' · ':''}${actionLabel(token)}`;
   chip.setAttribute('aria-label',chip.title);
-  chip.append(actionArt(token,artCharacter(token,speaker)));
+  chip.append(renderedActionArt(token,speaker));
   const caption=document.createElement('span');caption.className='action-caption';caption.textContent=actionLabel(token);chip.append(caption);
 
   chip.addEventListener("click", (event) => {
@@ -1118,7 +1155,7 @@ function renderPickerCandidates(): void {
       const label=actionLabel(token);
       button.setAttribute('aria-label',`${target} ${label}`.trim());
       button.title=`${target} ${label}`.trim();
-      button.append(actionArt(token,artCharacter(token,speaker)));
+      button.append(renderedActionArt(token,speaker));
       const caption=document.createElement('span');caption.className='picker-label';caption.textContent=label;button.append(caption);
       if(target){const subject=document.createElement('span');subject.className='picker-target';subject.textContent=target;button.append(subject);}
       button.addEventListener("mousedown", (event) => event.preventDefault());
