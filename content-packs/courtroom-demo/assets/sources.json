@@ -146,6 +146,11 @@
       "sha256": "4ad71860b8a5fb7bdbfb25311f63e328b89d67b43e9a049e076072d3c48bdee7"
     },
     {
+      "file": "chibi-klavier-actions.svg",
+      "source": "generated:vector-8-pose-atlas",
+      "sha256": "3ac73a59efc3a98f88978374b4e3883321aadd1eef792c3688fde306175aa9bd"
+    },
+    {
       "file": "chibi-klavier-gesture.png",
       "source": "generated:chibi-atlas",
       "sha256": "e5a4b334c68b3384a05eaeacfb436b40f19a99af024ad48e235b8ea92e354106"

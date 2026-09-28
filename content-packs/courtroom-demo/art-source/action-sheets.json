@@ -161,6 +161,22 @@
         "shocked",
         "sweat"
       ]
+    },
+    {
+      "id": "klavier",
+      "source": "klavier-actions.svg",
+      "file": "chibi-klavier-actions.svg",
+      "portrait": "chibi-klavier-neutral.png",
+      "actions": [
+        "normal",
+        "fist",
+        "laugh",
+        "point",
+        "guitar",
+        "smirk",
+        "surprised",
+        "damaged"
+      ]
     }
   ]
 }

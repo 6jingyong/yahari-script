@@ -148,6 +148,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     yogi:['normal','stern','tired','mutter','point','tense','shocked','broken'],
     mia:['normal','point','smile','think','confident','encourage','concerned','shocked'],
     apollo:['normal','think','point','objection','desk','confident','shocked','sweat'],
+    klavier:['normal','fist','laugh','point','guitar','smirk','surprised','damaged'],
   } as const;
   for(const [characterId,ids] of Object.entries(expected)){
     const character=courtroomDemoPack.characters.find(item=>item.id===characterId);
@@ -158,7 +159,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     for(const id of ids){
       const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
       assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
-      if(['von-karma','lotta','witness','yogi','mia','apollo'].includes(characterId)) assert.match(visual.sprite!,/chibi-(von-karma|lotta|witness|yogi|mia|apollo)-actions\.svg$/);
+      if(['von-karma','lotta','witness','yogi','mia','apollo','klavier'].includes(characterId)) assert.match(visual.sprite!,/chibi-(von-karma|lotta|witness|yogi|mia|apollo|klavier)-actions\.svg$/);
       else assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe|franziska)-actions\.png$/);
     }
     assert.equal(new Set(actions.map(item=>JSON.stringify(resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},item.id).frame))).size,8,characterId);
@@ -178,7 +179,7 @@ test('Franziska stays opt-in with a separate portrait and prosecution foreground
 
 
 test('vector-atlas characters keep separate portraits while all eight actions use their atlases',()=>{
-  for(const [id,file] of [['von-karma','chibi-von-karma-neutral.png'],['lotta','chibi-lotta-neutral.png'],['witness','chibi-witness-neutral.png'],['yogi','chibi-yogi-neutral.png'],['mia','chibi-mia-neutral.png'],['apollo','chibi-apollo-neutral.png']] as const){
+  for(const [id,file] of [['von-karma','chibi-von-karma-neutral.png'],['lotta','chibi-lotta-neutral.png'],['witness','chibi-witness-neutral.png'],['yogi','chibi-yogi-neutral.png'],['mia','chibi-mia-neutral.png'],['apollo','chibi-apollo-neutral.png'],['klavier','chibi-klavier-neutral.png']] as const){
     const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:`character/${id}/portrait`});
     assert.ok(portrait?.url.endsWith(file),id);
     const character=courtroomDemoPack.characters.find(item=>item.id===id);

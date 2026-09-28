@@ -113,7 +113,7 @@
     {
       "id": "klavier",
       "name": "牙琉响也",
-      "portrait": "character/klavier/pose/normal",
+      "portrait": "character/klavier/portrait",
       "stage": {
         "background": "stage/prosecution/background",
         "foreground": "stage/prosecution/foreground"
@@ -133,9 +133,29 @@
           "id": "laugh",
           "label": "轻笑",
           "asset": "character/klavier/pose/laugh"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/klavier/pose/point"
+        },
+        {
+          "id": "guitar",
+          "label": "吉他手势",
+          "asset": "character/klavier/pose/guitar"
+        },
+        {
+          "id": "smirk",
+          "label": "从容",
+          "asset": "character/klavier/pose/smirk"
         }
       ],
       "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/klavier/reaction/surprised"
+        },
         {
           "id": "damaged",
           "label": "受创",
@@ -1263,39 +1283,39 @@
       ]
     },
     "character/klavier/pose/normal": {
-      "file": "chibi-klavier-neutral.png",
+      "file": "chibi-klavier-actions.svg",
       "frame": [
         0,
         0,
         512,
-        384
+        512
       ]
     },
     "character/klavier/pose/fist": {
-      "file": "chibi-klavier-gesture.png",
+      "file": "chibi-klavier-actions.svg",
       "frame": [
-        0,
+        512,
         0,
         512,
-        384
+        512
       ]
     },
     "character/klavier/pose/laugh": {
-      "file": "chibi-klavier-gesture.png",
+      "file": "chibi-klavier-actions.svg",
       "frame": [
-        0,
+        1024,
         0,
         512,
-        384
+        512
       ]
     },
     "character/klavier/reaction/damaged": {
-      "file": "chibi-klavier-reaction.png",
+      "file": "chibi-klavier-actions.svg",
       "frame": [
-        0,
-        0,
+        1536,
         512,
-        384
+        512,
+        512
       ]
     },
     "character/ema/pose/normal": {
@@ -2280,6 +2300,51 @@
       "file": "chibi-apollo-actions.svg",
       "frame": [
         0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/klavier/portrait": {
+      "file": "chibi-klavier-neutral.png",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/klavier/pose/point": {
+      "file": "chibi-klavier-actions.svg",
+      "frame": [
+        1536,
+        0,
+        512,
+        512
+      ]
+    },
+    "character/klavier/pose/guitar": {
+      "file": "chibi-klavier-actions.svg",
+      "frame": [
+        0,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/klavier/pose/smirk": {
+      "file": "chibi-klavier-actions.svg",
+      "frame": [
+        512,
+        512,
+        512,
+        512
+      ]
+    },
+    "character/klavier/reaction/surprised": {
+      "file": "chibi-klavier-actions.svg",
+      "frame": [
+        1024,
         512,
         512,
         512
