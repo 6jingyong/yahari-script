@@ -1,7 +1,7 @@
 # Yahari Script — Product Roadmap
 
-> Status: reconciled with canonical hosted source, 2026-09-24
-> The P1-c archive diverged from the hosted repository. Existing structured drafts, import hardening and narrow asset-backed playback are preserved; phase labels below express product gates, not a reliable inventory of shipped code.  
+> Status: reconciled with the Drive-first canonical working state, 2026-09-29
+> Historical archives and GitHub may lag the current Google Drive project. Existing structured drafts, import hardening and asset-backed playback are preserved; phase labels below express product gates, not a reliable inventory of shipped code.  
 > Product principle: make structured performance authoring feel like ordinary writing; expose structure only when it helps the author.
 
 ## 1. North star
@@ -303,6 +303,6 @@ Mobile navigation, diagnostics surfaces, viewport compensation, touch picker and
 ## 2026-09-26 cast recovery (supersedes earlier counts)
 - Root completed integration directly; no subagent execution in this correction. Previous recovery remained uncommitted and unpublished.
 - Five actors: Phoenix, Edgeworth, Maya, Judge and Larry (witness); 26 actions with local images, three scenes and correct stations. Witness shocked and nervous intentionally share the source nervous expression; actions are not claimed as 26 unique animations.
-- Built-in old sample cast upgrades additively; custom/imported casts can use + Role. Existing dialogue, aliases and drafts remain intact. Five-person showcase opens independently.
+- Built-in old sample cast upgrades additively; custom/imported cast identities remain intact, while missing built-in characters are selected directly from the speaker picker. Existing dialogue, aliases and drafts remain intact. Five-person showcase opens independently.
 - Verification: 52 passing tests, 28 resolved modules, 34 images verified for source hash and crop bounds; composited all 26 actions for manual asset inspection. Browser/mobile interaction remains unverified (previous managed preview infrastructure unavailable).
 - Preview uses representative frames; full animation and audio playback are not implemented.
