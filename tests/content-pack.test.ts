@@ -86,8 +86,8 @@ test('presentation resolves character stations and explicit backgrounds without 
 
 
 test('scene and presentation material catalogs expose the new usable presets', () => {
-  assert.equal(courtroomDemoPack.backgrounds.length, 15);
-  for (const id of ['office','detention-room','police-records','night-corridor','lake-dock','evidence-room','prosecutor-office','elevator-hall','boathouse','records-basement','parking-garage','hospital-room']) {
+  assert.equal(courtroomDemoPack.backgrounds.length, 23);
+  for (const id of ['office','detention-room','police-records','night-corridor','lake-dock','evidence-room','prosecutor-office','elevator-hall','boathouse','records-basement','parking-garage','hospital-room','interview-room','forensics-lab','apartment','courthouse-exterior','apartment-stairwell','consultation-room']) {
     const scene = courtroomDemoPack.backgrounds.find(item => item.id === id);
     assert.ok(scene, id);
     const visual = resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'phoenix'},'normal',scene.resource);
@@ -151,6 +151,8 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     klavier:['normal','fist','laugh','point','guitar','smirk','surprised','damaged'],
     ema:['normal','science','inspect','think','smug','mad','surprised','shocked'],
     trucy:['normal','cheer','think','magic','point','smile','sad','surprised'],
+    godot:['normal','sip','point','objection','desk','smirk','shocked','damaged'],
+    dahlia:['normal','smile','hand-heart','point','glare','smirk','shocked','breakdown'],
   } as const;
   for(const [characterId,ids] of Object.entries(expected)){
     const character=courtroomDemoPack.characters.find(item=>item.id===characterId);
@@ -161,8 +163,7 @@ test('expanded cast exposes eight distinct generated action states',()=>{
     for(const id of ids){
       const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},id);
       assert.ok(visual.sprite && visual.frame, `${characterId}/${id}`);
-      if(['von-karma','lotta','witness','yogi','mia','apollo','klavier','ema','trucy'].includes(characterId)) assert.match(visual.sprite!,/chibi-(von-karma|lotta|witness|yogi|mia|apollo|klavier|ema|trucy)-actions\.svg$/);
-      else assert.match(visual.sprite!,/chibi-(phoenix|maya|edgeworth|judge|gumshoe|franziska)-actions\.png$/);
+      assert.ok(visual.sprite!.endsWith(`chibi-${characterId}-actions.webp`));
     }
     assert.equal(new Set(actions.map(item=>JSON.stringify(resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:characterId},item.id).frame))).size,8,characterId);
   }
@@ -173,15 +174,15 @@ test('Franziska stays opt-in with a separate portrait and prosecution foreground
   assert.equal(demoManifest.cast.some(c=>c.characterRef.id==='franziska'),false);
   assert.equal(manifest.cast.at(-1)?.characterRef.id,'franziska');
   const visual=resolveCourtroomVisual(presentation,{packId:courtroomDemoPack.id,id:'franziska'},'whip-strike');
-  assert.ok(visual.sprite?.endsWith('chibi-franziska-actions.png'));
-  assert.ok(visual.foreground?.includes('chibi-stage-prosecution-foreground.png'));
+  assert.ok(visual.sprite?.endsWith('chibi-franziska-actions.webp'));
+  assert.ok(visual.foreground?.includes('chibi-stage-prosecution-foreground.webp'));
   const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:'character/franziska/portrait'});
-  assert.ok(portrait?.url.endsWith('chibi-franziska-neutral.png'));
+  assert.ok(portrait?.url.endsWith('chibi-franziska-neutral.webp'));
 });
 
 
-test('vector-atlas characters keep separate portraits while all eight actions use their atlases',()=>{
-  for(const [id,file] of [['von-karma','chibi-von-karma-neutral.png'],['lotta','chibi-lotta-neutral.png'],['witness','chibi-witness-neutral.png'],['yogi','chibi-yogi-neutral.png'],['mia','chibi-mia-neutral.png'],['apollo','chibi-apollo-neutral.png'],['klavier','chibi-klavier-neutral.png'],['ema','chibi-ema-neutral.png'],['trucy','chibi-trucy-neutral.png']] as const){
+test('all upgraded raster characters keep separate portraits while all eight actions use their atlases',()=>{
+  for(const [id,file] of [['von-karma','chibi-von-karma-neutral.webp'],['lotta','chibi-lotta-neutral.webp'],['witness','chibi-witness-neutral.webp'],['yogi','chibi-yogi-neutral.webp'],['mia','chibi-mia-neutral.webp'],['apollo','chibi-apollo-neutral.webp'],['klavier','chibi-klavier-neutral.webp'],['ema','chibi-ema-neutral.webp'],['trucy','chibi-trucy-neutral.webp']] as const){
     const portrait=courtroomDemoResolver.resolve({packId:courtroomDemoPack.id,id:`character/${id}/portrait`});
     assert.ok(portrait?.url.endsWith(file),id);
     const character=courtroomDemoPack.characters.find(item=>item.id===id);

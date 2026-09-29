@@ -10,14 +10,17 @@ import { presentationStateAt, transientEffectsBetween } from './preview-effects.
 import { playPreviewEffects } from './preview-effect-player.js';
 import { PreviewSynthAudio, previewBgmAt, previewSfxBetween, resolvePreviewAudio } from './preview-audio.js';
 
-// Reuse decoded images when opening another rehearsal in this browser session.
-const decodedAssets=new Map<string,HTMLCanvasElement>();
+const STAGE_WIDTH=768, STAGE_HEIGHT=576;
+// Keep decoded images for later rehearsals without copying every large image
+// into a second canvas. Only legacy magenta-key art needs pixel conversion.
+const decodedAssets=new Map<string,HTMLImageElement|HTMLCanvasElement>();
 
 export function openPreview(
   plan: CourtroomPerformancePlan,
   name: (id: string|null)=>string,
   project: ProjectContext<CourtroomContentPack>,
   resolver: ResourceResolver,
+  options: {startPage?:number; onPage?:(page:number)=>void; onEdit?:(page:number)=>void} = {},
 ): void {
   const manifest=project.manifest;
   const presentation:CourtroomPresentationContext={packs:project.contentPacks,resolver};
@@ -33,10 +36,10 @@ export function openPreview(
       <p data-load-status role="status" aria-live="polite">正在整理所需图像…</p>
       <div data-load-actions hidden><button data-retry>重试失败图像</button><button data-continue>继续查看（缺失图像）</button></div>
     </section>
-    <section class="preview-stage" hidden><canvas width="256" height="192" role="img" aria-label="法庭排练画面"></canvas><div class="preview-dialogue"><h2></h2><div class="preview-text"></div></div><div class="preview-flash" aria-hidden="true"></div></section>
+    <section class="preview-stage" hidden><canvas width="768" height="576" role="img" aria-label="法庭排练画面"></canvas><div class="preview-dialogue"><h2></h2><div class="preview-text"></div></div><div class="preview-flash" aria-hidden="true"></div></section>
     <p class="preview-state"></p><p class="preview-assets" role="status"></p><p class="preview-progress"></p>
-    <footer hidden><button data-restart>重新开始</button><button data-back>上一句</button><button data-next>下一句</button></footer>
-    <details class="preview-credits"><summary>素材来源与排练说明</summary><p>素材：<a href="https://github.com/crxtrdude/pywright" target="_blank" rel="noopener noreferrer">PyWright / Court Records</a>、<a href="https://github.com/LuisMayo/objection_engine" target="_blank" rel="noopener noreferrer">Objection Engine</a>，原作图像 © CAPCOM。当前展示动作的代表帧；文字逐字显示，点击可补全或进入下一句；闪光、震屏、强调和镜头切换会直接演出；声音按钮可启用本项目原创的程序化排练音，不包含原作 BGM 或语音。</p></details>`;
+    <footer hidden><button data-restart>重新开始</button><button data-replay>重播本句</button><button data-edit>编辑本句</button><button data-back>上一句</button><button data-next>下一句</button></footer>
+    <details class="preview-credits"><summary>素材来源与排练说明</summary><p>素材为本项目生成的Q版人物与场景插画；角色与商标权利归 CAPCOM，本项目非官方。当前展示动作的代表帧；文字逐字显示，点击可补全或进入下一句；闪光、震屏、强调和镜头切换会直接演出；声音按钮可启用本项目原创的程序化排练音，不包含原作 BGM 或语音。</p></details>`;
   document.body.append(dialog);
   let position=0, closed=false, preloading=true, effectCursor=0;
   let playbackState:PlaybackSnapshot={position:0,partialText:'',page:0,count:0,complete:true,waiting:false,loading:false};
@@ -58,23 +61,25 @@ export function openPreview(
         img.onload=null;img.onerror=null;
         if(ok){
           try {
-            // Freeze a representative frame and finish color-key conversion before playback.
-            const layer=document.createElement('canvas');layer.width=img.width;layer.height=img.height;
-            const ctx=layer.getContext('2d')!;ctx.drawImage(img,0,0);
+            if(!img.naturalWidth||!img.naturalHeight)throw new Error('Empty image');
             if(resolver.findByUrl(url)?.colorKey==='magenta'){
+              const layer=document.createElement('canvas');layer.width=img.naturalWidth;layer.height=img.naturalHeight;
+              const ctx=layer.getContext('2d')!;ctx.drawImage(img,0,0);
               const pixels=ctx.getImageData(0,0,layer.width,layer.height);
               for(let i=0;i<pixels.data.length;i+=4){
                 if(pixels.data[i]===255&&pixels.data[i+1]===0&&pixels.data[i+2]===255)pixels.data[i+3]=0;
               }
               ctx.putImageData(pixels,0,0);
+              cache.set(url,layer);
+            }else{
+              cache.set(url,img);
             }
-            cache.set(url,layer);
           } catch {failed.add(url);}
         }else failed.add(url);
         resolve();
       };
       const cancel=()=>{settle(false);img.src='';};
-      const timeout=window.setTimeout(cancel,10000);cancellations.add(cancel);
+      const timeout=window.setTimeout(cancel,30000);cancellations.add(cancel);
       img.onload=()=>settle(true);img.onerror=()=>settle(false);img.src=url;
     });
     loads.set(url,task);return task;
@@ -105,27 +110,25 @@ export function openPreview(
     }
     const {pose,visual}=sceneAt(plan.instructions,position,manifest,presentation);
     const layers:string[]=[];
-    context.fillStyle='#192133';context.fillRect(0,0,256,192);
-    context.imageSmoothingEnabled=false;
+    context.fillStyle='#192133';context.fillRect(0,0,STAGE_WIDTH,STAGE_HEIGHT);
+    context.imageSmoothingEnabled=true;context.imageSmoothingQuality='high';
     if(!playbackState.loading && visual.backdrop){
-      layers.push(visual.backdrop);const bg=asset(visual.backdrop);if(bg)context.drawImage(bg,0,0,256,192);
+      layers.push(visual.backdrop);const bg=asset(visual.backdrop);if(bg)context.drawImage(bg,0,0,STAGE_WIDTH,STAGE_HEIGHT);
     }
     if(!playbackState.loading && visual.sprite){
       layers.push(visual.sprite);const sprite=asset(visual.sprite);
       if(sprite){
         const [x,y,w,h]=visual.frame ?? [0,0,sprite.width,sprite.height];
-        const scale=Math.min(256/w,192/h);
+        const scale=Math.min(STAGE_WIDTH/w,STAGE_HEIGHT/h);
         const dw=Math.max(1,Math.round(w*scale));
         const dh=Math.max(1,Math.round(h*scale));
-        const dx=Math.round((256-dw)/2);
-        const dy=192-dh;
-        context.imageSmoothingEnabled=true;
+        const dx=Math.round((STAGE_WIDTH-dw)/2);
+        const dy=STAGE_HEIGHT-dh;
         context.drawImage(sprite,x,y,w,h,dx,dy,dw,dh);
-        context.imageSmoothingEnabled=false;
       }
     }
     if(!playbackState.loading && visual.foreground){
-      layers.push(visual.foreground);const bench=asset(visual.foreground);if(bench)context.drawImage(bench,0,0,256,192);
+      layers.push(visual.foreground);const bench=asset(visual.foreground);if(bench)context.drawImage(bench,0,0,STAGE_WIDTH,STAGE_HEIGHT);
     }
     canvas.setAttribute('aria-label',`${visual.supported?'法庭场景':'未收录场景'} · ${name(camera)} · ${pose}`);
     dialog.querySelector('.preview-dialogue h2')!.textContent=name(speaker);
@@ -140,7 +143,8 @@ export function openPreview(
       const characterRef=manifest.cast.find(c=>c.castId===id)?.characterRef;
       return `${name(id)} · ${courtroomActionLabel(presentation,characterRef,actionId)??actionId}`;
     }).concat(state?[state]:[]).join(' / ');
-    dialog.querySelector('.preview-assets')!.textContent=playbackState.loading?'正在准备本句画面…':layers.some(url=>failed.has(url))?'部分图像加载失败，台词与指令仍可继续。':camera&&!visual.sprite?'当前角色或动作暂无对应图像。':'';
+    const failedLayers=layers.filter(url=>failed.has(url));
+    dialog.querySelector('.preview-assets')!.textContent=playbackState.loading?'正在准备本句画面…':failedLayers.length?`图像加载失败：${failedLayers.map(url=>url.split('/').pop()).join('、')}。`:camera&&!visual.sprite?'当前角色或动作暂无对应图像。':'';
     dialog.querySelector('.preview-progress')!.textContent=playbackState.count?`${playbackState.page+1} / ${playbackState.count}`:'';
     (dialog.querySelector('[data-back]') as HTMLButtonElement).disabled=playbackState.page===0;
     const next=dialog.querySelector<HTMLButtonElement>('[data-next]')!;
@@ -156,7 +160,7 @@ export function openPreview(
     const sfx=previewSfxBetween(plan.instructions,fromPosition,snapshot.position);
     const bgm=previewBgmAt(plan.instructions,snapshot.position);
     effectCursor=snapshot.position;
-    playbackState=snapshot;position=snapshot.position;render();
+    playbackState=snapshot;position=snapshot.position;render();options.onPage?.(snapshot.page);
     if(effects.length)playPreviewEffects({stage,canvas,flash:flashLayer},effects);
     rehearsalAudio.syncBgm(bgm);
     if(sfx.length)rehearsalAudio.playSfx(sfx);
@@ -171,6 +175,13 @@ export function openPreview(
     if(preloading)return;
     effectCursor=player.pages[0]?.start??0;
     player.start();
+  });
+  dialog.querySelector('[data-replay]')!.addEventListener('click',()=>{
+    if(preloading)return;
+    effectCursor=player.pages[playbackState.page]?.start??0;player.start(playbackState.page);
+  });
+  dialog.querySelector('[data-edit]')!.addEventListener('click',()=>{
+    const page=playbackState.page;dialog.close();options.onEdit?.(page);
   });
   const audioButton=dialog.querySelector<HTMLButtonElement>('[data-audio]')!;
   audioButton.addEventListener('click',async()=>{
@@ -197,7 +208,8 @@ export function openPreview(
     preloading=false;panel.hidden=true;
     stage.hidden=false;
     dialog.querySelector<HTMLElement>('footer')!.hidden=false;
-    player.start();
+    const page=Math.max(0,Math.min(player.pages.length-1,Math.trunc(options.startPage??0)));
+    effectCursor=player.pages[page]?.start??0;player.start(page);
   };
   const preload=async()=>{
     actions.hidden=true;
@@ -210,7 +222,7 @@ export function openPreview(
       status.textContent=`已准备 ${p.completed} / ${p.total} 张图像 · ${percent}%${p.failed?` · ${p.failed} 张失败`:''}`;
     },()=>closed);
     if(closed)return;
-    if(result.failed){status.textContent=`${result.failed} 张图像未能加载。可以重试，或继续查看已有画面。`;actions.hidden=false;}
+    if(result.failed){status.textContent=`${result.failed} 张图像未能加载（${[...failed].map(url=>url.split('/').pop()).join('、')}）。可以重试，或继续查看已有画面。`;actions.hidden=false;}
     else begin();
   };
   panel.querySelector('[data-retry]')!.addEventListener('click',()=>{

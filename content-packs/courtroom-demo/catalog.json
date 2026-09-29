@@ -797,6 +797,483 @@
           "asset": "character/mia/reaction/shocked"
         }
       ]
+    },
+    {
+      "id": "pearl",
+      "name": "春美",
+      "portrait": "character/pearl/portrait",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/pearl/pose/normal"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/pearl/pose/think"
+        },
+        {
+          "id": "point",
+          "label": "指向",
+          "asset": "character/pearl/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "认真反驳",
+          "asset": "character/pearl/pose/objection"
+        },
+        {
+          "id": "prayer",
+          "label": "祈祷",
+          "asset": "character/pearl/pose/prayer"
+        },
+        {
+          "id": "smile",
+          "label": "开心",
+          "asset": "character/pearl/pose/smile"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "sweat",
+          "label": "紧张",
+          "asset": "character/pearl/reaction/sweat"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/pearl/reaction/shocked"
+        }
+      ]
+    },
+    {
+      "id": "godot",
+      "name": "戈多",
+      "portrait": "character/godot/portrait",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/godot/pose/normal"
+        },
+        {
+          "id": "sip",
+          "label": "啜饮咖啡",
+          "asset": "character/godot/pose/sip"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/godot/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/godot/pose/objection"
+        },
+        {
+          "id": "desk",
+          "label": "拍桌",
+          "asset": "character/godot/pose/desk"
+        },
+        {
+          "id": "smirk",
+          "label": "从容一笑",
+          "asset": "character/godot/pose/smirk"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "shocked",
+          "label": "咖啡洒落",
+          "asset": "character/godot/reaction/shocked"
+        },
+        {
+          "id": "damaged",
+          "label": "受挫",
+          "asset": "character/godot/reaction/damaged"
+        }
+      ]
+    },
+    {
+      "id": "dahlia",
+      "name": "美柳千奈美",
+      "portrait": "character/dahlia/portrait",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/dahlia/pose/normal"
+        },
+        {
+          "id": "smile",
+          "label": "温柔微笑",
+          "asset": "character/dahlia/pose/smile"
+        },
+        {
+          "id": "hand-heart",
+          "label": "手抚胸口",
+          "asset": "character/dahlia/pose/hand-heart"
+        },
+        {
+          "id": "point",
+          "label": "指责",
+          "asset": "character/dahlia/pose/point"
+        },
+        {
+          "id": "glare",
+          "label": "冷眼",
+          "asset": "character/dahlia/pose/glare"
+        },
+        {
+          "id": "smirk",
+          "label": "意味深长",
+          "asset": "character/dahlia/pose/smirk"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/dahlia/reaction/shocked"
+        },
+        {
+          "id": "breakdown",
+          "label": "失控",
+          "asset": "character/dahlia/reaction/breakdown"
+        }
+      ]
+    },
+    {
+      "id": "athena",
+      "name": "希月心音",
+      "portrait": "character/athena/portrait",
+      "stage": {
+        "background": "stage/defense/background",
+        "foreground": "stage/defense/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/athena/pose/normal"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/athena/pose/think"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/athena/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/athena/pose/objection"
+        },
+        {
+          "id": "listen",
+          "label": "聆听情绪",
+          "asset": "character/athena/pose/listen"
+        },
+        {
+          "id": "cheer",
+          "label": "振奋",
+          "asset": "character/athena/pose/cheer"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "sweat",
+          "label": "紧张",
+          "asset": "character/athena/reaction/sweat"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/athena/reaction/shocked"
+        }
+      ]
+    },
+    {
+      "id": "blackquill",
+      "name": "夕神迅",
+      "portrait": "character/blackquill/portrait",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/blackquill/pose/normal"
+        },
+        {
+          "id": "crossed-arms",
+          "label": "抱臂",
+          "asset": "character/blackquill/pose/crossed-arms"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/blackquill/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "手刀异议",
+          "asset": "character/blackquill/pose/objection"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/blackquill/pose/think"
+        },
+        {
+          "id": "smirk",
+          "label": "冷笑",
+          "asset": "character/blackquill/pose/smirk"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/blackquill/reaction/surprised"
+        },
+        {
+          "id": "angry",
+          "label": "怒扯锁链",
+          "asset": "character/blackquill/reaction/angry"
+        }
+      ]
+    },
+    {
+      "id": "kristoph",
+      "name": "牙琉雾人",
+      "portrait": "character/kristoph/portrait",
+      "stage": {
+        "background": "stage/defense/background",
+        "foreground": "stage/defense/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/kristoph/pose/normal"
+        },
+        {
+          "id": "glasses",
+          "label": "推眼镜",
+          "asset": "character/kristoph/pose/glasses"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/kristoph/pose/point"
+        },
+        {
+          "id": "explain",
+          "label": "陈述",
+          "asset": "character/kristoph/pose/explain"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/kristoph/pose/think"
+        },
+        {
+          "id": "smile",
+          "label": "微笑",
+          "asset": "character/kristoph/pose/smile"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "sweat",
+          "label": "慌张",
+          "asset": "character/kristoph/reaction/sweat"
+        },
+        {
+          "id": "breakdown",
+          "label": "失控",
+          "asset": "character/kristoph/reaction/breakdown"
+        }
+      ]
+    },
+    {
+      "id": "payne",
+      "name": "亚内武文",
+      "portrait": "character/payne/portrait",
+      "stage": {
+        "background": "stage/prosecution/background",
+        "foreground": "stage/prosecution/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/payne/pose/normal"
+        },
+        {
+          "id": "glasses",
+          "label": "推眼镜",
+          "asset": "character/payne/pose/glasses"
+        },
+        {
+          "id": "point",
+          "label": "指证",
+          "asset": "character/payne/pose/point"
+        },
+        {
+          "id": "objection",
+          "label": "异议",
+          "asset": "character/payne/pose/objection"
+        },
+        {
+          "id": "read",
+          "label": "查看文件",
+          "asset": "character/payne/pose/read"
+        },
+        {
+          "id": "smug",
+          "label": "得意",
+          "asset": "character/payne/pose/smug"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "sweat",
+          "label": "擦汗",
+          "asset": "character/payne/reaction/sweat"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/payne/reaction/shocked"
+        }
+      ]
+    },
+    {
+      "id": "adrian",
+      "name": "华宫雾绪",
+      "portrait": "character/adrian/portrait",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/adrian/pose/normal"
+        },
+        {
+          "id": "glasses",
+          "label": "扶眼镜",
+          "asset": "character/adrian/pose/glasses"
+        },
+        {
+          "id": "notes",
+          "label": "翻阅笔记",
+          "asset": "character/adrian/pose/notes"
+        },
+        {
+          "id": "point",
+          "label": "指出",
+          "asset": "character/adrian/pose/point"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/adrian/pose/think"
+        },
+        {
+          "id": "relieved",
+          "label": "释然",
+          "asset": "character/adrian/pose/relieved"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "worried",
+          "label": "不安",
+          "asset": "character/adrian/reaction/worried"
+        },
+        {
+          "id": "shocked",
+          "label": "震惊",
+          "asset": "character/adrian/reaction/shocked"
+        }
+      ]
+    },
+    {
+      "id": "iris",
+      "name": "绫芽",
+      "portrait": "character/iris/portrait",
+      "stage": {
+        "background": "stage/witness/background",
+        "foreground": "stage/witness/foreground"
+      },
+      "poses": [
+        {
+          "id": "normal",
+          "label": "平常",
+          "asset": "character/iris/pose/normal"
+        },
+        {
+          "id": "prayer",
+          "label": "祈祷",
+          "asset": "character/iris/pose/prayer"
+        },
+        {
+          "id": "listen",
+          "label": "倾听",
+          "asset": "character/iris/pose/listen"
+        },
+        {
+          "id": "explain",
+          "label": "解释",
+          "asset": "character/iris/pose/explain"
+        },
+        {
+          "id": "think",
+          "label": "思考",
+          "asset": "character/iris/pose/think"
+        },
+        {
+          "id": "smile",
+          "label": "微笑",
+          "asset": "character/iris/pose/smile"
+        }
+      ],
+      "reactions": [
+        {
+          "id": "worried",
+          "label": "担忧",
+          "asset": "character/iris/reaction/worried"
+        },
+        {
+          "id": "surprised",
+          "label": "惊讶",
+          "asset": "character/iris/reaction/surprised"
+        }
+      ]
     }
   ],
   "backgrounds": [
@@ -875,6 +1352,46 @@
       "id": "hospital-room",
       "label": "医院 · 病房",
       "resource": "background/hospital-room"
+    },
+    {
+      "id": "interview-room",
+      "label": "警署 · 讯问室",
+      "resource": "background/interview-room"
+    },
+    {
+      "id": "forensics-lab",
+      "label": "警署 · 科学鉴定室",
+      "resource": "background/forensics-lab"
+    },
+    {
+      "id": "apartment",
+      "label": "公寓 · 客厅",
+      "resource": "background/apartment"
+    },
+    {
+      "id": "courthouse-exterior",
+      "label": "法院 · 雨后正门",
+      "resource": "background/courthouse-exterior"
+    },
+    {
+      "id": "spirit-village",
+      "label": "灵媒村 · 中庭",
+      "resource": "background/spirit-village"
+    },
+    {
+      "id": "evidence-warehouse",
+      "label": "旧仓库 · 证物现场",
+      "resource": "background/evidence-warehouse"
+    },
+    {
+      "id": "apartment-stairwell",
+      "label": "公寓 · 雨夜楼梯间",
+      "resource": "background/apartment-stairwell"
+    },
+    {
+      "id": "consultation-room",
+      "label": "法院 · 会谈室",
+      "resource": "background/consultation-room"
     }
   ],
   "audio": {
@@ -1341,364 +1858,394 @@
   },
   "resources": {
     "background/courtroom": {
-      "file": "chibi-courtroom.jpg",
+      "file": "chibi-courtroom.webp",
       "frame": [
         0,
         0,
-        240,
-        180
+        768,
+        576
       ]
     },
     "background/witness-stand": {
-      "file": "chibi-witness-stand.jpg",
+      "file": "chibi-witness-stand.webp",
       "frame": [
         0,
         0,
-        240,
-        180
+        768,
+        576
       ]
     },
     "background/lobby": {
-      "file": "chibi-lobby.jpg"
-    },
-    "background/office": {
-      "file": "chibi-office.jpg"
-    },
-    "background/detention-room": {
-      "file": "chibi-detention-room.jpg"
-    },
-    "background/police-records": {
-      "file": "chibi-police-records.jpg"
-    },
-    "background/night-corridor": {
-      "file": "chibi-night-corridor.jpg"
-    },
-    "stage/defense/background": {
-      "file": "chibi-stage-defense.jpg",
+      "file": "chibi-lobby.webp",
       "frame": [
         0,
         0,
-        240,
-        180
+        768,
+        576
+      ]
+    },
+    "background/office": {
+      "file": "chibi-office.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/detention-room": {
+      "file": "chibi-detention-room.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/police-records": {
+      "file": "chibi-police-records.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/night-corridor": {
+      "file": "chibi-night-corridor.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "stage/defense/background": {
+      "file": "chibi-stage-defense.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
       ]
     },
     "stage/prosecution/background": {
-      "file": "chibi-stage-prosecution.jpg",
+      "file": "chibi-stage-prosecution.webp",
       "frame": [
         0,
         0,
-        240,
-        180
+        768,
+        576
       ]
     },
     "stage/witness/background": {
-      "file": "chibi-witness-stand.jpg",
+      "file": "chibi-witness-stand.webp",
       "frame": [
         0,
         0,
-        240,
-        180
+        768,
+        576
       ]
     },
     "stage/judge/background": {
-      "file": "chibi-courtroom.jpg",
+      "file": "chibi-courtroom.webp",
       "frame": [
         0,
         0,
-        240,
-        180
+        768,
+        576
       ]
     },
     "character/phoenix/pose/normal": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        3,
-        5,
-        33,
-        64
+        0,
+        0,
+        444,
+        444
       ]
     },
     "character/phoenix/pose/think": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        1,
-        68,
-        37,
-        66
+        444,
+        0,
+        443,
+        444
       ]
     },
     "character/phoenix/pose/point": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        43,
-        3,
-        43,
-        66
+        887,
+        0,
+        443,
+        444
       ]
     },
     "character/phoenix/pose/desk": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        134,
-        12,
-        47,
-        55
+        0,
+        444,
+        444,
+        443
       ]
     },
     "character/phoenix/reaction/sweat": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        95,
-        69,
-        35,
-        65
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/phoenix/reaction/shocked": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        41,
-        70,
-        46,
-        63
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/apollo/pose/normal": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/apollo/pose/think": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/apollo/pose/point": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/apollo/pose/confident": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/apollo/reaction/shocked": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/apollo/reaction/sweat": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/klavier/pose/normal": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/klavier/pose/fist": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/klavier/pose/laugh": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/klavier/reaction/damaged": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/ema/pose/normal": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/ema/pose/science": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/ema/pose/smug": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/ema/pose/mad": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/ema/reaction/surprised": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/trucy/pose/normal": {
-      "file": "chibi-trucy-actions.svg",
+      "file": "chibi-trucy-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/trucy/pose/cheer": {
-      "file": "chibi-trucy-actions.svg",
+      "file": "chibi-trucy-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/trucy/pose/think": {
-      "file": "chibi-trucy-actions.svg",
+      "file": "chibi-trucy-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/trucy/reaction/sad": {
-      "file": "chibi-trucy-actions.svg",
+      "file": "chibi-trucy-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/trucy/reaction/surprised": {
-      "file": "chibi-trucy-actions.svg",
+      "file": "chibi-trucy-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/edgeworth/pose/normal": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        3,
-        6,
-        34,
-        65
+        0,
+        0,
+        444,
+        444
       ]
     },
     "character/edgeworth/pose/bow": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        43,
-        3,
-        36,
-        68
+        444,
+        0,
+        443,
+        444
       ]
     },
     "character/edgeworth/pose/point": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        92,
-        4,
-        43,
-        67
+        887,
+        0,
+        443,
+        444
       ]
     },
     "character/edgeworth/pose/smug": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        50,
-        69,
-        37,
-        64
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/edgeworth/reaction/surprised": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        87,
-        71,
-        45,
-        62
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/edgeworth/reaction/damaged": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        137,
-        71,
-        41,
-        62
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/maya/pose/normal": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         0,
         0,
@@ -1707,7 +2254,7 @@
       ]
     },
     "character/maya/pose/cheer": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         887,
         0,
@@ -1716,7 +2263,7 @@
       ]
     },
     "character/maya/pose/think": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         0,
         444,
@@ -1725,7 +2272,7 @@
       ]
     },
     "character/maya/reaction/surprised": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         887,
         444,
@@ -1734,7 +2281,7 @@
       ]
     },
     "character/maya/reaction/sad": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         1330,
         444,
@@ -1743,7 +2290,7 @@
       ]
     },
     "character/judge/pose/normal": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         0,
         0,
@@ -1752,7 +2299,7 @@
       ]
     },
     "character/judge/pose/stern": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         362,
         0,
@@ -1761,7 +2308,7 @@
       ]
     },
     "character/judge/reaction/surprised": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         0,
         544,
@@ -1770,7 +2317,7 @@
       ]
     },
     "character/judge/reaction/confused": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         362,
         544,
@@ -1779,79 +2326,79 @@
       ]
     },
     "character/witness/pose/normal": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/witness/pose/nervous": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/witness/pose/confident": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/witness/reaction/shocked": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/witness/reaction/sweat": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/von-karma/pose/normal": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/von-karma/pose/accuse": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/von-karma/reaction/breakdown": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/gumshoe/pose/normal": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         0,
         0,
@@ -1860,7 +2407,7 @@
       ]
     },
     "character/gumshoe/pose/salute": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         444,
         0,
@@ -1869,7 +2416,7 @@
       ]
     },
     "character/gumshoe/reaction/nervous": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         887,
         444,
@@ -1878,121 +2425,205 @@
       ]
     },
     "character/lotta/pose/normal": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/lotta/pose/camera": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/lotta/reaction/shocked": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/yogi/pose/normal": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/yogi/pose/stern": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/yogi/reaction/broken": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/mia/pose/normal": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
         0,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/mia/pose/point": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/mia/reaction/concerned": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "background/lake-dock": {
-      "file": "chibi-lake-dock.jpg"
-    },
-    "background/evidence-room": {
-      "file": "chibi-evidence-room.jpg"
-    },
-    "background/prosecutor-office": {
-      "file": "chibi-prosecutor-office.jpg"
-    },
-    "background/elevator-hall": {
-      "file": "chibi-elevator-hall.jpg"
-    },
-    "background/boathouse": {
-      "file": "chibi-boathouse.jpg"
-    },
-    "background/records-basement": {
-      "file": "chibi-records-basement.jpg"
-    },
-    "background/parking-garage": {
-      "file": "chibi-parking-garage.jpg"
-    },
-    "background/hospital-room": {
-      "file": "chibi-hospital-room.jpg"
-    },
-    "character/von-karma/pose/smug": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-lake-dock.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        0,
+        768,
+        576
+      ]
+    },
+    "background/evidence-room": {
+      "file": "chibi-evidence-room.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/prosecutor-office": {
+      "file": "chibi-prosecutor-office.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/elevator-hall": {
+      "file": "chibi-elevator-hall.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/boathouse": {
+      "file": "chibi-boathouse.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/records-basement": {
+      "file": "chibi-records-basement.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/parking-garage": {
+      "file": "chibi-parking-garage.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/hospital-room": {
+      "file": "chibi-hospital-room.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/interview-room": {
+      "file": "chibi-interview-room.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/forensics-lab": {
+      "file": "chibi-forensics-lab.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/apartment": {
+      "file": "chibi-apartment.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/courthouse-exterior": {
+      "file": "chibi-courthouse-exterior.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "character/von-karma/pose/smug": {
+      "file": "chibi-von-karma-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
       ]
     },
     "character/gumshoe/pose/point": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         887,
         0,
@@ -2001,70 +2632,88 @@
       ]
     },
     "character/lotta/pose/grin": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/yogi/reaction/shocked": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/mia/pose/smile": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "stage/defense/foreground": {
-      "file": "chibi-stage-defense-foreground.png"
-    },
-    "stage/prosecution/foreground": {
-      "file": "chibi-stage-prosecution-foreground.png"
-    },
-    "stage/witness/foreground": {
-      "file": "chibi-stage-witness-foreground.png"
-    },
-    "character/phoenix/portrait": {
-      "file": "chibi-phoenix-neutral.png",
+      "file": "chibi-stage-defense-foreground.webp",
       "frame": [
         0,
         0,
-        256,
-        192
+        768,
+        576
+      ]
+    },
+    "stage/prosecution/foreground": {
+      "file": "chibi-stage-prosecution-foreground.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "stage/witness/foreground": {
+      "file": "chibi-stage-witness-foreground.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "character/phoenix/portrait": {
+      "file": "chibi-phoenix-neutral.webp",
+      "frame": [
+        0,
+        0,
+        512,
+        384
       ]
     },
     "character/phoenix/pose/objection": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        87,
-        2,
-        46,
-        67
+        1330,
+        0,
+        444,
+        444
       ]
     },
     "character/phoenix/pose/smile": {
-      "file": "chibi-phoenix-actions.png",
+      "file": "chibi-phoenix-actions.webp",
       "frame": [
-        137,
-        69,
-        43,
-        65
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/edgeworth/portrait": {
-      "file": "chibi-edgeworth-neutral.png",
+      "file": "chibi-edgeworth-neutral.webp",
       "frame": [
         0,
         0,
@@ -2073,25 +2722,25 @@
       ]
     },
     "character/edgeworth/pose/objection": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        137,
-        6,
-        44,
-        64
+        1330,
+        0,
+        444,
+        444
       ]
     },
     "character/edgeworth/pose/desk": {
-      "file": "chibi-edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        1,
-        76,
-        51,
-        55
+        0,
+        444,
+        444,
+        443
       ]
     },
     "character/maya/portrait": {
-      "file": "chibi-maya-neutral.png",
+      "file": "chibi-maya-neutral.webp",
       "frame": [
         0,
         0,
@@ -2100,7 +2749,7 @@
       ]
     },
     "character/maya/pose/wave": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         444,
         0,
@@ -2109,7 +2758,7 @@
       ]
     },
     "character/maya/pose/point": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         1330,
         0,
@@ -2118,7 +2767,7 @@
       ]
     },
     "character/maya/pose/thumbs-up": {
-      "file": "chibi-maya-actions.png",
+      "file": "chibi-maya-actions.webp",
       "frame": [
         444,
         444,
@@ -2127,7 +2776,7 @@
       ]
     },
     "character/judge/portrait": {
-      "file": "chibi-judge-neutral.png",
+      "file": "chibi-judge-neutral.webp",
       "frame": [
         0,
         0,
@@ -2136,7 +2785,7 @@
       ]
     },
     "character/judge/pose/gavel-strike": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         724,
         0,
@@ -2145,7 +2794,7 @@
       ]
     },
     "character/judge/pose/listen": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         1085,
         0,
@@ -2154,7 +2803,7 @@
       ]
     },
     "character/judge/pose/think": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         724,
         544,
@@ -2163,7 +2812,7 @@
       ]
     },
     "character/judge/pose/relieved": {
-      "file": "chibi-judge-actions.png",
+      "file": "chibi-judge-actions.webp",
       "frame": [
         1085,
         544,
@@ -2172,7 +2821,7 @@
       ]
     },
     "character/gumshoe/portrait": {
-      "file": "chibi-gumshoe-neutral.png",
+      "file": "chibi-gumshoe-neutral.webp",
       "frame": [
         0,
         0,
@@ -2181,7 +2830,7 @@
       ]
     },
     "character/gumshoe/pose/present-report": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         1330,
         0,
@@ -2190,7 +2839,7 @@
       ]
     },
     "character/gumshoe/pose/think": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         0,
         444,
@@ -2199,7 +2848,7 @@
       ]
     },
     "character/gumshoe/pose/determined": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         444,
         444,
@@ -2208,7 +2857,7 @@
       ]
     },
     "character/gumshoe/reaction/embarrassed": {
-      "file": "chibi-gumshoe-actions.png",
+      "file": "chibi-gumshoe-actions.webp",
       "frame": [
         1330,
         444,
@@ -2217,7 +2866,7 @@
       ]
     },
     "character/franziska/portrait": {
-      "file": "chibi-franziska-neutral.png",
+      "file": "chibi-franziska-neutral.webp",
       "frame": [
         0,
         0,
@@ -2226,7 +2875,7 @@
       ]
     },
     "character/franziska/pose/normal": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         0,
         0,
@@ -2235,7 +2884,7 @@
       ]
     },
     "character/franziska/pose/crossed-arms": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         444,
         0,
@@ -2244,7 +2893,7 @@
       ]
     },
     "character/franziska/pose/point": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         887,
         0,
@@ -2253,7 +2902,7 @@
       ]
     },
     "character/franziska/pose/whip-ready": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         1330,
         0,
@@ -2262,7 +2911,7 @@
       ]
     },
     "character/franziska/pose/whip-strike": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         0,
         444,
@@ -2271,7 +2920,7 @@
       ]
     },
     "character/franziska/pose/smirk": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         444,
         444,
@@ -2280,7 +2929,7 @@
       ]
     },
     "character/franziska/reaction/surprised": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         887,
         444,
@@ -2289,7 +2938,7 @@
       ]
     },
     "character/franziska/reaction/frustrated": {
-      "file": "chibi-franziska-actions.png",
+      "file": "chibi-franziska-actions.webp",
       "frame": [
         1330,
         444,
@@ -2298,331 +2947,367 @@
       ]
     },
     "character/von-karma/portrait": {
-      "file": "chibi-von-karma-neutral.png",
+      "file": "chibi-von-karma-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/von-karma/pose/crossed-arms": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
-        512,
+        444,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/von-karma/pose/objection": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/von-karma/pose/glare": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/von-karma/reaction/shocked": {
-      "file": "chibi-von-karma-actions.svg",
+      "file": "chibi-von-karma-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/lotta/portrait": {
-      "file": "chibi-lotta-neutral.png",
+      "file": "chibi-lotta-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/lotta/pose/point": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/lotta/pose/excited": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/lotta/pose/skeptical": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/lotta/reaction/flustered": {
-      "file": "chibi-lotta-actions.svg",
+      "file": "chibi-lotta-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/witness/portrait": {
-      "file": "chibi-witness-neutral.png",
+      "file": "chibi-witness-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/witness/pose/boast": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/witness/pose/plead": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/witness/pose/point": {
-      "file": "chibi-witness-actions.svg",
+      "file": "chibi-witness-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/yogi/portrait": {
-      "file": "chibi-yogi-neutral.png",
+      "file": "chibi-yogi-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/yogi/pose/tired": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/yogi/pose/mutter": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/yogi/pose/point": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/yogi/pose/tense": {
-      "file": "chibi-yogi-actions.svg",
+      "file": "chibi-yogi-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/mia/portrait": {
-      "file": "chibi-mia-neutral.png",
+      "file": "chibi-mia-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/mia/pose/think": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/mia/pose/confident": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/mia/pose/encourage": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/mia/reaction/shocked": {
-      "file": "chibi-mia-actions.svg",
+      "file": "chibi-mia-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/apollo/portrait": {
-      "file": "chibi-apollo-neutral.png",
+      "file": "chibi-apollo-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/apollo/pose/objection": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/apollo/pose/desk": {
-      "file": "chibi-apollo-actions.svg",
+      "file": "chibi-apollo-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/klavier/portrait": {
-      "file": "chibi-klavier-neutral.png",
+      "file": "chibi-klavier-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/klavier/pose/point": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/klavier/pose/guitar": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        444,
+        444,
+        443
       ]
     },
     "character/klavier/pose/smirk": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
-        512,
-        512,
-        512,
-        512
+        444,
+        444,
+        443,
+        443
       ]
     },
     "character/klavier/reaction/surprised": {
-      "file": "chibi-klavier-actions.svg",
+      "file": "chibi-klavier-actions.webp",
       "frame": [
-        1024,
-        512,
-        512,
-        512
+        887,
+        444,
+        443,
+        443
       ]
     },
     "character/ema/portrait": {
-      "file": "chibi-ema-neutral.png",
+      "file": "chibi-ema-neutral.webp",
       "frame": [
         0,
         0,
-        512,
-        384
+        444,
+        444
       ]
     },
     "character/ema/pose/inspect": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
-        1024,
+        887,
         0,
-        512,
-        512
+        443,
+        444
       ]
     },
     "character/ema/pose/think": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
-        1536,
+        1330,
         0,
-        512,
-        512
+        444,
+        444
       ]
     },
     "character/ema/reaction/shocked": {
-      "file": "chibi-ema-actions.svg",
+      "file": "chibi-ema-actions.webp",
       "frame": [
-        1536,
-        512,
-        512,
-        512
+        1330,
+        444,
+        444,
+        443
       ]
     },
     "character/trucy/portrait": {
-      "file": "chibi-trucy-neutral.png",
+      "file": "chibi-trucy-neutral.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/trucy/pose/magic": {
+      "file": "chibi-trucy-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/trucy/pose/point": {
+      "file": "chibi-trucy-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/trucy/pose/smile": {
+      "file": "chibi-trucy-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/pearl/portrait": {
+      "file": "chibi-pearl-neutral.webp",
       "frame": [
         0,
         0,
@@ -2630,31 +3315,760 @@
         384
       ]
     },
-    "character/trucy/pose/magic": {
-      "file": "chibi-trucy-actions.svg",
-      "frame": [
-        1536,
-        0,
-        512,
-        512
-      ]
-    },
-    "character/trucy/pose/point": {
-      "file": "chibi-trucy-actions.svg",
+    "character/pearl/pose/normal": {
+      "file": "chibi-pearl-actions.webp",
       "frame": [
         0,
-        512,
-        512,
-        512
+        0,
+        444,
+        444
       ]
     },
-    "character/trucy/pose/smile": {
-      "file": "chibi-trucy-actions.svg",
+    "character/pearl/pose/think": {
+      "file": "chibi-pearl-actions.webp",
       "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/pearl/pose/point": {
+      "file": "chibi-pearl-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/pearl/pose/objection": {
+      "file": "chibi-pearl-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/pearl/pose/prayer": {
+      "file": "chibi-pearl-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/pearl/pose/smile": {
+      "file": "chibi-pearl-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/pearl/reaction/sweat": {
+      "file": "chibi-pearl-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/pearl/reaction/shocked": {
+      "file": "chibi-pearl-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "background/spirit-village": {
+      "file": "chibi-spirit-village.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/evidence-warehouse": {
+      "file": "chibi-evidence-warehouse.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/apartment-stairwell": {
+      "file": "chibi-apartment-stairwell.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "background/consultation-room": {
+      "file": "chibi-consultation-room.webp",
+      "frame": [
+        0,
+        0,
+        768,
+        576
+      ]
+    },
+    "character/godot/portrait": {
+      "file": "chibi-godot-neutral.webp",
+      "frame": [
+        0,
+        0,
         512,
+        384
+      ]
+    },
+    "character/godot/pose/normal": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/godot/pose/sip": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/godot/pose/point": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/godot/pose/objection": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/godot/pose/desk": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/godot/pose/smirk": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/godot/reaction/shocked": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/godot/reaction/damaged": {
+      "file": "chibi-godot-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/dahlia/portrait": {
+      "file": "chibi-dahlia-neutral.webp",
+      "frame": [
+        0,
+        0,
         512,
+        384
+      ]
+    },
+    "character/dahlia/pose/normal": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/dahlia/pose/smile": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/dahlia/pose/hand-heart": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/dahlia/pose/point": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/dahlia/pose/glare": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/dahlia/pose/smirk": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/dahlia/reaction/shocked": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/dahlia/reaction/breakdown": {
+      "file": "chibi-dahlia-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/athena/portrait": {
+      "file": "chibi-athena-neutral.webp",
+      "frame": [
+        0,
+        0,
         512,
-        512
+        384
+      ]
+    },
+    "character/athena/pose/normal": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/athena/pose/think": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/athena/pose/point": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/athena/pose/objection": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/athena/pose/listen": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/athena/pose/cheer": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/athena/reaction/sweat": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/athena/reaction/shocked": {
+      "file": "chibi-athena-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/blackquill/portrait": {
+      "file": "chibi-blackquill-neutral.webp",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/blackquill/pose/normal": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/blackquill/pose/crossed-arms": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/blackquill/pose/point": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/blackquill/pose/objection": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/blackquill/pose/think": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/blackquill/pose/smirk": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/blackquill/reaction/surprised": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/blackquill/reaction/angry": {
+      "file": "chibi-blackquill-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/kristoph/portrait": {
+      "file": "chibi-kristoph-neutral.webp",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/kristoph/pose/normal": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/kristoph/pose/glasses": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/kristoph/pose/point": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/kristoph/pose/explain": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/kristoph/pose/think": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/kristoph/pose/smile": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/kristoph/reaction/sweat": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/kristoph/reaction/breakdown": {
+      "file": "chibi-kristoph-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/payne/portrait": {
+      "file": "chibi-payne-neutral.webp",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/payne/pose/normal": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/payne/pose/glasses": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/payne/pose/point": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/payne/pose/objection": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/payne/pose/read": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/payne/pose/smug": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/payne/reaction/sweat": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/payne/reaction/shocked": {
+      "file": "chibi-payne-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/adrian/portrait": {
+      "file": "chibi-adrian-neutral.webp",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/adrian/pose/normal": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/adrian/pose/glasses": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/adrian/pose/notes": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/adrian/pose/point": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/adrian/pose/think": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/adrian/pose/relieved": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/adrian/reaction/worried": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/adrian/reaction/shocked": {
+      "file": "chibi-adrian-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/iris/portrait": {
+      "file": "chibi-iris-neutral.webp",
+      "frame": [
+        0,
+        0,
+        512,
+        384
+      ]
+    },
+    "character/iris/pose/normal": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        0,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/iris/pose/prayer": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        444,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/iris/pose/listen": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        887,
+        0,
+        443,
+        444
+      ]
+    },
+    "character/iris/pose/explain": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        1330,
+        0,
+        444,
+        444
+      ]
+    },
+    "character/iris/pose/think": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        0,
+        444,
+        444,
+        443
+      ]
+    },
+    "character/iris/pose/smile": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        444,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/iris/reaction/worried": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        887,
+        444,
+        443,
+        443
+      ]
+    },
+    "character/iris/reaction/surprised": {
+      "file": "chibi-iris-actions.webp",
+      "frame": [
+        1330,
+        444,
+        444,
+        443
       ]
     }
   }

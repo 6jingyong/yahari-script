@@ -64,3 +64,12 @@ test('inline pose waits for its own image and reveal-all also prepares the final
  reveal.start();reveal.next();assert.equal(reveal.snapshot.complete,false);assert.equal(reveal.snapshot.loading,true);
  finish();await finalReady;await Promise.resolve();assert.equal(reveal.snapshot.complete,true);reveal.dispose();
 });
+
+test('selected-page rehearsal starts at the chosen repeated-speaker line and clamps invalid indices',()=>{
+ const {player,drain}=setup([{op:'background',resource:{packId:'p',id:'room'}},{op:'speaker',castId:'a'},{op:'showText',text:'第一句'},{op:'speaker',castId:'a'},{op:'showText',text:'第二句'}]);
+ player.start(1);assert.equal(player.snapshot.page,1);assert.equal(player.snapshot.partialText,'第');drain();assert.equal(player.snapshot.position,5);
+ player.start(1);assert.equal(player.snapshot.complete,false);assert.equal(player.snapshot.position,4);
+ player.start(999);assert.equal(player.snapshot.page,1);
+ player.start(-1);assert.equal(player.snapshot.page,0);
+ player.start(Number.NaN);assert.equal(player.snapshot.page,0);player.dispose();
+});

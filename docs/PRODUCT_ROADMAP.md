@@ -1,3 +1,11 @@
+# Current priorities — 2026-09-29
+
+The current build contains 24 characters / 192 actions / 23 scenes, all generated raster action sheets; runtime WebP assets; local rehearsal entry/replay/source return; story generation connection and cancellation hardening. The user will perform phone/browser acceptance against the published build. Do not block further work on agent-side mobile browser setup.
+
+Next evidence needed: user phone feedback; a real model connection test using the user's locally entered key; substantive author feedback from a complete scene. Do not claim live provider or phone acceptance from unit tests. Defer new adapters, collaborative editing and broad architecture rewrites.
+
+The older phase roadmap below is retained for rationale; its dated counts and phase labels are historical.
+
 # Yahari Script — Product Roadmap
 
 > Status: reconciled with the Drive-first canonical working state, 2026-09-29

@@ -30,6 +30,7 @@ export class PreviewPlayback {
   start(page=0):void {
     if(this.disposed)return;
     this.stopTimer();
+    page=Number.isFinite(page)?Math.max(0,Math.min(Math.max(0,this.pages.length-1),Math.trunc(page))):0;
     this.state={position:this.pages[page]?.start??0,partialText:'',page,count:this.pages.length,complete:!this.pages.length,waiting:false,loading:false};
     this.preparedPosition=-1;this.letters=[];this.letter=0;this.advance();
   }

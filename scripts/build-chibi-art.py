@@ -85,6 +85,24 @@ save_verified(Image.open(SOURCE / "night-corridor.webp").convert("RGB").resize(
     (768, 576), Image.Resampling.LANCZOS
 ), DEST / "chibi-night-corridor.jpg")
 
+for name, filename in [
+    ("interview-room", "interview-room.png"),
+    ("forensics-lab", "forensics-lab.png"),
+    ("apartment", "apartment.png"),
+    ("courthouse-exterior", "courthouse-exterior.png"),
+    ("spirit-village", "spirit-village.png"),
+    ("evidence-warehouse", "evidence-warehouse.png"),
+    ("apartment-stairwell", "apartment-stairwell.png"),
+    ("consultation-room", "consultation-room.png"),
+]:
+    image = Image.open(SOURCE / filename).convert("RGB")
+    target_width = min(image.width, round(image.height * 4 / 3))
+    target_height = min(image.height, round(image.width * 3 / 4))
+    left = (image.width - target_width) // 2
+    top = (image.height - target_height) // 2
+    scene = image.crop((left, top, left + target_width, top + target_height))
+    save_verified(scene.resize((768, 576), Image.Resampling.LANCZOS), DEST / f"chibi-{name}.jpg")
+
 overlay = Image.open(SOURCE / "courtroom-foregrounds.webp").convert("RGBA")
 for col, name in enumerate(("stage-defense-foreground", "stage-prosecution-foreground", "stage-witness-foreground")):
     x0, x1 = round(col * overlay.width / 3), round((col + 1) * overlay.width / 3)

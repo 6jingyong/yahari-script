@@ -20,28 +20,7 @@ reactions = {
     "breakdown", "broken", "confused", "concerned",
 }
 
-ACTION_ATLASES = {
-    "phoenix": {
-        "file": "chibi-phoenix-actions.png",
-        "frames": {
-            "normal": [3, 5, 33, 64], "point": [43, 3, 43, 66],
-            "objection": [87, 2, 46, 67], "desk": [134, 12, 47, 55],
-            "think": [1, 68, 37, 66], "shocked": [41, 70, 46, 63],
-            "sweat": [95, 69, 35, 65], "smile": [137, 69, 43, 65],
-        },
-        "portrait": "chibi-phoenix-neutral.png",
-    },
-    "edgeworth": {
-        "file": "chibi-edgeworth-actions.png",
-        "frames": {
-            "normal": [3, 6, 34, 65], "bow": [43, 3, 36, 68],
-            "point": [92, 4, 43, 67], "objection": [137, 6, 44, 64],
-            "desk": [1, 76, 51, 55], "smug": [50, 69, 37, 64],
-            "surprised": [87, 71, 45, 62], "damaged": [137, 71, 41, 62],
-        },
-        "portrait": "chibi-edgeworth-neutral.png",
-    },
-}
+ACTION_ATLASES = {}
 
 def grid_frames(filename: str, actions: tuple[str, ...]) -> dict[str, list[int]]:
     """Derive eight independent resource crops from an exact 4x2 atlas."""
@@ -134,8 +113,9 @@ for scene in catalog["backgrounds"]:
         scene["foreground"] = "stage/witness/foreground"
 for resource_id, filename in scene_files.items():
     key = resource_id if resource_id.startswith("stage/") else f"background/{resource_id}"
-    if key not in catalog["resources"]:
-        catalog["resources"][key] = {"file": filename, "frame": full_frame(filename)}
+    # The atlas may have been recut at a new resolution. Refresh stale crop
+    # bounds too, otherwise the viewer still selects a 240x180 corner.
+    catalog["resources"][key] = {"file": filename, "frame": full_frame(filename)}
 
 catalog["version"] = "0.4.0"
 CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")

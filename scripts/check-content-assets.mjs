@@ -28,6 +28,7 @@ for (const scene of pack.backgrounds) {
 }
 
 const uniqueFiles=new Map();
+const dimensions=new Map();
 for(const descriptor of Object.values(courtroomDemoResources.resources)) uniqueFiles.set(descriptor.url,descriptor);
 // Archived poses and portraits are still shipped with the pack. Check them too,
 // even when no current action points at the file.
@@ -49,9 +50,23 @@ for(const [url,descriptor] of uniqueFiles) {
   const jpeg=bytes.subarray(0,2).toString('hex')==='ffd8';
   const gif=bytes.subarray(0,3).toString()==='GIF';
   const svg=bytes.subarray(0,256).toString('utf8').includes('<svg');
-  assert.ok(png||jpeg||gif||svg,`Not a supported image: ${url}`);
+  const webp=bytes.toString('ascii',0,4)==='RIFF'&&bytes.toString('ascii',8,12)==='WEBP';
+  assert.ok(png||jpeg||gif||svg||webp,`Not a supported image: ${url}`);
   let width,height;
-  if(png){
+  if(webp){
+    assert.equal(bytes.readUInt32LE(4)+8,bytes.length,`Truncated WebP: ${url}`);
+    let offset=12, imageData=false;
+    while(offset+8<=bytes.length){
+      const tag=bytes.toString('ascii',offset,offset+4),length=bytes.readUInt32LE(offset+4),start=offset+8;
+      assert.ok(start+length<=bytes.length,`Invalid WebP chunk: ${url}`);
+      if(tag==='VP8X'){assert.ok(length>=10);width=1+bytes.readUIntLE(start+4,3);height=1+bytes.readUIntLE(start+7,3);}
+      if(tag==='VP8L'){assert.ok(length>=5&&bytes[start]===0x2f);imageData=true;const bits=bytes.readUInt32LE(start+1);width??=1+(bits&0x3fff);height??=1+((bits>>>14)&0x3fff);}
+      if(tag==='VP8 '){assert.ok(length>=10);imageData=true;width??=bytes.readUInt16LE(start+6)&0x3fff;height??=bytes.readUInt16LE(start+8)&0x3fff;}
+      offset=start+length+(length%2);
+    }
+    assert.ok(offset===bytes.length&&imageData&&width>0&&height>0,`Incomplete WebP: ${url}`);
+  }
+  else if(png){
     width=bytes.readUInt32BE(16);height=bytes.readUInt32BE(20);
     let offset=8, ended=false;const idat=[];
     while(offset+12<=bytes.length){
@@ -89,5 +104,16 @@ for(const [url,descriptor] of uniqueFiles) {
   }
   const [x,y,w,h]=descriptor.frame??[0,0,256,192];
   assert.ok(x>=0&&y>=0&&w>0&&h>0&&x+w<=width&&y+h<=height,`Invalid frame crop: ${url}`);
+  dimensions.set(url,{width,height});
+}
+for(const [id,descriptor] of Object.entries(courtroomDemoResources.resources)){
+  const {width,height}=dimensions.get(descriptor.url);
+  const [x,y,w,h]=descriptor.frame??[0,0,width,height];
+  assert.ok(x>=0&&y>=0&&w>0&&h>0&&x+w<=width&&y+h<=height,`Invalid resource crop: ${id}`);
+  if(id.startsWith('background/')||id.startsWith('stage/')){
+    assert.ok(w>=600&&h>=450,`Scene image is too small for the 768x576 preview: ${id} (${w}x${h})`);
+  }else if(id.startsWith('character/')&&!id.endsWith('/portrait')){
+    assert.ok(w>=300&&h>=300,`Action frame is too small for the preview: ${id} (${w}x${h})`);
+  }
 }
 console.log(`Content assets passed: ${pack.characters.length} characters, ${actions} actions, ${pack.backgrounds.length} scenes, ${uniqueFiles.size} local images with valid crops and hashes.`);

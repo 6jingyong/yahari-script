@@ -12,7 +12,7 @@ import {
 import { addDemoCharacter, completeDemoCast } from '../../../content-packs/courtroom-demo/cast.js';
 import { courtroomDemoPack } from '../../../content-packs/courtroom-demo/pack.js';
 import { courtroomDemoResolver } from '../../../content-packs/courtroom-demo/presentation.js';
-import { actionArt, actionLabel } from "./action-art.js";
+import { actionArt, actionLabel as fallbackActionLabel } from "./action-art.js";
 import { openPreview } from "./preview.js";
 import {
   courtroomAdapter,
@@ -220,12 +220,27 @@ function castPortraitUrl(castId:string|null|undefined):string|undefined {
   const character=pack?.characters.find(item=>item.id===cast.characterRef.id);
   return character ? courtroomDemoResolver.resolve(character.portraits.base)?.url : undefined;
 }
+function castCharacterId(castId:string|null|undefined):string|undefined {
+  const ref=currentProject.manifest.cast.find(item=>item.castId===castId)?.characterRef;
+  return ref?.packId===courtroomDemoPack.id?ref.id:undefined;
+}
+function portraitThumbnail(characterId:string,label:string):HTMLElement|undefined {
+  const index=courtroomDemoPack.characters.findIndex(item=>item.id===characterId);
+  if(index<0)return undefined;
+  const thumb=document.createElement('span');thumb.className='portrait-thumbnail';thumb.textContent=label.slice(0,1);
+  thumb.style.backgroundSize=`${courtroomDemoPack.characters.length*100}% 800%`;
+  thumb.style.backgroundPosition=`${index*100/(courtroomDemoPack.characters.length-1)}% 0%`;
+  void loadActionThumbnails().then(()=>thumb.classList.add('is-ready'),()=>{});
+  return thumb;
+}
 
 function renderSpeakerAvatar(button:HTMLButtonElement,castId:string|null|undefined):void {
   button.replaceChildren();
-  const url=castPortraitUrl(castId);
-  if(url){
-    const image=document.createElement('img');image.src=url;image.alt='';image.loading='eager';button.append(image);
+  const thumbnail=castCharacterId(castId)?portraitThumbnail(castCharacterId(castId)!,castName(castId)):undefined;
+  const url=thumbnail?undefined:castPortraitUrl(castId);
+  if(thumbnail){button.append(thumbnail);}
+  else if(url){
+    const image=document.createElement('img');image.src=url;image.alt='';image.loading='lazy';button.append(image);
   }else{
     const fallback=document.createElement('span');fallback.textContent=castInitial(castId);button.append(fallback);
   }
@@ -261,7 +276,9 @@ function openSpeakerDialog(current:string|null,select:(castId:string|null)=>void
     const button=document.createElement('button');button.type='button';button.className='speaker-option';
     button.setAttribute('aria-pressed',String(choice.characterId===undefined&&choice.castId===current));
     const portrait=document.createElement('span');portrait.className='speaker-option-avatar';
-    if(choice.portraitUrl){const image=document.createElement('img');image.src=choice.portraitUrl;image.alt='';portrait.append(image);}
+    const thumbnail=portraitThumbnail(choice.characterId??castCharacterId(choice.castId)??'',choice.label);
+    if(thumbnail)portrait.append(thumbnail);
+    else if(choice.portraitUrl){const image=document.createElement('img');image.src=choice.portraitUrl;image.alt='';image.loading='lazy';portrait.append(image);}
     else portrait.textContent=choice.label.slice(0,1);
     const label=document.createElement('span');label.textContent=choice.label;
     button.append(portrait,label);
@@ -416,6 +433,30 @@ function artCharacter(token: TypedToken, speaker?: string | null): string | unde
   return ref?.packId==='official.courtroom-demo'?ref.id:undefined;
 }
 
+function actionLabel(token:TypedToken, speaker?:string|null):string {
+  const owner=store.document.blocks.find(block=>block.type==='dialogue'&&block.content.some(node=>node.type==='token'&&node.token.id===token.id));
+  const castId=token.subject?.kind==='cast'?token.subject.id:speaker??(owner?.type==='dialogue'?owner.speaker?.castId:undefined)??composingAs;
+  const ref=currentProject.manifest.cast.find(cast=>cast.castId===castId)?.characterRef;
+  const character=ref?currentProject.contentPacks.find(pack=>pack.id===ref.packId)?.characters.find(actor=>actor.id===ref.id):undefined;
+  return fallbackActionLabel(token,character);
+}
+
+const thumbnailUrl='../../content-packs/courtroom-demo/assets/action-thumbnails.webp';
+let thumbnailReady:Promise<void>|undefined;
+function loadActionThumbnails():Promise<void> {
+  if(!thumbnailReady){
+    const image=new Image();
+    image.decoding='async';
+    image.src=thumbnailUrl;
+    thumbnailReady=image.decode().catch(error=>{
+      // Keep the fallback visible, but let a later interaction retry a transient failure.
+      thumbnailReady=undefined;
+      throw error;
+    });
+  }
+  return thumbnailReady;
+}
+
 function renderedActionArt(token:TypedToken,speaker?:string|null):HTMLElement {
   const fallback=actionArt(token,artCharacter(token,speaker));
   const characterId=artCharacter(token,speaker);
@@ -424,32 +465,16 @@ function renderedActionArt(token:TypedToken,speaker?:string|null):HTMLElement {
   const character=pack?.characters.find(item=>item.id===characterId);
   const actionId=tokenValue(token);
   const action=character?[...character.poses,...character.reactions].find(item=>item.id===actionId):undefined;
-  const resolved=action?courtroomDemoResolver.resolve(action.asset):undefined;
-  if(!resolved?.url||!resolved.frame)return fallback;
-
+  if(!action||!character)return fallback;
+  const characterIndex=courtroomDemoPack.characters.findIndex(item=>item.id===characterId);
+  const actionIndex=[...character.poses,...character.reactions].findIndex(item=>item.id===actionId);
+  if(characterIndex<0||actionIndex<0)return fallback;
   const clip=document.createElement('span');
-  clip.className='action-sprite';
-  const image=document.createElement('img');
-  image.src=resolved.url;
-  image.alt='';
-  image.loading='eager';
-  const [x,y,w,h]=resolved.frame;
-  image.addEventListener('load',()=>{
-    requestAnimationFrame(()=>{
-      const width=fallback.clientWidth||40;
-      const height=fallback.clientHeight||40;
-      const scale=Math.min(width/w,height/h);
-      const drawnWidth=w*scale;
-      const drawnHeight=h*scale;
-      image.style.width=`${image.naturalWidth*scale}px`;
-      image.style.height=`${image.naturalHeight*scale}px`;
-      image.style.left=`${(width-drawnWidth)/2-x*scale}px`;
-      image.style.top=`${height-drawnHeight-y*scale}px`;
-      fallback.classList.add('art-loaded');
-    });
-  },{once:true});
-  clip.append(image);
+  clip.className='action-sprite action-thumbnail';
+  clip.style.backgroundSize=`${courtroomDemoPack.characters.length*100}% 800%`;
+  clip.style.backgroundPosition=`${characterIndex*100/(courtroomDemoPack.characters.length-1)}% ${actionIndex*100/7}%`;
   fallback.append(clip);
+  void loadActionThumbnails().then(()=>fallback.classList.add('art-loaded'),()=>{});
   return fallback;
 }
 function createTokenChip(token: TypedToken, invalidTokenIds: Set<string>, speaker?:string|null): HTMLElement {
@@ -473,10 +498,10 @@ function createTokenChip(token: TypedToken, invalidTokenIds: Set<string>, speake
   }
 
   chip.classList.add('visual-token');
-  chip.title=`${token.subject?.kind==='cast'?castName(token.subject.id)+' · ':''}${actionLabel(token)}`;
+  chip.title=`${token.subject?.kind==='cast'?castName(token.subject.id)+' · ':''}${actionLabel(token,speaker)}`;
   chip.setAttribute('aria-label',chip.title);
   chip.append(renderedActionArt(token,speaker));
-  const caption=document.createElement('span');caption.className='action-caption';caption.textContent=actionLabel(token);chip.append(caption);
+  const caption=document.createElement('span');caption.className='action-caption';caption.textContent=actionLabel(token,speaker);chip.append(caption);
 
   chip.addEventListener("click", (event) => {
     event.preventDefault();
@@ -712,7 +737,9 @@ function renderEditor(): void {
     card.className = "dialogue-card";
     const removeMessage=document.createElement('button');removeMessage.className='message-remove';removeMessage.textContent='删除';removeMessage.setAttribute('aria-label','删除这条台词');removeMessage.disabled=projectAvailability!=='ready';
     removeMessage.addEventListener('click',()=>{store.commitEditSession();store.removeBlock(block.id);selectedBlockId=store.document.blocks.at(-1)?.id??null;persist();renderAll();});
-    card.append(removeMessage);
+    const playMessage=document.createElement('button');playMessage.type='button';playMessage.className='message-play';playMessage.textContent='从这里排练';
+    playMessage.addEventListener('click',()=>startRehearsal(block.id));
+    const messageActions=document.createElement('div');messageActions.className='message-actions';messageActions.append(playMessage,removeMessage);card.append(messageActions);
 
     const editor = document.createElement("div");
     editor.className = "rich-editor";
@@ -1130,7 +1157,7 @@ function renderPickerCandidates(): void {
     if(candidate.subject?.kind==='speaker')return Boolean(currentSpeaker);
     return true;
   });
-  const candidates=currentOnly.filter(candidate=>!query||`${actionLabel(createTokenFromCandidate('preview',candidate))} ${candidate.label} ${candidate.tokenType}`.toLowerCase().includes(query.toLowerCase()));
+  const candidates=currentOnly.filter(candidate=>!query||`${actionLabel(createTokenFromCandidate('preview',candidate),currentSpeaker)} ${candidate.label} ${candidate.tokenType}`.toLowerCase().includes(query.toLowerCase()));
   pickerContext.textContent = currentSpeaker?`${castName(currentSpeaker)} · 当前人物动作`:'旁白 · 节奏与声音';
   pickerList.replaceChildren();
   if (candidates.length === 0) {
@@ -1160,7 +1187,7 @@ function renderPickerCandidates(): void {
       const token=createTokenFromCandidate('preview',candidate);
       const speaker=pickerState.mode==='draft'?composingAs:pickerState.mode==='inline'?findDialogueBlock(pickerState.blockId)?.speaker?.castId:null;
       const target=candidate.subject?.kind==='cast'?castName(candidate.subject.id):'';
-      const label=actionLabel(token);
+      const label=actionLabel(token,speaker);
       button.setAttribute('aria-label',`${target} ${label}`.trim());
       button.title=`${target} ${label}`.trim();
       button.append(renderedActionArt(token,speaker));
@@ -1516,11 +1543,18 @@ requireElement('#new-scene-button').addEventListener('click',()=>{
 updateProjectChrome();
 renderAll();
 
-requireElement<HTMLButtonElement>("#preview-button").addEventListener("click", () => {
+function startRehearsal(blockId?:string):void {
   if (diagnostics().some(item => item.severity === "error")) { setPanel('inspector', true); inspectorTab="diagnostics";activateInspectorTab();renderInspector();showToast("请先修复检查中的错误，再开始排练。", "error"); return; }
-  store.commitEditSession();
-  openPreview(courtroomAdapter.compile(store.document,currentProject),castName,currentProject,courtroomDemoResolver);
-});
+  store.commitEditSession();persist();
+  const lines=store.document.blocks.filter(block=>block.type==='dialogue');
+  const startPage=Math.max(0,lines.findIndex(block=>block.id===blockId));
+  openPreview(courtroomAdapter.compile(store.document,currentProject),castName,currentProject,courtroomDemoResolver,{
+    startPage,
+    onPage(page){const line=lines[page];if(line){selectedBlockId=line.id;renderEditorSelection();}},
+    onEdit(page){const line=lines[page];if(line){selectedBlockId=line.id;focusBlock(line.id);}},
+  });
+}
+requireElement<HTMLButtonElement>("#preview-button").addEventListener("click",()=>startRehearsal());
 
 requireElement('#navigator-button').addEventListener('click', () => { renderOutline(); setPanel('outline', true); });
 requireElement('#outline-close').addEventListener('click', () => setPanel('outline', false));
@@ -1553,4 +1587,3 @@ requireElement('#dismiss-hint').addEventListener('click', () => {
   firstHint.hidden = true;
   try { localStorage.setItem('yahari:p1d:hint','seen'); } catch { /* Hint is optional. */ }
 });
-

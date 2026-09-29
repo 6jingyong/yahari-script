@@ -17,17 +17,17 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     <div class="story-heading"><h2>故事转剧本</h2><button type="button" id="story-close" class="small-button">返回写作</button></div>
     <p>先识别人物和目录大纲。请逐一将故事人物绑定到演出形象，再建立场景契约并生成台词。</p>
     <details class="model-settings" open><summary>连接模型</summary><div class="story-grid">
-      <label>平台<select id="story-provider" data-lock><option value="router">OpenRouter</option><option value="openai">OpenAI</option><option value="custom">其他兼容平台</option></select></label>
-      <label>模型 ID<input id="story-model" data-lock placeholder="填写平台提供的完整模型 ID" autocomplete="off"></label>
-      <label class="wide">API 基础地址<input id="story-url" data-lock value="https://openrouter.ai/api/v1" type="url"></label>
-      <label class="wide">API Key<input id="story-key" type="password" autocomplete="off" placeholder="仅本次页面会话使用"></label>
+      <label>模型来源<select id="story-provider" data-lock><option value="router">OpenRouter API</option><option value="chatgpt">ChatGPT 账户额度</option></select></label>
+      <label>模型 ID<input id="story-model" data-lock placeholder="填写 OpenRouter 模型 ID" autocomplete="off"></label>
+      <label class="wide" id="story-key-row">OpenRouter API Key<input id="story-key" data-lock type="password" autocomplete="off" placeholder="仅本次页面会话使用"></label>
     </div><label class="story-check"><input id="story-json" data-lock type="checkbox" checked> 请求 JSON 模式（模型不支持时可关闭）</label>
-    <p class="project-note">故事、契约、相关台词和检查请求会发送到所选平台并按其规则计费。密钥只留在页面内存，不保存到草稿或作品。其他平台需允许浏览器跨域请求。</p>
-    <button id="story-clear-key" class="small-button">清除密钥</button></details>
+    <p class="project-note" id="story-provider-note">OpenRouter 模式直接使用你的 OpenRouter API；密钥只留在页面内存，不保存到草稿或作品。</p>
+    <button id="story-test" data-lock class="small-button">测试当前通道（一次简短请求）</button><button id="story-clear-key" data-lock class="small-button">清除 OpenRouter Key</button></details>
     <label>改编方式<select id="story-mode" data-lock><option value="faithful">忠实改编：不新增关键事实</option><option value="expand">允许扩写：标记新增事实</option><option value="original">原创续写：可补充设定</option></select></label>
     <label class="field-label" for="story-input">故事原文</label><textarea id="story-input" data-lock rows="7" maxlength="60000" placeholder="粘贴故事、梗概或事件经过…"></textarea>
     <div class="story-actions"><button id="story-outline" data-lock class="create-button">1. 识别人物与生成大纲</button><button id="story-cancel" class="secondary-button" disabled>取消请求</button></div>
     <p id="story-status" role="status" aria-live="polite">故事与生成草稿保存在本机；当前作品不会自动覆盖。</p>
+    <p id="story-elapsed" role="status" hidden></p>
     <section id="story-review" hidden><h3>检查人物、大纲与场景契约</h3>
       <p class="project-note">场景摘要供阅读；入口、转折、出口和事实边界约束台词。修改目录大纲需重建契约；修改某场契约仅清除该场及后续生成草稿。</p>
       <div id="story-fields"></div>
@@ -49,8 +49,21 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     catch{status('本机空间不足，生成草稿未保存，请及时导入并导出。');}
   }
   function config():ModelConfig {
-    return {baseUrl:el<HTMLInputElement>('story-url').value,model:el<HTMLInputElement>('story-model').value,
+    const provider=el<HTMLSelectElement>('story-provider').value;
+    if(provider==='chatgpt') return {provider:'chatgpt-account',model:el<HTMLInputElement>('story-model').value,
+      jsonMode:el<HTMLInputElement>('story-json').checked,accountEndpoint:'/api/chatgpt/responses'};
+    return {provider:'openrouter',baseUrl:'https://openrouter.ai/api/v1',model:el<HTMLInputElement>('story-model').value,
       apiKey:el<HTMLInputElement>('story-key').value,jsonMode:el<HTMLInputElement>('story-json').checked};
+  }
+  function syncProvider(){
+    const chatgpt=el<HTMLSelectElement>('story-provider').value==='chatgpt';
+    el('story-key-row').hidden=chatgpt;
+    el<HTMLButtonElement>('story-clear-key').hidden=chatgpt;
+    const model=el<HTMLInputElement>('story-model');
+    model.placeholder=chatgpt?'可留空，由账户通道选择默认模型':'填写 OpenRouter 模型 ID';
+    el('story-provider-note').textContent=chatgpt
+      ?'ChatGPT 账户额度模式不使用 OpenAI API Key。当前前端会调用同源账户推理桥；若部署环境尚未提供该能力，会明确提示并可切回 OpenRouter。'
+      :'OpenRouter 模式直接使用你的 OpenRouter API；密钥只留在页面内存，不保存到草稿或作品。';
   }
   function busy(on:boolean){
     dialog.querySelectorAll<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement|HTMLButtonElement>('[data-lock]').forEach(node=>node.disabled=on);
@@ -180,13 +193,17 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     resultView();
   }
   async function call(system:string,user:string){
-    const timer=window.setTimeout(()=>controller?.abort(),180000);
-    try{return await requestJson(config(),system,user,controller!.signal)}finally{clearTimeout(timer)}
+    const active=controller!;
+    const timer=window.setTimeout(()=>active.abort(),180000);
+    try{return await requestJson(config(),system,user,active.signal)}finally{clearTimeout(timer)}
   }
   async function run(task:()=>Promise<void>){
     if(controller)return;controller=new AbortController();busy(true);
+    const began=Date.now();const elapsed=el('story-elapsed');elapsed.hidden=false;
+    const tick=()=>{elapsed.textContent='本次操作已等待 '+Math.floor((Date.now()-began)/1000)+' 秒 · 每次请求最多等待180秒，可随时取消';};
+    tick();const ticker=window.setInterval(tick,1000);
     try{await task()}catch(e){status(errorText(e))}
-    finally{controller=null;busy(false);resultView();save()}
+    finally{clearInterval(ticker);elapsed.hidden=true;controller=null;busy(false);resultView();save()}
   }
   async function makePlan(){
     if(!outline)throw new Error('请先生成大纲。');
@@ -245,6 +262,12 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
       catch(e){reviews[index]={findings:null,error:errorText(e)};save();resultView();if(controller?.signal.aborted)throw e;}
     }
   }
+  el('story-test').onclick=()=>void run(async()=>{
+    status('正在测试连接；不会发送故事原文…');
+    const result=await call('Return only a JSON object with ok set to true.','Connection test.');
+    if(!result||typeof result!=='object'||(result as {ok?:unknown}).ok!==true)throw new Error('接口已响应，但模型未返回约定JSON；请检查模型和JSON模式。');
+    status('连接成功，模型可返回JSON。可开始识别故事人物。');
+  });
   el('story-outline').onclick=()=>void run(async()=>{
     const input=el<HTMLTextAreaElement>('story-input').value.trim();
     if(!input)throw new Error('请先填写故事。');
@@ -280,11 +303,8 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
   el('story-cancel').onclick=()=>controller?.abort();
   el('story-close').onclick=()=>{controller?.abort();save();dialog.close()};
   dialog.addEventListener('cancel',()=>{controller?.abort();save()});
-  el('story-clear-key').onclick=()=>{el<HTMLInputElement>('story-key').value='';status('密钥已清除。')};
-  el('story-provider').onchange=()=>{
-    const provider=el<HTMLSelectElement>('story-provider').value;
-    el<HTMLInputElement>('story-url').value=provider==='router'?'https://openrouter.ai/api/v1':provider==='openai'?'https://api.openai.com/v1':'';
-  };
+  el('story-clear-key').onclick=()=>{el<HTMLInputElement>('story-key').value='';status('OpenRouter Key 已清除。')};
+  el('story-provider').onchange=()=>{syncProvider();};
   el('story-mode').addEventListener('change',()=>{
     mode=el<HTMLSelectElement>('story-mode').value as AdaptationMode;
     if(outline)invalidateAll();else save();
@@ -327,6 +347,7 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
       status(bindingsConfirmed?(plan?'已恢复生成草稿。':'已恢复大纲；可重建事实与场景契约。'):'已恢复草稿；请检查并确认每位人物的绑定。');
     }
   }catch{outline=null;plan=null;docs=[];reviews=[];status('旧生成草稿无法完整恢复；原始存储未删除，可重新生成。')}
+  syncProvider();
   busy(false);
   return ()=>dialog.showModal();
 }

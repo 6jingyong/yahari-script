@@ -2,6 +2,40 @@
   "layout": "4x2",
   "sheets": [
     {
+      "id": "phoenix",
+      "source": "phoenix-actions.png",
+      "file": "chibi-phoenix-actions.png",
+      "portraitSource": "phoenix-portrait.png",
+      "portrait": "chibi-phoenix-neutral.png",
+      "actions": [
+        "normal",
+        "think",
+        "point",
+        "objection",
+        "desk",
+        "smile",
+        "sweat",
+        "shocked"
+      ]
+    },
+    {
+      "id": "edgeworth",
+      "source": "edgeworth-actions.png",
+      "file": "chibi-edgeworth-actions.png",
+      "portraitSource": "edgeworth-portrait.png",
+      "portrait": "chibi-edgeworth-neutral.png",
+      "actions": [
+        "normal",
+        "bow",
+        "point",
+        "objection",
+        "desk",
+        "smug",
+        "surprised",
+        "damaged"
+      ]
+    },
+    {
       "id": "maya",
       "source": "maya-actions.png",
       "file": "chibi-maya-actions.png",
@@ -67,90 +101,162 @@
       ]
     },
     {
-      "id": "von-karma",
-      "source": "von-karma-actions.svg",
-      "file": "chibi-von-karma-actions.svg",
-      "portrait": "chibi-von-karma-neutral.png",
+      "id": "pearl",
+      "source": "pearl-actions.png",
+      "file": "chibi-pearl-actions.png",
+      "portraitSource": "pearl-portrait.png",
+      "portrait": "chibi-pearl-neutral.png",
       "actions": [
         "normal",
-        "crossed-arms",
-        "accuse",
+        "think",
+        "point",
         "objection",
-        "smug",
+        "prayer",
+        "smile",
+        "sweat",
+        "shocked"
+      ]
+    },
+    {
+      "id": "godot",
+      "source": "godot-actions.png",
+      "file": "chibi-godot-actions.png",
+      "portraitSource": "godot-portrait.png",
+      "portrait": "chibi-godot-neutral.png",
+      "actions": [
+        "normal",
+        "sip",
+        "point",
+        "objection",
+        "desk",
+        "smirk",
+        "shocked",
+        "damaged"
+      ]
+    },
+    {
+      "id": "dahlia",
+      "source": "dahlia-actions.png",
+      "file": "chibi-dahlia-actions.png",
+      "portraitSource": "dahlia-portrait.png",
+      "portrait": "chibi-dahlia-neutral.png",
+      "actions": [
+        "normal",
+        "smile",
+        "hand-heart",
+        "point",
         "glare",
+        "smirk",
         "shocked",
         "breakdown"
       ]
     },
     {
-      "id": "lotta",
-      "source": "lotta-actions.svg",
-      "file": "chibi-lotta-actions.svg",
-      "portrait": "chibi-lotta-neutral.png",
+      "id": "athena",
+      "source": "athena-actions.png",
+      "file": "chibi-athena-actions.png",
+      "portraitSource": "athena-portrait.png",
+      "portrait": "chibi-athena-neutral.png",
       "actions": [
         "normal",
-        "camera",
-        "grin",
-        "point",
-        "excited",
-        "skeptical",
-        "shocked",
-        "flustered"
-      ]
-    },
-    {
-      "id": "witness",
-      "source": "witness-actions.svg",
-      "file": "chibi-witness-actions.svg",
-      "portrait": "chibi-witness-neutral.png",
-      "actions": [
-        "normal",
-        "nervous",
-        "confident",
-        "boast",
-        "plead",
-        "point",
-        "shocked",
-        "sweat"
-      ]
-    },
-    {
-      "id": "yogi",
-      "source": "yogi-actions.svg",
-      "file": "chibi-yogi-actions.svg",
-      "portrait": "chibi-yogi-neutral.png",
-      "actions": [
-        "normal",
-        "stern",
-        "tired",
-        "mutter",
-        "point",
-        "tense",
-        "shocked",
-        "broken"
-      ]
-    },
-    {
-      "id": "mia",
-      "source": "mia-actions.svg",
-      "file": "chibi-mia-actions.svg",
-      "portrait": "chibi-mia-neutral.png",
-      "actions": [
-        "normal",
-        "point",
-        "smile",
         "think",
-        "confident",
-        "encourage",
-        "concerned",
+        "point",
+        "objection",
+        "listen",
+        "cheer",
+        "sweat",
         "shocked"
       ]
     },
     {
+      "id": "blackquill",
+      "source": "blackquill-actions.png",
+      "file": "chibi-blackquill-actions.png",
+      "portraitSource": "blackquill-portrait.png",
+      "portrait": "chibi-blackquill-neutral.png",
+      "actions": [
+        "normal",
+        "crossed-arms",
+        "point",
+        "objection",
+        "think",
+        "smirk",
+        "surprised",
+        "angry"
+      ]
+    },
+    {
+      "id": "kristoph",
+      "source": "kristoph-actions.png",
+      "file": "chibi-kristoph-actions.png",
+      "portraitSource": "kristoph-portrait.png",
+      "portrait": "chibi-kristoph-neutral.png",
+      "actions": [
+        "normal",
+        "glasses",
+        "point",
+        "explain",
+        "think",
+        "smile",
+        "sweat",
+        "breakdown"
+      ]
+    },
+    {
+      "id": "payne",
+      "source": "payne-actions.png",
+      "file": "chibi-payne-actions.png",
+      "portraitSource": "payne-portrait.png",
+      "portrait": "chibi-payne-neutral.png",
+      "actions": [
+        "normal",
+        "glasses",
+        "point",
+        "objection",
+        "read",
+        "smug",
+        "sweat",
+        "shocked"
+      ]
+    },
+    {
+      "id": "adrian",
+      "source": "adrian-actions.png",
+      "file": "chibi-adrian-actions.png",
+      "portraitSource": "adrian-portrait.png",
+      "portrait": "chibi-adrian-neutral.png",
+      "actions": [
+        "normal",
+        "glasses",
+        "notes",
+        "point",
+        "think",
+        "relieved",
+        "worried",
+        "shocked"
+      ]
+    },
+    {
+      "id": "iris",
+      "source": "iris-actions.png",
+      "file": "chibi-iris-actions.png",
+      "portraitSource": "iris-portrait.png",
+      "portrait": "chibi-iris-neutral.png",
+      "actions": [
+        "normal",
+        "prayer",
+        "listen",
+        "explain",
+        "think",
+        "smile",
+        "worried",
+        "surprised"
+      ]
+    },
+    {
       "id": "apollo",
-      "source": "apollo-actions.svg",
-      "file": "chibi-apollo-actions.svg",
-      "portrait": "chibi-apollo-neutral.png",
+      "source": "apollo-actions.png",
+      "file": "chibi-apollo-actions.png",
       "actions": [
         "normal",
         "think",
@@ -160,13 +266,14 @@
         "confident",
         "shocked",
         "sweat"
-      ]
+      ],
+      "portraitSource": "apollo-portrait.png",
+      "portrait": "chibi-apollo-neutral.png"
     },
     {
       "id": "klavier",
-      "source": "klavier-actions.svg",
-      "file": "chibi-klavier-actions.svg",
-      "portrait": "chibi-klavier-neutral.png",
+      "source": "klavier-actions.png",
+      "file": "chibi-klavier-actions.png",
       "actions": [
         "normal",
         "fist",
@@ -176,13 +283,14 @@
         "smirk",
         "surprised",
         "damaged"
-      ]
+      ],
+      "portraitSource": "klavier-portrait.png",
+      "portrait": "chibi-klavier-neutral.png"
     },
     {
       "id": "ema",
-      "source": "ema-actions.svg",
-      "file": "chibi-ema-actions.svg",
-      "portrait": "chibi-ema-neutral.png",
+      "source": "ema-actions.png",
+      "file": "chibi-ema-actions.png",
       "actions": [
         "normal",
         "science",
@@ -192,13 +300,14 @@
         "mad",
         "surprised",
         "shocked"
-      ]
+      ],
+      "portraitSource": "ema-portrait.png",
+      "portrait": "chibi-ema-neutral.png"
     },
     {
       "id": "trucy",
-      "source": "trucy-actions.svg",
-      "file": "chibi-trucy-actions.svg",
-      "portrait": "chibi-trucy-neutral.png",
+      "source": "trucy-actions.png",
+      "file": "chibi-trucy-actions.png",
       "actions": [
         "normal",
         "cheer",
@@ -208,7 +317,94 @@
         "smile",
         "sad",
         "surprised"
-      ]
+      ],
+      "portraitSource": "trucy-portrait.png",
+      "portrait": "chibi-trucy-neutral.png"
+    },
+    {
+      "id": "witness",
+      "source": "witness-actions.png",
+      "file": "chibi-witness-actions.png",
+      "actions": [
+        "normal",
+        "nervous",
+        "confident",
+        "boast",
+        "plead",
+        "point",
+        "shocked",
+        "sweat"
+      ],
+      "portraitSource": "witness-portrait.png",
+      "portrait": "chibi-witness-neutral.png"
+    },
+    {
+      "id": "von-karma",
+      "source": "von-karma-actions.png",
+      "file": "chibi-von-karma-actions.png",
+      "actions": [
+        "normal",
+        "crossed-arms",
+        "accuse",
+        "objection",
+        "smug",
+        "glare",
+        "shocked",
+        "breakdown"
+      ],
+      "portraitSource": "von-karma-portrait.png",
+      "portrait": "chibi-von-karma-neutral.png"
+    },
+    {
+      "id": "lotta",
+      "source": "lotta-actions.png",
+      "file": "chibi-lotta-actions.png",
+      "actions": [
+        "normal",
+        "camera",
+        "grin",
+        "point",
+        "excited",
+        "skeptical",
+        "shocked",
+        "flustered"
+      ],
+      "portraitSource": "lotta-portrait.png",
+      "portrait": "chibi-lotta-neutral.png"
+    },
+    {
+      "id": "yogi",
+      "source": "yogi-actions.png",
+      "file": "chibi-yogi-actions.png",
+      "actions": [
+        "normal",
+        "stern",
+        "tired",
+        "mutter",
+        "point",
+        "tense",
+        "shocked",
+        "broken"
+      ],
+      "portraitSource": "yogi-portrait.png",
+      "portrait": "chibi-yogi-neutral.png"
+    },
+    {
+      "id": "mia",
+      "source": "mia-actions.png",
+      "file": "chibi-mia-actions.png",
+      "actions": [
+        "normal",
+        "point",
+        "smile",
+        "think",
+        "confident",
+        "encourage",
+        "concerned",
+        "shocked"
+      ],
+      "portraitSource": "mia-portrait.png",
+      "portrait": "chibi-mia-neutral.png"
     }
   ]
 }

@@ -1,3 +1,21 @@
+# Current status — 2026-09-29
+
+- 24 characters / 192 actions / 23 scenes. All current action mappings use generated raster art; nine remaining vector-atlas characters have been replaced, with stable IDs.
+- WebP runtime images, original art retained in art-source; the working assets directory contains only 77 referenced WebP images, including the shared thumbnail atlas. PNG/JPEG/SVG derivatives are generated when rebuilding.
+- Dialogue-level rehearsal entry, replay current paragraph, return to its source editor; preceding persistent scene/audio state preserved.
+- Model connection probe, elapsed request time, safe handling of cancelled/late/malformed responses.
+- Browser and physical-phone acceptance is delegated to the user. No live model API call was made without a user key.
+
+## Model-source semantics correction (2026-09-29)
+- The one-click adaptation UI no longer treats “OpenAI” as an OpenAI API-key provider. Primary choices are now **OpenRouter API** and **ChatGPT account quota**.
+- OpenRouter remains the immediately usable BYOK transport. API key remains memory-only and is never serialized into project/draft data.
+- ChatGPT-account mode is a distinct same-origin `/api/chatgpt/responses` bridge contract and never requests an OpenAI API key. Missing bridge support fails explicitly and points back to OpenRouter.
+- Official ChatGPT Sites Sign in with ChatGPT currently documents identity forwarding, not a general hosted inference entitlement; therefore the repository does not claim that Plus/Pro quota is already callable from a deployed Site.
+- Transport regression coverage now includes same-origin account-bridge routing and the missing-bridge failure path.
+
+Cleanup and sync preparation (2026-09-29): Removed 114 unreferenced intermediate images from assets and five superseded draft files; updated provenance and the WebP build step to prune intermediates. Recovered one pre-existing truncated Yogi source PNG from its valid same-dimension derivative and passed an isolated source-to-WebP rebuild. Full `npm run check`: 98 tests, 0 failures; 44 browser modules; 24 characters, 192 actions, 23 scenes, 77 images with verified hashes and crops. Static output built. Real browser/phone and live model requests remain unverified.
+
+The entries below are historical checkpoints, not the current feature inventory.
 ## Additional investigation backgrounds (2026-09-28, local preview)
 
 - Added police interview room, forensics lab, apartment living room and rainy courthouse entrance as generated empty 4:3 backgrounds. Source PNGs, 768×576 JPEGs, resource IDs and SHA-256 provenance are retained with the pack.

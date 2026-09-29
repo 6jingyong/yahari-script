@@ -7,398 +7,393 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. PNG and repository-original SVG atlases are both supported; dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
+    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
   },
   "assets": [
     {
-      "file": "chibi-apollo-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "92f2df63d4224912c63cc518c22d415a420f28026de86733746992cf8f48c34d"
+      "file": "action-thumbnails.webp",
+      "source": "derived:action-thumbnails.png",
+      "sha256": "a5145dabe10cc85a6d5e700080eb70ecd15f3cd1a7bed3308319acc8107a9abd"
     },
     {
-      "file": "chibi-apollo-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "fba40038b7ea7f29731836bdb12fb8c9a5f877396cb49a1111b460531b957fb0"
+      "file": "chibi-adrian-actions.webp",
+      "source": "derived:chibi-adrian-actions.png",
+      "sha256": "025f55d13395ee0417122e9dc1ffa4285bd2851311782fc984e60993b0c87c3a"
     },
     {
-      "file": "chibi-apollo-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "a7cd16d1265043eb38bd911b1cb116ffcf512f1f48b5de633661daf0242b3093"
+      "file": "chibi-adrian-neutral.webp",
+      "source": "derived:chibi-adrian-neutral.png",
+      "sha256": "10cba3d46ce90a8bdfe09079bd89456d073dc944c42230f537f5bb65fdf8f37f"
     },
     {
-      "file": "chibi-apollo-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "147b45dfd087449967f2aac72b46f98d00b2cf2f59f7884508c1c57f4cb3f3bf"
+      "file": "chibi-apartment-stairwell.webp",
+      "source": "derived:chibi-apartment-stairwell.jpg",
+      "sha256": "8842e06cd8f8212e4244f534f66f7e80731b6333bd8e94eff609adf6fdd3e5b3"
     },
     {
-      "file": "chibi-boathouse.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "d8889445a960da42455eb0a67ac131787529332b82d6e5d5acbe5931df51f180"
+      "file": "chibi-apartment.webp",
+      "source": "derived:chibi-apartment.jpg",
+      "sha256": "5c5ed0ac6b071bc67b8eaf9fce52842697b2983c7e6e4c70c03471dffaaff3e6"
     },
     {
-      "file": "chibi-courtroom.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "4db664bcd29603da9fd8df6b7548dbbcaf0b6cd12b5f56f04e2bdec37ae4c081"
+      "file": "chibi-apollo-actions.webp",
+      "source": "derived:chibi-apollo-actions.png",
+      "sha256": "57b94bf5a2adf224cc5f5f97545e29eb3491cd619d4459528920551db5a94cc1"
     },
     {
-      "file": "chibi-detention-room.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "73bedba9cc5b8a033bcf3672c75806a020ee147e4debee450f1d495ff12d0a33"
+      "file": "chibi-athena-actions.webp",
+      "source": "derived:chibi-athena-actions.png",
+      "sha256": "ef31f0aac4c583517020c23483cdfeb632508bd4fd989a4763bebf9ab9dcc737"
     },
     {
-      "file": "chibi-edgeworth-actions.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "b4d39a81384b07319aa21015c2d664fd57d4bea90999281b94d0602b397cbdcd"
+      "file": "chibi-athena-neutral.webp",
+      "source": "derived:chibi-athena-neutral.png",
+      "sha256": "909212f725e5cfb8f0489c2067233947e185b9f0f7176a41652b762d8a965fa2"
     },
     {
-      "file": "chibi-edgeworth-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "9d2540759ddad1c9e121a234110cd19e85fffb31e26b9cd8c24ebc56813c947a"
+      "file": "chibi-blackquill-actions.webp",
+      "source": "derived:chibi-blackquill-actions.png",
+      "sha256": "2a56d13916c09e5b95a33f188bd077c36d4ec083f27fb62586c55d82986f32ef"
     },
     {
-      "file": "chibi-edgeworth-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "2f1129bc7c4ec3374938183937a85b8be3a36942775933292edb92ec4dcc0a40"
+      "file": "chibi-blackquill-neutral.webp",
+      "source": "derived:chibi-blackquill-neutral.png",
+      "sha256": "d1eb3f92f21eb2ade6150f7e388234c112e355318eaca256fee22f6715c903f9"
     },
     {
-      "file": "chibi-edgeworth-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "5c2ee2ce6bd7915d34e4ea5aa6918deb98ed1370f552e657ab0f102080353f86"
+      "file": "chibi-boathouse.webp",
+      "source": "derived:chibi-boathouse.jpg",
+      "sha256": "3424482c4fed7140700444f5ea2853bfbb54517e7ba9a57dcbeedeae02e70212"
     },
     {
-      "file": "chibi-elevator-hall.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "9cc017d97fe4846868bd79ebaf5dc14ad1be51d9265ba0b4b5a725749de2e442"
+      "file": "chibi-consultation-room.webp",
+      "source": "derived:chibi-consultation-room.jpg",
+      "sha256": "9e2dce841d88d762dec4e30e7f98c8093e94697f9f5f40c7fc35434fcb5ccda9"
     },
     {
-      "file": "chibi-ema-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "71aa3f0bc22760b39ec498caa1a3097a8ed01f763e9a718cd33140a17ded1b80"
+      "file": "chibi-courthouse-exterior.webp",
+      "source": "derived:chibi-courthouse-exterior.jpg",
+      "sha256": "6a20df12efbbfd02ec0bccfa087a9fea3501d32dba33d3fe52456632d6945722"
     },
     {
-      "file": "chibi-ema-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "256b5eb9533660a4f26964e50fbe7c90a442a1ea286a8cf3a81c8d5d2f1400d3"
+      "file": "chibi-courtroom.webp",
+      "source": "derived:chibi-courtroom.jpg",
+      "sha256": "012ba049416a908e41bed1f2c1363abda3d44e4fdca0b203d3a302964e5f341b"
     },
     {
-      "file": "chibi-ema-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "8010bdfb7c2b8ec922d1a6f02ff11d8c3b7e11b3403703eb08b136db9f9037eb"
+      "file": "chibi-dahlia-actions.webp",
+      "source": "derived:chibi-dahlia-actions.png",
+      "sha256": "6dd8d2aa96a73b79daaf40bcd0641028daf98986724045ac99f8ef1874833e8d"
     },
     {
-      "file": "chibi-ema-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "07736267a152cfe422fb7b2193045ceec61aa16792368cc0eb7f7f51ffca2a77"
+      "file": "chibi-dahlia-neutral.webp",
+      "source": "derived:chibi-dahlia-neutral.png",
+      "sha256": "e801dbea737a2c50bde4d4a54e28894aabcb92528502013f8744945cc8260834"
     },
     {
-      "file": "chibi-evidence-room.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "5478c87a56b30ec3bd53c00c004e53974aef05c55ddda9daa8e3f44926c63cc6"
+      "file": "chibi-detention-room.webp",
+      "source": "derived:chibi-detention-room.jpg",
+      "sha256": "0562266c35459a3cfd4d6351627f916f71977c838ccbf36fb243f27c0d062925"
     },
     {
-      "file": "chibi-franziska-actions.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "f44d30866e853e424b9855dae6bb1e0de7635b43f5af2cf6f42ef59c1bbd39d9"
+      "file": "chibi-edgeworth-actions.webp",
+      "source": "derived:chibi-edgeworth-actions.png",
+      "sha256": "7a8b6a2b183349a00bcba32678b298109865e1c59c4ceef8048ed44a7c79f66b"
     },
     {
-      "file": "chibi-franziska-neutral.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "e65585a6a5dbb8b1ca25258c55604a2b861d9c452107be67b6531add0d71c916"
+      "file": "chibi-edgeworth-neutral.webp",
+      "source": "derived:chibi-edgeworth-neutral.png",
+      "sha256": "bd552857076def0ff83fc54d61a15f23280c8aca00b4481f712ef82e18b7c6a5"
     },
     {
-      "file": "chibi-gumshoe-actions.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "e519fda849b64e77a098a6417c8f702e5b90a87dc7f65c56b5c0208e484593ab"
+      "file": "chibi-elevator-hall.webp",
+      "source": "derived:chibi-elevator-hall.jpg",
+      "sha256": "186e76db04b8de0f6417c3b7afacf7c436d25379618519a56504fbb7916cff20"
     },
     {
-      "file": "chibi-gumshoe-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "645e891e2de10eef065e74f852e988daa39ec513597521ae87537ab4cc0e5e3e"
+      "file": "chibi-ema-actions.webp",
+      "source": "derived:chibi-ema-actions.png",
+      "sha256": "ee4c943b1e588e8a7087dca76246fa65310e78c2723bc22493c6d653bbe4821b"
     },
     {
-      "file": "chibi-gumshoe-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "71c26cf90bb1100835bfd61c3a08ef5edd7bd2b0724d9e3a8464c9e687a1a4f2"
+      "file": "chibi-evidence-room.webp",
+      "source": "derived:chibi-evidence-room.jpg",
+      "sha256": "b6fe2b925a03aab484d349000c996e55754a282b057a37fdb34409bb1d9c63e9"
     },
     {
-      "file": "chibi-gumshoe-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "565746f575d3de17d49b18756c1cc665bddfd87c388764ce59eaf4c2e06eb989"
+      "file": "chibi-evidence-warehouse.webp",
+      "source": "derived:chibi-evidence-warehouse.jpg",
+      "sha256": "9af3ecc67ee5d7e8b45c27e3c84d07e06c25ffd84e113453e2b5e0b6f3f26730"
     },
     {
-      "file": "chibi-hospital-room.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "be33a43b95b6ac0c7433329516eae906724261d7f32d6cb9e49e3400cd2d5159"
+      "file": "chibi-forensics-lab.webp",
+      "source": "derived:chibi-forensics-lab.jpg",
+      "sha256": "8dbd009b7ec758a7d011938e296327efdd14124a25b65ab6aea9a6ae00fe2375"
     },
     {
-      "file": "chibi-judge-actions.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "fda44f652c7942bea264df9072f32b832d85965174a3ae7cdf6bfa9cc4503412"
+      "file": "chibi-franziska-actions.webp",
+      "source": "derived:chibi-franziska-actions.png",
+      "sha256": "6662a766a15479e3f043405ab1a668324af4c9745ca5ccb73dc8348c67c80984"
     },
     {
-      "file": "chibi-judge-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "ad6a0df9c706680b49d636a887e554ba2674aa46c504fd29a634a3306b30d6c4"
+      "file": "chibi-franziska-neutral.webp",
+      "source": "derived:chibi-franziska-neutral.png",
+      "sha256": "6bb7babadf048683fe87496890c386406217f58d77a48367949b597c9f33b591"
     },
     {
-      "file": "chibi-judge-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "47e3e239c7432d2013dba02e6b0d9a0fbd73d4c3f96443564e71a8f31816e1c9"
+      "file": "chibi-godot-actions.webp",
+      "source": "derived:chibi-godot-actions.png",
+      "sha256": "0b263c07d20df5bf5297055b626283473149e9aece9345b995dec382f5045c76"
     },
     {
-      "file": "chibi-judge-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "4ad71860b8a5fb7bdbfb25311f63e328b89d67b43e9a049e076072d3c48bdee7"
+      "file": "chibi-godot-neutral.webp",
+      "source": "derived:chibi-godot-neutral.png",
+      "sha256": "57a7cba9f1eb8fd453e36f5ddab79cedd9567d7a485392dbb5ee5ebf6679878a"
     },
     {
-      "file": "chibi-klavier-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "3ac73a59efc3a98f88978374b4e3883321aadd1eef792c3688fde306175aa9bd"
+      "file": "chibi-gumshoe-actions.webp",
+      "source": "derived:chibi-gumshoe-actions.png",
+      "sha256": "630ce397729e798546ca6340e2f68a96cfbba393059fbedf6c62415783c910a7"
     },
     {
-      "file": "chibi-klavier-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "e5a4b334c68b3384a05eaeacfb436b40f19a99af024ad48e235b8ea92e354106"
+      "file": "chibi-gumshoe-neutral.webp",
+      "source": "derived:chibi-gumshoe-neutral.png",
+      "sha256": "3a3dbc007265aeb31f945b6f5dc1ed5fb62771cf00a6b72477d243f9749778ea"
     },
     {
-      "file": "chibi-klavier-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "e4e6e2befdd6ac0f0cefe74af40e688ae8166c171bcbb21f4ff7489771d0ef05"
+      "file": "chibi-hospital-room.webp",
+      "source": "derived:chibi-hospital-room.jpg",
+      "sha256": "26d2f533cfaf810fcaa398a6f3b5f297b6ea0a1fe60bef2720341e291ee62dba"
     },
     {
-      "file": "chibi-klavier-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "98c68658234485742a88a3f3ef733a04e75e82bb08bfff4718d8d25aca51fc1c"
+      "file": "chibi-interview-room.webp",
+      "source": "derived:chibi-interview-room.jpg",
+      "sha256": "0b44699de660358cdabe3e71d714a494caa76b514d301733d92c0dee7e4b5ca9"
     },
     {
-      "file": "chibi-lake-dock.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "014bd3e1264bd854bb06ba0ff264adfb6ab005557ea4c3d46f2e89105f5ebf9b"
+      "file": "chibi-iris-actions.webp",
+      "source": "derived:chibi-iris-actions.png",
+      "sha256": "bf6de71258eb94294541681ac85c87a6d0bcb117ae70a0439f2e8378fdeb7653"
     },
     {
-      "file": "chibi-lobby.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "34189397515cef0c6f15d3b939864e62dedcf7c6ead1a82986f939d718d4f937"
+      "file": "chibi-iris-neutral.webp",
+      "source": "derived:chibi-iris-neutral.png",
+      "sha256": "5cd068f9e16133a96739cc370938a05acb2573ce467639890a10f00598954474"
     },
     {
-      "file": "chibi-lotta-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "f88b8d24067fc121cf6be051cdd4754dca5e2c03d0e18abb962f85765bd72d5a"
+      "file": "chibi-judge-actions.webp",
+      "source": "derived:chibi-judge-actions.png",
+      "sha256": "a37d2b09a0ac58a665793a6e1a5fef2489e68af5abdb1cb78a66b16e1241b794"
     },
     {
-      "file": "chibi-lotta-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "09fa93be58061bb0ca52367cc382ab63c2d1c1217155221ae3626398f4097af8"
+      "file": "chibi-judge-neutral.webp",
+      "source": "derived:chibi-judge-neutral.png",
+      "sha256": "8362787ce76c3130ae65afa77610c14a19859ab6996e52d4490c17c72e3c7d20"
     },
     {
-      "file": "chibi-lotta-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "0dad35758d6e0bdeb6b823379ef90bec445a06a888f2e9393138379654165893"
+      "file": "chibi-klavier-actions.webp",
+      "source": "derived:chibi-klavier-actions.png",
+      "sha256": "dd55466e6e4f7ff63c001321d7b7f1175199ebd11a10fc860728c51facec9bc2"
     },
     {
-      "file": "chibi-lotta-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "0b601fce105632796eb77a01b7b7ad08db014bf39dd2137941f1294e115f0d2f"
+      "file": "chibi-kristoph-actions.webp",
+      "source": "derived:chibi-kristoph-actions.png",
+      "sha256": "ed48225978c26cad1763503ae9c30a5d237f769427e8fb95f66e5c6965f56abf"
     },
     {
-      "file": "chibi-maya-actions.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "4846af3b3970bfd12709f9266a34310d245b3e66f4810e3994dd8b7f82c7ee13"
+      "file": "chibi-kristoph-neutral.webp",
+      "source": "derived:chibi-kristoph-neutral.png",
+      "sha256": "063fb9003959603fd3a468154f037fc69e39c5ab63ef1f818fd1aa5ffb79f49c"
     },
     {
-      "file": "chibi-maya-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "4b4a1a0f4cb555ebf6ac3f1ae19e21c062233ad2397e51f23538920c6e6df0f8"
+      "file": "chibi-lake-dock.webp",
+      "source": "derived:chibi-lake-dock.jpg",
+      "sha256": "3f72926185766bd0705ca02b7fa88a4703923c7d74010173762bf7ecdf729a34"
     },
     {
-      "file": "chibi-maya-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "e8e291ea7fbef252fa3d8a01f6226103e163d30835d4c81a8d127841da99bf32"
+      "file": "chibi-lobby.webp",
+      "source": "derived:chibi-lobby.jpg",
+      "sha256": "55fb9ca784649e6573a924bcec8a2cb280987eac7cc3caf0d6b5c81110555e3e"
     },
     {
-      "file": "chibi-maya-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "389367f4e68e13ddb023d49f1dde485d17ea6a1620153ded8ceaf5a0eb5de606"
+      "file": "chibi-lotta-actions.webp",
+      "source": "derived:chibi-lotta-actions.png",
+      "sha256": "ba11f64eff5a524cefdbc9f0230145bfe5cedcf9c71bc3f7951c781a428c7dbd"
     },
     {
-      "file": "chibi-mia-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "c902d09f38d01a11c42e476811e1e51158501627b1ac924720cf9239c9b91d92"
+      "file": "chibi-maya-actions.webp",
+      "source": "derived:chibi-maya-actions.png",
+      "sha256": "53c6f3bd94882d88ca3f09f60afc20690f6db3a188e485c27e2cdf03c606f4c1"
     },
     {
-      "file": "chibi-mia-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "bc2b58cfba06d66f6cd91659684a6c09efb7bd7ada3a353b1ec1e790010563dd"
+      "file": "chibi-maya-neutral.webp",
+      "source": "derived:chibi-maya-neutral.png",
+      "sha256": "d0f2782801420a13df7397458001997edbd2fb4b52c0998bc7cc82fea8e73a63"
     },
     {
-      "file": "chibi-mia-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "4d444e34f69438c63383c2dc96fdfae6f2586e86f4923f2e31d9534a72699306"
+      "file": "chibi-mia-actions.webp",
+      "source": "derived:chibi-mia-actions.png",
+      "sha256": "dd8e786c924fe71f182833255f098dd89be882139fa4285a998694ad99a88ea3"
     },
     {
-      "file": "chibi-mia-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "5d89113c9a8e046ca3c3deb028740bb08e90ba027b94db773c74bc8ae7ea6a66"
+      "file": "chibi-night-corridor.webp",
+      "source": "derived:chibi-night-corridor.jpg",
+      "sha256": "f5977e3de04ea4c34ec437b704914e861b2d43aa8b5b427110867fecdbefa6a9"
     },
     {
-      "file": "chibi-night-corridor.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "2ba6b04bbef2d1e20f874b01097dba24ba1f8ca9596d824a92eb7da681c00e00"
+      "file": "chibi-office.webp",
+      "source": "derived:chibi-office.jpg",
+      "sha256": "e2d5ecd96aca912356e462fab30ec3a09e0a586d3d5e3f29fbc221140d4bc57b"
     },
     {
-      "file": "chibi-office.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "aa4dee38b1ad01a072339844c0734720c771d447cb6206532df424ae5b831fb6"
+      "file": "chibi-parking-garage.webp",
+      "source": "derived:chibi-parking-garage.jpg",
+      "sha256": "2a72304bcb5ef296c3b508d4deed6773c109d2ffeffbdba52da38166c86064d5"
     },
     {
-      "file": "chibi-parking-garage.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "0621782277634290c657b5d2b1f64646587d2534d869428ed4ce77515598a38d"
+      "file": "chibi-payne-actions.webp",
+      "source": "derived:chibi-payne-actions.png",
+      "sha256": "ab67bac1db06a88077d540216496c5feb7590a99a061f7bf93b4a985054cdff9"
     },
     {
-      "file": "chibi-phoenix-actions.png",
-      "source": "generated:8-pose-atlas",
-      "sha256": "f9c5bf0afb6252c76c0f18d193f27191ec3d126f6c1e3cd13106b7e6d143a08a"
+      "file": "chibi-payne-neutral.webp",
+      "source": "derived:chibi-payne-neutral.png",
+      "sha256": "538fac3d1d21cf1a38be9931adaaa9afcf2da9dd4abce48f24436b24f3e34812"
     },
     {
-      "file": "chibi-phoenix-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "cfb7aa508db9fbc1f65f28b06a8777cee8d6736d71e7b07f827e7d729e5de0df"
+      "file": "chibi-pearl-actions.webp",
+      "source": "derived:chibi-pearl-actions.png",
+      "sha256": "2e46cc09f861e7da2ed566f06916c55d7a2e215ea7749892c18eba51b1d8c6bc"
     },
     {
-      "file": "chibi-phoenix-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "773ce4f229b7d325d8e57df4d298dcbd37c6cabc3f01dd3d47a608ae92710392"
+      "file": "chibi-pearl-neutral.webp",
+      "source": "derived:chibi-pearl-neutral.png",
+      "sha256": "1127c90bfd02d8d65fdf030a0e2c435072f9510b385831d13c1a16d45d0d71ba"
     },
     {
-      "file": "chibi-phoenix-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "33c21046b71c265b5e72bf4b972b9b0fa3f38baa4abbef746d1807262bef2bdc"
+      "file": "chibi-phoenix-actions.webp",
+      "source": "derived:chibi-phoenix-actions.png",
+      "sha256": "656b76004264c031aaf1469764ec517ea452705b816a7fceb76fdb86f2e34460"
     },
     {
-      "file": "chibi-police-records.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "983cf53fc1ef16e77ca90a5a95ae58a8826cc8327a3390ef01cfba763503a595"
+      "file": "chibi-phoenix-neutral.webp",
+      "source": "derived:chibi-phoenix-neutral.png",
+      "sha256": "8db0dde89f08935eb335ab9477e2d04127bc3aae43f05e0db2d4219ce044f07f"
     },
     {
-      "file": "chibi-prosecutor-office.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "77e8008cafc52bef948be88d0ad0c8a3cea51a0361a66a62e59dc68e50386356"
+      "file": "chibi-police-records.webp",
+      "source": "derived:chibi-police-records.jpg",
+      "sha256": "fabbad3e202b9e10ca3f9fa5cbed0d812a0d29a28147c290c193050363e643e9"
     },
     {
-      "file": "chibi-records-basement.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "05c824bccd8335490db245bbf3ac4037059a9846b9f091ad500eb28a09657bdc"
+      "file": "chibi-prosecutor-office.webp",
+      "source": "derived:chibi-prosecutor-office.jpg",
+      "sha256": "f6fea13f7bec5ceefed81b40f3cee161844582449b4c3a22a8f485c11cb33baf"
     },
     {
-      "file": "chibi-stage-defense-foreground.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "25cbdcb86b8ae54c94d785b81f0676a2500937208105fd6e26f3c10481c7ccec"
+      "file": "chibi-records-basement.webp",
+      "source": "derived:chibi-records-basement.jpg",
+      "sha256": "bd4d3d26aa81ff79cae61d19263f7b4db8cec12eafc8dc47df360f0eb5efb361"
     },
     {
-      "file": "chibi-stage-defense.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "6f193b88379ab5e0d5245d8e17cb34c06bec477c7f215fd24a427112e928e2f0"
+      "file": "chibi-spirit-village.webp",
+      "source": "derived:chibi-spirit-village.jpg",
+      "sha256": "6534790d0789d3acfeb6368dd6265fc58a3cb6efb7e31597be79b231f9891d47"
     },
     {
-      "file": "chibi-stage-prosecution-foreground.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "d83b67954ec649077c1faf517bd8c141704492ba1c4ec890292c9be654ed934c"
+      "file": "chibi-stage-defense-foreground.webp",
+      "source": "derived:chibi-stage-defense-foreground.png",
+      "sha256": "76bacc01d7e6039fdce04dd17d16b05e79635d763f2607baee8a2df43c977b2a"
     },
     {
-      "file": "chibi-stage-prosecution.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "95eb7924c3ab5db1d6efabdb7e4ac3a925a99174ae66a1237ac7e9fb870869ba"
+      "file": "chibi-stage-defense.webp",
+      "source": "derived:chibi-stage-defense.jpg",
+      "sha256": "4b3803b708ff39e6853ff323a1d52d131b1dd0464aff461d7d17d6519faa179d"
     },
     {
-      "file": "chibi-stage-witness-foreground.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "85bc0d98b002ce0112c84f50bf4a438648c9009f8d1c93c71f13dc2d4e369ada"
+      "file": "chibi-stage-prosecution-foreground.webp",
+      "source": "derived:chibi-stage-prosecution-foreground.png",
+      "sha256": "b2fe7b813c9bed3cebc77ec2c15c7c1d000800a7a02f9fb7c19be6f8e4050d70"
     },
     {
-      "file": "chibi-trucy-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "3717825942272afa0e9c4bc403083b941d70640c757d5d6172b394c7e8f849c8"
+      "file": "chibi-stage-prosecution.webp",
+      "source": "derived:chibi-stage-prosecution.jpg",
+      "sha256": "aa2c82a6d46a24d678a77233a7913dcf0a0bb5b4f6106faf9fc5420c4d955198"
     },
     {
-      "file": "chibi-trucy-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "e92437e8a94eb79b6d74f5b8271d7500e533de978cb0aeb4c264abc8b6e1c39e"
+      "file": "chibi-stage-witness-foreground.webp",
+      "source": "derived:chibi-stage-witness-foreground.png",
+      "sha256": "e79a6e946377b4893ca5c18ec8d2e87a087dce28d7291304b15014f41b7e2cf2"
     },
     {
-      "file": "chibi-trucy-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "d4316f511a07c5840f7ebde1eb754d7edba9c4dab3d86320088014d4d0ef159d"
+      "file": "chibi-trucy-actions.webp",
+      "source": "derived:chibi-trucy-actions.png",
+      "sha256": "8cc148614d8592e67d7b1843270de0a31da4f9a703f1acf23e8f50d0b6585bfa"
     },
     {
-      "file": "chibi-trucy-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "346cd8c529913ea1f29ecf798e2c63e56585dc4b4f68be349046a2a214962e0a"
+      "file": "chibi-von-karma-actions.webp",
+      "source": "derived:chibi-von-karma-actions.png",
+      "sha256": "6a5fbb4f3c817887d6515d7f4a213bd8fd23487cef273e154e25ed48803470e1"
     },
     {
-      "file": "chibi-von-karma-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "1d394d4fc2b69a393adf68dc70baad354c82d12eebe8f4ef83241991cb2ea544"
+      "file": "chibi-witness-actions.webp",
+      "source": "derived:chibi-witness-actions.png",
+      "sha256": "b0cfdbb0a1f527bf7a8036943ec651755d439f5f0a334326bce8e15be46f5627"
     },
     {
-      "file": "chibi-von-karma-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "c14e4e113f1a23a0945355f7885ed3f876c20aba90549f1befe38a71499d1cd7"
+      "file": "chibi-witness-stand.webp",
+      "source": "derived:chibi-witness-stand.jpg",
+      "sha256": "b8aaf5313b0ef73f108400f05d36ef0a6d1d6fe37046f5e6d23fa044930960f8"
     },
     {
-      "file": "chibi-von-karma-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "ce8400bb7107eda8725c92ac3f729d3c11a614b337b270d6ce77c99f0d006fc6"
+      "file": "chibi-yogi-actions.webp",
+      "source": "derived:chibi-yogi-actions.png",
+      "sha256": "026693631a72af218def744356be3126ba3520c5be53bd901234dea1e1d969c3"
     },
     {
-      "file": "chibi-von-karma-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "f0eed322681a8814235d3d0fc83fe5ce438312679e8b338b553cd33902f4aea5"
+      "file": "chibi-apollo-neutral.webp",
+      "source": "derived:apollo-actions.png",
+      "sha256": "57fa0559a5a18f9dd403092549461d1a2e1e26fcc4f9cad59ac9f73897168d2e"
     },
     {
-      "file": "chibi-witness-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "4d28cb1a991e3546de804630f5ece7c6b2e3fcf1d9a6a6dcf2c6395ec2471dd6"
+      "file": "chibi-klavier-neutral.webp",
+      "source": "derived:klavier-actions.png",
+      "sha256": "dc45e2dd807e9a23bb899dd34c74401244066289e7faa955d6b2c6f59bb4aa0e"
     },
     {
-      "file": "chibi-witness-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "2bf47ac1a2cac281bc5f7f897e314482b82dc449e713d4dbd080291f2c7ecdd9"
+      "file": "chibi-ema-neutral.webp",
+      "source": "derived:ema-actions.png",
+      "sha256": "d32a080c9d6d7d9161abe98c040eb2cc3b1bed5fc2dc98967f46ce28c8842af5"
     },
     {
-      "file": "chibi-witness-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "4f77fa4231f3d65eec62f3580ee1cd148105bd655b7f45e9e45dcff6957b261e"
+      "file": "chibi-trucy-neutral.webp",
+      "source": "derived:trucy-actions.png",
+      "sha256": "76caf83f169be17e5e089e5ca3abf1da2dba100398c9e3308b4b5698512253dc"
     },
     {
-      "file": "chibi-witness-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "735189576a0b2890a9013adb1d8b3b736bcb7fc07e8ecc88da23203aa066c4aa"
+      "file": "chibi-witness-neutral.webp",
+      "source": "derived:witness-actions.png",
+      "sha256": "dd2c84162403b9474b03e5bc7a4ea41db9d443065fbda67d302e2367c3a52b96"
     },
     {
-      "file": "chibi-witness-stand.jpg",
-      "source": "generated:chibi-atlas",
-      "sha256": "faba597b67fd12bc89131265fa19c102e76fca2f5de5c84e0d9ec95936ee64e9"
+      "file": "chibi-von-karma-neutral.webp",
+      "source": "derived:von-karma-actions.png",
+      "sha256": "007fb3dfc3e81a79908c75cbfe0efd867fd8ce64ec9b4cf0d52b017d403ed2fc"
     },
     {
-      "file": "chibi-yogi-actions.svg",
-      "source": "generated:vector-8-pose-atlas",
-      "sha256": "ad9b752a1ddc429c5c3bcfeaeb9f194f8d1da63463cbbe95285978dbf2538a20"
+      "file": "chibi-lotta-neutral.webp",
+      "source": "derived:lotta-actions.png",
+      "sha256": "919939bf52d6c7301d23bc3cf7f38698bda6202444c424adce76efd66af1f5b7"
     },
     {
-      "file": "chibi-yogi-gesture.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "f87333c1f7b000b0eeb98994fef88099d601103586f3013532ea7fd9a6286e17"
+      "file": "chibi-yogi-neutral.webp",
+      "source": "derived:yogi-actions.png",
+      "sha256": "49b2eee16f29ae41b3f01bb3f1395ba1b4da99f8aa631f4e3c232705ace7c117"
     },
     {
-      "file": "chibi-yogi-neutral.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "3edd78f06853011ca858779424847a1fe56812d1e39448e062a083ea104e192b"
-    },
-    {
-      "file": "chibi-yogi-reaction.png",
-      "source": "generated:chibi-atlas",
-      "sha256": "e2ad797f08f0f1b26403b91e9279930fe77ccbdf1861593d313f9ebb4ba3da5f"
+      "file": "chibi-mia-neutral.webp",
+      "source": "derived:mia-actions.png",
+      "sha256": "c76a18dfc6cb60af2b670b377853ab74b317b76239d730aad470c932ea7b00ee"
     }
   ]
 }
