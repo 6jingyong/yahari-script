@@ -8,8 +8,8 @@ The older phase roadmap below is retained for rationale; its dated counts and ph
 
 # Yahari Script — Product Roadmap
 
-> Status: reconciled with the Drive-first canonical working state, 2026-09-29
-> Historical archives and GitHub may lag the current Google Drive project. Existing structured drafts, import hardening and asset-backed playback are preserved; phase labels below express product gates, not a reliable inventory of shipped code.  
+> Working source: local Git checkout, synchronized to GitHub (2026-09-30).
+> The phase roadmap below is historical. Existing structured drafts, import hardening and asset-backed playback are preserved; phase labels express product gates, not a reliable inventory of shipped code.
 > Product principle: make structured performance authoring feel like ordinary writing; expose structure only when it helps the author.
 
 ## 1. North star

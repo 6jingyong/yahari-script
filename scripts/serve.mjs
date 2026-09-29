@@ -2,6 +2,7 @@ import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawn } from "node:child_process";
 
 const root = normalize(join(fileURLToPath(new URL("..", import.meta.url))));
 const port = Number(process.env.PORT ?? 4173);
@@ -18,7 +19,7 @@ const mime = new Map([
   [".webp", "image/webp"],
 ]);
 
-createServer((request, response) => {
+const server = createServer((request, response) => {
   try {
     const url = new URL(request.url ?? "/", `http://${request.headers.host ?? "localhost"}`);
     const decoded = decodeURIComponent(url.pathname);
@@ -41,5 +42,23 @@ createServer((request, response) => {
     response.writeHead(500).end(error instanceof Error ? error.message : String(error));
   }
 }).listen(port, "127.0.0.1", () => {
-  console.log(`Yahari Script editor: http://127.0.0.1:${port}/apps/editor/`);
+  const address = server.address();
+  const url = `http://127.0.0.1:${address.port}/apps/editor/`;
+  console.log(`Yahari Script editor: ${url}`);
+  if (process.argv.includes("--open")) {
+    const child = spawn("powershell.exe", ["-NoProfile", "-Command", `Start-Process -FilePath '${url}'`], {
+      stdio: "ignore",
+      windowsHide: true,
+    });
+    child.on("error", (error) => console.error(`Could not open browser: ${error.message}`));
+  }
+});
+
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.error(`Port ${port} is already in use. Close the previous local server and try again.`);
+  } else {
+    console.error(error.message);
+  }
+  process.exitCode = 1;
 });

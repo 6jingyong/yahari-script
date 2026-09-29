@@ -6,3 +6,8 @@ dist/
 .env.*
 !.env.example
 content-packs/**/generated.ts
+.openai/
+.astra-code/
+__pycache__/
+*.pyc
+work/

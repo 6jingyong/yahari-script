@@ -19,6 +19,10 @@ The portable import boundary rejects malformed structure and ambiguous identitie
 ## Run and verify
 Requires Node.js >=22.6.
 
+For friends, the simplest way is to open the [online editor](https://6jingyong.github.io/yahari-script/) in a browser. No installation is needed. Projects are saved in that browser; use **导出项目** and **导入项目** to move a project between devices or share it with someone else. The online shortcut `打开在线版.url` is in the repository root.
+
+On Windows, double-click `双击启动本地版.cmd` in the repository root to run this local copy. Node.js >=22.6 is required. The first launch also needs internet access to install dependencies. The launcher builds the current source, starts a local server at the stable address `http://127.0.0.1:4173/apps/editor/`, and opens the editor in the default browser. Keep its command window open while using the local editor; closing it stops the server. This local address is only for the current computer. Each browser keeps its own drafts, so export projects before clearing browser data or switching browsers.
+
 ```sh
 npm install
 npm run build
@@ -36,7 +40,7 @@ This runs strict compilation, Node tests, browser module resolution and entry Ja
 ## Architecture
 Core owns adapter-agnostic project/document contracts; the Courtroom adapter owns capabilities, semantic diagnostics, Courtroom scene generation and its performance plan. Story AI owns adapter-neutral outlining, fact/scene contracts and model transport. Presentation resources are resolved from ResourceRef through the generic presentation resolver. EditorStore owns document mutations/history. DOM is an input surface, never canonical script data.
 
-See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.md for invariants and `.astra-code/PROJECT_STATE.md` for continuation guidance.
+See IMPLEMENTATION_STATUS.md for current scope/evidence, ARCHITECTURE_DECISIONS.md for invariants and [docs/PROJECT_STATE.md](docs/PROJECT_STATE.md) for the local development workflow. The local Git checkout is the working copy; GitHub is the shared history and Pages publication target. Old cloud workspace settings are no longer part of the project.
 
 ## Assets, trademarks and privacy
 
@@ -50,7 +54,7 @@ The current demo material catalog exposes 24 bindable character presets, 192 cha
 
 ## Mobile authoring increment (2026-09-24)
 
-Directory and diagnostics have dedicated mobile surfaces; undo/redo stay reachable; the composer and picker follow the visible keyboard viewport. Touch pickers open without forcing search focus and restore cue opener focus. A composition lifecycle guard protects against completion Enter issuing commands. Current evidence is consolidated in `IMPLEMENTATION_STATUS.md` and `.astra-code/PROJECT_STATE.md`. Browser/physical phone acceptance remains open.
+Directory and diagnostics have dedicated mobile surfaces; undo/redo stay reachable; the composer and picker follow the visible keyboard viewport. Touch pickers open without forcing search focus and restore cue opener focus. A composition lifecycle guard protects against completion Enter issuing commands. Current evidence is consolidated in `IMPLEMENTATION_STATUS.md` and `docs/PROJECT_STATE.md`. Browser/physical phone acceptance remains open.
 
 ## Rehearse and revise
 Each dialogue has “从这里排练”. Playback supports “重播本句” and “编辑本句”; jumping keeps earlier background and BGM state without replaying earlier transient effects. The toolbar rehearsal starts from the beginning.

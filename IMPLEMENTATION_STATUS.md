@@ -1,5 +1,7 @@
 # Current status — 2026-09-29
 
+Local development migration (2026-09-30): the local Git checkout replaces the cloud working folder as the working source. Windows launchers are included in the repository, with a fixed local port for draft persistence and a portable build cleanup command. Obsolete cloud hosting metadata and nine unused SVG action sheets were removed; the import contract and current workflow now live in `docs/`. The locally retained source PNGs missing from GitHub are included in this synchronization. Older entries below remain historical evidence.
+
 - 24 characters / 192 actions / 23 scenes. All current action mappings use generated raster art; nine remaining vector-atlas characters have been replaced, with stable IDs.
 - WebP runtime images, original art retained in art-source; the working assets directory contains only 77 referenced WebP images, including the shared thumbnail atlas. PNG/JPEG/SVG derivatives are generated when rebuilding.
 - Dialogue-level rehearsal entry, replay current paragraph, return to its source editor; preceding persistent scene/audio state preserved.
