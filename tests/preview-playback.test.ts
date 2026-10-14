@@ -33,6 +33,13 @@ test('graphemes stay whole and explicit waits retain their timing',()=>{
  player.next();assert.equal(player.snapshot.partialText,'续');drain();assert.equal(player.snapshot.complete,true);
 });
 
+test('restoring a completed page skips its input waits and cancels stale typewriter callbacks',()=>{
+ const {player,jobs,drain}=setup([{op:'speaker',castId:'a'},{op:'showText',text:'前文'},{op:'speaker',castId:'b'},{op:'wait',mode:'input'},{op:'showText',text:'等待选择'}]);
+ player.start(1);assert.equal(player.snapshot.waiting,true);player.completePage();
+ assert.equal(player.snapshot.complete,true);assert.equal(player.snapshot.waiting,false);assert.equal(player.snapshot.page,1);assert.equal(player.snapshot.position,5);
+ player.start(1);player.next();const stale=jobs.at(-1)!.fn;player.completePage();const final=player.snapshot;stale();drain();assert.deepEqual(player.snapshot,final);player.dispose();
+});
+
 test('opening assets gate first text and cannot be bypassed by clicking next',async()=>{
  let release!:()=>void;const pending=new Promise<void>(resolve=>release=resolve);
  const positions:number[]=[];

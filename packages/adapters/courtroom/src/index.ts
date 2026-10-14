@@ -7,3 +7,5 @@ export * from "./validator.js";
 export * from "./compiler.js";
 export * from "./adapter.js";
 export * from "./story-generation.js";
+export * from "./typing-sound.js";
+export * from "./action-sound.js";

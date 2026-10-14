@@ -1,6 +1,15 @@
 import type { ProjectManifest } from '../../packages/core/src/index.js';
 import { courtroomDemoPack } from './pack.js';
 
+/** Upgrade known old default labels; an author's own alias takes precedence. */
+export function demoCastDisplayName(cast: ProjectManifest['cast'][number], fallback?: string): string {
+  const actor = cast.characterRef.packId === courtroomDemoPack.id
+    ? courtroomDemoPack.characters.find(character => character.id === cast.characterRef.id) : undefined;
+  const aliases: unknown = actor?.metadata?.aliases;
+  if (cast.displayName && !(Array.isArray(aliases) && aliases.includes(cast.displayName))) return cast.displayName;
+  return fallback ?? actor?.name ?? cast.displayName ?? cast.castId;
+}
+
 /** Add a pack character without replacing aliases, existing cast or authored text. */
 export function addDemoCharacter(manifest: ProjectManifest, characterId: string): ProjectManifest {
   const next = structuredClone(manifest);

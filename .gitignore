@@ -11,3 +11,6 @@ content-packs/**/generated.ts
 __pycache__/
 *.pyc
 work/
+.playwright-cli/
+output/playwright/
+.local/

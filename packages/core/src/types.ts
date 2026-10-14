@@ -29,6 +29,16 @@ export interface CastMemberRef {
   overrides?: Record<string, unknown>;
 }
 
+export type SceneExit =
+  | { type: "next"; targetDocumentId: string }
+  | { type: "choice"; prompt: string; options: Array<{ id: string; label: string; targetDocumentId: string }> }
+  | { type: "ending"; title: string; description?: string };
+
+export interface NarrativeFlow {
+  version: 1;
+  routes: Array<{ documentId: string; exit: SceneExit }>;
+}
+
 export interface ProjectManifest {
   schemaVersion: string;
   projectId: string;
@@ -49,6 +59,8 @@ export interface ProjectManifest {
   cast: CastMemberRef[];
   projectSettings?: Record<string, unknown>;
   narrative?: { summary: string; chapters: Array<{ id: string; title: string; summary: string; documentIds: string[] }> };
+  /** Scene exits are independent of an adapter's dialogue/performance instructions. */
+  flow?: NarrativeFlow;
 }
 
 export type TextMark =
@@ -107,9 +119,17 @@ export interface ScriptDocument {
 /** Portable, self-describing Yahari project archive for the browser prototype. */
 export interface YahariProjectFile {
   fileFormat: "yahari-project";
-  fileVersion: "0.7";
+  fileVersion: "0.7" | "0.8" | "0.9";
   manifest: ProjectManifest;
   documents: ScriptDocument[];
+  /** Optional project-owned content. Resource URLs are embedded image data URLs. */
+  embeddedPacks?: Array<{
+    id: string;
+    version: string;
+    adapterId: string;
+    definition: Record<string, unknown>;
+    resources: Record<string, string>;
+  }>;
   metadata?: {
     exportedAt?: string;
     generator?: string;

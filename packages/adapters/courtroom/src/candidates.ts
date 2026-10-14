@@ -158,7 +158,7 @@ export function getCourtroomTokenCandidates(
   );
 
   for (const pack of project.contentPacks) {
-    for (const item of pack.audio.sfx) {
+    for (const item of [...pack.audio.sfx,...pack.audio.voices??[]]) {
       candidates.push({
         id: `sfx:${pack.id}:${item.id}`,
         tokenType: "courtroom.sfx",

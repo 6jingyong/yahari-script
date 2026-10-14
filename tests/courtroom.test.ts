@@ -90,7 +90,7 @@ test("Explicit cast-bound token does not follow later speaker changes", () => {
 test("Inline rich-node order lowers deterministically into performance order", () => {
   const plan = courtroomAdapter.compile(demoDocument, demoProject);
   assert.deepEqual(plan.instructions, [
-    { op: "speaker", castId: "phoenix" },
+    { op: "speaker", castId: "phoenix", typingSound:{packId:'official.courtroom-demo',id:'audio/sfx/text-low'} },
     { op: "pose", castId: "phoenix", pose: "normal" },
     { op: "showText", text: "我认为——" },
     { op: "pose", castId: "phoenix", pose: "point" },

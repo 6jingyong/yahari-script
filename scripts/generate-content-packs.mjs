@@ -3,6 +3,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const path = "content-packs/courtroom-demo/catalog.json";
 const outputPath = "content-packs/courtroom-demo/generated.ts";
 const catalog = JSON.parse(readFileSync(path, "utf8"));
+const voiceCatalog=JSON.parse(readFileSync('content-packs/courtroom-demo/voice-clips.json','utf8'));
 
 const requiredString = (value, label) => {
   if (typeof value !== "string" || !value.trim()) throw new Error(`${label} must be a non-empty string`);
@@ -26,7 +27,7 @@ const previewAudio = (value, label) => {
     throw new Error(`${label}.previewAudio must contain notes`);
   }
   const waveform=value.waveform ?? "triangle";
-  if (!["sine","square","triangle","sawtooth"].includes(waveform)) throw new Error(`${label}.previewAudio.waveform is unsupported`);
+  if (!["sine","square","triangle","sawtooth","noise"].includes(waveform)) throw new Error(`${label}.previewAudio.waveform is unsupported`);
   const notes=value.notes.map((note,index)=>{
     if(!note||typeof note!=="object")throw new Error(`${label}.previewAudio.notes[${index}] is invalid`);
     const frequency=Number(note.frequency),durationMs=Number(note.durationMs);
@@ -35,7 +36,8 @@ const previewAudio = (value, label) => {
     if(!Number.isFinite(frequency)||frequency<=0||!Number.isFinite(durationMs)||durationMs<=0)throw new Error(`${label}.previewAudio note values are invalid`);
     if(offsetMs!==undefined&&(!Number.isFinite(offsetMs)||offsetMs<0))throw new Error(`${label}.previewAudio offset is invalid`);
     if(gain!==undefined&&(!Number.isFinite(gain)||gain<=0||gain>1))throw new Error(`${label}.previewAudio gain is invalid`);
-    return {frequency,durationMs,...(offsetMs===undefined?{}:{offsetMs}),...(gain===undefined?{}:{gain})};
+    if(note.waveform!==undefined&&!["sine","square","triangle","sawtooth","noise"].includes(note.waveform))throw new Error(`${label}.previewAudio note waveform is unsupported`);
+    return {frequency,durationMs,...(offsetMs===undefined?{}:{offsetMs}),...(gain===undefined?{}:{gain}),...(note.waveform?{waveform:note.waveform}:{})};
   });
   const loopMs=value.loopMs===undefined?undefined:Number(value.loopMs);
   if(loopMs!==undefined&&(!Number.isFinite(loopMs)||loopMs<250))throw new Error(`${label}.previewAudio.loopMs is invalid`);
@@ -57,6 +59,7 @@ const pack = {
     },
     poses: (character.poses ?? []).map((item) => action(item, `character ${character.id}.pose`)),
     reactions: (character.reactions ?? []).map((item) => action(item, `character ${character.id}.reaction`)),
+    ...(character.metadata ? { metadata: character.metadata } : {}),
   })),
   backgrounds: (catalog.backgrounds ?? []).map((item) => ({
     id: requiredString(item.id, "background.id"),
@@ -65,16 +68,26 @@ const pack = {
     ...(item.foreground ? { foreground: requireResource(item.foreground, `background ${item.id}.foreground`) } : {}),
   })),
   audio: {
+    voices:voiceCatalog.clips.map(item=>{
+      if(!/^voices\/[a-z0-9-]+\.(mp3|wav)$/.test(item.file))throw new Error('Invalid voice asset path');
+      const bytes=readFileSync('content-packs/courtroom-demo/assets/'+item.file);
+      return {id:item.id,label:item.label,resource:{packId:catalog.id,id:'audio/voice/'+item.id},characterId:item.characterId,call:item.call,language:item.language,
+        category:'voice',description:`${item.label}，随动作播放的日语喊话。`,sourceUrl:item.sourceUrl,clip:{dataUrl:`data:${item.mime};base64,${bytes.toString('base64')}`,durationMs:item.durationMs}};
+    }),
     sfx: (catalog.audio?.sfx ?? []).map((item) => ({
       id: requiredString(item.id, "sfx.id"),
       label: requiredString(item.label, `sfx ${item.id}.label`),
       resource: requireResource(item.resource, `sfx ${item.id}.resource`),
+      ...(item.category?{category:requiredString(item.category,`sfx ${item.id}.category`)}:{}),
+      ...(item.description?{description:requiredString(item.description,`sfx ${item.id}.description`)}:{}),
       ...(previewAudio(item.previewAudio,`sfx ${item.id}`)?{previewAudio:previewAudio(item.previewAudio,`sfx ${item.id}`)}:{}),
     })),
     bgm: (catalog.audio?.bgm ?? []).map((item) => ({
       id: requiredString(item.id, "bgm.id"),
       label: requiredString(item.label, `bgm ${item.id}.label`),
       resource: requireResource(item.resource, `bgm ${item.id}.resource`),
+      ...(item.category?{category:requiredString(item.category,`bgm ${item.id}.category`)}:{}),
+      ...(item.description?{description:requiredString(item.description,`bgm ${item.id}.description`)}:{}),
       ...(previewAudio(item.previewAudio,`bgm ${item.id}`)?{previewAudio:previewAudio(item.previewAudio,`bgm ${item.id}`)}:{}),
     })),
   },

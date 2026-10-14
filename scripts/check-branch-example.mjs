@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { decodeProjectBundle } from '../dist/packages/project-io/src/index.js';
+import { createBranchSample } from '../dist/examples/branching-story/fixture.js';
+import { preparePlayerProject } from '../dist/apps/player/src/project.js';
+
+const exported = preparePlayerProject(decodeProjectBundle(new Uint8Array(readFileSync('examples/branching-story/雨停之前.yahari'))));
+const source = preparePlayerProject(createBranchSample(exported.project.manifest.projectId));
+assert.deepEqual(exported.project.manifest, source.project.manifest);
+assert.deepEqual(exported.project.documents, source.project.documents);
+assert.deepEqual([...exported.plans], [...source.plans]);
+const html = readFileSync('examples/branching-story/雨停之前.html', 'utf8');
+const payload = JSON.parse(html.match(/<script type="application\/json" id="yahari-work">([\s\S]*?)<\/script>/)?.[1] ?? 'null');
+assert.ok(payload);
+assert.deepEqual(payload.project.manifest, source.project.manifest);
+assert.deepEqual(payload.project.documents, source.project.documents);
+assert.ok(Object.keys(payload.packedImages).length > 0);
+for (const image of Object.values(payload.packedImages)) assert.match(image, /^data:image\/(?:png|jpeg|webp);base64,/);
+const imports = JSON.parse(html.match(/<script type="importmap">([\s\S]*?)<\/script>/)?.[1] ?? 'null');
+assert.ok(Object.keys(imports.imports).length > 0);
+for (const module of Object.values(imports.imports)) assert.match(module, /^data:text\/javascript;base64,/);
+console.log('Branch example passed: 6 scenes, 19 dialogues, 2 choices, 2 endings; exported bundle and offline HTML match source.');

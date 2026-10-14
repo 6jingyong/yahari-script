@@ -2,9 +2,10 @@ import type { CourtroomInstruction } from '../../../packages/adapters/courtroom/
 
 export const DEFAULT_CHARACTER_MS = 35;
 export interface PlaybackSnapshot {
-  position:number; partialText:string; page:number; count:number; complete:boolean; waiting:boolean; loading:boolean;
+  position:number; partialText:string; page:number; count:number; complete:boolean; waiting:boolean; loading:boolean; skipped?:boolean;
 }
 export interface PlaybackClock { schedule(callback:()=>void, delay:number):()=>void }
+export interface PlaybackCharacter {text:string;position:number;page:number}
 /** Each speaker instruction marks a dialogue block, including repeated speakers. */
 export function paragraphRanges(instructions:readonly CourtroomInstruction[]):Array<{start:number;end:number}> {
   if(!instructions.length)return [];
@@ -22,27 +23,34 @@ export class PreviewPlayback {
   private letters:string[]=[];
   private letter=0;
   private preparedPosition=-1;
-  constructor(private instructions:readonly CourtroomInstruction[],private clock:PlaybackClock,private notify:(state:PlaybackSnapshot)=>void,private characterMs=DEFAULT_CHARACTER_MS, private prepare?:(position:number)=>Promise<void>|void){
+  constructor(private instructions:readonly CourtroomInstruction[],private clock:PlaybackClock,private notify:(state:PlaybackSnapshot)=>void,private characterMs=DEFAULT_CHARACTER_MS, private prepare?:(position:number)=>Promise<void>|void,private onCharacter?:(event:PlaybackCharacter)=>void){
     this.pages=paragraphRanges(instructions);
     this.state={position:0,partialText:'',page:0,count:this.pages.length,complete:!this.pages.length,waiting:false,loading:false};
   }
   get snapshot():PlaybackSnapshot{return {...this.state};}
-  start(page=0):void {
+  start(page=0,completed=false):void {
     if(this.disposed)return;
     this.stopTimer();
     page=Number.isFinite(page)?Math.max(0,Math.min(Math.max(0,this.pages.length-1),Math.trunc(page))):0;
     this.state={position:this.pages[page]?.start??0,partialText:'',page,count:this.pages.length,complete:!this.pages.length,waiting:false,loading:false};
-    this.preparedPosition=-1;this.letters=[];this.letter=0;this.advance();
+    this.preparedPosition=-1;this.letters=[];this.letter=0;
+    if(completed)this.completePage();else this.advance();
   }
   next():void {
     if(this.disposed)return;
     if(this.state.loading)return;
     if(this.state.waiting){this.state.waiting=false;this.advance();return;}
     if(!this.state.complete){
-      this.stopTimer();this.state.position=this.pages[this.state.page].end;
-      this.state.partialText='';this.letters=[];this.letter=0;this.preparedPosition=-1;this.finish();return;
+      this.completePage();return;
     }
     if(this.state.page+1<this.pages.length)this.start(this.state.page+1);
+  }
+  /** Restore an already-read page, including any input waits inside it. */
+  completePage():void {
+    if(this.disposed||this.state.loading||this.state.complete)return;
+    this.stopTimer();this.state.position=this.pages[this.state.page]?.end??0;
+    this.state.skipped=true;
+    this.state.waiting=false;this.state.partialText='';this.letters=[];this.letter=0;this.preparedPosition=-1;this.finish();
   }
   back():void {if(this.state.page>0)this.start(this.state.page-1);}
   dispose():void {this.disposed=true;this.stopTimer();}
@@ -77,7 +85,8 @@ export class PreviewPlayback {
         if(!this.ready(()=>this.advance()))return;
         if(!this.letters.length){this.letters=Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(command.text),x=>x.segment);this.letter=0;}
         if(this.letter<this.letters.length){
-          this.state.partialText+=this.letters[this.letter++];this.notify(this.snapshot);this.later(this.characterMs);return;
+          const text=this.letters[this.letter++];this.state.partialText+=text;this.notify(this.snapshot);
+          this.onCharacter?.({text,position:this.state.position,page:this.state.page});this.later(this.characterMs);return;
         }
         this.state.partialText='';this.letters=[];this.letter=0;this.state.position++;continue;
       }

@@ -1,0 +1,33 @@
+{
+  "id": "last-train",
+  "title": "未知之信",
+  "requestedModel": "cohere/north-mini-code:free",
+  "actualModel": "cohere/north-mini-code:free",
+  "usage": {
+    "prompt_tokens": 173,
+    "completion_tokens": 930,
+    "total_tokens": 1103,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 404,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "generatedAt": "2026-10-12T13:53:45.933Z",
+  "scenes": 2,
+  "dialogues": 14,
+  "brief": "轻悬疑。末班车后，一封写着明天日期的信让两人误以为有人能预知未来，最后查清是周年纪念惊喜。线索要能支撑结论。"
+}

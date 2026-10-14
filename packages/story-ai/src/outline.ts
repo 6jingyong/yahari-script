@@ -13,6 +13,11 @@ export interface StoryOutline {
 }
 
 const object = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
+/** Confirmation is tied to the exact story names and material IDs the author reviewed. */
+export function storyBindingSignature(outline: StoryOutline): string { return JSON.stringify(outline.cast.map(c => [c.id, c.name, c.characterId])); }
+export function hasConfirmedStoryBindings(outline: StoryOutline, signature: unknown): boolean {
+  return outline.cast.every(c => !!c.characterId) && typeof signature === 'string' && signature === storyBindingSignature(outline);
+}
 function string(v: unknown, label: string, max = 6000): string {
   if (typeof v !== 'string' || !v.trim() || v.length > max) throw new Error(`${label}为空或过长。`);
   return v.trim();

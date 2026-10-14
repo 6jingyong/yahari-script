@@ -1,4 +1,5 @@
 import type { ProjectManifest, ScriptDocument, YahariProjectFile } from "./types.js";
+import { validateFlow } from './flow.js';
 
 export interface ProjectFileCatalog {
   adapters: Array<{ id: string; version: string }>;
@@ -99,12 +100,14 @@ export function createProjectFile(
   manifest: ProjectManifest,
   documents: ScriptDocument[],
   metadata?: YahariProjectFile["metadata"],
+  embeddedPacks?: YahariProjectFile["embeddedPacks"],
 ): YahariProjectFile {
   return {
     fileFormat: "yahari-project",
-    fileVersion: "0.7",
+    fileVersion: manifest.flow ? "0.9" : embeddedPacks?.length ? "0.8" : "0.7",
     manifest: structuredClone(manifest),
     documents: structuredClone(documents),
+    ...(embeddedPacks?.length ? { embeddedPacks: structuredClone(embeddedPacks) } : {}),
     ...(metadata ? { metadata: structuredClone(metadata) } : {}),
   };
 }
@@ -118,12 +121,49 @@ function validateProjectFile(
   const warning = (code: string, message: string) => issues.push({ code, message, severity: "warning" });
 
   if (project.fileFormat !== "yahari-project") error("project.file.format", "Not a Yahari project file.");
-  if (project.fileVersion !== "0.7") error("project.file.version", "Unsupported project file version; expected 0.7.");
+  if (!["0.7", "0.8", "0.9"].includes(project.fileVersion)) error("project.file.version", "Unsupported project file version; expected 0.7, 0.8 or 0.9.");
+  if (project.embeddedPacks?.length && project.fileVersion === "0.7") error("project.file.version", "Embedded content requires project file version 0.8 or 0.9.");
+  if (project.manifest?.flow !== undefined && project.fileVersion !== "0.9") error("project.file.version", "Branching works require project file version 0.9.");
   if (!looksLikeManifest(project.manifest)) error("project.manifest.shape", "Project manifest is missing required fields.");
   if (!Array.isArray(project.documents) || !project.documents.every(looksLikeDocument)) {
     error("project.documents.shape", "Project documents have an invalid shape.");
   }
   if (issues.some((item) => item.severity === "error")) return issues;
+
+  const embeddedIds = new Set<string>();
+  if (project.embeddedPacks !== undefined) {
+    if (!Array.isArray(project.embeddedPacks)) {
+      error("project.embedded.shape", "Embedded content packs must be a list.");
+      return issues;
+    }
+    if (project.embeddedPacks.length > 4) error("project.embedded.limit", "Too many embedded content packs.");
+    let embeddedBytes = 0;
+    for (const embedded of project.embeddedPacks) {
+      if (!record(embedded) || !nonEmptyString(embedded.id) || !nonEmptyString(embedded.version)
+        || !nonEmptyString(embedded.adapterId) || !record(embedded.definition) || !record(embedded.resources)) {
+        error("project.embedded.shape", "An embedded content pack is malformed.");
+        continue;
+      }
+      if (embeddedIds.has(embedded.id)) error("project.embedded.duplicate", `Duplicate embedded pack ${embedded.id}.`);
+      embeddedIds.add(embedded.id);
+      if (!embedded.id.startsWith('local.') || catalog.contentPacks.some(item => item.id === embedded.id)) {
+        error("project.embedded.namespace", "Embedded content packs must use a local ID distinct from installed packs.");
+      }
+      if (embedded.id !== embedded.definition.id || embedded.version !== embedded.definition.version) {
+        error("project.embedded.identity", `Embedded pack ${embedded.id} has inconsistent identity.`);
+      }
+      const resources = Object.entries(embedded.resources);
+      if (resources.length > 100) error("project.embedded.limit", "Too many embedded images.");
+      for (const [id, url] of resources) {
+        if (!nonEmptyString(id)) error("project.embedded.resource", "Embedded image IDs must be nonempty.");
+        embeddedBytes += typeof url === 'string' ? url.length : 0;
+        if (typeof url !== "string" || !/^data:image\/(?:png|jpeg|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(url)
+          || url.length > 8_000_000) error("project.embedded.resource", "Embedded images must be bounded PNG, JPEG or WebP data URLs.");
+      }
+    }
+    if (embeddedBytes > 20_000_000) error("project.embedded.limit", "Embedded images exceed the project limit.");
+  }
+  if (issues.some(item => item.severity === "error")) return issues;
 
   const manifest = project.manifest;
   if (!["0.6", "0.7"].includes(manifest.schemaVersion)) {
@@ -149,7 +189,8 @@ function validateProjectFile(
     packIds.add(required.id);
     const available = catalog.contentPacks.some(
       (item) => item.id === required.id && item.version === required.version,
-    );
+    ) || project.embeddedPacks?.some(item => item.id === required.id && item.version === required.version
+      && item.adapterId === manifest.adapter.id) === true;
     if (!available) error("project.pack.unavailable", `Content pack ${required.id}@${required.version} is not installed.`);
   }
 
@@ -208,6 +249,7 @@ function validateProjectFile(
       }
     }
   }
+  if (!issues.some(item => item.severity === 'error' && !['project.adapter.unavailable', 'project.pack.unavailable'].includes(item.code))) issues.push(...validateFlow(manifest));
   return issues;
 }
 

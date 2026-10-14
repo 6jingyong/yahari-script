@@ -11,6 +11,8 @@ import type {
   CourtroomPerformancePlan,
 } from "./types.js";
 import { validateCourtroomDocument } from "./validator.js";
+import { dialogueTypingSound } from "./typing-sound.js";
+import {actionKey,actionSoundInstructions,recordedSoundWait} from './action-sound.js';
 
 function requireCastSubject(token: TypedToken, speakerId: string | null): string {
   const binding = token.subject ?? { kind: "speaker" as const };
@@ -86,17 +88,20 @@ export function compileCourtroomDocument(
   for (const block of normalized.blocks) {
     if (block.type === "cue") {
       instructions.push(lowerToken(block.cue, null));
+      if(block.cue.type==='courtroom.sfx')instructions.push(...recordedSoundWait(resourceParam(block.cue),project));
       continue;
     }
 
     const speakerId = block.speaker?.castId ?? null;
-    instructions.push({ op: "speaker", castId: speakerId });
+    instructions.push({ op: "speaker", castId: speakerId, typingSound: dialogueTypingSound(block,project) });
 
     for (const node of block.content) {
       if (node.type === "text") {
         if (node.text.length > 0) instructions.push({ op: "showText", text: node.text });
       } else {
         instructions.push(lowerToken(node.token, speakerId));
+        if(actionKey(node.token))instructions.push(...actionSoundInstructions(node.token,speakerId,project));
+        else if(node.token.type==='courtroom.sfx')instructions.push(...recordedSoundWait(resourceParam(node.token),project));
       }
     }
   }

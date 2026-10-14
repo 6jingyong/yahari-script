@@ -4,3 +4,4 @@ export * from "./adapter.js";
 export * from "./normalize.js";
 export * from "./validate.js";
 export * from "./project-file.js";
+export * from "./flow.js";

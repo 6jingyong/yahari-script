@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { generatedManifest, validateDetectedOutline, validateOutline } from '../packages/story-ai/src/outline.js';
+import { generatedManifest, validateDetectedOutline, validateOutline, hasConfirmedStoryBindings, storyBindingSignature } from '../packages/story-ai/src/outline.js';
 import { requestJson } from '../packages/story-ai/src/model.js';
 import { buildCourtroomScene } from '../packages/adapters/courtroom/src/story-generation.js';
 import { courtroomDemoPack as pack } from '../content-packs/courtroom-demo/pack.js';
@@ -31,6 +31,14 @@ test('detected story characters stay unbound even when a model proposes a preset
  assert.throws(()=>validateOutline(detected,pack),/角色素材|绑定/);
  detected.cast[0].characterId='maya';
  assert.equal(validateOutline(detected,pack).cast[0].characterId,'maya');
+});
+test('restored binding confirmation requires the exact names and manually selected material IDs',()=>{
+ const outline=validateOutline(fixture,pack),signature=storyBindingSignature(outline);
+ assert.equal(hasConfirmedStoryBindings(outline,true),false);
+ assert.equal(hasConfirmedStoryBindings(outline,signature),true);
+ outline.cast[0].name='小林的新名字';assert.equal(hasConfirmedStoryBindings(outline,signature),false);
+ outline.cast[0].name='小林';outline.cast[0].characterId='maya';assert.equal(hasConfirmedStoryBindings(outline,signature),false);
+ outline.cast[0].characterId='';assert.equal(hasConfirmedStoryBindings(outline,storyBindingSignature(outline)),false);
 });
 test('invalid chapter references do not enter existing projects',()=>{
  const o=validateOutline(fixture,pack);const docs=[0,1].map(i=>buildCourtroomScene(lines,o,0,i,pack,'t'));const m=generatedManifest(demoManifest,o,docs,'t');

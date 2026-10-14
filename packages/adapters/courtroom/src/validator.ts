@@ -8,6 +8,8 @@ import {
 import { courtroomTokenTypes } from "./token-types.js";
 import { buildCourtroomCapabilityRegistry } from "./registry.js";
 import type { CourtroomContentPack } from "./types.js";
+import { typingSoundValid } from "./typing-sound.js";
+import {actionKey,validActionSound} from './action-sound.js';
 
 const tokenDefinitions = new Map(courtroomTokenTypes.map((definition) => [definition.type, definition]));
 
@@ -71,7 +73,22 @@ export function validateCourtroomDocument(
   const diagnostics = validateCoreDocument(document, project.manifest);
   const registry = buildCourtroomCapabilityRegistry(project);
 
+  const checkTyping=(value:unknown,blockId?:string)=>{
+    if(!typingSoundValid(value,project.contentPacks))diagnostics.push({
+      id:`courtroom.typing-sound.${blockId??'defaults'}`,severity:'error',code:'courtroom.typing-sound.invalid',
+      message:'文字音不可用：请选择一个不超过 80 ms 的短音效，或设为静音。',location:{documentId:document.documentId,...(blockId?{blockId}:{})},
+    });
+  };
+  checkTyping(project.manifest.projectSettings?.typingSound);
+  for(const member of project.manifest.cast)checkTyping(member.overrides?.typingSound);
+  for(const member of project.manifest.cast){const sounds=member.overrides?.actionSounds;
+    if(sounds!==undefined&&(!sounds||typeof sounds!=='object'||Array.isArray(sounds)||Object.values(sounds).some(value=>!validActionSound(value,project.contentPacks))))diagnostics.push({
+      id:`courtroom.action-sounds.${member.castId}`,severity:'error',code:'courtroom.action-sound.invalid',message:`${member.displayName??member.castId}的默认动作声音不可用，请重新选择。`,location:{documentId:document.documentId},
+    });
+  }
+
   for (const block of document.blocks) {
+    if(block.type==='dialogue')checkTyping(block.metadata?.typingSound,block.id);
     const scope = block.type === "cue" ? "block" : "inline";
     const speakerId = block.type === "dialogue" ? block.speaker?.castId ?? null : null;
     const tokens = block.type === "cue"
@@ -79,6 +96,10 @@ export function validateCourtroomDocument(
       : block.content.filter((node) => node.type === "token").map((node) => node.token);
 
     for (const token of tokens) {
+      if(actionKey(token)&&!validActionSound(token.metadata?.sound,project.contentPacks))diagnostics.push({
+        id:`courtroom.action-sound.${token.id}`,severity:'error',code:'courtroom.action-sound.invalid',message:'动作绑定的声音已移除或格式无效，请重新选择声音。',
+        location:{documentId:document.documentId,blockId:block.id,tokenId:token.id},
+      });
       const definition = tokenDefinitions.get(token.type);
       if (!definition) {
         diagnostics.push({

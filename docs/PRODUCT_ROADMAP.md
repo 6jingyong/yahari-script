@@ -1,8 +1,18 @@
-# Current priorities — 2026-09-29
+# Current priorities — 2026-10-14
 
-The current build contains 24 characters / 192 actions / 23 scenes, all generated raster action sheets; runtime WebP assets; local rehearsal entry/replay/source return; story generation connection and cancellation hardening. The user will perform phone/browser acceptance against the published build. Do not block further work on agent-side mobile browser setup.
+The independent work management and reader slice is implemented: one story flow diagram, persistent work/chapter/scene and continuation settings, shared save, separate dialogue editing, in-stage choices, history/backtracking/progress and offline HTML sharing. Branching remains optional. The audio library has original 8Bit effects and music loops categorized by narrative use. Story generation requires individual built-in character choices before planning. The six-scene sample is available from **作品管理 → 作品与文件 → 分支体验示例**. See [branching stories](BRANCHING_STORIES.md) and [8Bit audio](8BIT_AUDIO.md).
 
-Next evidence needed: user phone feedback; a real model connection test using the user's locally entered key; substantive author feedback from a complete scene. Do not claim live provider or phone acceptance from unit tests. Defer new adapters, collaborative editing and broad architecture rewrites.
+Next: author/reader feedback on ordinary scene creation, writing and sharing; original-material binding for story generation; then presentation improvements driven by real scripts. Keep branching as an optional feature. Evidence/knowledge conditions, hidden options and AI branch planning can follow a demonstrated author need.
+
+The user requested independent work management on 2026-10-14 and clarified that it should prioritize works and chapters, with optional story branches and no character lanes. The older priorities below describe earlier decisions.
+
+# Historical priorities — 2026-10-12
+
+The current local build contains 24 built-in characters / 192 actions / 23 scenes, all generated raster action sheets; runtime WebP assets; local rehearsal entry/replay/source return; story generation connection and cancellation hardening. It supports project-owned original characters through manual upload or an OpenRouter image request, uploaded own backgrounds, and shared remembered AI connections with dynamic model selection. A minimal real free-text request succeeded; live image/long-story and physical-phone acceptance remain open.
+
+The original-scene gate has passed in a fresh browser context. Multi-work saving, image Blobs, restore points and portable `.yahari` bundles are implemented; three real AI-generated scripts pass browser import/export and exact structural/compile comparisons. The next implementation priority is an independent asset library: character settings, adding actions to project characters and extensions to built-in characters, then a discoverable theme-pack manifest. A neutral stage adapter should follow actual layout needs. ChatGPT-account generation remains gated by an actual supported same-origin bridge.
+
+Next evidence needed: user phone feedback, substantive author feedback from a complete original scene, and real long-story generation quality. The 2026-10-12 free-router probe verifies only a minimal provider connection. Defer collaborative editing and broad architecture rewrites.
 
 The older phase roadmap below is retained for rationale; its dated counts and phase labels are historical.
 

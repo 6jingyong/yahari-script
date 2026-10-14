@@ -58,12 +58,14 @@ test('long case covers all new locations, characters and presentation stress tok
   assert.ok(lineCount>=100,`expected long stress case, got ${lineCount} dialogue blocks`);
 });
 
-test('sample aliases normalize to current material labels without touching authored documents',()=>{
+test('sample default aliases normalize without touching custom names or authored documents',()=>{
   const file=createSampleStory(sampleStories[0].id,'sample-default');
   file.manifest.cast[0].displayName='林律师';
+  file.manifest.cast[1].displayName='御剑';
   const before=JSON.stringify(file.documents);
   const fixed=normalizeSampleCast(file.manifest);
-  assert.equal(fixed.cast[0].displayName,'成步堂');
+  assert.equal(fixed.cast[0].displayName,'林律师');
+  assert.equal(fixed.cast[1].displayName,'御剑怜侍');
   assert.equal(fixed.cast[0].castId,file.manifest.cast[0].castId);
   assert.equal(file.manifest.cast[0].displayName,'林律师');
   assert.equal(JSON.stringify(file.documents),before);

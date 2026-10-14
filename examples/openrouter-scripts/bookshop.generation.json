@@ -1,0 +1,33 @@
+{
+  "id": "bookshop",
+  "title": "旧书中的空白页",
+  "requestedModel": "cohere/north-mini-code:free",
+  "actualModel": "cohere/north-mini-code:free",
+  "usage": {
+    "prompt_tokens": 163,
+    "completion_tokens": 1173,
+    "total_tokens": 1336,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 695,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "generatedAt": "2026-10-12T13:53:35.036Z",
+  "scenes": 2,
+  "dialogues": 14,
+  "brief": "温暖日常喜剧。两人在旧书店争论一本没有结尾的书，最后发现空白页是留给读者续写的。"
+}

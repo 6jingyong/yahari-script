@@ -18,39 +18,32 @@
           <div id="project-title" class="brand-subtitle">Yahari Courtroom P0 Demo</div>
         </div>
       </div>
+      <nav class="workspace-switch" aria-label="工作区"><button id="story-workspace-button" type="button" aria-pressed="false">作品管理</button><button id="writing-workspace-button" type="button" aria-pressed="true">对话编辑</button><button id="asset-workspace-button" type="button" aria-pressed="false">素材管理</button></nav>
       <div class="topbar-center">
         <span id="adapter-badge" class="adapter-badge">official.courtroom · 0.1.0</span>
-        <span id="save-status" class="save-status">Local draft</span>
+        <span id="save-status" class="save-status">本机草稿</span>
       </div>
       <div class="toolbar"><button id="diagnostics-button" class="small-button" type="button" aria-expanded="false">检查</button>
-<button id="preview-button" class="small-button">排练</button>
+<button id="preview-button" class="small-button">排练</button><button id="save-button" class="small-button" type="button" title="保存（Ctrl+S）">保存</button>
         <button id="undo-button" class="icon-button" title="撤销" aria-label="撤销">↶</button>
         <button id="redo-button" class="icon-button" title="重做" aria-label="重做">↷</button>
       </div>
     </header>
 
-    <main class="workspace">
-      <aside class="outline-panel panel" aria-label="场景目录" tabindex="-1">
-<button id="outline-close" class="small-button" type="button">返回写作</button>
-        <div class="panel-heading">
-          <div>
-            <div class="eyebrow">DOCUMENT</div>
-            <h2 id="document-title">Opening</h2>
-          </div>
-        </div>
-        <div class="hierarchy-actions"><button id="structure-button" class="small-button">编辑分层 / 摘要</button><button id="new-scene-button" class="small-button">＋ 新场景</button><button id="samples-button" class="small-button" type="button">案例故事</button></div>
-        <section class="project-actions" aria-label="作品操作">
-          <h3>作品操作</h3>
-          <div><button id="new-project-button" class="small-button" type="button">新建作品</button><button id="story-button" class="small-button" type="button">故事转剧本</button><button id="import-button" class="small-button" type="button">导入项目</button><button id="export-button" class="small-button" type="button">导出项目</button><button id="restore-story-button" class="small-button" type="button">恢复导入前作品</button><button id="reset-button" class="small-button danger-quiet" type="button">重置示例</button></div>
-          <input id="import-input" type="file" accept="application/json,.json" hidden />
-        </section>
-        <div id="outline" class="outline-list"></div>
-      </aside>
+    <section id="story-workspace" class="story-workspace" aria-label="作品与章节管理" hidden>
+        <header class="story-workspace-heading"><h1 tabindex="-1">作品管理</h1><span id="document-title" hidden></span><div class="story-workspace-actions"><button id="new-project-button" class="small-button" type="button">新建作品</button><button id="files-button" class="small-button" type="button">作品与文件</button><button id="import-button" class="small-button" type="button">导入</button><button id="story-button" class="small-button" type="button">故事转剧本</button><button id="ai-settings-button" class="small-button" type="button">AI 设置</button><button id="story-play" class="create-button" type="button">从开头阅读</button><button id="story-export-player" class="small-button" type="button">导出 HTML</button></div><input id="import-input" type="file" accept=".yahari,.yahari-project.json,.json,application/json,application/zip" hidden /></header>
+        <div class="story-management-layout"><aside class="story-sidebar"><div id="story-tree" class="story-management-tree" aria-label="作品与章节"></div><div class="story-tree-actions"><button id="story-add-chapter" class="small-button" type="button">＋ 章节</button></div></aside>
+          <section class="story-map-panel" aria-label="故事流程图"><div class="story-map-toolbar"><strong>流程图</strong><span id="story-map-search-status" class="story-map-search-status" role="status"></span><label class="story-map-search"><input id="story-map-search" type="search" aria-label="搜索场景" placeholder="搜索场景…"></label><button id="new-scene-button" type="button">＋ 场景</button><div class="story-map-view-actions"><button id="story-map-fit" type="button">适应</button><button id="story-map-out" type="button" aria-label="缩小流程图">−</button><button id="story-map-in" type="button" aria-label="放大流程图">＋</button></div></div><div id="story-map" class="story-map"></div><div id="story-flow-issues" class="story-flow-issues" role="status"></div></section>
+          <section id="story-detail" class="story-management-detail" aria-label="场景设置"></section></div>
+        <p id="story-workspace-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <main id="writing-workspace" class="workspace">
 
       <section class="editor-panel">
         <div class="editor-header">
           <div class="editor-header-main">
-            <button id="navigator-button" class="small-button" type="button" aria-haspopup="dialog">目录</button>
+            <button id="navigator-button" class="small-button" type="button">作品管理</button>
             <div class="editor-header-title">
               <div class="eyebrow">群聊剧本</div>
               <h1 id="editor-title">Opening</h1>
@@ -89,7 +82,7 @@
       <label class="field-label" for="project-name-input">剧本名称</label>
       <input id="project-name-input" class="text-field" type="text" maxlength="80" required />
       <p class="project-note">开场自动绑定说话人与默认站位；句首动作设定起始姿态，句中动作随台词触发。</p>
-      <p class="project-note">当前素材库 · 14 人 / 66 个动作 / 15 个场景</p>
+      <p class="project-note">可使用内置素材，也可添加自己的原创角色。</p>
       <div class="dialog-actions">
         <button id="project-cancel-button" type="button" class="secondary-button">取消</button>
         <button type="submit" class="create-button">创建</button>
@@ -104,20 +97,55 @@
       <div id="samples-list" class="samples-list"></div>
     </div>
   </dialog>
-  <dialog id="structure-dialog" class="project-dialog story-dialog" aria-labelledby="structure-title">
-    <form id="structure-form"><h2 id="structure-title">分层与摘要</h2>
-      <p class="project-note">章节名相同的场景归为一章；改为新章名可移动当前场景。摘要由你维护，编辑台词不会自动重写摘要。</p>
-      <label>作品名<input id="structure-project-title" required maxlength="150"></label>
-      <label>作品摘要<textarea id="structure-project-summary" rows="2"></textarea></label>
-      <label>所属章节<input id="structure-chapter-title" required maxlength="150"></label>
-      <label>章节摘要<textarea id="structure-chapter-summary" rows="2"></textarea></label>
-      <label>场景名<input id="structure-scene-title" required maxlength="150"></label>
-      <label>场景摘要<textarea id="structure-scene-summary" rows="3"></textarea></label>
-      <div class="dialog-actions"><button id="structure-close" type="button" class="secondary-button">取消</button><button type="submit" class="create-button">保存</button></div>
-    </form>
-  </dialog>
   <dialog id="speaker-dialog" class="project-dialog speaker-dialog" aria-labelledby="speaker-title">
-    <div class="cast-dialog-content"><h2 id="speaker-title">选择发言人物</h2><div id="speaker-options" class="speaker-options"></div><div class="dialog-actions"><button id="speaker-close" class="secondary-button" type="button">返回写作</button></div></div>
+    <div class="cast-dialog-content"><h2 id="speaker-title">选择发言人物</h2><div id="speaker-sound-settings" class="speaker-sound-settings"></div><p class="project-note">文字逐字出现时播放。人物默认适用于这个人物的所有台词；单句也可单独切换。</p><div id="speaker-options" class="speaker-options"></div><div class="dialog-actions"><button id="speaker-close" class="secondary-button" type="button">返回写作</button></div></div>
+  </dialog>
+
+  <dialog id="files-dialog" class="project-dialog story-dialog" aria-label="作品与文件">
+    <div class="story-body">
+      <div class="story-heading"><h2>作品与文件</h2><button id="files-close" type="button" class="small-button">返回写作</button></div>
+      <p class="project-note">修改会自动保存到此浏览器。本机作品库保留多个作品；换设备请保存或导出作品文件，图片会一起携带。</p>
+      <div class="dialog-actions"><button id="save-file-button" class="create-button" type="button">保存到文件…</button><button id="export-button" class="secondary-button" type="button">下载 .yahari</button><button id="export-json-button" class="secondary-button" type="button">导出兼容 JSON</button></div>
+      <p id="file-save-status" role="status"></p>
+      <h3>本机作品</h3><p id="files-status" role="status" aria-live="polite"></p><div id="files-list"></div>
+      <h3>当前作品的恢复点</h3><div id="files-history"></div><button id="restore-story-button" class="small-button" type="button">恢复导入前作品</button>
+      <h3>示例作品</h3><div class="story-demo-actions"><button id="samples-button" class="small-button" type="button">案例故事</button><button id="branch-sample-button" class="small-button" type="button">分支体验示例</button></div>
+    </div>
+  </dialog>
+  <dialog id="import-preview-dialog" class="project-dialog story-dialog" aria-label="导入作品预览">
+    <div class="story-body">
+      <div class="story-heading"><h2 id="import-preview-title">读取作品文件</h2><button id="import-preview-close" type="button" class="small-button">返回写作</button></div>
+      <p id="import-preview-summary" class="project-note"></p><p id="import-preview-status" role="status" aria-live="polite"></p>
+      <div class="dialog-actions"><button id="import-preview-cancel" class="secondary-button" type="button">取消</button><button id="import-preview-confirm" class="create-button" type="button" disabled>导入并打开</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="ai-settings-dialog" class="project-dialog story-dialog" aria-label="AI 连接设置">
+    <div class="story-body">
+      <div class="story-heading"><h2>AI 连接设置</h2><button id="ai-close" type="button" class="small-button">返回写作</button></div>
+      <section aria-labelledby="chatgpt-heading">
+        <h3 id="chatgpt-heading">ChatGPT 账号</h3>
+        <p>通过 OpenAI 官方页面登录。符合条件的 Plus / Pro 账号可授权使用订阅额度，额度与其他已授权应用共用。</p>
+        <label>本地连接<select id="chatgpt-accounts" aria-label="ChatGPT 本地连接"></select></label>
+        <div class="story-actions"><button id="chatgpt-login" type="button" class="create-button" disabled>Continue with ChatGPT</button><button id="chatgpt-add" type="button" class="small-button" disabled>添加其他账号 / 工作区</button><button id="chatgpt-cancel" type="button" class="small-button" hidden>取消登录</button></div>
+        <label>ChatGPT 文本模型<select id="chatgpt-model" disabled></select></label>
+        <p id="chatgpt-status" role="status" aria-live="polite">打开设置后检查本地账户服务。</p>
+        <div class="story-actions"><button id="chatgpt-refresh" type="button" class="small-button" disabled>刷新账号模型</button><button id="chatgpt-test" type="button" class="small-button" disabled>测试生成（一次短请求）</button><button id="chatgpt-logout" type="button" class="small-button" disabled>退出当前连接</button></div>
+        <p class="project-note">登录仅在本地版提供。连接保存在本机，Windows 下由当前用户加密保护；不会写入作品或导出文件。此通道暂不支持角色图片生成。</p>
+        <a href="https://chatgpt.com/#settings/Usage" target="_blank" rel="noopener noreferrer">在 ChatGPT 管理使用额度与应用授权</a>
+      </section>
+      <h3>OpenRouter API</h3>
+      <p>OpenRouter 连接供故事生成和角色图片生成共用。免费模型与收费模型由你自行选择。</p>
+      <label>OpenRouter API Key<input id="ai-key" type="password" autocomplete="off" spellcheck="false" placeholder="粘贴你的 API Key"></label>
+      <label class="story-check"><input id="ai-remember" type="checkbox" checked> 记住在此浏览器</label>
+      <p class="project-note">密钥只保存在此浏览器的网站数据中，不进入作品或导出文件。共用设备可取消勾选；清除浏览器网站数据也会移除连接。</p>
+      <label>默认文本模型<input id="ai-text-model" list="ai-text-model-options" autocomplete="off" spellcheck="false" placeholder="搜索或填写模型 ID"><datalist id="ai-text-model-options"></datalist></label>
+      <p id="ai-text-model-status" class="project-note" role="status"></p>
+      <label>默认图片模型<input id="ai-image-model" list="ai-image-model-options" autocomplete="off" spellcheck="false" placeholder="搜索或填写图片模型 ID"><datalist id="ai-image-model-options"></datalist></label>
+      <p id="ai-image-model-status" class="project-note" role="status"></p>
+      <p id="ai-status" role="status" aria-live="polite"></p>
+      <div class="dialog-actions"><button id="ai-save" type="button" class="create-button">保存连接</button><button id="ai-refresh" type="button" class="secondary-button">刷新模型列表</button><button id="ai-forget" type="button" class="secondary-button">忘记此设备</button></div>
+    </div>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 

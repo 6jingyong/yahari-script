@@ -4,7 +4,7 @@
 
 ## English
 
-Yahari Script is an open-source structured script authoring and performance-compilation framework.
+Yahari Script is a source-available structured script authoring and performance-compilation prototype. The code license is still to be selected; third-party character and recording rights are documented separately.
 
 The project began by asking a narrow question: can a writer describe a story naturally, while software keeps dialogue, character state, stage direction, camera focus, assets, validation, and runtime presentation synchronized?
 
@@ -39,7 +39,7 @@ If CAPCOM has interest in the authoring/compiler concept, the project is intenti
 
 ## 日本語
 
-Yahari Script（矢張スクリプト）は、構造化されたシナリオ執筆と演出コンパイルを分離するオープンソースの技術プロトタイプです。
+Yahari Script（矢張スクリプト）は、構造化されたシナリオ執筆と演出コンパイルを分離する、ソースコードを公開した技術プロトタイプです。コードのライセンスは未選定で、第三者のキャラクターと音声の権利は別途記録しています。
 
 現在の Courtroom Adapter は、逆転裁判のような法廷演出を厳しい参照例として利用していますが、目的はゲームエンジンの複製ではありません。文章・会話・人物状態・演出指示・カメラ・素材・検証を構造化し、同じシナリオデータを異なる Adapter へコンパイルできる仕組みを検証しています。
 

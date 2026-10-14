@@ -1,5 +1,10 @@
 import { installStoryDialog } from "./story-dialog.js";
-import { renderOutlineTree } from "./outline-view.js";
+import { installAiConnectionSettings } from "./ai-connection.js";
+import { openProjectLibrary, type ProjectLibrary, type LibraryProject } from './project-library.js';
+import { installProjectFilesDialog } from './project-files-dialog.js';
+import { installStoryWorkspace } from './story-workspace.js';
+import { downloadStandalonePlayer } from './export-player.js';
+import { createBranchSample } from '../../../examples/branching-story/fixture.js';
 import { sceneBackgroundRef, withSceneBackground } from "./scene-settings.js";
 import {
   LEGACY_STORAGE_KEY,
@@ -8,15 +13,27 @@ import {
   downloadProject,
   loadStoredProject,
   saveProject,
+  ProjectFileWriter,
 } from "./project-storage.js";
-import { addDemoCharacter, completeDemoCast } from '../../../content-packs/courtroom-demo/cast.js';
+import { addDemoCharacter, completeDemoCast, demoCastDisplayName } from '../../../content-packs/courtroom-demo/cast.js';
 import { courtroomDemoPack } from '../../../content-packs/courtroom-demo/pack.js';
-import { courtroomDemoResolver } from '../../../content-packs/courtroom-demo/presentation.js';
+import { courtroomDemoResources } from '../../../content-packs/courtroom-demo/generated.js';
+import { createStaticResourceResolver } from '../../../packages/presentation/src/index.js';
+import { applyAudioAssets,resolveAudioAssets } from './builtin-audio-assets.js';
+import { installBuiltinAsset, resolveBuiltinOverrides, builtinAssetEntries, materializeBuiltin } from './builtin-assets.js';
+import { installAssetWorkspace, neutralStageImage } from './asset-workspace.js';
+import { installAssetPack } from '../../../packages/asset-library/src/index.js';
+import { embeddedCourtroomPack, embeddedResources } from './project-assets.js';
 import { actionArt, actionLabel as fallbackActionLabel } from "./action-art.js";
 import { openPreview } from "./preview.js";
+import { typingSoundControl } from './typing-sound-controls.js';
+import {actionSoundControl} from './action-sound-controls.js';
+import {PreviewSynthAudio,resolvePreviewAudio} from './preview-audio.js';
 import {
   courtroomAdapter,
   courtroomTokenTypes,
+  defaultTypingSound,
+  actionKey,actionCastId,actionSound,defaultActionSound,
   type CourtroomPerformancePlan,
 } from "../../../packages/adapters/courtroom/src/index.js";
 import {
@@ -67,6 +84,8 @@ function requireElement<T extends Element>(selector: string): T {
   return element;
 }
 
+const aiConnection = installAiConnectionSettings(localStorage);
+
 function defaultProjectFile(): YahariProjectFile {
   return createSampleStory(sampleStories[0].id, 'sample-default');
 }
@@ -81,22 +100,55 @@ function loadInitialProject(): YahariProjectFile {
   );
 }
 
-let projectFile = loadInitialProject();
+let projectLibrary: ProjectLibrary | null = null;
+let libraryInitial: LibraryProject | null = null;
+let startupStorageMessage = '';
+try {
+  projectLibrary = await openProjectLibrary();
+  libraryInitial = await projectLibrary.active();
+  if (libraryInitial) {
+    const checked=decodeProjectFile(libraryInitial.project,PROJECT_FILE_CATALOG);
+    if (!checked.ok || checked.kind!=='project') throw new Error('本机作品损坏');
+    libraryInitial.project=checked.project;
+  }
+} catch {
+  libraryInitial=null;
+  startupStorageMessage='本机作品库未能读取，已打开浏览器旧草稿或示例。可在“作品与文件”查看恢复点；请及时导出备份。';
+}
+let projectFile = libraryInitial?.project ?? loadInitialProject();
+projectFile = {...projectFile, manifest: normalizeSampleCast(projectFile.manifest)};
+if (projectLibrary && !libraryInitial && !startupStorageMessage && localStorage.getItem(STORAGE_KEY)) {
+  try { await projectLibrary.save(projectFile,projectFile.manifest.entryDocumentId,'旧草稿迁移'); }
+  catch { startupStorageMessage='旧草稿尚未迁移成功，原数据仍保留，请先导出作品文件。'; }
+}
+function projectPacks(file: YahariProjectFile): CourtroomContentPack[] {
+  const overlay=resolveBuiltinOverrides(file.embeddedPacks??[]);
+  return [resolveAudioAssets(overlay.pack,file.manifest.projectSettings), ...(file.embeddedPacks ?? []).flatMap(item => {
+    if(overlay.overlayIds.has(item.id))return [];
+    const pack = embeddedCourtroomPack(item);
+    return pack ? [pack] : [];
+  })];
+}
+function resourceResolver(file: YahariProjectFile) {
+  return createStaticResourceResolver([courtroomDemoResources, ...embeddedResources(file.embeddedPacks ?? []),resolveBuiltinOverrides(file.embeddedPacks??[]).resources]);
+}
 const initialAvailability = decodeProjectFile(projectFile, PROJECT_FILE_CATALOG);
 let projectAvailability: ProjectAvailability = initialAvailability.ok
   && initialAvailability.kind === "project"
   ? initialAvailability.availability
   : "ready";
+if (projectFile.embeddedPacks?.some(item => !embeddedCourtroomPack(item))) projectAvailability = 'missing-content-pack';
 let currentProject: ProjectContext<CourtroomContentPack> = {
   manifest: structuredClone(projectFile.manifest),
-  contentPacks: projectAvailability === "ready" ? demoProject.contentPacks : [],
+  contentPacks: projectAvailability === "ready" ? projectPacks(projectFile) : [],
 };
+let activeResolver = resourceResolver(projectFile);
 const initialDocument = projectFile.documents.find(
-  (document) => document.documentId === projectFile.manifest.entryDocumentId,
+  (document) => document.documentId === (libraryInitial?.activeDocumentId ?? projectFile.manifest.entryDocumentId),
 ) ?? projectFile.documents[0] ?? structuredClone(demoDocument);
 const store = new EditorStore(initialDocument);
 const canvas = requireElement<HTMLElement>("#editor-canvas");
-const outline = requireElement<HTMLElement>("#outline");
+let storyWorkspace: ReturnType<typeof installStoryWorkspace> | undefined;
 const inspectorContent = requireElement<HTMLElement>("#inspector-content");
 const picker = requireElement<HTMLElement>("#picker");
 
@@ -124,6 +176,8 @@ let tokenSerial = Date.now();
 let blockSerial = Date.now();
 let pendingLegacyDocument: ScriptDocument | null = null;
 let persistTimer: number | null = null;
+let persistVersion=0, pendingSaves=0, unsavedChanges=false;
+const fileWriter=new ProjectFileWriter();
 const tokenRegistry = new Map<string, TypedToken>();
 const composeInput = requireElement<HTMLElement>('#compose-input');
 const composeSend = requireElement<HTMLButtonElement>('#compose-send');
@@ -153,20 +207,20 @@ function focusBlock(blockId: string | null): void {
   row.scrollIntoView({behavior:'smooth', block:'center'});
 }
 function setPanel(panel: "outline" | "inspector", open: boolean, restoreFocus = true): void {
+  if(panel==='outline'){document.body.classList.remove('outline-open');if(open)storyWorkspace?.open();return;}
   if (open) {
     closePicker(false);
     panelReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     document.body.classList.remove('outline-open', 'inspector-open');
   }
   document.body.classList.toggle(`${panel}-open`, open);
-  for (const name of ['outline', 'inspector'] as const) {
+  for (const name of ['inspector'] as const) {
     const surface = requireElement<HTMLElement>(`.${name}-panel`);
-    if (document.body.classList.contains(`${name}-open`) && (name === 'outline' || isMobile())) {
+    if (document.body.classList.contains(`${name}-open`) && isMobile()) {
       surface.setAttribute('role','dialog'); surface.setAttribute('aria-modal','true');
     } else { surface.removeAttribute('role'); surface.removeAttribute('aria-modal'); }
   }
   requireElement('#diagnostics-button').setAttribute('aria-expanded', String(document.body.classList.contains('inspector-open')));
-  requireElement('#navigator-button').setAttribute('aria-expanded', String(document.body.classList.contains('outline-open')));
   if (open) requireElement<HTMLElement>(`.${panel}-panel`).focus({preventScroll:true});
   else if (restoreFocus && panelReturnFocus?.isConnected) panelReturnFocus.focus({preventScroll:true});
 }
@@ -204,7 +258,7 @@ function loadDraft(): void {
       // Use the existing decoder before accepting structured content from storage.
       const probe=structuredClone(store.document);
       probe.blocks=[{id:'draft',type:'dialogue',speaker:null,content:draft.content}];
-      const decoded=decodeProjectFile(createProjectFile(currentProject.manifest,projectFile.documents.map(d=>d.documentId===probe.documentId?probe:d)),PROJECT_FILE_CATALOG);
+      const decoded=decodeProjectFile(createProjectFile(currentProject.manifest,projectFile.documents.map(d=>d.documentId===probe.documentId?probe:d),undefined,projectFile.embeddedPacks),PROJECT_FILE_CATALOG);
       if(decoded.ok) draftNodes=draft.content;
       if(currentProject.manifest.cast.some(c=>c.castId===draft.speaker)) composingAs=draft.speaker;
     }
@@ -218,7 +272,7 @@ function castPortraitUrl(castId:string|null|undefined):string|undefined {
   if(!cast)return undefined;
   const pack=currentProject.contentPacks.find(item=>item.id===cast.characterRef.packId);
   const character=pack?.characters.find(item=>item.id===cast.characterRef.id);
-  return character ? courtroomDemoResolver.resolve(character.portraits.base)?.url : undefined;
+  return character ? activeResolver.resolve(character.portraits.base)?.url : undefined;
 }
 function castCharacterId(castId:string|null|undefined):string|undefined {
   const ref=currentProject.manifest.cast.find(item=>item.castId===castId)?.characterRef;
@@ -227,6 +281,7 @@ function castCharacterId(castId:string|null|undefined):string|undefined {
 function portraitThumbnail(characterId:string,label:string):HTMLElement|undefined {
   const index=courtroomDemoPack.characters.findIndex(item=>item.id===characterId);
   if(index<0)return undefined;
+  if(activeResolver.resolve(courtroomDemoPack.characters[index].portraits.base)?.url.startsWith('data:'))return undefined;
   const thumb=document.createElement('span');thumb.className='portrait-thumbnail';thumb.textContent=label.slice(0,1);
   thumb.style.backgroundSize=`${courtroomDemoPack.characters.length*100}% 800%`;
   thumb.style.backgroundPosition=`${index*100/(courtroomDemoPack.characters.length-1)}% 0%`;
@@ -249,9 +304,22 @@ function renderSpeakerAvatar(button:HTMLButtonElement,castId:string|null|undefin
   button.disabled=projectAvailability!=='ready';
 }
 
+let hiddenBuiltinIds=new Set<string>();
 let speakerSelectionHandler:((castId:string|null)=>void)|null=null;
 function openSpeakerDialog(current:string|null,select:(castId:string|null)=>void):void {
   speakerSelectionHandler=select;
+  const soundSettings=requireElement<HTMLElement>('#speaker-sound-settings');soundSettings.replaceChildren();
+  const saveSetting=(target:Record<string,unknown>,value:unknown)=>{
+    if(value===undefined)delete target.typingSound;else target.typingSound=value;
+    store.commitEditSession();void persist('调整文字音');renderAll();
+  };
+  const defaults=currentProject.manifest.projectSettings??{};
+  const defaultRef=defaultTypingSound(currentProject.contentPacks);
+  const defaultLabel=currentProject.contentPacks.flatMap(p=>p.audio.sfx).find(s=>s.resource.packId===defaultRef?.packId&&s.resource.id===defaultRef?.id)?.label??'静音';
+  soundSettings.append(typingSoundControl('作品默认文字音',defaults.typingSound,currentProject.contentPacks,`自动 · ${defaultLabel}`,value=>{currentProject.manifest.projectSettings=defaults;saveSetting(defaults,value);}));
+  const member=currentProject.manifest.cast.find(c=>c.castId===current);
+  if(member){const overrides=member.overrides??{};soundSettings.append(typingSoundControl(`${castName(current)}的默认文字音`,overrides.typingSound,currentProject.contentPacks,'跟随作品默认',value=>{member.overrides=overrides;saveSetting(overrides,value);}));}
+  soundSettings.querySelectorAll('select').forEach(s=>{s.disabled=projectAvailability!=='ready';});
   const options=requireElement<HTMLElement>('#speaker-options');options.replaceChildren();
   const representedBuiltIns=new Set(
     currentProject.manifest.cast
@@ -263,19 +331,19 @@ function openSpeakerDialog(current:string|null,select:(castId:string|null)=>void
     choices.push({castId:cast.castId,label:castName(cast.castId),portraitUrl:castPortraitUrl(cast.castId)});
   }
   for(const character of courtroomDemoPack.characters){
-    if(representedBuiltIns.has(character.id))continue;
+    if(representedBuiltIns.has(character.id)||hiddenBuiltinIds.has('local.builtin.'+courtroomDemoPack.id+'.characters.'+character.id))continue;
     choices.push({
       castId:null,
       characterId:character.id,
       label:character.name,
-      portraitUrl:courtroomDemoResolver.resolve(character.portraits.base)?.url,
+      portraitUrl:activeResolver.resolve(character.portraits.base)?.url,
     });
   }
   choices.push({castId:null,label:castName(null)});
   for(const choice of choices){
     const button=document.createElement('button');button.type='button';button.className='speaker-option';
     button.setAttribute('aria-pressed',String(choice.characterId===undefined&&choice.castId===current));
-    const portrait=document.createElement('span');portrait.className='speaker-option-avatar';
+    const portrait=document.createElement('span');portrait.className='speaker-option-avatar';portrait.setAttribute('aria-hidden','true');
     const thumbnail=portraitThumbnail(choice.characterId??castCharacterId(choice.castId)??'',choice.label);
     if(thumbnail)portrait.append(thumbnail);
     else if(choice.portraitUrl){const image=document.createElement('img');image.src=choice.portraitUrl;image.alt='';image.loading='lazy';portrait.append(image);}
@@ -296,6 +364,11 @@ function openSpeakerDialog(current:string|null,select:(castId:string|null)=>void
     });
     options.append(button);
   }
+  if(projectAvailability==='ready'){
+    const add=document.createElement('button');add.type='button';add.className='speaker-option';add.textContent='＋ 打开角色素材库';
+    add.addEventListener('click',()=>{requireElement<HTMLDialogElement>('#speaker-dialog').close();void assetWorkspace.open('characters');});
+    options.append(add);
+  }
   requireElement<HTMLDialogElement>('#speaker-dialog').showModal();
 }
 
@@ -314,9 +387,10 @@ function renderIdentities(): void {
 }
 function openDraftPicker(): void {
   if(projectAvailability!=='ready')return;
-  composeInput.focus();
-  const range=draftRange&&composeInput.contains(draftRange.commonAncestorContainer)?draftRange.cloneRange():document.createRange();
+  const selection=window.getSelection(),selected=selection?.rangeCount?selection.getRangeAt(0):undefined;
+  const range=selected&&composeInput.contains(selected.commonAncestorContainer)?selected.cloneRange():draftRange&&composeInput.contains(draftRange.commonAncestorContainer)?draftRange.cloneRange():document.createRange();
   if(!composeInput.contains(range.commonAncestorContainer)){range.selectNodeContents(composeInput);range.collapse(false);}
+  composeInput.focus();
   pickerState={mode:'draft',range};showPicker();
 }
 function sendDialogue(): void {
@@ -332,28 +406,43 @@ function sendDialogue(): void {
 }
 
 
-function persist(): void {
+function snapshotProject(): YahariProjectFile {
+  return createProjectFile(currentProject.manifest,documentsWithActiveEdit(),projectFile.metadata,projectFile.embeddedPacks);
+}
+
+async function persist(checkpoint?: string): Promise<boolean> {
   if (persistTimer !== null) {
     window.clearTimeout(persistTimer);
     persistTimer = null;
   }
+  projectFile=snapshotProject();
+  const snapshot=projectFile, version=++persistVersion;
+  pendingSaves++; unsavedChanges=true;
+  saveStatus.textContent='正在保存…';
   try {
-    projectFile = saveProject(localStorage,currentProject.manifest,documentsWithActiveEdit());
+    if (projectLibrary) await projectLibrary.save(snapshot,store.document.documentId,checkpoint);
+    else saveProject(localStorage,snapshot.manifest,snapshot.documents,snapshot.embeddedPacks,snapshot.metadata);
+    if (version===persistVersion && persistTimer===null) {
+      unsavedChanges=false;
+      saveStatus.textContent=`本机已保存 · ${new Date().toLocaleTimeString('zh-CN',{hour12:false})}`;
+    }
+    return true;
   } catch {
-    saveStatus.textContent = "保存失败";
-    showToast("未能保存，请导出剧本以免丢失。", "error");
-    return;
+    if (version===persistVersion) {
+      saveStatus.textContent = "保存失败，请导出";
+      showToast("本机保存失败，当前编辑仍在页面中，请导出作品文件。", "error");
+    }
+    return false;
+  } finally {
+    pendingSaves--;
   }
-  saveStatus.textContent = "已保存到本机";
-  window.setTimeout(() => {
-    saveStatus.textContent = "本机草稿";
-  }, 900);
 }
 
 function schedulePersist(): void {
   if (persistTimer !== null) window.clearTimeout(persistTimer);
+  unsavedChanges=true;
   saveStatus.textContent = "正在保存…";
-  persistTimer = window.setTimeout(persist, 300);
+  persistTimer = window.setTimeout(()=>void persist(), 300);
 }
 
 function documentsWithActiveEdit(): ScriptDocument[] {
@@ -372,8 +461,8 @@ function updateProjectChrome(): void {
   documentTitle.textContent = store.document.title;
   editorTitle.textContent = store.document.title === "Opening" ? "开庭" : store.document.title;
   adapterBadge.textContent = `${currentProject.manifest.adapter.id} · ${currentProject.manifest.adapter.version}${projectAvailability === "ready" ? "" : " · READ ONLY"}`;
-  requireElement<HTMLButtonElement>("#structure-button").disabled = projectAvailability !== "ready";
   requireElement<HTMLButtonElement>("#new-scene-button").disabled = projectAvailability !== "ready";
+  requireElement<HTMLButtonElement>('#story-add-chapter').disabled=projectAvailability!=='ready';
 }
 
 function findDialogueBlock(blockId: string): DialogueBlock | null {
@@ -385,14 +474,13 @@ function castName(castId: string | null | undefined): string {
   if (!castId) return "旁白";
   const cast = currentProject.manifest.cast.find((item) => item.castId === castId);
   if (!cast) return castId;
-  if (cast.displayName) return cast.displayName;
   for (const pack of currentProject.contentPacks) {
     const character = pack.characters.find(
       (item) => item.id === cast.characterRef.id && pack.id === cast.characterRef.packId,
     );
-    if (character) return ({phoenix:"成步堂",judge:"裁判长"} as Record<string,string>)[character.id] ?? character.name;
+    if (character) return demoCastDisplayName(cast, character.name);
   }
-  return castId;
+  return cast.displayName ?? castId;
 }
 
 function castInitial(castId: string | null | undefined): string {
@@ -459,6 +547,11 @@ function loadActionThumbnails():Promise<void> {
 
 function renderedActionArt(token:TypedToken,speaker?:string|null):HTMLElement {
   const fallback=actionArt(token,artCharacter(token,speaker));
+  const owner=token.subject?.kind==='cast'?token.subject.id:speaker,cast=currentProject.manifest.cast.find(c=>c.castId===owner);
+  const actor=cast?currentProject.contentPacks.find(p=>p.id===cast.characterRef.packId)?.characters.find(a=>a.id===cast.characterRef.id):undefined;
+  const exactAction=actor?(token.type==='courtroom.pose'?actor.poses:actor.reactions).find(a=>a.id===tokenValue(token)):undefined;
+  const resolved=exactAction?activeResolver.resolve(exactAction.asset):undefined;
+  if(resolved?.url.startsWith('data:')){const clip=document.createElement('span');clip.className='action-sprite';const image=document.createElement('img');image.src=resolved.url;image.alt='';clip.append(image);fallback.append(clip);fallback.classList.add('art-loaded');return fallback;}
   const characterId=artCharacter(token,speaker);
   if(!characterId)return fallback;
   const pack=currentProject.contentPacks.find(item=>item.id==='official.courtroom-demo');
@@ -467,7 +560,8 @@ function renderedActionArt(token:TypedToken,speaker?:string|null):HTMLElement {
   const action=character?[...character.poses,...character.reactions].find(item=>item.id===actionId):undefined;
   if(!action||!character)return fallback;
   const characterIndex=courtroomDemoPack.characters.findIndex(item=>item.id===characterId);
-  const actionIndex=[...character.poses,...character.reactions].findIndex(item=>item.id===actionId);
+  const original=courtroomDemoPack.characters[characterIndex];
+  const actionIndex=original?[...original.poses,...original.reactions].findIndex(item=>item.id===actionId):-1;
   if(characterIndex<0||actionIndex<0)return fallback;
   const clip=document.createElement('span');
   clip.className='action-sprite action-thumbnail';
@@ -601,14 +695,12 @@ function insertTextAtSelection(editor: HTMLElement, text: string): void {
   selection.addRange(range);
 }
 
-const foldedOutline = new Map<string, boolean>();
 function switchScene(id: string): void {
   if (id === store.document.documentId) return;
   store.commitEditSession(); saveDraft(); persist();
   const next = projectFile.documents.find(d => d.documentId === id);
   if (!next) return;
   closePicker(false); store.loadDocument(next);
-  currentProject.manifest.entryDocumentId = id;
   selectedBlockId = next.blocks[0]?.id ?? null; selectedTokenId = null;
   loadDraft(); persist(); renderAll();
 }
@@ -616,13 +708,13 @@ function sceneBackgroundId(documentId:string):string|undefined {
   const document=documentsWithActiveEdit().find(item=>item.documentId===documentId);
   const resource=document?sceneBackgroundRef(document):undefined;
   return resource
-    ? courtroomDemoPack.backgrounds.find(item=>item.resource.packId===resource.packId&&item.resource.id===resource.id)?.id
+    ? currentProject.contentPacks.flatMap(pack=>pack.backgrounds).find(item=>item.resource.packId===resource.packId&&item.resource.id===resource.id)?.id
     : undefined;
 }
 
 function setSceneBackground(documentId:string,backgroundId:string):void {
   if(projectAvailability!=='ready')return;
-  const background=courtroomDemoPack.backgrounds.find(item=>item.id===backgroundId);
+  const background=currentProject.contentPacks.flatMap(pack=>pack.backgrounds).find(item=>item.id===backgroundId);
   if(!background)return;
   store.commitEditSession();saveDraft();
   if(documentId===store.document.documentId){
@@ -634,16 +726,7 @@ function setSceneBackground(documentId:string,backgroundId:string):void {
 }
 
 function renderOutline(): void {
-  renderOutlineTree(outline,{
-    manifest:currentProject.manifest,
-    documents:documentsWithActiveEdit(),
-    activeDocumentId:store.document.documentId,
-    folded:foldedOutline,
-    sceneOptions:courtroomDemoPack.backgrounds.map(item=>({id:item.id,label:item.label})),
-    sceneOptionFor:sceneBackgroundId,
-    onSceneOptionChange:setSceneBackground,
-    onSelect:id=>{switchScene(id);setPanel('outline',false,false);},
-  });
+  storyWorkspace?.refresh();
 }
 
 function renderEditor(): void {
@@ -739,7 +822,14 @@ function renderEditor(): void {
     removeMessage.addEventListener('click',()=>{store.commitEditSession();store.removeBlock(block.id);selectedBlockId=store.document.blocks.at(-1)?.id??null;persist();renderAll();});
     const playMessage=document.createElement('button');playMessage.type='button';playMessage.className='message-play';playMessage.textContent='从这里排练';
     playMessage.addEventListener('click',()=>startRehearsal(block.id));
-    const messageActions=document.createElement('div');messageActions.className='message-actions';messageActions.append(playMessage,removeMessage);card.append(messageActions);
+    const voice=typingSoundControl('本句文字音',block.metadata?.typingSound,currentProject.contentPacks,block.speaker?'跟随人物默认':'跟随作品默认',value=>{
+      store.commitEditSession();const doc=store.document,line=doc.blocks.find(b=>b.id===block.id);
+      if(!line||line.type!=='dialogue')return;
+      const metadata=line.metadata??={};if(value===undefined)delete metadata.typingSound;else metadata.typingSound=value;
+      store.replaceDocument(doc);void persist();renderAll();
+    });
+    voice.querySelector('select')!.disabled=projectAvailability!=='ready';
+    const messageActions=document.createElement('div');messageActions.className='message-actions';messageActions.append(voice,playMessage,removeMessage);card.append(messageActions);
 
     const editor = document.createElement("div");
     editor.className = "rich-editor";
@@ -953,6 +1043,7 @@ function locateToken(tokenId: string): TypedToken | null {
   return null;
 }
 
+let actionAudition:PreviewSynthAudio|null=null;
 function renderTokenInspector(): void {
   inspectorContent.replaceChildren();
   const title = document.createElement("div");
@@ -980,6 +1071,28 @@ function renderTokenInspector(): void {
   const actionTitle=document.createElement('div');actionTitle.className='action-detail';actionTitle.append(actionArt(token));
   const description=document.createElement('span');description.textContent=actionLabel(token);actionTitle.append(description);box.append(actionTitle);
   const target=document.createElement('p');target.textContent=token.subject?.kind==='cast'?`由${castName(token.subject.id)}执行`:token.subject?.kind==='speaker'?'由这条台词的说话人执行':'';box.append(target);
+  const soundKey=actionKey(token);
+  if(soundKey){
+    const owner=store.document.blocks.find(b=>b.type==='dialogue'&&b.content.some(n=>n.type==='token'&&n.token.id===token.id));
+    const speakerId=owner?.type==='dialogue'?owner.speaker?.castId??null:null;
+    const defaultRef=defaultActionSound(token,speakerId,currentProject),defaultSound=defaultRef?resolvePreviewAudio(currentProject.contentPacks,defaultRef,'sfx'):undefined;
+    const field=actionSoundControl(token.metadata?.sound,currentProject.contentPacks,defaultSound?.label??'无音效',value=>{
+      const changed=structuredClone(token);changed.metadata??={};if(value===undefined)delete changed.metadata.sound;else changed.metadata.sound=value;
+      store.commitEditSession();store.applyQuickFix(token.id,{kind:'replace-token',label:'设置动作声音',token:changed});void persist();renderAll();
+    });field.querySelector('select')!.disabled=projectAvailability!=='ready';box.append(field);
+    const note=document.createElement('p');note.className='project-note';note.textContent='声音跟随这个动作播放；人物喊话结束后继续显示台词。';box.append(note);
+    const soundRef=actionSound(token,speakerId,currentProject);
+    if(soundRef){const audition=document.createElement('button');audition.type='button';audition.className='small-button';audition.textContent='试听动作声音';
+      audition.onclick=()=>void(async()=>{actionAudition?.dispose();const audio=new PreviewSynthAudio(currentProject.contentPacks);actionAudition=audio;
+        if(!await audio.setEnabled(true)||actionAudition!==audio)return;await audio.prepareClips([soundRef]);if(actionAudition!==audio)return;audio.playSfx([soundRef]);
+        const resolved=resolvePreviewAudio(currentProject.contentPacks,soundRef,'sfx'),duration=resolved?.clip?.durationMs??Math.max(0,...resolved?.cue?.notes.map(n=>(n.offsetMs??0)+n.durationMs)??[]);
+        window.setTimeout(()=>{if(actionAudition===audio){audio.dispose();actionAudition=null;}},duration+200);
+      })();box.append(audition);}
+    const castId=actionCastId(token,speakerId),member=currentProject.manifest.cast.find(c=>c.castId===castId);
+    if(member){const apply=document.createElement('button');apply.type='button';apply.className='small-button';apply.textContent='设为这个人物的同类动作默认';apply.disabled=projectAvailability!=='ready';
+      apply.onclick=()=>{const sounds={...member.overrides?.actionSounds as Record<string,unknown>??{}};if(token.metadata?.sound===undefined)delete sounds[soundKey];else sounds[soundKey]=token.metadata.sound;
+        member.overrides={...member.overrides,actionSounds:sounds};store.commitEditSession();void persist('调整人物动作声音');renderAll();showToast('已应用到该人物的同类动作；单独设置过声音的动作保留自己的设置。');};box.append(apply);}
+  }
   const errors = diagnostics().filter((item) => item.location?.tokenId === token.id);
   for (const item of errors) {
     const error = document.createElement("div");
@@ -1269,16 +1382,21 @@ function escapeHtml(value: string): string {
     .replaceAll("'", "&#039;");
 }
 
-function exportProject(): void {
+function exportProject(format: 'bundle'|'json' = 'bundle'): void {
   store.commitEditSession();
   const exported = createProjectFile(currentProject.manifest, documentsWithActiveEdit(), {
+    ...projectFile.metadata,
     exportedAt: new Date().toISOString(),
-    generator: "Yahari Script P1-d Cast Recovery",
-  });
-  downloadProject(exported);
+    generator: "Yahari Script project files",
+  }, projectFile.embeddedPacks);
+  try {
+    if(!decodeProjectFile(exported,PROJECT_FILE_CATALOG).ok)throw new Error('作品数据超出当前格式限制，请减少素材或修复后再导出。');
+    downloadProject(exported,format); showToast('已导出作品，包含全部场景及自有素材。');
+  }
+  catch (error) { showToast(error instanceof Error?error.message:'导出失败。','error'); }
 }
 
-function activateProject(next: YahariProjectFile): boolean {
+function activateProject(next: YahariProjectFile, documentId?: string, preserveOutgoing=true, checkpoint?:string): boolean {
   // All entry paths, including legacy binding, must pass before state or storage changes.
   const checked = decodeProjectFile(next, PROJECT_FILE_CATALOG);
   if (!checked.ok || checked.kind !== "project") {
@@ -1286,53 +1404,32 @@ function activateProject(next: YahariProjectFile): boolean {
     return false;
   }
   next = checked.project;
+  next = {...next, manifest: normalizeSampleCast(next.manifest)};
+  if (next.embeddedPacks?.some(item => !embeddedCourtroomPack(item))) {
+    showToast('作品中的原创素材包格式不完整，当前作品未更改。','error');
+    return false;
+  }
   const availability = checked.availability;
+  if(preserveOutgoing)void persist('切换作品前');
   const entry = next.documents.find(
-    (document) => document.documentId === next.manifest.entryDocumentId,
-  );
+    (document) => document.documentId === (documentId ?? next.manifest.entryDocumentId),
+  ) ?? next.documents.find(document=>document.documentId===next.manifest.entryDocumentId);
   if (!entry) throw new Error(`Entry document ${next.manifest.entryDocumentId} is missing.`);
   projectFile = structuredClone(next);
   projectAvailability = availability;
   currentProject = {
     manifest: structuredClone(next.manifest),
-    contentPacks: availability === "ready" ? demoProject.contentPacks : [],
+    contentPacks: availability === "ready" ? projectPacks(next) : [],
   };
+  activeResolver=resourceResolver(next);
   store.loadDocument(entry);
   composingAs=currentProject.manifest.cast[0]?.castId??null;
   loadDraft();
   selectedBlockId = entry.blocks[0]?.id ?? null;
   selectedTokenId = null;
-  persist();
+  persist(checkpoint);
   renderAll();
   return true;
-}
-
-async function importProjectFile(file: File): Promise<void> {
-  let input: unknown;
-  try {
-    input = JSON.parse(await file.text());
-  } catch {
-    showToast("无法读取文件，请选择此前导出的剧本文件。", "error");
-    return;
-  }
-  const decoded = decodeProjectFile(input, PROJECT_FILE_CATALOG);
-  if (!decoded.ok) {
-    showToast("文件内容不完整或格式不受支持，请检查所选文件。", "error");
-    return;
-  }
-  if (decoded.kind === "unbound-document") {
-    pendingLegacyDocument = decoded.document;
-    projectNameInput.value = decoded.document.title || "导入的剧本";
-    projectDialog.showModal();
-    projectNameInput.focus();
-    projectNameInput.select();
-    showToast("这是旧版剧本，请确认名称后导入。");
-    return;
-  }
-  if (!activateProject(decoded.project)) return;
-  const suffix = decoded.migratedFrom ? ` Migrated from ${decoded.migratedFrom}.` : "";
-  const mode = decoded.availability === "ready" ? "" : " Opened read-only because a dependency is missing.";
-  showToast(`已导入${decoded.availability === "ready" ? "" : "，当前仅可查看和导出"}。`);
 }
 
 function createNewProject(title: string): void {
@@ -1357,6 +1454,44 @@ function createNewProject(title: string): void {
   showToast(`已创建「${manifest.title}」。`);
 }
 
+const assetWorkspace = installAssetWorkspace({
+  connection: aiConnection,
+  snapshot: snapshotProject,
+  visibility(hiddenIds) {hiddenBuiltinIds=hiddenIds;renderOutline();},
+  async audio(settings) {
+    if(projectAvailability!=='ready')throw new Error('当前作品只读。');store.commitEditSession();saveDraft();
+    projectFile=applyAudioAssets(snapshotProject(),settings);currentProject={manifest:structuredClone(projectFile.manifest),contentPacks:projectPacks(projectFile)};
+    if(!await persist('调整声音素材'))throw new Error('声音已用于页面中的作品，本机保存失败，请导出作品。');renderAll();
+  },
+  prepare() {
+    if(storyWorkspace&&!storyWorkspace.close())return false;
+    store.commitEditSession(); saveDraft(); closePicker(false);
+    setPanel('outline', false, false); setPanel('inspector', false, false);
+  },
+  async use(pack, characterId, sceneImage) {
+    if (projectAvailability !== 'ready') throw new Error('当前作品只读，请先打开可编辑的作品。');
+    const source=pack.origin?builtinAssetEntries.find(entry=>entry.origin.packId===pack.origin?.packId&&entry.kind===pack.origin.kind&&entry.entityId===pack.origin.entityId):undefined;
+    if(pack.origin&&!source)throw new Error('素材所需的内置主题包未安装。');
+    const baseline=source?await materializeBuiltin(source):undefined;
+    store.commitEditSession(); saveDraft();
+    const added = baseline ? installBuiltinAsset(snapshotProject(),pack,baseline) : installAssetPack(snapshotProject(), pack, neutralStageImage(), characterId);
+    if (sceneImage) added.project.documents = added.project.documents.map(document =>
+      document.documentId === store.document.documentId ? withSceneBackground(document, source ? courtroomDemoPack.backgrounds.find(scene=>scene.id===source.entityId)!.resource : {packId: pack.id, id: sceneImage}) : document);
+    const checked = decodeProjectFile(added.project, PROJECT_FILE_CATALOG);
+    if (!checked.ok || checked.kind !== 'project' || checked.project.embeddedPacks?.some(item => !embeddedCourtroomPack(item)))
+      throw new Error('素材数量或大小超出当前作品限制，请减少图片或合并素材包后重试。');
+    projectFile = checked.project;
+    currentProject = {manifest: structuredClone(projectFile.manifest), contentPacks: projectPacks(projectFile)};
+    activeResolver = resourceResolver(projectFile);
+    if (sceneImage) store.replaceDocument(projectFile.documents.find(document => document.documentId === store.document.documentId)!);
+    if (added.castId) composingAs = added.castId;
+    saveDraft(); renderAll();
+    const saved = await persist('更新角色与场景素材');
+    showToast(saved ? '素材已用于当前作品。返回对话编辑可写作或排练。' : '素材已用于页面中的作品，请导出作品文件。', saved ? 'normal' : 'error');
+    return true;
+  },
+});
+
 undoButton.addEventListener("click", () => {
   store.undo();
   persist();
@@ -1367,11 +1502,52 @@ redoButton.addEventListener("click", () => {
   persist();
   renderAll();
 });
-requireElement<HTMLButtonElement>("#export-button").addEventListener("click", exportProject);
+const projectFiles = installProjectFilesDialog({
+  library:projectLibrary,catalog:PROJECT_FILE_CATALOG,snapshot:snapshotProject,save:persist,activate:(project,documentId)=>activateProject(project,documentId,false),
+  notice:(message,error)=>showToast(message,error?'error':'normal'),
+  legacy:document=>{
+    pendingLegacyDocument=document; projectNameInput.value=document.title || '导入的剧本';
+    projectDialog.showModal(); projectNameInput.focus(); projectNameInput.select();
+    showToast('这是旧版剧本，请确认名称后导入。');
+  },
+});
+requireElement('#files-button').addEventListener('click',projectFiles.open);
+requireElement<HTMLButtonElement>("#export-button").addEventListener("click", ()=>exportProject());
+requireElement('#export-json-button').addEventListener('click',()=>exportProject('json'));
+async function manualSave(): Promise<void> {
+  store.commitEditSession(); saveDraft();
+  const snapshot=snapshotProject();
+  const saved=await persist('手动保存');
+  if (fileWriter.name(snapshot.manifest.projectId)) {
+    try {
+      await fileWriter.save(snapshot);
+      requireElement('#file-save-status').textContent=`文件已保存：${fileWriter.name(snapshot.manifest.projectId)}`;
+      showToast(saved?'作品与文件均已保存。':'文件已保存，本机保存未成功。',saved?'normal':'error');
+    } catch(error) { showToast((error as Error).message,'error'); }
+  } else if (saved) showToast('已保存到本机，并建立恢复点。');
+}
+requireElement('#save-button').addEventListener('click',()=>void manualSave());
+requireElement('#save-file-button').addEventListener('click',async()=>{
+  const button=requireElement<HTMLButtonElement>('#save-file-button'); button.disabled=true;
+  store.commitEditSession(); saveDraft();
+  const snapshot=snapshotProject(), status=requireElement('#file-save-status');
+  try {
+    const result=await fileWriter.save(snapshot,true);
+    if(result==='cancelled') { status.textContent='已取消，未写入文件。'; return; }
+    const saved=await persist('保存文件');
+    status.textContent=(result==='written'?`文件已保存：${fileWriter.name(snapshot.manifest.projectId)}。本次打开期间可用 Ctrl+S 更新此文件。`:'已下载 .yahari 作品文件。')+(saved?'':' 本机保存失败，下载文件仍可用。');
+  }catch(error){status.textContent=(error as Error).message;}
+  finally{button.disabled=false;}
+});
+document.addEventListener('keydown',event=>{
+  if ((event.ctrlKey||event.metaKey) && event.key.toLowerCase()==='s') {
+    event.preventDefault(); if(!blocksCommand(event))void manualSave();
+  }
+});
 requireElement<HTMLButtonElement>("#import-button").addEventListener("click", () => importInput.click());
 importInput.addEventListener("change", async () => {
   const file = importInput.files?.[0];
-  if (file) await importProjectFile(file);
+  if (file) await projectFiles.import(file);
   importInput.value = "";
 });
 requireElement<HTMLButtonElement>("#new-project-button").addEventListener("click", () => {
@@ -1390,11 +1566,6 @@ requireElement<HTMLFormElement>("#project-form").addEventListener("submit", (eve
   createNewProject(projectNameInput.value);
   projectDialog.close();
 });
-requireElement<HTMLButtonElement>("#reset-button").addEventListener("click", () => {
-  localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(LEGACY_STORAGE_KEY);
-  window.location.reload();
-});
 const samplesDialog=requireElement<HTMLDialogElement>('#samples-dialog');
 const sampleList=requireElement<HTMLElement>('#samples-list');
 for(const sample of sampleStories){
@@ -1403,11 +1574,9 @@ for(const sample of sampleStories){
   const count=document.createElement('span');count.textContent=`${sample.chapters} 章 · ${sample.scenes} 场`;
   const description=document.createElement('small');description.textContent=sample.summary;
   card.append(name,count,description);
-  card.addEventListener('click',()=>{
-    store.commitEditSession();persist();
-    try {localStorage.setItem('yahari:before-story-import',JSON.stringify(createProjectFile(currentProject.manifest,documentsWithActiveEdit())));}
-    catch {showToast('无法备份当前作品，请先导出后重试。','error');return;}
-    if(!activateProject(createSampleStory(sample.id,`sample-${crypto.randomUUID()}`)))return;
+  card.addEventListener('click',async()=>{
+    if(!await rememberBeforeStory())return;
+    if(!activateProject(createSampleStory(sample.id,`sample-${crypto.randomUUID()}`),undefined,false))return;
     samplesDialog.close();setPanel('outline',false,false);
     showToast(`已打开「${sample.title}」。可在目录侧边栏恢复之前的作品。`);
   });
@@ -1462,6 +1631,12 @@ document.addEventListener("keydown", (event) => {
 window.addEventListener("pagehide", () => {
   if (persistTimer !== null) persist();
 });
+window.addEventListener('beforeunload',event=>{
+  if (unsavedChanges || pendingSaves || persistTimer!==null) { event.preventDefault(); event.returnValue=''; }
+});
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden' && persistTimer!==null) { store.commitEditSession(); void persist(); }
+});
 
 guardComposition(composeInput);
 guardComposition(pickerSearch);
@@ -1482,74 +1657,79 @@ requireElement('#compose-action').addEventListener('click',openDraftPicker);
 requireElement('#compose-avatar').addEventListener('click',()=>openSpeakerDialog(composingAs,setComposerSpeaker));
 requireElement('#speaker-close').addEventListener('click',()=>requireElement<HTMLDialogElement>('#speaker-dialog').close());
 requireElement('#inspector-close').addEventListener('click',()=>setPanel('inspector',false));
-const openStory = installStoryDialog(demoManifest, next => {
-  store.commitEditSession(); persist();
-  try { localStorage.setItem('yahari:before-story-import',JSON.stringify(createProjectFile(currentProject.manifest,documentsWithActiveEdit()))); }
-  catch { showToast('无法备份当前作品，请先导出后重试。','error'); return false; }
-  const ok=activateProject(next);
+async function rememberBeforeStory(): Promise<boolean> {
+  store.commitEditSession();
+  if(!await persist('打开故事前'))return false;
+  try {
+    if(projectLibrary)await projectLibrary.setSetting('beforeStory',currentProject.manifest.projectId);
+    else localStorage.setItem('yahari:before-story-import',JSON.stringify(snapshotProject()));
+    return true;
+  }catch{showToast('无法备份当前作品，请先导出后重试。','error');return false;}
+}
+const openStory = installStoryDialog(demoManifest, async next => {
+  if(!await rememberBeforeStory())return false;
+  const ok=activateProject(next,undefined,false);
   if(ok)showToast('已导入分层剧本。可在目录切换场景或恢复导入前作品。');
   return ok;
-});
+}, aiConnection);
 requireElement('#story-button').addEventListener('click',openStory);
-requireElement('#restore-story-button').addEventListener('click',()=>{
+requireElement('#restore-story-button').addEventListener('click',async()=>{
   try {
+    if(projectLibrary) {
+      const id=await projectLibrary.getSetting('beforeStory');
+      if(typeof id==='string') {
+        const loaded=await projectLibrary.load(id);
+        if(!loaded)throw new Error();
+        const currentId=currentProject.manifest.projectId;
+        if(!await persist('恢复故事前'))return;
+        if(activateProject(loaded.project,loaded.activeDocumentId,false)) {
+          await projectLibrary.setSetting('beforeStory',currentId);
+          showToast('已恢复；再次点击可切回。');
+        }
+        return;
+      }
+    }
     const raw=localStorage.getItem('yahari:before-story-import');
     if(!raw){showToast('没有可恢复的导入前作品。');return;}
     const decoded=decodeProjectFile(JSON.parse(raw),PROJECT_FILE_CATALOG);
     if(!decoded.ok||decoded.kind!=='project')throw new Error();
-    store.commitEditSession();persist();
-    const current=JSON.stringify(createProjectFile(currentProject.manifest,documentsWithActiveEdit()));
+    store.commitEditSession();await persist();
+    const current=JSON.stringify(snapshotProject());
     if(activateProject(decoded.project)){localStorage.setItem('yahari:before-story-import',current);showToast('已恢复；再次点击可切回。');}
   }catch{showToast('备份恢复失败，请使用已导出的项目文件。','error');}
 });
-const structureDialog=requireElement<HTMLDialogElement>('#structure-dialog');
-requireElement('#structure-button').addEventListener('click',()=>{
-  const doc=store.document;const chapter=currentProject.manifest.narrative?.chapters.find(c=>c.documentIds.includes(doc.documentId));
-  requireElement<HTMLInputElement>('#structure-project-title').value=currentProject.manifest.title;
-  requireElement<HTMLTextAreaElement>('#structure-project-summary').value=currentProject.manifest.narrative?.summary??'';
-  requireElement<HTMLInputElement>('#structure-scene-title').value=doc.title;
-  requireElement<HTMLTextAreaElement>('#structure-scene-summary').value=doc.summary??'';
-  requireElement<HTMLInputElement>('#structure-chapter-title').value=chapter?.title??'第一章';
-  requireElement<HTMLTextAreaElement>('#structure-chapter-summary').value=chapter?.summary??'';
-  structureDialog.showModal();
+storyWorkspace=installStoryWorkspace({
+  snapshot:snapshotProject,activeDocumentId:()=>store.document.documentId,editable:()=>projectAvailability==='ready',
+  thumbnail(id){const doc=documentsWithActiveEdit().find(d=>d.documentId===id),ref=doc?sceneBackgroundRef(doc):undefined;return ref?activeResolver.resolve(ref)?.url:undefined;},
+  backgrounds:()=>currentProject.contentPacks.flatMap(pack=>pack.backgrounds).map(item=>({id:item.id,label:item.label})),background:sceneBackgroundId,
+  withBackground(document,id){const background=currentProject.contentPacks.flatMap(pack=>pack.backgrounds).find(item=>item.id===id);return background?withSceneBackground(document,background.resource):document;},
+  prepare(){if(!assetWorkspace.close())return false;store.commitEditSession();saveDraft();closePicker(false);setPanel('inspector',false,false);return true;},
+  apply(next,checkpoint=true){store.commitEditSession();saveDraft();return activateProject(next,store.document.documentId,false,checkpoint?'编辑作品结构与分支':undefined);},save:manualSave,
+  edit(documentId,blockId){if(!storyWorkspace!.close())return;assetWorkspace.close();switchScene(documentId);if(blockId){selectedBlockId=blockId;focusBlock(blockId);}history.replaceState(null,'',location.pathname+location.search);},
+  play(){
+    const reader=window.open('about:blank','_blank');
+    void persist().then(saved=>{if(!saved){reader?.close();return;}const url=`../player/#work=${encodeURIComponent(currentProject.manifest.projectId)}`;if(reader)reader.location.href=url;else showToast('浏览器阻止了新窗口，请允许打开游玩页面。','error');});
+  },
+  exportPlayer:()=>downloadStandalonePlayer(snapshotProject()),notice:(message,error)=>showToast(message,error?'error':'normal'),
 });
-requireElement('#structure-close').addEventListener('click',()=>structureDialog.close());
-requireElement('#structure-form').addEventListener('submit',event=>{
-  event.preventDefault();if(projectAvailability!=='ready')return;
-  store.commitEditSession();persist();
-  const doc=store.document;
-  doc.title=requireElement<HTMLInputElement>('#structure-scene-title').value.trim()||doc.title;
-  doc.summary=requireElement<HTMLTextAreaElement>('#structure-scene-summary').value.trim();
-  const m=currentProject.manifest;m.title=requireElement<HTMLInputElement>('#structure-project-title').value.trim()||m.title;
-  m.narrative??={summary:'',chapters:[]};m.narrative.summary=requireElement<HTMLTextAreaElement>('#structure-project-summary').value.trim();
-  const title=requireElement<HTMLInputElement>('#structure-chapter-title').value.trim()||'第一章';
-  let chapter=m.narrative.chapters.find(c=>c.title===title);
-  if(!chapter){chapter={id:crypto.randomUUID(),title,summary:'',documentIds:[]};m.narrative.chapters.push(chapter);}
-  for(const c of m.narrative.chapters)if(c!==chapter)c.documentIds=c.documentIds.filter(id=>id!==doc.documentId);
-  if(!chapter.documentIds.includes(doc.documentId))chapter.documentIds.push(doc.documentId);chapter.summary=requireElement<HTMLTextAreaElement>('#structure-chapter-summary').value.trim();
-  m.narrative.chapters=m.narrative.chapters.filter(c=>c.documentIds.length);
-  store.loadDocument(doc);persist();renderAll();structureDialog.close();
-});
-requireElement('#new-scene-button').addEventListener('click',()=>{
-  if(projectAvailability!=='ready')return;
-  store.commitEditSession();saveDraft();persist();
-  const previousId=store.document.documentId;const id=`scene-${crypto.randomUUID()}`;
-  const inherited=sceneBackgroundRef(store.document)??courtroomDemoPack.backgrounds[0].resource;
-  const doc:ScriptDocument=withSceneBackground({schemaVersion:'0.7',documentId:id,title:`新场景 ${projectFile.documents.length+1}`,summary:'',blocks:[]},inherited);
-  projectFile.documents.push(doc);currentProject.manifest.documents.push({id,path:`${id}.yahari.json`});
-  const chapter=currentProject.manifest.narrative?.chapters.find(c=>c.documentIds.includes(previousId));chapter?.documentIds.push(id);
-  switchScene(id);requireElement<HTMLButtonElement>('#structure-button').click();
-});
+requireElement('#writing-workspace-button').addEventListener('click',event=>{if(!storyWorkspace!.close()){event.preventDefault();event.stopImmediatePropagation();return;}history.replaceState(null,'',location.pathname+location.search);},true);
+requireElement('#branch-sample-button').addEventListener('click',async()=>{if(!await rememberBeforeStory())return;if(activateProject(createBranchSample(`branch-${crypto.randomUUID()}`),undefined,false))storyWorkspace!.open();});
+if(location.hash==='#story')queueMicrotask(()=>storyWorkspace!.open());
 updateProjectChrome();
 renderAll();
+if(startupStorageMessage) { saveStatus.textContent='作品库读取异常'; showToast(startupStorageMessage,'error'); }
 
+let rehearsalAudioEnabled=true;
+try{rehearsalAudioEnabled=localStorage.getItem('yahari:rehearsal-audio')!=='false';}catch{/* Rehearsal works without local storage. */}
 function startRehearsal(blockId?:string):void {
+  actionAudition?.dispose();actionAudition=null;
   if (diagnostics().some(item => item.severity === "error")) { setPanel('inspector', true); inspectorTab="diagnostics";activateInspectorTab();renderInspector();showToast("请先修复检查中的错误，再开始排练。", "error"); return; }
   store.commitEditSession();persist();
   const lines=store.document.blocks.filter(block=>block.type==='dialogue');
   const startPage=Math.max(0,lines.findIndex(block=>block.id===blockId));
-  openPreview(courtroomAdapter.compile(store.document,currentProject),castName,currentProject,courtroomDemoResolver,{
-    startPage,
+  openPreview(courtroomAdapter.compile(store.document,currentProject),castName,currentProject,activeResolver,{
+    startPage,audioEnabled:rehearsalAudioEnabled,
+    onAudioChange(enabled){rehearsalAudioEnabled=enabled;try{localStorage.setItem('yahari:rehearsal-audio',String(enabled));}catch{/* Session preference still applies. */}},
     onPage(page){const line=lines[page];if(line){selectedBlockId=line.id;renderEditorSelection();}},
     onEdit(page){const line=lines[page];if(line){selectedBlockId=line.id;focusBlock(line.id);}},
   });
@@ -1557,7 +1737,6 @@ function startRehearsal(blockId?:string):void {
 requireElement<HTMLButtonElement>("#preview-button").addEventListener("click",()=>startRehearsal());
 
 requireElement('#navigator-button').addEventListener('click', () => { renderOutline(); setPanel('outline', true); });
-requireElement('#outline-close').addEventListener('click', () => setPanel('outline', false));
 requireElement('#diagnostics-button').addEventListener('click', () => {
   inspectorTab = 'diagnostics'; activateInspectorTab(); renderInspector(); setPanel('inspector', true);
 });

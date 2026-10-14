@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "build": "npm run generate && node scripts/clean.mjs && tsc -p tsconfig.json",
-    "test": "npm run build && node --test dist/tests/*.test.js",
+    "test": "npm run build && node --test dist/tests/*.test.js tests/*.test.mjs",
     "demo": "npm run build && node dist/examples/courtroom-demo-project/run.js",
     "typecheck": "npm run generate && tsc -p tsconfig.json --noEmit",
     "serve": "node scripts/serve.mjs",
-    "smoke": "npm run build && node scripts/static-smoke.mjs && node --check dist/apps/editor/src/main.js && node scripts/check-content-assets.mjs",
+    "smoke": "npm run build && node scripts/static-smoke.mjs && node --check dist/apps/editor/src/main.js && node scripts/check-content-assets.mjs && node scripts/check-voice-assets.mjs && node scripts/check-openrouter-examples.mjs && node scripts/check-branch-example.mjs",
     "check": "npm test && npm run smoke",
     "generate": "node scripts/generate-content-packs.mjs"
   },

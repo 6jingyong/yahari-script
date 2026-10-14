@@ -1,0 +1,301 @@
+{
+  "fileFormat": "yahari-project",
+  "fileVersion": "0.7",
+  "manifest": {
+    "schemaVersion": "0.6",
+    "projectId": "openrouter-last-train",
+    "title": "未知之信",
+    "adapter": {
+      "id": "official.courtroom",
+      "version": "0.1.0"
+    },
+    "contentPacks": [
+      {
+        "id": "official.courtroom-demo",
+        "version": "0.4.0"
+      }
+    ],
+    "entryDocumentId": "openrouter-last-train-c1-s1",
+    "documents": [
+      {
+        "id": "openrouter-last-train-c1-s1",
+        "path": "openrouter-last-train-c1-s1.yahari.json"
+      },
+      {
+        "id": "openrouter-last-train-c2-s1",
+        "path": "openrouter-last-train-c2-s1.yahari.json"
+      }
+    ],
+    "cast": [
+      {
+        "castId": "a",
+        "displayName": "林舟",
+        "characterRef": {
+          "packId": "official.courtroom-demo",
+          "id": "phoenix"
+        }
+      },
+      {
+        "castId": "b",
+        "displayName": "顾宁",
+        "characterRef": {
+          "packId": "official.courtroom-demo",
+          "id": "maya"
+        }
+      }
+    ],
+    "narrative": {
+      "summary": "末班车过后，林舟和顾宁发现一张写着明日期的信，起初他们以为有人能预见未来，随后调查发现这是一场浪漫的周年纪念惊喜。",
+      "chapters": [
+        {
+          "id": "openrouter-last-train-chapter-1",
+          "title": "深夜车站",
+          "summary": "信的出现让两人感到诡异，猜测其来源。",
+          "documentIds": [
+            "openrouter-last-train-c1-s1"
+          ]
+        },
+        {
+          "id": "openrouter-last-train-chapter-2",
+          "title": "真相大白",
+          "summary": "调查中发现信来自女友的提前寄送，正是纪念日礼物。",
+          "documentIds": [
+            "openrouter-last-train-c2-s1"
+          ]
+        }
+      ]
+    }
+  },
+  "documents": [
+    {
+      "schemaVersion": "0.7",
+      "documentId": "openrouter-last-train-c1-s1",
+      "title": "站台的意外",
+      "summary": "两人独自走在寂静的站台上，捡到一封信。",
+      "blocks": [
+        {
+          "id": "openrouter-last-train-c1-s1-start",
+          "type": "cue",
+          "cue": {
+            "id": "openrouter-last-train-c1-s1-bg",
+            "type": "courtroom.background",
+            "params": {
+              "resource": {
+                "packId": "official.courtroom-demo",
+                "id": "background/night-corridor"
+              }
+            }
+          }
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-0",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "昨晚的梦真奇妙，好像预言了什么。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-1",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "什么梦？"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-2",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "信封上写着‘2025‑07‑23’，明天的日期。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-3",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "不可能吧？车站都没关人怎么可能有信？"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-4",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "对啊，这像是在暗示什么，能不能查查是谁寄的？"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-5",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "我去问问值班员。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c1-s1-6",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "顺便看看有没有其他类似的信。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": "0.7",
+      "documentId": "openrouter-last-train-c2-s1",
+      "title": "岁月的惊喜",
+      "summary": "两人找到寄件人，原来是未见面的男友提前邮寄的周年礼物。",
+      "blocks": [
+        {
+          "id": "openrouter-last-train-c2-s1-start",
+          "type": "cue",
+          "cue": {
+            "id": "openrouter-last-train-c2-s1-bg",
+            "type": "courtroom.background",
+            "params": {
+              "resource": {
+                "packId": "official.courtroom-demo",
+                "id": "background/lake-dock"
+              }
+            }
+          }
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-0",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "值班员说信是今天早上邮寄的，寄件人是‘S’。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-1",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "S？不会吧，难道……"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-2",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "我翻了柜台后面的信件箱，发现一张贺卡，上面写着‘一周年快乐，我们提前送达。’"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-3",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "对！卡片上还有他签名的首字母‘S’和日期。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-4",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "这么说，别人真的不能预见未来，这只是单纯的惊喜而已。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-5",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "原来如此，这里的每个人都期待已久的纪念日，竟然变成了地铁站的一场小意外。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-last-train-c2-s1-6",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "至少我们今晚少了疑虑，多了一份甜蜜。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "generator": "OpenRouter free model sample",
+    "exportedAt": "2026-10-12T13:53:45.933Z"
+  }
+}

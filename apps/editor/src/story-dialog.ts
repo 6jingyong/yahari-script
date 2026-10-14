@@ -1,28 +1,29 @@
-import { generatedManifest, outlinePrompt, validateDetectedOutline, validateOutline, type StoryOutline } from '../../../packages/story-ai/src/outline.js';
+import { generatedManifest, outlinePrompt, validateDetectedOutline, validateOutline, storyBindingSignature, hasConfirmedStoryBindings, type StoryOutline } from '../../../packages/story-ai/src/outline.js';
 import { requestJson, type ModelConfig } from '../../../packages/story-ai/src/model.js';
 import { planPrompt, reviewPrompt, sceneContext, validateSceneCast, validateSemanticReview, validateStoryPlan, type AdaptationMode, type SemanticFinding, type StoryPlan } from '../../../packages/story-ai/src/plan.js';
 import { createProjectFile, type ScriptDocument, type YahariProjectFile, type ProjectManifest } from '../../../packages/core/src/index.js';
 import { courtroomDemoPack as pack } from '../../../content-packs/courtroom-demo/pack.js';
 import { buildCourtroomScene, courtroomAdapter, courtroomScenePrompt } from '../../../packages/adapters/courtroom/src/index.js';
+import type { AiConnectionSettings } from './ai-connection.js';
 
-const DRAFT_KEY='yahari:story-draft:v3';
-const OLD_DRAFT_KEYS=['yahari:story-draft:v2','yahari:story-draft:v1'];
+const DRAFT_KEY='yahari:story-draft:v4';
+const OLD_DRAFT_KEYS=['yahari:story-draft:v3','yahari:story-draft:v2','yahari:story-draft:v1'];
 type ReviewState={findings:SemanticFinding[]|null;error?:string};
 
-export function installStoryDialog(base:ProjectManifest,apply:(project:YahariProjectFile)=>boolean):()=>void {
+export function installStoryDialog(base:ProjectManifest,apply:(project:YahariProjectFile)=>boolean|Promise<boolean>,connection:AiConnectionSettings):()=>void {
   const dialog=document.createElement('dialog');
   dialog.className='project-dialog story-dialog';
   dialog.setAttribute('aria-label','故事转剧本');
   dialog.innerHTML=`<div class="story-body">
     <div class="story-heading"><h2>故事转剧本</h2><button type="button" id="story-close" class="small-button">返回写作</button></div>
-    <p>先识别人物和目录大纲。请逐一将故事人物绑定到演出形象，再建立场景契约并生成台词。</p>
+    <p>先识别故事人物，再由你逐个选择内置人物作为演出形象。台词保留故事中的姓名；内置人物提供形象和动作。全部确认后才会生成剧本。</p>
     <details class="model-settings" open><summary>连接模型</summary><div class="story-grid">
       <label>模型来源<select id="story-provider" data-lock><option value="router">OpenRouter API</option><option value="chatgpt">ChatGPT 账户额度</option></select></label>
-      <label>模型 ID<input id="story-model" data-lock placeholder="填写 OpenRouter 模型 ID" autocomplete="off"></label>
-      <label class="wide" id="story-key-row">OpenRouter API Key<input id="story-key" data-lock type="password" autocomplete="off" placeholder="仅本次页面会话使用"></label>
+      <label>模型 ID<input id="story-model" data-lock list="story-model-options" placeholder="搜索或填写 OpenRouter 模型 ID" autocomplete="off"><datalist id="story-model-options"></datalist></label>
+      <div class="wide ai-connection-row" id="story-key-row"><button id="story-connect" data-lock type="button" class="small-button">AI 连接设置</button><button id="story-refresh-models" data-lock type="button" class="small-button">刷新模型</button><span id="story-model-status" role="status">选择模型后生成。</span></div>
     </div><label class="story-check"><input id="story-json" data-lock type="checkbox" checked> 请求 JSON 模式（模型不支持时可关闭）</label>
-    <p class="project-note" id="story-provider-note">OpenRouter 模式直接使用你的 OpenRouter API；密钥只留在页面内存，不保存到草稿或作品。</p>
-    <button id="story-test" data-lock class="small-button">测试当前通道（一次简短请求）</button><button id="story-clear-key" data-lock class="small-button">清除 OpenRouter Key</button></details>
+    <p class="project-note" id="story-provider-note">OpenRouter 连接保存在 AI 设置中，不进入作品或生成草稿。</p>
+    <button id="story-test" data-lock class="small-button">测试当前通道（一次简短请求）</button></details>
     <label>改编方式<select id="story-mode" data-lock><option value="faithful">忠实改编：不新增关键事实</option><option value="expand">允许扩写：标记新增事实</option><option value="original">原创续写：可补充设定</option></select></label>
     <label class="field-label" for="story-input">故事原文</label><textarea id="story-input" data-lock rows="7" maxlength="60000" placeholder="粘贴故事、梗概或事件经过…"></textarea>
     <div class="story-actions"><button id="story-outline" data-lock class="create-button">1. 识别人物与生成大纲</button><button id="story-cancel" class="secondary-button" disabled>取消请求</button></div>
@@ -40,12 +41,13 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
   const el=<T extends HTMLElement>(id:string)=>dialog.querySelector<T>('#'+id)!;
   let outline:StoryOutline|null=null,plan:StoryPlan|null=null,docs:ScriptDocument[]=[],reviews:ReviewState[]=[];
   let source='',prefix='',mode:AdaptationMode='faithful',controller:AbortController|null=null,bindingsConfirmed=false;
+  let bindingSelection='';
   const total=()=>outline?.chapters.reduce((n,c)=>n+c.scenes.length,0)??0;
   const complete=()=>!!outline&&!!plan&&docs.length===total();
   const status=(message:string)=>{el('story-status').textContent=message;};
   const errorText=(e:unknown)=>e instanceof Error?e.message:'生成失败。';
   function save(){
-    try{localStorage.setItem(DRAFT_KEY,JSON.stringify({outline,plan,docs,reviews,source,prefix,mode,bindingsConfirmed,input:el<HTMLTextAreaElement>('story-input').value}));}
+    try{localStorage.setItem(DRAFT_KEY,JSON.stringify({outline,plan,docs,reviews,source,prefix,mode,bindingsConfirmed,bindingSelection,input:el<HTMLTextAreaElement>('story-input').value}));}
     catch{status('本机空间不足，生成草稿未保存，请及时导入并导出。');}
   }
   function config():ModelConfig {
@@ -53,17 +55,16 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     if(provider==='chatgpt') return {provider:'chatgpt-account',model:el<HTMLInputElement>('story-model').value,
       jsonMode:el<HTMLInputElement>('story-json').checked,accountEndpoint:'/api/chatgpt/responses'};
     return {provider:'openrouter',baseUrl:'https://openrouter.ai/api/v1',model:el<HTMLInputElement>('story-model').value,
-      apiKey:el<HTMLInputElement>('story-key').value,jsonMode:el<HTMLInputElement>('story-json').checked};
+      apiKey:connection.key(),jsonMode:el<HTMLInputElement>('story-json').checked};
   }
   function syncProvider(){
     const chatgpt=el<HTMLSelectElement>('story-provider').value==='chatgpt';
-    el('story-key-row').hidden=chatgpt;
-    el<HTMLButtonElement>('story-clear-key').hidden=chatgpt;
+    el('story-key-row').hidden=false;
     const model=el<HTMLInputElement>('story-model');
-    model.placeholder=chatgpt?'可留空，由账户通道选择默认模型':'填写 OpenRouter 模型 ID';
+    model.placeholder=chatgpt?'选择当前 ChatGPT 账号可用的模型':'填写 OpenRouter 模型 ID';
     el('story-provider-note').textContent=chatgpt
-      ?'ChatGPT 账户额度模式不使用 OpenAI API Key。当前前端会调用同源账户推理桥；若部署环境尚未提供该能力，会明确提示并可切回 OpenRouter。'
-      :'OpenRouter 模式直接使用你的 OpenRouter API；密钥只留在页面内存，不保存到草稿或作品。';
+      ?'先在 AI 连接设置中登录并授权 ChatGPT，选择账号模型后生成。此功能仅在本地版提供，使用你的 ChatGPT 订阅额度。'
+      :'OpenRouter 连接保存在 AI 设置中，不进入作品或生成草稿。';
   }
   function busy(on:boolean){
     dialog.querySelectorAll<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement|HTMLButtonElement>('[data-lock]').forEach(node=>node.disabled=on);
@@ -73,7 +74,7 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     el<HTMLButtonElement>('story-review-pending').disabled=on||!plan||!docs.length||!bindingsConfirmed;
     el<HTMLButtonElement>('story-apply').disabled=on||!complete()||!bindingsConfirmed;
     el('story-fields').querySelectorAll<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>('input,textarea,select').forEach(node=>node.disabled=on);
-    const bind=dialog.querySelector<HTMLButtonElement>('#story-bind');if(bind)bind.disabled=on||!outline||bindingsConfirmed;
+    const bind=dialog.querySelector<HTMLButtonElement>('#story-bind');if(bind)bind.disabled=on||!outline||outline.cast.some(c=>!c.characterId)||bindingsConfirmed;
   }
   function resultView(){
     const target=el('story-results');target.replaceChildren();
@@ -104,6 +105,7 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     busy(!!controller);
   }
   function invalidateAll(){
+    if(outline&&!hasConfirmedStoryBindings(outline,bindingSelection))bindingsConfirmed=false;
     plan=null;docs=[];reviews=[];
     el('story-fields').querySelectorAll('.plan-details').forEach(node=>node.remove());
     status('目录大纲已修改；请重建事实与场景契约。');save();resultView();
@@ -128,22 +130,31 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     field(target,'作品摘要',o.summary,v=>{o.summary=v;invalidateAll()},true);
     const cast=document.createElement('details'),cs=document.createElement('summary');
     cs.textContent='2. 确认人物绑定 · '+o.cast.length+' 人'+(bindingsConfirmed?'（已确认）':'（待确认）');cast.append(cs);cast.open=!bindingsConfirmed;
+    const bindingNote=document.createElement('p');bindingNote.className='project-note';bindingNote.textContent='左侧是故事姓名，右侧选择内置人物。不会按名字自动匹配，也不会把故事人物改名为内置人物。';cast.append(bindingNote);
     for(const c of o.cast){
-      const row=document.createElement('div');row.className='story-grid';
-      field(row,'故事人物',c.name,v=>{c.name=v;invalidateAll()});
-      const label=document.createElement('label');label.textContent='演出形象';
+      const row=document.createElement('div');row.className='story-grid story-binding-row';
+      field(row,'故事人物',c.name,v=>{c.name=v;mapping.textContent=`${c.name} → ${actor?.name??'尚未选择'}`;select.setAttribute('aria-label',`为${c.name}选择内置人物`);invalidateAll()});
+      const label=document.createElement('label');label.textContent='选择内置人物';
       const select=document.createElement('select');
-      select.add(new Option('请选择演出形象',''));
+      select.setAttribute('aria-label',`为${c.name}选择内置人物`);select.add(new Option('请逐一选择内置人物',''));
       for(const actor of pack.characters)select.add(new Option(actor.name,actor.id));
       select.value=c.characterId;select.onchange=()=>{c.characterId=select.value;bindingsConfirmed=false;invalidateAll();renderOutline()};
       label.append(select);row.append(label);cast.append(row);
+      const preview=document.createElement('div');preview.className='story-binding-preview';
+      const actor=pack.characters.find(actor=>actor.id===c.characterId);
+      if(actor){const portrait=document.createElement('span'),index=pack.characters.indexOf(actor);portrait.className='portrait-thumbnail is-ready';portrait.setAttribute('aria-hidden','true');portrait.style.backgroundSize=`${pack.characters.length*100}% 800%`;portrait.style.backgroundPosition=`${index*100/(pack.characters.length-1)}% 0%`;preview.append(portrait);}
+      const mapping=document.createElement('span');mapping.textContent=`${c.name} → ${actor?.name??'尚未选择'}`;preview.append(mapping);
+      const reused=o.cast.filter(other=>other.id!==c.id&&c.characterId&&other.characterId===c.characterId);
+      if(reused.length){const note=document.createElement('small');note.textContent=`与${reused.map(other=>other.name).join('、')}共用同一形象`;preview.append(note);}
+      row.append(preview);
     }
     const bind=document.createElement('button');bind.id='story-bind';bind.type='button';bind.className='create-button';bind.textContent='确认人物绑定并建立契约';
+    bind.disabled=o.cast.some(c=>!c.characterId)||bindingsConfirmed;
     bind.onclick=()=>void run(async()=>{
       if(!outline)return;
       if(outline.cast.some(c=>!c.characterId))throw new Error('请先为每位故事人物选择演出形象。');
       outline=validateOutline(outline,pack);
-      bindingsConfirmed=true;save();await makePlan();
+      bindingsConfirmed=true;bindingSelection=storyBindingSignature(outline);save();await makePlan();
     });
     cast.append(bind);
     target.append(cast);
@@ -292,19 +303,48 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
       if(!reviews[index]||reviews[index].findings===null)await reviewAt(index);
     }
   });
-  el('story-apply').onclick=()=>{
+  el('story-apply').onclick=async()=>{
     if(!outline||!plan||!complete()||!bindingsConfirmed||controller)return;
     try{
       if(el<HTMLTextAreaElement>('story-input').value.trim()!==source)throw new Error('故事已修改，请重新生成大纲。');
       validateOutline(outline,pack);validateStoryPlan(plan,outline,source,mode);
-      if(apply(createProjectFile(generatedManifest(base,outline,docs,prefix),docs)))dialog.close();
+      busy(true);el<HTMLButtonElement>('story-cancel').disabled=true;
+      if(await apply(createProjectFile(generatedManifest(base,outline,docs,prefix),docs)))dialog.close();
     }catch(e){status(errorText(e))}
+    finally{busy(false)}
   };
   el('story-cancel').onclick=()=>controller?.abort();
   el('story-close').onclick=()=>{controller?.abort();save();dialog.close()};
   dialog.addEventListener('cancel',()=>{controller?.abort();save()});
-  el('story-clear-key').onclick=()=>{el<HTMLInputElement>('story-key').value='';status('OpenRouter Key 已清除。')};
-  el('story-provider').onchange=()=>{syncProvider();};
+  el('story-connect').onclick=()=>connection.open();
+  function refreshModels(force=false) {
+    if(el<HTMLSelectElement>('story-provider').value==='chatgpt') return connection.account.refreshOptions(el<HTMLDataListElement>('story-model-options'),el('story-model-status'));
+    return connection.refreshOptions('text',el<HTMLDataListElement>('story-model-options'),el('story-model-status'),force);
+  }
+  el('story-refresh-models').onclick=()=>void refreshModels(true);
+  el('story-model').addEventListener('change',()=>{
+    if(el<HTMLSelectElement>('story-provider').value==='router')connection.setModel('text',el<HTMLInputElement>('story-model').value);
+  });
+  el('story-provider').onchange=()=>{
+    syncProvider();
+    if(el<HTMLSelectElement>('story-provider').value==='router') {
+      el<HTMLInputElement>('story-model').value=connection.model('text');
+      void connection.refreshOptions('text',el<HTMLDataListElement>('story-model-options'),el('story-model-status'));
+    } else {
+      el<HTMLInputElement>('story-model').value=connection.account.model();
+      el<HTMLDataListElement>('story-model-options').replaceChildren();
+      void refreshModels();
+    }
+  };
+  window.addEventListener('yahari:chatgpt-connection-updated',()=>{
+    if(el<HTMLSelectElement>('story-provider').value==='chatgpt'&&!controller) el<HTMLInputElement>('story-model').value=connection.account.model();
+  });
+  window.addEventListener('yahari:ai-connection-updated',()=>{
+    if(el<HTMLSelectElement>('story-provider').value==='router') {
+      el<HTMLInputElement>('story-model').value=connection.model('text');
+      if(dialog.open)void connection.refreshOptions('text',el<HTMLDataListElement>('story-model-options'),el('story-model-status'));
+    }
+  });
   el('story-mode').addEventListener('change',()=>{
     mode=el<HTMLSelectElement>('story-mode').value as AdaptationMode;
     if(outline)invalidateAll();else save();
@@ -317,7 +357,8 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
     el<HTMLSelectElement>('story-mode').value=mode;
     if(raw?.outline){
       outline=validateOutline(raw.outline,pack,true);
-      bindingsConfirmed=raw.bindingsConfirmed===true;
+      bindingSelection=typeof raw.bindingSelection==='string'?raw.bindingSelection:'';
+      bindingsConfirmed=raw.bindingsConfirmed===true&&hasConfirmedStoryBindings(outline,bindingSelection);
       source=typeof raw.source==='string'?raw.source:'';
       prefix=typeof raw.prefix==='string'?raw.prefix:'story-'+crypto.randomUUID();
       if(raw.plan)plan=validateStoryPlan(raw.plan,outline,source,mode);
@@ -349,5 +390,14 @@ export function installStoryDialog(base:ProjectManifest,apply:(project:YahariPro
   }catch{outline=null;plan=null;docs=[];reviews=[];status('旧生成草稿无法完整恢复；原始存储未删除，可重新生成。')}
   syncProvider();
   busy(false);
-  return ()=>dialog.showModal();
+  return ()=>{
+    if(el<HTMLSelectElement>('story-provider').value==='router') {
+      el<HTMLInputElement>('story-model').value=connection.model('text');
+      void connection.refreshOptions('text',el<HTMLDataListElement>('story-model-options'),el('story-model-status'));
+    } else {
+      el<HTMLInputElement>('story-model').value=connection.account.model();
+      void refreshModels();
+    }
+    dialog.showModal();
+  };
 }

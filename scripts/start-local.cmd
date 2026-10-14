@@ -24,8 +24,8 @@ call npm run build
 if errorlevel 1 goto failed
 
 set "PORT=4173"
-echo Starting Yahari Script. Close this window to stop the local server.
-node scripts\serve.mjs --open
+echo Starting Yahari Script. Reopening it will replace this server automatically.
+node scripts\serve.mjs --open --replace
 if errorlevel 1 goto failed
 popd
 exit /b %errorlevel%

@@ -2,6 +2,7 @@ import { createProjectFile, type ProjectManifest, type ScriptDocument, type Type
 import { generatedManifest, type StoryOutline } from "../../packages/story-ai/src/outline.js";
 import { buildCourtroomScene } from "../../packages/adapters/courtroom/src/story-generation.js";
 import { courtroomDemoPack } from "../../content-packs/courtroom-demo/pack.js";
+import { demoCastDisplayName } from "../../content-packs/courtroom-demo/cast.js";
 import { demoManifest } from "./fixture.js";
 
 type Line = {
@@ -291,7 +292,7 @@ export function normalizeSampleCast(manifest:ProjectManifest):ProjectManifest {
   for(const cast of next.cast){
     if(cast.characterRef.packId!==courtroomDemoPack.id)continue;
     const actor=courtroomDemoPack.characters.find(person=>person.id===cast.characterRef.id);
-    if(actor)cast.displayName=actor.name;
+    if(actor)cast.displayName=demoCastDisplayName(cast, actor.name);
   }
   return next;
 }
@@ -299,7 +300,8 @@ export function normalizeSampleCast(manifest:ProjectManifest):ProjectManifest {
 export function createSampleStory(id:string,prefix:string):YahariProjectFile {
   if(id!==story.id)throw new Error(`Unknown sample story: ${id}`);
   const outline:StoryOutline={
-    title:story.title,summary:story.summary,cast:story.cast,
+    title:story.title,summary:story.summary,cast:story.cast.map(cast=>({...cast,
+      name:courtroomDemoPack.characters.find(actor=>actor.id===cast.characterId)?.name??cast.name})),
     chapters:story.chapters.map(chapter=>({
       title:chapter.title,summary:chapter.summary,
       scenes:chapter.scenes.map(({title,summary,background})=>({title,summary,background})),

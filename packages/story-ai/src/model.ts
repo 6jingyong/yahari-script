@@ -57,7 +57,7 @@ export async function requestJson(
     let response: Response;
     try {
       response=await fetcher(endpoint,{
-        method:'POST',redirect:'error',signal,headers:{'Content-Type':'application/json'},
+        method:'POST',redirect:'error',signal,headers:{'Content-Type':'application/json','X-Yahari-Account':'1'},
         body:JSON.stringify({model:config.model.trim()||null,system,user,jsonMode:config.jsonMode}),
       });
     } catch {
@@ -66,7 +66,12 @@ export async function requestJson(
     }
     cancelled(signal);
     if(response.status===404 || response.status===501) throw new Error('当前部署未提供 ChatGPT 账户额度推理桥。请改用 OpenRouter；账户额度模式会在受支持的站点运行时接入后启用。');
-    if(!response.ok) throw new Error(`ChatGPT 账户通道返回 HTTP ${response.status}。请检查登录状态或账户额度。`);
+    if(!response.ok) {
+      let detail='';
+      try { const data=await response.json(); if(typeof data.error==='string')detail=data.error.slice(0,400); } catch { /* Preserve the HTTP fallback. */ }
+      cancelled(signal);
+      throw new Error(detail||`ChatGPT 账户通道返回 HTTP ${response.status}。请检查登录状态或账户额度。`);
+    }
     const payload=await readPayload(response,signal);
     if(payload&&typeof payload==='object'&&!Array.isArray(payload)&&'output' in payload) return (payload as {output:unknown}).output;
     const text=chatCompletionText(payload);

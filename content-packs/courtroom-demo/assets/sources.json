@@ -7,24 +7,11 @@
     "sourceAtlases": "content-packs/courtroom-demo/art-source/",
     "recipe": "scripts/build-chibi-art.py",
     "mapping": "scripts/map-chibi-art.py",
-    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas."
+    "note": "Characters with dedicated transparent 4x2 action atlases expose distinct poses. Their dialogue portraits remain separate neutral images so avatar rendering never exposes the whole atlas.",
+    "halfbodyRevision": "2026-10-13",
+    "promptSet": "../art-source/halfbody-20261013.json"
   },
   "assets": [
-    {
-      "file": "action-thumbnails.webp",
-      "source": "derived:action-thumbnails.png",
-      "sha256": "a5145dabe10cc85a6d5e700080eb70ecd15f3cd1a7bed3308319acc8107a9abd"
-    },
-    {
-      "file": "chibi-adrian-actions.webp",
-      "source": "derived:chibi-adrian-actions.png",
-      "sha256": "025f55d13395ee0417122e9dc1ffa4285bd2851311782fc984e60993b0c87c3a"
-    },
-    {
-      "file": "chibi-adrian-neutral.webp",
-      "source": "derived:chibi-adrian-neutral.png",
-      "sha256": "10cba3d46ce90a8bdfe09079bd89456d073dc944c42230f537f5bb65fdf8f37f"
-    },
     {
       "file": "chibi-apartment-stairwell.webp",
       "source": "derived:chibi-apartment-stairwell.jpg",
@@ -34,31 +21,6 @@
       "file": "chibi-apartment.webp",
       "source": "derived:chibi-apartment.jpg",
       "sha256": "5c5ed0ac6b071bc67b8eaf9fce52842697b2983c7e6e4c70c03471dffaaff3e6"
-    },
-    {
-      "file": "chibi-apollo-actions.webp",
-      "source": "derived:chibi-apollo-actions.png",
-      "sha256": "57b94bf5a2adf224cc5f5f97545e29eb3491cd619d4459528920551db5a94cc1"
-    },
-    {
-      "file": "chibi-athena-actions.webp",
-      "source": "derived:chibi-athena-actions.png",
-      "sha256": "ef31f0aac4c583517020c23483cdfeb632508bd4fd989a4763bebf9ab9dcc737"
-    },
-    {
-      "file": "chibi-athena-neutral.webp",
-      "source": "derived:chibi-athena-neutral.png",
-      "sha256": "909212f725e5cfb8f0489c2067233947e185b9f0f7176a41652b762d8a965fa2"
-    },
-    {
-      "file": "chibi-blackquill-actions.webp",
-      "source": "derived:chibi-blackquill-actions.png",
-      "sha256": "2a56d13916c09e5b95a33f188bd077c36d4ec083f27fb62586c55d82986f32ef"
-    },
-    {
-      "file": "chibi-blackquill-neutral.webp",
-      "source": "derived:chibi-blackquill-neutral.png",
-      "sha256": "d1eb3f92f21eb2ade6150f7e388234c112e355318eaca256fee22f6715c903f9"
     },
     {
       "file": "chibi-boathouse.webp",
@@ -81,39 +43,14 @@
       "sha256": "012ba049416a908e41bed1f2c1363abda3d44e4fdca0b203d3a302964e5f341b"
     },
     {
-      "file": "chibi-dahlia-actions.webp",
-      "source": "derived:chibi-dahlia-actions.png",
-      "sha256": "6dd8d2aa96a73b79daaf40bcd0641028daf98986724045ac99f8ef1874833e8d"
-    },
-    {
-      "file": "chibi-dahlia-neutral.webp",
-      "source": "derived:chibi-dahlia-neutral.png",
-      "sha256": "e801dbea737a2c50bde4d4a54e28894aabcb92528502013f8744945cc8260834"
-    },
-    {
       "file": "chibi-detention-room.webp",
       "source": "derived:chibi-detention-room.jpg",
       "sha256": "0562266c35459a3cfd4d6351627f916f71977c838ccbf36fb243f27c0d062925"
     },
     {
-      "file": "chibi-edgeworth-actions.webp",
-      "source": "derived:chibi-edgeworth-actions.png",
-      "sha256": "7a8b6a2b183349a00bcba32678b298109865e1c59c4ceef8048ed44a7c79f66b"
-    },
-    {
-      "file": "chibi-edgeworth-neutral.webp",
-      "source": "derived:chibi-edgeworth-neutral.png",
-      "sha256": "bd552857076def0ff83fc54d61a15f23280c8aca00b4481f712ef82e18b7c6a5"
-    },
-    {
       "file": "chibi-elevator-hall.webp",
       "source": "derived:chibi-elevator-hall.jpg",
       "sha256": "186e76db04b8de0f6417c3b7afacf7c436d25379618519a56504fbb7916cff20"
-    },
-    {
-      "file": "chibi-ema-actions.webp",
-      "source": "derived:chibi-ema-actions.png",
-      "sha256": "ee4c943b1e588e8a7087dca76246fa65310e78c2723bc22493c6d653bbe4821b"
     },
     {
       "file": "chibi-evidence-room.webp",
@@ -131,36 +68,6 @@
       "sha256": "8dbd009b7ec758a7d011938e296327efdd14124a25b65ab6aea9a6ae00fe2375"
     },
     {
-      "file": "chibi-franziska-actions.webp",
-      "source": "derived:chibi-franziska-actions.png",
-      "sha256": "6662a766a15479e3f043405ab1a668324af4c9745ca5ccb73dc8348c67c80984"
-    },
-    {
-      "file": "chibi-franziska-neutral.webp",
-      "source": "derived:chibi-franziska-neutral.png",
-      "sha256": "6bb7babadf048683fe87496890c386406217f58d77a48367949b597c9f33b591"
-    },
-    {
-      "file": "chibi-godot-actions.webp",
-      "source": "derived:chibi-godot-actions.png",
-      "sha256": "0b263c07d20df5bf5297055b626283473149e9aece9345b995dec382f5045c76"
-    },
-    {
-      "file": "chibi-godot-neutral.webp",
-      "source": "derived:chibi-godot-neutral.png",
-      "sha256": "57a7cba9f1eb8fd453e36f5ddab79cedd9567d7a485392dbb5ee5ebf6679878a"
-    },
-    {
-      "file": "chibi-gumshoe-actions.webp",
-      "source": "derived:chibi-gumshoe-actions.png",
-      "sha256": "630ce397729e798546ca6340e2f68a96cfbba393059fbedf6c62415783c910a7"
-    },
-    {
-      "file": "chibi-gumshoe-neutral.webp",
-      "source": "derived:chibi-gumshoe-neutral.png",
-      "sha256": "3a3dbc007265aeb31f945b6f5dc1ed5fb62771cf00a6b72477d243f9749778ea"
-    },
-    {
       "file": "chibi-hospital-room.webp",
       "source": "derived:chibi-hospital-room.jpg",
       "sha256": "26d2f533cfaf810fcaa398a6f3b5f297b6ea0a1fe60bef2720341e291ee62dba"
@@ -171,41 +78,6 @@
       "sha256": "0b44699de660358cdabe3e71d714a494caa76b514d301733d92c0dee7e4b5ca9"
     },
     {
-      "file": "chibi-iris-actions.webp",
-      "source": "derived:chibi-iris-actions.png",
-      "sha256": "bf6de71258eb94294541681ac85c87a6d0bcb117ae70a0439f2e8378fdeb7653"
-    },
-    {
-      "file": "chibi-iris-neutral.webp",
-      "source": "derived:chibi-iris-neutral.png",
-      "sha256": "5cd068f9e16133a96739cc370938a05acb2573ce467639890a10f00598954474"
-    },
-    {
-      "file": "chibi-judge-actions.webp",
-      "source": "derived:chibi-judge-actions.png",
-      "sha256": "a37d2b09a0ac58a665793a6e1a5fef2489e68af5abdb1cb78a66b16e1241b794"
-    },
-    {
-      "file": "chibi-judge-neutral.webp",
-      "source": "derived:chibi-judge-neutral.png",
-      "sha256": "8362787ce76c3130ae65afa77610c14a19859ab6996e52d4490c17c72e3c7d20"
-    },
-    {
-      "file": "chibi-klavier-actions.webp",
-      "source": "derived:chibi-klavier-actions.png",
-      "sha256": "dd55466e6e4f7ff63c001321d7b7f1175199ebd11a10fc860728c51facec9bc2"
-    },
-    {
-      "file": "chibi-kristoph-actions.webp",
-      "source": "derived:chibi-kristoph-actions.png",
-      "sha256": "ed48225978c26cad1763503ae9c30a5d237f769427e8fb95f66e5c6965f56abf"
-    },
-    {
-      "file": "chibi-kristoph-neutral.webp",
-      "source": "derived:chibi-kristoph-neutral.png",
-      "sha256": "063fb9003959603fd3a468154f037fc69e39c5ab63ef1f818fd1aa5ffb79f49c"
-    },
-    {
       "file": "chibi-lake-dock.webp",
       "source": "derived:chibi-lake-dock.jpg",
       "sha256": "3f72926185766bd0705ca02b7fa88a4703923c7d74010173762bf7ecdf729a34"
@@ -214,26 +86,6 @@
       "file": "chibi-lobby.webp",
       "source": "derived:chibi-lobby.jpg",
       "sha256": "55fb9ca784649e6573a924bcec8a2cb280987eac7cc3caf0d6b5c81110555e3e"
-    },
-    {
-      "file": "chibi-lotta-actions.webp",
-      "source": "derived:chibi-lotta-actions.png",
-      "sha256": "ba11f64eff5a524cefdbc9f0230145bfe5cedcf9c71bc3f7951c781a428c7dbd"
-    },
-    {
-      "file": "chibi-maya-actions.webp",
-      "source": "derived:chibi-maya-actions.png",
-      "sha256": "53c6f3bd94882d88ca3f09f60afc20690f6db3a188e485c27e2cdf03c606f4c1"
-    },
-    {
-      "file": "chibi-maya-neutral.webp",
-      "source": "derived:chibi-maya-neutral.png",
-      "sha256": "d0f2782801420a13df7397458001997edbd2fb4b52c0998bc7cc82fea8e73a63"
-    },
-    {
-      "file": "chibi-mia-actions.webp",
-      "source": "derived:chibi-mia-actions.png",
-      "sha256": "dd8e786c924fe71f182833255f098dd89be882139fa4285a998694ad99a88ea3"
     },
     {
       "file": "chibi-night-corridor.webp",
@@ -249,36 +101,6 @@
       "file": "chibi-parking-garage.webp",
       "source": "derived:chibi-parking-garage.jpg",
       "sha256": "2a72304bcb5ef296c3b508d4deed6773c109d2ffeffbdba52da38166c86064d5"
-    },
-    {
-      "file": "chibi-payne-actions.webp",
-      "source": "derived:chibi-payne-actions.png",
-      "sha256": "ab67bac1db06a88077d540216496c5feb7590a99a061f7bf93b4a985054cdff9"
-    },
-    {
-      "file": "chibi-payne-neutral.webp",
-      "source": "derived:chibi-payne-neutral.png",
-      "sha256": "538fac3d1d21cf1a38be9931adaaa9afcf2da9dd4abce48f24436b24f3e34812"
-    },
-    {
-      "file": "chibi-pearl-actions.webp",
-      "source": "derived:chibi-pearl-actions.png",
-      "sha256": "2e46cc09f861e7da2ed566f06916c55d7a2e215ea7749892c18eba51b1d8c6bc"
-    },
-    {
-      "file": "chibi-pearl-neutral.webp",
-      "source": "derived:chibi-pearl-neutral.png",
-      "sha256": "1127c90bfd02d8d65fdf030a0e2c435072f9510b385831d13c1a16d45d0d71ba"
-    },
-    {
-      "file": "chibi-phoenix-actions.webp",
-      "source": "derived:chibi-phoenix-actions.png",
-      "sha256": "656b76004264c031aaf1469764ec517ea452705b816a7fceb76fdb86f2e34460"
-    },
-    {
-      "file": "chibi-phoenix-neutral.webp",
-      "source": "derived:chibi-phoenix-neutral.png",
-      "sha256": "8db0dde89f08935eb335ab9477e2d04127bc3aae43f05e0db2d4219ce044f07f"
     },
     {
       "file": "chibi-police-records.webp",
@@ -326,74 +148,254 @@
       "sha256": "e79a6e946377b4893ca5c18ec8d2e87a087dce28d7291304b15014f41b7e2cf2"
     },
     {
-      "file": "chibi-trucy-actions.webp",
-      "source": "derived:chibi-trucy-actions.png",
-      "sha256": "8cc148614d8592e67d7b1843270de0a31da4f9a703f1acf23e8f50d0b6585bfa"
-    },
-    {
-      "file": "chibi-von-karma-actions.webp",
-      "source": "derived:chibi-von-karma-actions.png",
-      "sha256": "6a5fbb4f3c817887d6515d7f4a213bd8fd23487cef273e154e25ed48803470e1"
-    },
-    {
-      "file": "chibi-witness-actions.webp",
-      "source": "derived:chibi-witness-actions.png",
-      "sha256": "b0cfdbb0a1f527bf7a8036943ec651755d439f5f0a334326bce8e15be46f5627"
-    },
-    {
       "file": "chibi-witness-stand.webp",
       "source": "derived:chibi-witness-stand.jpg",
       "sha256": "b8aaf5313b0ef73f108400f05d36ef0a6d1d6fe37046f5e6d23fa044930960f8"
     },
     {
-      "file": "chibi-yogi-actions.webp",
-      "source": "derived:chibi-yogi-actions.png",
-      "sha256": "026693631a72af218def744356be3126ba3520c5be53bd901234dea1e1d969c3"
+      "file": "action-thumbnails.webp",
+      "source": "derived:action-thumbnails.png",
+      "sha256": "630816b690c22c8957a0102c49a0b59385dd11c910fa0ef3dc740b3c58eece36"
+    },
+    {
+      "file": "chibi-adrian-actions.webp",
+      "source": "derived:chibi-adrian-actions.png",
+      "sha256": "8994f7f1b83e4ad26a0ff20478b07361d27f986e20b690cc0d86ac0e8ecbbf33"
+    },
+    {
+      "file": "chibi-adrian-neutral.webp",
+      "source": "derived:chibi-adrian-neutral.png",
+      "sha256": "7193db6806fc42d73bee222811ec830cdd5fefba512f56c955ead89a2b5c8555"
+    },
+    {
+      "file": "chibi-apollo-actions.webp",
+      "source": "derived:chibi-apollo-actions.png",
+      "sha256": "891a973416d8c143f41d61f0080ddead684ebd850b9f600b117f7f646cc4168f"
     },
     {
       "file": "chibi-apollo-neutral.webp",
-      "source": "derived:apollo-actions.png",
-      "sha256": "57fa0559a5a18f9dd403092549461d1a2e1e26fcc4f9cad59ac9f73897168d2e"
+      "source": "derived:chibi-apollo-neutral.png",
+      "sha256": "25e0715801d943da3f9426b2cb8afaff44c1a3a0b9e6a9507b05371012a45da9"
     },
     {
-      "file": "chibi-klavier-neutral.webp",
-      "source": "derived:klavier-actions.png",
-      "sha256": "dc45e2dd807e9a23bb899dd34c74401244066289e7faa955d6b2c6f59bb4aa0e"
+      "file": "chibi-athena-actions.webp",
+      "source": "derived:chibi-athena-actions.png",
+      "sha256": "c74747fd70416faf42a876698fbdab397aa4e134d312c8a44ce8cc899e8dbbda"
+    },
+    {
+      "file": "chibi-athena-neutral.webp",
+      "source": "derived:chibi-athena-neutral.png",
+      "sha256": "114b60069f57e0bbb82748f2cb2e43b94fd68016c452c114a28200b722bd9881"
+    },
+    {
+      "file": "chibi-blackquill-actions.webp",
+      "source": "derived:chibi-blackquill-actions.png",
+      "sha256": "da072d836531464e022ba289888af584dc0291c0d0e02844f0342ab658822b52"
+    },
+    {
+      "file": "chibi-blackquill-neutral.webp",
+      "source": "derived:chibi-blackquill-neutral.png",
+      "sha256": "538cdbb201a3da0a793a5036c3b8f92df8093b1660a14b4138d078de44ed4ed9"
+    },
+    {
+      "file": "chibi-dahlia-actions.webp",
+      "source": "derived:chibi-dahlia-actions.png",
+      "sha256": "b477f14977fb25e756c937337992bdf5c32f21bfe036eabf8dc88196c8dadb00"
+    },
+    {
+      "file": "chibi-dahlia-neutral.webp",
+      "source": "derived:chibi-dahlia-neutral.png",
+      "sha256": "b50d82e70407920b006bb89e89845cbb38f1a5d0fd76eb8272f92f3159f99a76"
+    },
+    {
+      "file": "chibi-edgeworth-actions.webp",
+      "source": "derived:chibi-edgeworth-actions.png",
+      "sha256": "575c5ebb77ce90d5d1a589d1c59a024ce9392350b12edb0029ee5d79de7f938e"
+    },
+    {
+      "file": "chibi-edgeworth-neutral.webp",
+      "source": "derived:chibi-edgeworth-neutral.png",
+      "sha256": "035e4fd602b01e33bbd1bcdd8007b2ff25f3aff3e5783892c1beec1d8a26da2e"
+    },
+    {
+      "file": "chibi-ema-actions.webp",
+      "source": "derived:chibi-ema-actions.png",
+      "sha256": "363a1ec6970bc258ea1f21eddc3f06f297a8120ca750af6cff47bc3364f2fe5f"
     },
     {
       "file": "chibi-ema-neutral.webp",
-      "source": "derived:ema-actions.png",
-      "sha256": "d32a080c9d6d7d9161abe98c040eb2cc3b1bed5fc2dc98967f46ce28c8842af5"
+      "source": "derived:chibi-ema-neutral.png",
+      "sha256": "a3081bba2ab27f26ad0654062e9cea1ed1c69e1a0191e8dcc34a6fd07869a841"
     },
     {
-      "file": "chibi-trucy-neutral.webp",
-      "source": "derived:trucy-actions.png",
-      "sha256": "76caf83f169be17e5e089e5ca3abf1da2dba100398c9e3308b4b5698512253dc"
+      "file": "chibi-franziska-actions.webp",
+      "source": "derived:chibi-franziska-actions.png",
+      "sha256": "1a5465ca4be22c4f781471b62f1ba42ae29fd94514e8661bd2a67799bb40d1dd"
     },
     {
-      "file": "chibi-witness-neutral.webp",
-      "source": "derived:witness-actions.png",
-      "sha256": "dd2c84162403b9474b03e5bc7a4ea41db9d443065fbda67d302e2367c3a52b96"
+      "file": "chibi-franziska-neutral.webp",
+      "source": "derived:chibi-franziska-neutral.png",
+      "sha256": "a8d7d23f8b1b37cfd7031c9e6f0fceaa5263ab4203d7a68390815ffc8dca6abd"
     },
     {
-      "file": "chibi-von-karma-neutral.webp",
-      "source": "derived:von-karma-actions.png",
-      "sha256": "007fb3dfc3e81a79908c75cbfe0efd867fd8ce64ec9b4cf0d52b017d403ed2fc"
+      "file": "chibi-godot-actions.webp",
+      "source": "derived:chibi-godot-actions.png",
+      "sha256": "4fde538e77228628940393a181dbca9483659761ec7bb1555696e93ae591c45f"
+    },
+    {
+      "file": "chibi-godot-neutral.webp",
+      "source": "derived:chibi-godot-neutral.png",
+      "sha256": "9184a81504b355ab74efad812f4cd98daa990259807c5c1564dc34cd9bf8b652"
+    },
+    {
+      "file": "chibi-gumshoe-actions.webp",
+      "source": "derived:chibi-gumshoe-actions.png",
+      "sha256": "44e233f6dd5f82be820010a61f76616c5aeb4a36d172bc21dec4dea3fbc3324f"
+    },
+    {
+      "file": "chibi-gumshoe-neutral.webp",
+      "source": "derived:chibi-gumshoe-neutral.png",
+      "sha256": "2ad2a3ce31812d92730584fc1868ff28b4ab25e865070e72c4ecd4eba81054cf"
+    },
+    {
+      "file": "chibi-iris-actions.webp",
+      "source": "derived:chibi-iris-actions.png",
+      "sha256": "cd70a4904eac6a7cdb1edc48160bb467666ae0d444e3be7994e9d3a6948a0b8b"
+    },
+    {
+      "file": "chibi-iris-neutral.webp",
+      "source": "derived:chibi-iris-neutral.png",
+      "sha256": "79a613b275160cf1e2920e88a5c108c19570782fae0227a207deef5176ab3654"
+    },
+    {
+      "file": "chibi-judge-actions.webp",
+      "source": "derived:chibi-judge-actions.png",
+      "sha256": "685b4505ead5f61ffdd78e4faf5eda7306643d5b1567ec37a68d9a550a27ba35"
+    },
+    {
+      "file": "chibi-judge-neutral.webp",
+      "source": "derived:chibi-judge-neutral.png",
+      "sha256": "779064736950dd80e90a1ee9533ae6764ef3199c187b2610806df50e17940596"
+    },
+    {
+      "file": "chibi-klavier-actions.webp",
+      "source": "derived:chibi-klavier-actions.png",
+      "sha256": "6668e76849b9960291465c9675d8bf8adc078292ec6b0d97ec9cb6b0df46d6a5"
+    },
+    {
+      "file": "chibi-klavier-neutral.webp",
+      "source": "derived:chibi-klavier-neutral.png",
+      "sha256": "313dcfa2806509a01afa7728fa3d99e2edd9259f9199b474334f357e3c9cac8f"
+    },
+    {
+      "file": "chibi-kristoph-actions.webp",
+      "source": "derived:chibi-kristoph-actions.png",
+      "sha256": "4269e67d8d1105e8ad8c908fe40e54ee67c8ae0c0b3d3c61245c1a0b51e9817a"
+    },
+    {
+      "file": "chibi-kristoph-neutral.webp",
+      "source": "derived:chibi-kristoph-neutral.png",
+      "sha256": "e5b29543d7fbf68cef65c2d7c1ce0af248bce332d93affc6cb80a1d0cb42e811"
+    },
+    {
+      "file": "chibi-lotta-actions.webp",
+      "source": "derived:chibi-lotta-actions.png",
+      "sha256": "ca65b9bf7365a1a2de649fa02aa4fcb67e007c138a2298b351a5776935cd9dd9"
     },
     {
       "file": "chibi-lotta-neutral.webp",
-      "source": "derived:lotta-actions.png",
-      "sha256": "919939bf52d6c7301d23bc3cf7f38698bda6202444c424adce76efd66af1f5b7"
+      "source": "derived:chibi-lotta-neutral.png",
+      "sha256": "145fdad9ef409ccb1a2fd0d4559b9b7e88d68760b42829ec1f379998a8615b36"
     },
     {
-      "file": "chibi-yogi-neutral.webp",
-      "source": "derived:yogi-actions.png",
-      "sha256": "49b2eee16f29ae41b3f01bb3f1395ba1b4da99f8aa631f4e3c232705ace7c117"
+      "file": "chibi-maya-actions.webp",
+      "source": "derived:chibi-maya-actions.png",
+      "sha256": "1fec483c6c128537639dc96768e264adb8380a58e9a9aff209c89338ae6668e1"
+    },
+    {
+      "file": "chibi-maya-neutral.webp",
+      "source": "derived:chibi-maya-neutral.png",
+      "sha256": "0e427c9a5ce57d3995ce905121363156c41affd2e06c00f08f5aa996c8b82160"
+    },
+    {
+      "file": "chibi-mia-actions.webp",
+      "source": "derived:chibi-mia-actions.png",
+      "sha256": "8437aa8e7e1f7fa87bcbaedd4e87c8c1ddc5f630f62d8eee9ffade2e53f32620"
     },
     {
       "file": "chibi-mia-neutral.webp",
-      "source": "derived:mia-actions.png",
-      "sha256": "c76a18dfc6cb60af2b670b377853ab74b317b76239d730aad470c932ea7b00ee"
+      "source": "derived:chibi-mia-neutral.png",
+      "sha256": "985a87d3bc38166ae8159fdf7bdc99cee16187978f4648cf777dd4fbc8bf49ac"
+    },
+    {
+      "file": "chibi-payne-actions.webp",
+      "source": "derived:chibi-payne-actions.png",
+      "sha256": "4712507d966360a0e1951560daf29b19a39fd3407faef805db622e505a3a1a2f"
+    },
+    {
+      "file": "chibi-payne-neutral.webp",
+      "source": "derived:chibi-payne-neutral.png",
+      "sha256": "5698e9185c398abe695788e997d3f6340e6980f786fb3633ed45fefa4e914f5d"
+    },
+    {
+      "file": "chibi-pearl-actions.webp",
+      "source": "derived:chibi-pearl-actions.png",
+      "sha256": "4d0acc859267320676d3a6fddfdeceb1e82ba97bd54913bc10bec390a164951a"
+    },
+    {
+      "file": "chibi-pearl-neutral.webp",
+      "source": "derived:chibi-pearl-neutral.png",
+      "sha256": "17bd2caf0cf6055c9216ee360e9a8f4a9bf7db998670be5f34462ada2dd9fddc"
+    },
+    {
+      "file": "chibi-phoenix-actions.webp",
+      "source": "derived:chibi-phoenix-actions.png",
+      "sha256": "e0221741018826b7d35d9426809aad2c4e00f850df92c28c6a007931e4f3d1f9"
+    },
+    {
+      "file": "chibi-phoenix-neutral.webp",
+      "source": "derived:chibi-phoenix-neutral.png",
+      "sha256": "bd6b72ea1b20196c2c82704970e9500abf7a428a2b15a13eea9e329ba104f97b"
+    },
+    {
+      "file": "chibi-trucy-actions.webp",
+      "source": "derived:chibi-trucy-actions.png",
+      "sha256": "54b85c00bddd2ba38421bd35c4d4062f88802de0c045ec67406c4c7ff4c5f8c5"
+    },
+    {
+      "file": "chibi-trucy-neutral.webp",
+      "source": "derived:chibi-trucy-neutral.png",
+      "sha256": "a680276a0dbf3bf3336e0171ea282209b8bed3aac046f74a5a11bbfeeab467e8"
+    },
+    {
+      "file": "chibi-von-karma-actions.webp",
+      "source": "derived:chibi-von-karma-actions.png",
+      "sha256": "88139813f8060d5b52ebe78d3f4477d36ffda723d053b41046e0f068f462096c"
+    },
+    {
+      "file": "chibi-von-karma-neutral.webp",
+      "source": "derived:chibi-von-karma-neutral.png",
+      "sha256": "deaa37874a6c224ffeae51c4c53662feae735b4762fd042029692e9a97969da8"
+    },
+    {
+      "file": "chibi-witness-actions.webp",
+      "source": "derived:chibi-witness-actions.png",
+      "sha256": "1ba0d8143132131446e4408ddf4516db5b5d5736514c989b71249945679f04f6"
+    },
+    {
+      "file": "chibi-witness-neutral.webp",
+      "source": "derived:chibi-witness-neutral.png",
+      "sha256": "6e87987290d48db9ae152d40642108abf2fdea73cebb1d512dd5d452d8fa92b9"
+    },
+    {
+      "file": "chibi-yogi-actions.webp",
+      "source": "derived:chibi-yogi-actions.png",
+      "sha256": "9b876a784778523acdd3b7fa069401964c7838fdff7941aa0232ed115fcc6fbe"
+    },
+    {
+      "file": "chibi-yogi-neutral.webp",
+      "source": "derived:chibi-yogi-neutral.png",
+      "sha256": "b27d43b63d81ba3c65fbfd3f3785d922e7f1ffee4c24c31648a81349001c64df"
     }
   ]
 }

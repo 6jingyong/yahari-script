@@ -1,0 +1,301 @@
+{
+  "fileFormat": "yahari-project",
+  "fileVersion": "0.7",
+  "manifest": {
+    "schemaVersion": "0.6",
+    "projectId": "openrouter-bookshop",
+    "title": "旧书中的空白页",
+    "adapter": {
+      "id": "official.courtroom",
+      "version": "0.1.0"
+    },
+    "contentPacks": [
+      {
+        "id": "official.courtroom-demo",
+        "version": "0.4.0"
+      }
+    ],
+    "entryDocumentId": "openrouter-bookshop-c1-s1",
+    "documents": [
+      {
+        "id": "openrouter-bookshop-c1-s1",
+        "path": "openrouter-bookshop-c1-s1.yahari.json"
+      },
+      {
+        "id": "openrouter-bookshop-c2-s1",
+        "path": "openrouter-bookshop-c2-s1.yahari.json"
+      }
+    ],
+    "cast": [
+      {
+        "castId": "a",
+        "displayName": "青禾",
+        "characterRef": {
+          "packId": "official.courtroom-demo",
+          "id": "phoenix"
+        }
+      },
+      {
+        "castId": "b",
+        "displayName": "小满",
+        "characterRef": {
+          "packId": "official.courtroom-demo",
+          "id": "maya"
+        }
+      }
+    ],
+    "narrative": {
+      "summary": "青禾和一位喜欢讲书的小满在旧书店发现一本没有结局的故事。争吵后，他们发现书中故意留白，邀请读者续写。",
+      "chapters": [
+        {
+          "id": "openrouter-bookshop-chapter-1",
+          "title": "无结局的奇书",
+          "summary": "两人对那本没有结局的书争执不下，最终发现它不同寻常。",
+          "documentIds": [
+            "openrouter-bookshop-c1-s1"
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-chapter-2",
+          "title": "空白页的邀请",
+          "summary": "他们意识到空白页是等待读者继续的故事。",
+          "documentIds": [
+            "openrouter-bookshop-c2-s1"
+          ]
+        }
+      ]
+    }
+  },
+  "documents": [
+    {
+      "schemaVersion": "0.7",
+      "documentId": "openrouter-bookshop-c1-s1",
+      "title": "旧书店的异本",
+      "summary": "对无结局书的争论",
+      "blocks": [
+        {
+          "id": "openrouter-bookshop-c1-s1-start",
+          "type": "cue",
+          "cue": {
+            "id": "openrouter-bookshop-c1-s1-bg",
+            "type": "courtroom.background",
+            "params": {
+              "resource": {
+                "packId": "official.courtroom-demo",
+                "id": "background/office"
+              }
+            }
+          }
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-0",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "你看看这本书，居然连结局都没有。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-1",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "可能是出版错误，也许是故意的。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-2",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "可这故事开头那么完整，怎么可能有意留下空白。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-3",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "也许是留给读者自己续写的机会。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-4",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "听起来很荒谬，谁会花钱买一本没写完的东西？"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-5",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "那就证明它不普通，旧书店应该珍藏它。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c1-s1-6",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "好吧，我相信你，这本书比任何传奇都要精彩。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": "0.7",
+      "documentId": "openrouter-bookshop-c2-s1",
+      "title": "续写瞬间",
+      "summary": "两人决定完成这个未了的故事。",
+      "blocks": [
+        {
+          "id": "openrouter-bookshop-c2-s1-start",
+          "type": "cue",
+          "cue": {
+            "id": "openrouter-bookshop-c2-s1-bg",
+            "type": "courtroom.background",
+            "params": {
+              "resource": {
+                "packId": "official.courtroom-demo",
+                "id": "background/lobby"
+              }
+            }
+          }
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-0",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "看，这页是 blank 的，好像是在等我们写点东西。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-1",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "原来作者是故意留个位置让我们继续。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-2",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "我们可以写个 happy ending，完成这个故事。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-3",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "但我们不知道故事主角是谁，该怎么写？"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-4",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "可以是那个女孩，青禾，把自己代入进去。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-5",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "好，那我写她在书店发现秘密后，带着空白页离开。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-bookshop-c2-s1-6",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "我们一起完成这个结局吧，这本书才不是无结局。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "generator": "OpenRouter free model sample",
+    "exportedAt": "2026-10-12T13:53:35.031Z"
+  }
+}

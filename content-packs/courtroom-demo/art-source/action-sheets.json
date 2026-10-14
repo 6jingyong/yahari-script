@@ -16,7 +16,9 @@
         "smile",
         "sweat",
         "shocked"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "edgeworth",
@@ -33,7 +35,9 @@
         "smug",
         "surprised",
         "damaged"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "maya",
@@ -49,7 +53,10 @@
         "thumbs-up",
         "surprised",
         "sad"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action",
+      "portraitSource": "maya-portrait.png"
     },
     {
       "id": "judge",
@@ -65,7 +72,10 @@
         "confused",
         "think",
         "relieved"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action",
+      "portraitSource": "judge-portrait.png"
     },
     {
       "id": "gumshoe",
@@ -81,7 +91,10 @@
         "determined",
         "nervous",
         "embarrassed"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action",
+      "portraitSource": "gumshoe-portrait.png"
     },
     {
       "id": "franziska",
@@ -98,7 +111,9 @@
         "smirk",
         "surprised",
         "frustrated"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "pearl",
@@ -115,7 +130,9 @@
         "smile",
         "sweat",
         "shocked"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "godot",
@@ -132,7 +149,9 @@
         "smirk",
         "shocked",
         "damaged"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "dahlia",
@@ -149,7 +168,9 @@
         "smirk",
         "shocked",
         "breakdown"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "athena",
@@ -166,7 +187,9 @@
         "cheer",
         "sweat",
         "shocked"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "blackquill",
@@ -183,7 +206,9 @@
         "smirk",
         "surprised",
         "angry"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "kristoph",
@@ -200,7 +225,9 @@
         "smile",
         "sweat",
         "breakdown"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "payne",
@@ -217,7 +244,9 @@
         "smug",
         "sweat",
         "shocked"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "adrian",
@@ -234,7 +263,9 @@
         "relieved",
         "worried",
         "shocked"
-      ]
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "iris",
@@ -251,6 +282,18 @@
         "smile",
         "worried",
         "surprised"
+      ],
+      "framing": "waist-up",
+      "portraitMode": "first-action",
+      "sourceRows": [
+        [
+          0,
+          426
+        ],
+        [
+          436,
+          870
+        ]
       ]
     },
     {
@@ -268,7 +311,9 @@
         "sweat"
       ],
       "portraitSource": "apollo-portrait.png",
-      "portrait": "chibi-apollo-neutral.png"
+      "portrait": "chibi-apollo-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "klavier",
@@ -285,7 +330,9 @@
         "damaged"
       ],
       "portraitSource": "klavier-portrait.png",
-      "portrait": "chibi-klavier-neutral.png"
+      "portrait": "chibi-klavier-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "ema",
@@ -302,7 +349,9 @@
         "shocked"
       ],
       "portraitSource": "ema-portrait.png",
-      "portrait": "chibi-ema-neutral.png"
+      "portrait": "chibi-ema-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "trucy",
@@ -319,7 +368,9 @@
         "surprised"
       ],
       "portraitSource": "trucy-portrait.png",
-      "portrait": "chibi-trucy-neutral.png"
+      "portrait": "chibi-trucy-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "witness",
@@ -336,7 +387,9 @@
         "sweat"
       ],
       "portraitSource": "witness-portrait.png",
-      "portrait": "chibi-witness-neutral.png"
+      "portrait": "chibi-witness-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "von-karma",
@@ -353,7 +406,9 @@
         "breakdown"
       ],
       "portraitSource": "von-karma-portrait.png",
-      "portrait": "chibi-von-karma-neutral.png"
+      "portrait": "chibi-von-karma-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "lotta",
@@ -370,7 +425,9 @@
         "flustered"
       ],
       "portraitSource": "lotta-portrait.png",
-      "portrait": "chibi-lotta-neutral.png"
+      "portrait": "chibi-lotta-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "yogi",
@@ -387,7 +444,9 @@
         "broken"
       ],
       "portraitSource": "yogi-portrait.png",
-      "portrait": "chibi-yogi-neutral.png"
+      "portrait": "chibi-yogi-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     },
     {
       "id": "mia",
@@ -404,7 +463,14 @@
         "shocked"
       ],
       "portraitSource": "mia-portrait.png",
-      "portrait": "chibi-mia-neutral.png"
+      "portrait": "chibi-mia-neutral.png",
+      "framing": "waist-up",
+      "portraitMode": "first-action"
     }
-  ]
+  ],
+  "runtimeCell": [
+    512,
+    384
+  ],
+  "waistBaseline": 372
 }

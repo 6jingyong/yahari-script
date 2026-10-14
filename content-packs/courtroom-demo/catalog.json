@@ -6,7 +6,7 @@
   "characters": [
     {
       "id": "phoenix",
-      "name": "成步堂",
+      "name": "成步堂龙一",
       "portrait": "character/phoenix/portrait",
       "stage": {
         "background": "stage/defense/background",
@@ -55,11 +55,19 @@
           "label": "震惊",
           "asset": "character/phoenix/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "成步堂"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "apollo",
-      "name": "王泥喜",
+      "name": "王泥喜法介",
       "portrait": "character/apollo/portrait",
       "stage": {
         "background": "stage/defense/background",
@@ -108,7 +116,15 @@
           "label": "冒汗",
           "asset": "character/apollo/reaction/sweat"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "王泥喜"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "klavier",
@@ -161,7 +177,13 @@
           "label": "受创",
           "asset": "character/klavier/reaction/damaged"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "ema",
@@ -214,11 +236,17 @@
           "label": "震惊",
           "asset": "character/ema/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "trucy",
-      "name": "美贯",
+      "name": "成步堂美贯",
       "portrait": "character/trucy/portrait",
       "stage": {
         "background": "stage/witness/background",
@@ -267,11 +295,20 @@
           "label": "惊讶",
           "asset": "character/trucy/reaction/surprised"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "美贯",
+          "成步堂美貫"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "edgeworth",
-      "name": "御剑",
+      "name": "御剑怜侍",
       "portrait": "character/edgeworth/portrait",
       "stage": {
         "background": "stage/prosecution/background",
@@ -320,11 +357,19 @@
           "label": "崩溃",
           "asset": "character/edgeworth/reaction/damaged"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "御剑"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "maya",
-      "name": "真宵",
+      "name": "绫里真宵",
       "portrait": "character/maya/portrait",
       "stage": {
         "background": "stage/witness/background",
@@ -373,7 +418,15 @@
           "label": "沮丧",
           "asset": "character/maya/reaction/sad"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "真宵"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "judge",
@@ -425,11 +478,17 @@
           "label": "困惑",
           "asset": "character/judge/reaction/confused"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "witness",
-      "name": "矢张（证人）",
+      "name": "矢张政志",
       "portrait": "character/witness/portrait",
       "stage": {
         "background": "stage/witness/background",
@@ -478,7 +537,17 @@
           "label": "冒汗",
           "asset": "character/witness/reaction/sweat"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "矢张（证人）",
+          "矢张",
+          "矢張政志"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "von-karma",
@@ -531,7 +600,13 @@
           "label": "失控",
           "asset": "character/von-karma/reaction/breakdown"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "gumshoe",
@@ -584,7 +659,15 @@
           "label": "尴尬",
           "asset": "character/gumshoe/reaction/embarrassed"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "糸锯"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "franziska",
@@ -637,7 +720,13 @@
           "label": "懊恼",
           "asset": "character/franziska/reaction/frustrated"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "lotta",
@@ -690,7 +779,15 @@
           "label": "慌乱",
           "asset": "character/lotta/reaction/flustered"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "夏美"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "yogi",
@@ -743,7 +840,15 @@
           "label": "崩溃",
           "asset": "character/yogi/reaction/broken"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "灰根"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "mia",
@@ -796,11 +901,19 @@
           "label": "震惊",
           "asset": "character/mia/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "千寻"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "pearl",
-      "name": "春美",
+      "name": "绫里春美",
       "portrait": "character/pearl/portrait",
       "stage": {
         "background": "stage/witness/background",
@@ -849,7 +962,16 @@
           "label": "震惊",
           "asset": "character/pearl/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "春美"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13",
+        "description": "绫里春美：初代三部曲中的年幼灵媒。浅棕色双环发髻、粉色灵媒服、白色内襟与勾玉项链；八种半身动作。"
+      }
     },
     {
       "id": "godot",
@@ -902,7 +1024,13 @@
           "label": "受挫",
           "asset": "character/godot/reaction/damaged"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "dahlia",
@@ -955,7 +1083,13 @@
           "label": "失控",
           "asset": "character/dahlia/reaction/breakdown"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "athena",
@@ -1008,7 +1142,13 @@
           "label": "震惊",
           "asset": "character/athena/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "blackquill",
@@ -1061,7 +1201,13 @@
           "label": "怒扯锁链",
           "asset": "character/blackquill/reaction/angry"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "kristoph",
@@ -1114,7 +1260,13 @@
           "label": "失控",
           "asset": "character/kristoph/reaction/breakdown"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "payne",
@@ -1167,7 +1319,13 @@
           "label": "震惊",
           "asset": "character/payne/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "adrian",
@@ -1220,11 +1378,17 @@
           "label": "震惊",
           "asset": "character/adrian/reaction/shocked"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13"
+      }
     },
     {
       "id": "iris",
-      "name": "绫芽",
+      "name": "叶樱院绫美",
       "portrait": "character/iris/portrait",
       "stage": {
         "background": "stage/witness/background",
@@ -1273,7 +1437,19 @@
           "label": "惊讶",
           "asset": "character/iris/reaction/surprised"
         }
-      ]
+      ],
+      "metadata": {
+        "aliases": [
+          "绫芽",
+          "绫美",
+          "叶樱院绫芽",
+          "葉櫻院綾美"
+        ],
+        "nameConvention": "early-fan-zh-CN",
+        "framing": "waist-up",
+        "artRevision": "2026-10-13",
+        "description": "叶樱院绫美：叶樱院的成年修行者。白色头巾、棕色长发、淡紫袖袍与玫红腰衣；八种半身动作。"
+      }
     }
   ],
   "backgrounds": [
@@ -1399,26 +1575,39 @@
       {
         "id": "objection",
         "label": "异议！",
+        "category": "courtroom",
+        "description": "打断证言、指出决定性矛盾。",
         "resource": "audio/sfx/objection",
         "previewAudio": {
-          "waveform": "sawtooth",
+          "waveform": "square",
           "notes": [
             {
-              "frequency": 220,
-              "durationMs": 95,
-              "gain": 0.075
+              "frequency": 164.81,
+              "durationMs": 80,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
-              "frequency": 277.18,
-              "durationMs": 95,
-              "offsetMs": 70,
-              "gain": 0.07
+              "frequency": 246.94,
+              "durationMs": 80,
+              "offsetMs": 65,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
               "frequency": 329.63,
-              "durationMs": 130,
-              "offsetMs": 140,
-              "gain": 0.065
+              "durationMs": 150,
+              "offsetMs": 130,
+              "gain": 0.05,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1800,
+              "durationMs": 50,
+              "offsetMs": 125,
+              "gain": 0.018,
+              "waveform": "noise"
             }
           ]
         }
@@ -1426,62 +1615,58 @@
       {
         "id": "hold-it",
         "label": "等一下！",
+        "category": "courtroom",
+        "description": "追问一个尚未解释的细节。",
         "resource": "audio/sfx/hold-it",
         "previewAudio": {
           "waveform": "square",
           "notes": [
             {
-              "frequency": 392,
-              "durationMs": 80,
-              "gain": 0.055
+              "frequency": 523.25,
+              "durationMs": 65,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
-              "frequency": 329.63,
-              "durationMs": 120,
-              "offsetMs": 80,
-              "gain": 0.05
+              "frequency": 349.23,
+              "durationMs": 110,
+              "offsetMs": 65,
+              "gain": 0.04,
+              "waveform": "square"
             }
           ]
         }
       },
       {
-        "id": "desk-slam",
-        "label": "拍桌",
-        "resource": "audio/sfx/desk-slam",
+        "id": "take-that",
+        "label": "看招！",
+        "category": "courtroom",
+        "description": "提交证据并给出结论。",
+        "resource": "audio/sfx/take-that",
         "previewAudio": {
-          "waveform": "sine",
+          "waveform": "square",
           "notes": [
             {
-              "frequency": 92,
-              "durationMs": 150,
-              "gain": 0.09
-            },
-            {
-              "frequency": 62,
-              "durationMs": 190,
-              "offsetMs": 35,
-              "gain": 0.065
-            }
-          ]
-        }
-      },
-      {
-        "id": "gavel",
-        "label": "法槌",
-        "resource": "audio/sfx/gavel",
-        "previewAudio": {
-          "waveform": "triangle",
-          "notes": [
-            {
-              "frequency": 520,
+              "frequency": 261.63,
               "durationMs": 55,
-              "gain": 0.065
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
-              "frequency": 260,
-              "durationMs": 150,
-              "offsetMs": 45,
-              "gain": 0.075
+              "frequency": 392,
+              "durationMs": 55,
+              "offsetMs": 55,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 160,
+              "offsetMs": 110,
+              "gain": 0.04,
+              "waveform": "square"
             }
           ]
         }
@@ -1489,20 +1674,51 @@
       {
         "id": "impact",
         "label": "冲击",
+        "category": "dialogue",
+        "description": "对话重音或突如其来的转折。",
         "resource": "audio/sfx/impact",
         "previewAudio": {
-          "waveform": "sawtooth",
+          "waveform": "square",
           "notes": [
             {
-              "frequency": 110,
-              "durationMs": 100,
-              "gain": 0.075
+              "frequency": 1800,
+              "durationMs": 95,
+              "offsetMs": 0,
+              "gain": 0.035,
+              "waveform": "noise"
             },
             {
-              "frequency": 73,
-              "durationMs": 180,
-              "offsetMs": 25,
-              "gain": 0.055
+              "frequency": 82.41,
+              "durationMs": 140,
+              "offsetMs": 10,
+              "gain": 0.04,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "gavel",
+        "label": "法槌",
+        "category": "courtroom",
+        "description": "法官敲槌，收回发言权。",
+        "resource": "audio/sfx/gavel",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 700,
+              "durationMs": 48,
+              "offsetMs": 0,
+              "gain": 0.06,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 100,
+              "offsetMs": 12,
+              "gain": 0.045,
+              "waveform": "triangle"
             }
           ]
         }
@@ -1510,26 +1726,780 @@
       {
         "id": "evidence-presented",
         "label": "出示证物",
+        "category": "evidence",
+        "description": "证物进入画面或提交法庭。",
         "resource": "audio/sfx/evidence-presented",
         "previewAudio": {
-          "waveform": "triangle",
+          "waveform": "square",
           "notes": [
             {
-              "frequency": 659.25,
-              "durationMs": 80,
-              "gain": 0.05
+              "frequency": 392,
+              "durationMs": 65,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 65,
+              "offsetMs": 65,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
               "frequency": 783.99,
+              "durationMs": 120,
+              "offsetMs": 130,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "dramatic-sting",
+        "label": "戏剧转折",
+        "category": "dialogue",
+        "description": "揭露出乎意料的事实。",
+        "resource": "audio/sfx/dramatic-sting",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 207.65,
               "durationMs": 90,
-              "offsetMs": 55,
-              "gain": 0.048
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
-              "frequency": 987.77,
+              "frequency": 196,
+              "durationMs": 90,
+              "offsetMs": 85,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 130.81,
+              "durationMs": 170,
+              "offsetMs": 170,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1800,
+              "durationMs": 60,
+              "offsetMs": 165,
+              "gain": 0.02,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "positive",
+        "label": "正确",
+        "category": "transition",
+        "description": "推理成立或行动成功。",
+        "resource": "audio/sfx/positive",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 523.25,
+              "durationMs": 70,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 70,
+              "offsetMs": 70,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
               "durationMs": 130,
-              "offsetMs": 115,
-              "gain": 0.045
+              "offsetMs": 140,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "negative",
+        "label": "错误",
+        "category": "transition",
+        "description": "行动失败或推理不成立。",
+        "resource": "audio/sfx/negative",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 261.63,
+              "durationMs": 100,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 185,
+              "durationMs": 170,
+              "offsetMs": 95,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "realization",
+        "label": "恍然",
+        "category": "dialogue",
+        "description": "人物突然想通一个细节。",
+        "resource": "audio/sfx/realization",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 783.99,
+              "durationMs": 55,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1046.5,
+              "durationMs": 160,
+              "offsetMs": 60,
+              "gain": 0.03,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cursor",
+        "label": "移动光标",
+        "category": "ui",
+        "description": "移动选项或切换证物。",
+        "resource": "audio/sfx/cursor",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 1046.5,
+              "durationMs": 28,
+              "offsetMs": 0,
+              "gain": 0.026,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "confirm",
+        "label": "确认选择",
+        "category": "ui",
+        "description": "确认菜单或选项。",
+        "resource": "audio/sfx/confirm",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 659.26,
+              "durationMs": 38,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1046.5,
+              "durationMs": 60,
+              "offsetMs": 38,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cancel",
+        "label": "返回取消",
+        "category": "ui",
+        "description": "关闭菜单或取消选择。",
+        "resource": "audio/sfx/cancel",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 783.99,
+              "durationMs": 42,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 55,
+              "offsetMs": 42,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "page-turn",
+        "label": "翻页",
+        "category": "ui",
+        "description": "翻阅档案或切换记录页。",
+        "resource": "audio/sfx/page-turn",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 3200,
+              "durationMs": 45,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2200,
+              "durationMs": 28,
+              "offsetMs": 50,
+              "gain": 0.012,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "text-low",
+        "label": "对白 · 低音",
+        "category": "dialogue",
+        "description": "默认文字音，随对白逐字播放；也可绑定人物或单独设置本句。",
+        "resource": "audio/sfx/text-low",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 130.81,
+              "durationMs": 24,
+              "offsetMs": 0,
+              "gain": 0.025,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "text-high",
+        "label": "对白 · 高音",
+        "category": "dialogue",
+        "description": "较高声线的文字音，可绑定人物或单独设置本句。",
+        "resource": "audio/sfx/text-high",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 523.25,
+              "durationMs": 24,
+              "offsetMs": 0,
+              "gain": 0.023,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "surprise",
+        "label": "惊讶",
+        "category": "dialogue",
+        "description": "人物受到惊吓或骤然反应。",
+        "resource": "audio/sfx/surprise",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 880,
+              "durationMs": 50,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 622.25,
+              "durationMs": 100,
+              "offsetMs": 45,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1800,
+              "durationMs": 40,
+              "offsetMs": 0,
+              "gain": 0.015,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "thinking",
+        "label": "思索",
+        "category": "dialogue",
+        "description": "停顿、斟酌或陷入思考。",
+        "resource": "audio/sfx/thinking",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 293.66,
+              "durationMs": 70,
+              "offsetMs": 0,
+              "gain": 0.025,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 100,
+              "offsetMs": 120,
+              "gain": 0.025,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "testimony-start",
+        "label": "证言开始",
+        "category": "courtroom",
+        "description": "证人开始陈述一段证言。",
+        "resource": "audio/sfx/testimony-start",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 261.63,
+              "durationMs": 75,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 75,
+              "offsetMs": 75,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 75,
+              "offsetMs": 150,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 170,
+              "offsetMs": 225,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cross-examination-start",
+        "label": "询问开始",
+        "category": "courtroom",
+        "description": "进入质证或追问阶段。",
+        "resource": "audio/sfx/cross-examination-start",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 392,
+              "durationMs": 60,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 60,
+              "offsetMs": 60,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 60,
+              "offsetMs": 120,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 140,
+              "offsetMs": 180,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "court-murmur",
+        "label": "法庭骚动",
+        "category": "courtroom",
+        "description": "旁听席躁动或众人议论。",
+        "resource": "audio/sfx/court-murmur",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 800,
+              "durationMs": 95,
+              "offsetMs": 0,
+              "gain": 0.025,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1100,
+              "durationMs": 85,
+              "offsetMs": 100,
+              "gain": 0.02,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 650,
+              "durationMs": 110,
+              "offsetMs": 180,
+              "gain": 0.02,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "record-open",
+        "label": "打开法庭记录",
+        "category": "evidence",
+        "description": "打开资料或检索证物。",
+        "resource": "audio/sfx/record-open",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 329.63,
+              "durationMs": 45,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 80,
+              "offsetMs": 45,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "clue-found",
+        "label": "发现线索",
+        "category": "evidence",
+        "description": "找到新证物或重要记录。",
+        "resource": "audio/sfx/clue-found",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 440,
+              "durationMs": 60,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 60,
+              "offsetMs": 60,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 880,
+              "durationMs": 140,
+              "offsetMs": 120,
+              "gain": 0.03,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "contradiction",
+        "label": "矛盾锁定",
+        "category": "evidence",
+        "description": "两项事实发生明确冲突。",
+        "resource": "audio/sfx/contradiction",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 233.08,
+              "durationMs": 60,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 60,
+              "offsetMs": 60,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 110,
+              "offsetMs": 120,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1800,
+              "durationMs": 65,
+              "offsetMs": 120,
+              "gain": 0.02,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "evidence-error",
+        "label": "证据不符",
+        "category": "evidence",
+        "description": "证据与当前主张不匹配。",
+        "resource": "audio/sfx/evidence-error",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 369.99,
+              "durationMs": 80,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 110,
+              "offsetMs": 80,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "scene-transition",
+        "label": "场景切换",
+        "category": "transition",
+        "description": "段落结束、转入另一场景。",
+        "resource": "audio/sfx/scene-transition",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 523.25,
+              "durationMs": 50,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 50,
+              "offsetMs": 50,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 110,
+              "offsetMs": 100,
+              "gain": 0.025,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "verdict-not-guilty",
+        "label": "无罪判决",
+        "category": "transition",
+        "description": "法庭宣布无罪或完成正向结局。",
+        "resource": "audio/sfx/verdict-not-guilty",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 261.63,
+              "durationMs": 80,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 80,
+              "offsetMs": 80,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 80,
+              "offsetMs": 160,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 240,
+              "offsetMs": 240,
+              "gain": 0.04,
+              "waveform": "square"
+            }
+          ]
+        }
+      },
+      {
+        "id": "verdict-guilty",
+        "label": "有罪判决",
+        "category": "transition",
+        "description": "法庭宣布有罪或到达沉重结局。",
+        "resource": "audio/sfx/verdict-guilty",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 196,
+              "durationMs": 100,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 155.56,
+              "durationMs": 100,
+              "offsetMs": 100,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 130.81,
+              "durationMs": 260,
+              "offsetMs": 200,
+              "gain": 0.04,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "chapter-complete",
+        "label": "章节完成",
+        "category": "transition",
+        "description": "章节收束，为下一章留出停顿。",
+        "resource": "audio/sfx/chapter-complete",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 392,
+              "durationMs": 85,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 85,
+              "offsetMs": 85,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 160,
+              "offsetMs": 170,
+              "gain": 0.025,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "save",
+        "label": "记录保存",
+        "category": "ui",
+        "description": "完成一项记录或保存。",
+        "resource": "audio/sfx/save",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 783.99,
+              "durationMs": 50,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1174.66,
+              "durationMs": 85,
+              "offsetMs": 55,
+              "gain": 0.025,
+              "waveform": "triangle"
+            }
+          ]
+        }
+      },
+      {
+        "id": "desk-slam",
+        "label": "拍桌",
+        "category": "courtroom",
+        "description": "拍击桌面，强调当前论点。",
+        "resource": "audio/sfx/desk-slam",
+        "previewAudio": {
+          "waveform": "square",
+          "notes": [
+            {
+              "frequency": 600,
+              "durationMs": 70,
+              "offsetMs": 0,
+              "gain": 0.05,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 120,
+              "offsetMs": 8,
+              "gain": 0.045,
+              "waveform": "triangle"
             }
           ]
         }
@@ -1537,26 +2507,32 @@
       {
         "id": "truth-reveal",
         "label": "真相揭示",
+        "category": "evidence",
+        "description": "关键证据揭示新的事实。",
         "resource": "audio/sfx/truth-reveal",
         "previewAudio": {
-          "waveform": "sawtooth",
+          "waveform": "square",
           "notes": [
             {
-              "frequency": 196,
-              "durationMs": 95,
-              "gain": 0.045
+              "frequency": 329.63,
+              "durationMs": 75,
+              "offsetMs": 0,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
-              "frequency": 146.83,
-              "durationMs": 120,
-              "offsetMs": 85,
-              "gain": 0.05
+              "frequency": 493.88,
+              "durationMs": 75,
+              "offsetMs": 75,
+              "gain": 0.04,
+              "waveform": "square"
             },
             {
-              "frequency": 98,
-              "durationMs": 220,
-              "offsetMs": 180,
-              "gain": 0.06
+              "frequency": 659.26,
+              "durationMs": 160,
+              "offsetMs": 150,
+              "gain": 0.04,
+              "waveform": "square"
             }
           ]
         }
@@ -1564,80 +2540,84 @@
       {
         "id": "whip",
         "label": "鞭击",
+        "category": "courtroom",
+        "description": "快速打断发言或突然施压。",
         "resource": "audio/sfx/whip",
         "previewAudio": {
           "waveform": "square",
           "notes": [
             {
-              "frequency": 1200,
-              "durationMs": 32,
-              "gain": 0.035
+              "frequency": 3500,
+              "durationMs": 24,
+              "offsetMs": 0,
+              "gain": 0.055,
+              "waveform": "noise"
             },
             {
-              "frequency": 620,
-              "durationMs": 55,
-              "offsetMs": 22,
-              "gain": 0.05
-            },
-            {
-              "frequency": 180,
-              "durationMs": 110,
-              "offsetMs": 58,
-              "gain": 0.07
+              "frequency": 900,
+              "durationMs": 70,
+              "offsetMs": 24,
+              "gain": 0.025,
+              "waveform": "noise"
             }
           ]
         }
       },
       {
         "id": "camera",
-        "label": "快门",
+        "label": "拍照",
+        "category": "evidence",
+        "description": "记录现场或拍摄证物。",
         "resource": "audio/sfx/camera",
         "previewAudio": {
           "waveform": "square",
           "notes": [
             {
-              "frequency": 1600,
-              "durationMs": 24,
-              "gain": 0.035
+              "frequency": 2700,
+              "durationMs": 18,
+              "offsetMs": 0,
+              "gain": 0.03,
+              "waveform": "noise"
             },
             {
-              "frequency": 800,
-              "durationMs": 32,
-              "offsetMs": 18,
-              "gain": 0.045
-            },
-            {
-              "frequency": 400,
-              "durationMs": 45,
-              "offsetMs": 42,
-              "gain": 0.04
+              "frequency": 1200,
+              "durationMs": 42,
+              "offsetMs": 25,
+              "gain": 0.022,
+              "waveform": "noise"
             }
           ]
         }
       },
       {
         "id": "magic",
-        "label": "魔术闪现",
+        "label": "魔术",
+        "category": "dialogue",
+        "description": "轻快的奇遇或出人意料的展示。",
         "resource": "audio/sfx/magic",
         "previewAudio": {
-          "waveform": "triangle",
+          "waveform": "square",
           "notes": [
             {
-              "frequency": 523.25,
-              "durationMs": 70,
-              "gain": 0.04
-            },
-            {
-              "frequency": 659.25,
-              "durationMs": 75,
-              "offsetMs": 55,
-              "gain": 0.04
-            },
-            {
               "frequency": 783.99,
-              "durationMs": 120,
-              "offsetMs": 115,
-              "gain": 0.045
+              "durationMs": 50,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1046.5,
+              "durationMs": 50,
+              "offsetMs": 60,
+              "gain": 0.025,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1318.51,
+              "durationMs": 130,
+              "offsetMs": 120,
+              "gain": 0.025,
+              "waveform": "triangle"
             }
           ]
         }
@@ -1647,34 +2627,236 @@
       {
         "id": "trial",
         "label": "开庭",
+        "category": "courtroom",
+        "description": "正式开庭与法庭上的基础对话。",
         "resource": "audio/bgm/trial",
         "previewAudio": {
-          "waveform": "triangle",
+          "waveform": "square",
           "loopMs": 2400,
           "notes": [
             {
-              "frequency": 130.81,
-              "durationMs": 160,
+              "frequency": 261.63,
+              "durationMs": 99,
               "offsetMs": 0,
-              "gain": 0.025
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 164.81,
-              "durationMs": 160,
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 150,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 99,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 99,
               "offsetMs": 600,
-              "gain": 0.025
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 196,
-              "durationMs": 160,
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 99,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 1050,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 99,
               "offsetMs": 1200,
-              "gain": 0.025
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 164.81,
-              "durationMs": 160,
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 1650,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 99,
               "offsetMs": 1800,
-              "gain": 0.025
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 99,
+              "offsetMs": 1950,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 2100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 217.5,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 217.5,
+              "offsetMs": 300,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 217.5,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 217.5,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 217.5,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 217.5,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 217.5,
+              "offsetMs": 1800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 217.5,
+              "offsetMs": 2100,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 150,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 450,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1050,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1350,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1650,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1950,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 2250,
+              "gain": 0.008,
+              "waveform": "noise"
             }
           ]
         }
@@ -1682,34 +2864,236 @@
       {
         "id": "cross-examination",
         "label": "询问",
+        "category": "testimony",
+        "description": "平稳地逐条核对证词。",
         "resource": "audio/bgm/cross-examination",
         "previewAudio": {
           "waveform": "square",
           "loopMs": 2000,
           "notes": [
             {
-              "frequency": 174.61,
-              "durationMs": 110,
+              "frequency": 349.23,
+              "durationMs": 82.5,
               "offsetMs": 0,
-              "gain": 0.018
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 196,
-              "durationMs": 110,
+              "frequency": 415.3,
+              "durationMs": 82.5,
+              "offsetMs": 125,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 82.5,
+              "offsetMs": 375,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 82.5,
               "offsetMs": 500,
-              "gain": 0.018
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 220,
-              "durationMs": 110,
+              "frequency": 466.16,
+              "durationMs": 82.5,
+              "offsetMs": 625,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 82.5,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 875,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 82.5,
               "offsetMs": 1000,
-              "gain": 0.018
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 196,
-              "durationMs": 110,
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 1125,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 82.5,
+              "offsetMs": 1250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 82.5,
+              "offsetMs": 1375,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 82.5,
               "offsetMs": 1500,
-              "gain": 0.018
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 82.5,
+              "offsetMs": 1625,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 1750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 82.5,
+              "offsetMs": 1875,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 181.25,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 103.83,
+              "durationMs": 181.25,
+              "offsetMs": 250,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 181.25,
+              "offsetMs": 500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 181.25,
+              "offsetMs": 750,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 181.25,
+              "offsetMs": 1000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 103.83,
+              "durationMs": 181.25,
+              "offsetMs": 1250,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 181.25,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 181.25,
+              "offsetMs": 1750,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 125,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 375,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 625,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 875,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 1125,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 1375,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 1625,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 1875,
+              "gain": 0.008,
+              "waveform": "noise"
             }
           ]
         }
@@ -1717,28 +3101,236 @@
       {
         "id": "suspense",
         "label": "疑点",
+        "category": "emotion",
+        "description": "危险未明、气氛逐渐收紧。",
         "resource": "audio/bgm/suspense",
         "previewAudio": {
-          "waveform": "sine",
+          "waveform": "triangle",
           "loopMs": 3000,
           "notes": [
             {
-              "frequency": 110,
-              "durationMs": 520,
+              "frequency": 220,
+              "durationMs": 123.75,
               "offsetMs": 0,
-              "gain": 0.022
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 116.54,
-              "durationMs": 520,
-              "offsetMs": 1000,
-              "gain": 0.02
+              "frequency": 233.08,
+              "durationMs": 123.75,
+              "offsetMs": 187.5,
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 103.83,
-              "durationMs": 520,
-              "offsetMs": 2000,
-              "gain": 0.022
+              "frequency": 329.63,
+              "durationMs": 123.75,
+              "offsetMs": 375,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 233.08,
+              "durationMs": 123.75,
+              "offsetMs": 562.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 220,
+              "durationMs": 123.75,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 123.75,
+              "offsetMs": 937.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 233.08,
+              "durationMs": 123.75,
+              "offsetMs": 1125,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 123.75,
+              "offsetMs": 1312.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 196,
+              "durationMs": 123.75,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 207.65,
+              "durationMs": 123.75,
+              "offsetMs": 1687.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 123.75,
+              "offsetMs": 1875,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 207.65,
+              "durationMs": 123.75,
+              "offsetMs": 2062.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 196,
+              "durationMs": 123.75,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 277.18,
+              "durationMs": 123.75,
+              "offsetMs": 2437.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 207.65,
+              "durationMs": 123.75,
+              "offsetMs": 2625,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 123.75,
+              "offsetMs": 2812.5,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 55,
+              "durationMs": 271.875,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 58.27,
+              "durationMs": 271.875,
+              "offsetMs": 375,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 49,
+              "durationMs": 271.875,
+              "offsetMs": 750,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 51.91,
+              "durationMs": 271.875,
+              "offsetMs": 1125,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 55,
+              "durationMs": 271.875,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 58.27,
+              "durationMs": 271.875,
+              "offsetMs": 1875,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 49,
+              "durationMs": 271.875,
+              "offsetMs": 2250,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 51.91,
+              "durationMs": 271.875,
+              "offsetMs": 2625,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 187.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 562.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 937.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 1312.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1687.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 2062.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 2437.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 2812.5,
+              "gain": 0.008,
+              "waveform": "noise"
             }
           ]
         }
@@ -1746,40 +3338,236 @@
       {
         "id": "pursuit",
         "label": "追击",
+        "category": "pursuit",
+        "description": "矛盾确认后连续推进论证。",
         "resource": "audio/bgm/pursuit",
         "previewAudio": {
-          "waveform": "sawtooth",
+          "waveform": "square",
           "loopMs": 1600,
           "notes": [
             {
-              "frequency": 220,
-              "durationMs": 90,
+              "frequency": 440,
+              "durationMs": 66,
               "offsetMs": 0,
-              "gain": 0.018
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 261.63,
-              "durationMs": 90,
-              "offsetMs": 320,
-              "gain": 0.018
+              "frequency": 523.25,
+              "durationMs": 66,
+              "offsetMs": 100,
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 293.66,
-              "durationMs": 90,
-              "offsetMs": 640,
-              "gain": 0.018
+              "frequency": 659.26,
+              "durationMs": 66,
+              "offsetMs": 200,
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 329.63,
-              "durationMs": 90,
-              "offsetMs": 960,
-              "gain": 0.018
+              "frequency": 587.33,
+              "durationMs": 66,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "square"
             },
             {
-              "frequency": 293.66,
-              "durationMs": 90,
-              "offsetMs": 1280,
-              "gain": 0.018
+              "frequency": 440,
+              "durationMs": 66,
+              "offsetMs": 400,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 66,
+              "offsetMs": 500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 66,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 66,
+              "offsetMs": 700,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 66,
+              "offsetMs": 800,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 66,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 66,
+              "offsetMs": 1000,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 66,
+              "offsetMs": 1100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 66,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 66,
+              "offsetMs": 1300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 66,
+              "offsetMs": 1400,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 66,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 110,
+              "durationMs": 145,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 145,
+              "offsetMs": 200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 145,
+              "offsetMs": 400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 145,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 110,
+              "durationMs": 145,
+              "offsetMs": 800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 145,
+              "offsetMs": 1000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 145,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 145,
+              "offsetMs": 1400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 100,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 300,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 500,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 700,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 900,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 1100,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 1300,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 1500,
+              "gain": 0.008,
+              "waveform": "noise"
             }
           ]
         }
@@ -1787,34 +3575,236 @@
       {
         "id": "investigation",
         "label": "调查",
+        "category": "investigation",
+        "description": "搜集线索与普通调查对话。",
         "resource": "audio/bgm/investigation",
         "previewAudio": {
           "waveform": "triangle",
           "loopMs": 2400,
           "notes": [
             {
-              "frequency": 146.83,
-              "durationMs": 130,
+              "frequency": 293.66,
+              "durationMs": 99,
               "offsetMs": 0,
-              "gain": 0.02
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 174.61,
-              "durationMs": 130,
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 150,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 99,
               "offsetMs": 600,
-              "gain": 0.02
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 220,
-              "durationMs": 130,
+              "frequency": 493.88,
+              "durationMs": 99,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 1050,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
               "offsetMs": 1200,
-              "gain": 0.02
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 174.61,
-              "durationMs": 130,
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 1650,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 99,
               "offsetMs": 1800,
-              "gain": 0.02
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 1950,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 2100,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 99,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 217.5,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 300,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 217.5,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 110,
+              "durationMs": 217.5,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 217.5,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 217.5,
+              "offsetMs": 1800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 110,
+              "durationMs": 217.5,
+              "offsetMs": 2100,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 150,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 450,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1050,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1350,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1650,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1950,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 2250,
+              "gain": 0.008,
+              "waveform": "noise"
             }
           ]
         }
@@ -1822,34 +3812,2606 @@
       {
         "id": "resolution",
         "label": "收束",
+        "category": "ending",
+        "description": "事件暂告段落，情绪回到平静。",
         "resource": "audio/bgm/resolution",
         "previewAudio": {
-          "waveform": "sine",
+          "waveform": "triangle",
           "loopMs": 3200,
           "notes": [
             {
-              "frequency": 130.81,
-              "durationMs": 260,
+              "frequency": 261.63,
+              "durationMs": 132,
               "offsetMs": 0,
-              "gain": 0.022
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 164.81,
-              "durationMs": 260,
+              "frequency": 329.63,
+              "durationMs": 132,
+              "offsetMs": 200,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 400,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 132,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 132,
               "offsetMs": 800,
-              "gain": 0.022
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
-              "frequency": 196,
-              "durationMs": 260,
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 1000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 132,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 132,
+              "offsetMs": 1400,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 132,
               "offsetMs": 1600,
-              "gain": 0.022
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 132,
+              "offsetMs": 1800,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 132,
+              "offsetMs": 2000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 132,
+              "offsetMs": 2200,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 132,
+              "offsetMs": 2400,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 132,
+              "offsetMs": 2600,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 2800,
+              "gain": 0.022,
+              "waveform": "triangle"
             },
             {
               "frequency": 261.63,
-              "durationMs": 360,
+              "durationMs": 132,
+              "offsetMs": 3000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 290,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 290,
+              "offsetMs": 400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 290,
+              "offsetMs": 800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 290,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 290,
+              "offsetMs": 1600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 290,
+              "offsetMs": 2000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 290,
               "offsetMs": 2400,
-              "gain": 0.024
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 290,
+              "offsetMs": 2800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 200,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 600,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1000,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 1400,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1800,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 2200,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 2600,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 3000,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lobby",
+        "label": "候审室",
+        "category": "courtroom",
+        "description": "开庭前的等待与人物交流。",
+        "resource": "audio/bgm/lobby",
+        "previewAudio": {
+          "waveform": "triangle",
+          "loopMs": 3200,
+          "notes": [
+            {
+              "frequency": 329.63,
+              "durationMs": 132,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 200,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 132,
+              "offsetMs": 400,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 132,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 132,
+              "offsetMs": 800,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 132,
+              "offsetMs": 1000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 132,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 1400,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 132,
+              "offsetMs": 1600,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 132,
+              "offsetMs": 1800,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 132,
+              "offsetMs": 2000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 2200,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 132,
+              "offsetMs": 2400,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 132,
+              "offsetMs": 2600,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 132,
+              "offsetMs": 2800,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 132,
+              "offsetMs": 3000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 290,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 110,
+              "durationMs": 290,
+              "offsetMs": 400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 290,
+              "offsetMs": 800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 290,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 290,
+              "offsetMs": 1600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 110,
+              "durationMs": 290,
+              "offsetMs": 2000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 290,
+              "offsetMs": 2400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 290,
+              "offsetMs": 2800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 200,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 600,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1000,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 1400,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1800,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 2200,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 2600,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 3000,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "testimony",
+        "label": "证言",
+        "category": "testimony",
+        "description": "证人陈述事实，保留推理空间。",
+        "resource": "audio/bgm/testimony",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 2800,
+          "notes": [
+            {
+              "frequency": 261.63,
+              "durationMs": 115.5,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 115.5,
+              "offsetMs": 175,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 115.5,
+              "offsetMs": 350,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 115.5,
+              "offsetMs": 525,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 115.5,
+              "offsetMs": 700,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 115.5,
+              "offsetMs": 875,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 115.5,
+              "offsetMs": 1050,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 115.5,
+              "offsetMs": 1225,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 233.08,
+              "durationMs": 115.5,
+              "offsetMs": 1400,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 115.5,
+              "offsetMs": 1575,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 115.5,
+              "offsetMs": 1750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 115.5,
+              "offsetMs": 1925,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 233.08,
+              "durationMs": 115.5,
+              "offsetMs": 2100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 115.5,
+              "offsetMs": 2275,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 115.5,
+              "offsetMs": 2450,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 115.5,
+              "offsetMs": 2625,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 253.75,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 253.75,
+              "offsetMs": 350,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 58.27,
+              "durationMs": 253.75,
+              "offsetMs": 700,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 253.75,
+              "offsetMs": 1050,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 253.75,
+              "offsetMs": 1400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 253.75,
+              "offsetMs": 1750,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 58.27,
+              "durationMs": 253.75,
+              "offsetMs": 2100,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 253.75,
+              "offsetMs": 2450,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 52.5,
+              "offsetMs": 175,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 52.5,
+              "offsetMs": 525,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 52.5,
+              "offsetMs": 875,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 52.5,
+              "offsetMs": 1225,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 52.5,
+              "offsetMs": 1575,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 52.5,
+              "offsetMs": 1925,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 52.5,
+              "offsetMs": 2275,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 52.5,
+              "offsetMs": 2625,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cross-examination-fast",
+        "label": "询问 · 加速",
+        "category": "testimony",
+        "description": "证词出现破绽，追问明显加快。",
+        "resource": "audio/bgm/cross-examination-fast",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 1600,
+          "notes": [
+            {
+              "frequency": 349.23,
+              "durationMs": 66,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 66,
+              "offsetMs": 100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 66,
+              "offsetMs": 200,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 622.25,
+              "durationMs": 66,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 66,
+              "offsetMs": 400,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 66,
+              "offsetMs": 500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 66,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 66,
+              "offsetMs": 700,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 66,
+              "offsetMs": 800,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 554.37,
+              "durationMs": 66,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 66,
+              "offsetMs": 1000,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 66,
+              "offsetMs": 1100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 66,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 622.25,
+              "durationMs": 66,
+              "offsetMs": 1300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 66,
+              "offsetMs": 1400,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 66,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 145,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 103.83,
+              "durationMs": 145,
+              "offsetMs": 200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 145,
+              "offsetMs": 400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 116.54,
+              "durationMs": 145,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 145,
+              "offsetMs": 800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 103.83,
+              "durationMs": 145,
+              "offsetMs": 1000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 145,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 116.54,
+              "durationMs": 145,
+              "offsetMs": 1400,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 100,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 300,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 500,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 700,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 900,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 1100,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 30,
+              "offsetMs": 1300,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 30,
+              "offsetMs": 1500,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "logic",
+        "label": "逻辑推演",
+        "category": "pursuit",
+        "description": "把时间、证物与证词串成推理链。",
+        "resource": "audio/bgm/logic",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 2400,
+          "notes": [
+            {
+              "frequency": 261.63,
+              "durationMs": 99,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 150,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 99,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 99,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 99,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 1050,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 99,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 99,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 99,
+              "offsetMs": 1650,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 1800,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 1950,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 2100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 99,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 217.5,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 217.5,
+              "offsetMs": 300,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 217.5,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 217.5,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 217.5,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 217.5,
+              "offsetMs": 1800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 2100,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 150,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 450,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1050,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1350,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1650,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1950,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 2250,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "objection-theme",
+        "label": "异议 · 反击",
+        "category": "pursuit",
+        "description": "扭转局势，提出新的论证。",
+        "resource": "audio/bgm/objection-theme",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 1800,
+          "notes": [
+            {
+              "frequency": 392,
+              "durationMs": 74.25,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 74.25,
+              "offsetMs": 112.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 74.25,
+              "offsetMs": 225,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 74.25,
+              "offsetMs": 337.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 74.25,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 74.25,
+              "offsetMs": 562.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 74.25,
+              "offsetMs": 675,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 74.25,
+              "offsetMs": 787.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 74.25,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 74.25,
+              "offsetMs": 1012.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 74.25,
+              "offsetMs": 1125,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 74.25,
+              "offsetMs": 1237.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 74.25,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 74.25,
+              "offsetMs": 1462.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 74.25,
+              "offsetMs": 1575,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 74.25,
+              "offsetMs": 1687.5,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 163.125,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 163.125,
+              "offsetMs": 225,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 163.125,
+              "offsetMs": 450,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 163.125,
+              "offsetMs": 675,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 163.125,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 163.125,
+              "offsetMs": 1125,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 163.125,
+              "offsetMs": 1350,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 163.125,
+              "offsetMs": 1575,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 33.75,
+              "offsetMs": 112.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 33.75,
+              "offsetMs": 337.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 33.75,
+              "offsetMs": 562.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 33.75,
+              "offsetMs": 787.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 33.75,
+              "offsetMs": 1012.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 33.75,
+              "offsetMs": 1237.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 33.75,
+              "offsetMs": 1462.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 33.75,
+              "offsetMs": 1687.5,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "truth",
+        "label": "真相揭示",
+        "category": "pursuit",
+        "description": "关键事实公开，给读者理解的时间。",
+        "resource": "audio/bgm/truth",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 2400,
+          "notes": [
+            {
+              "frequency": 311.13,
+              "durationMs": 99,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 99,
+              "offsetMs": 150,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 622.25,
+              "durationMs": 99,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 99,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 99,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 415.3,
+              "durationMs": 99,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 99,
+              "offsetMs": 1050,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 99,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 99,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 99,
+              "offsetMs": 1650,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 622.25,
+              "durationMs": 99,
+              "offsetMs": 1800,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 1950,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 466.16,
+              "durationMs": 99,
+              "offsetMs": 2100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 311.13,
+              "durationMs": 99,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 217.5,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 217.5,
+              "offsetMs": 300,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 116.54,
+              "durationMs": 217.5,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 77.78,
+              "durationMs": 217.5,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 217.5,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 1800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 116.54,
+              "durationMs": 217.5,
+              "offsetMs": 2100,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 150,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 450,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1050,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1350,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1650,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1950,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 2250,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "investigation-core",
+        "label": "调查 · 核心",
+        "category": "investigation",
+        "description": "调查接近关键人物或核心证据。",
+        "resource": "audio/bgm/investigation-core",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 2000,
+          "notes": [
+            {
+              "frequency": 293.66,
+              "durationMs": 82.5,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 82.5,
+              "offsetMs": 125,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 82.5,
+              "offsetMs": 250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 82.5,
+              "offsetMs": 375,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 82.5,
+              "offsetMs": 500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 82.5,
+              "offsetMs": 625,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 82.5,
+              "offsetMs": 875,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 82.5,
+              "offsetMs": 1000,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 1125,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 82.5,
+              "offsetMs": 1250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 82.5,
+              "offsetMs": 1375,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 82.5,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 82.5,
+              "offsetMs": 1625,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 82.5,
+              "offsetMs": 1750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 82.5,
+              "offsetMs": 1875,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 181.25,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 181.25,
+              "offsetMs": 250,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 181.25,
+              "offsetMs": 500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 181.25,
+              "offsetMs": 750,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 181.25,
+              "offsetMs": 1000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 181.25,
+              "offsetMs": 1250,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 181.25,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 181.25,
+              "offsetMs": 1750,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 125,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 375,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 625,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 875,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 1125,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 1375,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 37.5,
+              "offsetMs": 1625,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 37.5,
+              "offsetMs": 1875,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "detention",
+        "label": "拘留会面",
+        "category": "investigation",
+        "description": "较为低落、克制的会面。",
+        "resource": "audio/bgm/detention",
+        "previewAudio": {
+          "waveform": "triangle",
+          "loopMs": 3600,
+          "notes": [
+            {
+              "frequency": 220,
+              "durationMs": 148.5,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 148.5,
+              "offsetMs": 225,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 148.5,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 148.5,
+              "offsetMs": 675,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 220,
+              "durationMs": 148.5,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 148.5,
+              "offsetMs": 1125,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 148.5,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 148.5,
+              "offsetMs": 1575,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 196,
+              "durationMs": 148.5,
+              "offsetMs": 1800,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 246.94,
+              "durationMs": 148.5,
+              "offsetMs": 2025,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 148.5,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 148.5,
+              "offsetMs": 2475,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 196,
+              "durationMs": 148.5,
+              "offsetMs": 2700,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 148.5,
+              "offsetMs": 2925,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 148.5,
+              "offsetMs": 3150,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 246.94,
+              "durationMs": 148.5,
+              "offsetMs": 3375,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 55,
+              "durationMs": 326.25,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 326.25,
+              "offsetMs": 450,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 49,
+              "durationMs": 326.25,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 61.74,
+              "durationMs": 326.25,
+              "offsetMs": 1350,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 55,
+              "durationMs": 326.25,
+              "offsetMs": 1800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 326.25,
+              "offsetMs": 2250,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 49,
+              "durationMs": 326.25,
+              "offsetMs": 2700,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 61.74,
+              "durationMs": 326.25,
+              "offsetMs": 3150,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 225,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 675,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1125,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 1575,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 2025,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 2475,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 2925,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 3375,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "reminiscence",
+        "label": "追忆",
+        "category": "emotion",
+        "description": "回忆过去与讲述人物心事。",
+        "resource": "audio/bgm/reminiscence",
+        "previewAudio": {
+          "waveform": "triangle",
+          "loopMs": 4000,
+          "notes": [
+            {
+              "frequency": 261.63,
+              "durationMs": 165,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 165,
+              "offsetMs": 250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 165,
+              "offsetMs": 500,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 165,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 493.88,
+              "durationMs": 165,
+              "offsetMs": 1000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 165,
+              "offsetMs": 1250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 349.23,
+              "durationMs": 165,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 165,
+              "offsetMs": 1750,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 220,
+              "durationMs": 165,
+              "offsetMs": 2000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 165,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 165,
+              "offsetMs": 2500,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 440,
+              "durationMs": 165,
+              "offsetMs": 2750,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 392,
+              "durationMs": 165,
+              "offsetMs": 3000,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 329.63,
+              "durationMs": 165,
+              "offsetMs": 3250,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 293.66,
+              "durationMs": 165,
+              "offsetMs": 3500,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 261.63,
+              "durationMs": 165,
+              "offsetMs": 3750,
+              "gain": 0.022,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 362.5,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 362.5,
+              "offsetMs": 500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 55,
+              "durationMs": 362.5,
+              "offsetMs": 1000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 362.5,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 362.5,
+              "offsetMs": 2000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 362.5,
+              "offsetMs": 2500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 55,
+              "durationMs": 362.5,
+              "offsetMs": 3000,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 73.42,
+              "durationMs": 362.5,
+              "offsetMs": 3500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 250,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 1250,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 1750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 2250,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 2750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 55,
+              "offsetMs": 3250,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 55,
+              "offsetMs": 3750,
+              "gain": 0.008,
+              "waveform": "noise"
+            }
+          ]
+        }
+      },
+      {
+        "id": "victory",
+        "label": "胜诉",
+        "category": "ending",
+        "description": "解决案件后的轻快收尾。",
+        "resource": "audio/bgm/victory",
+        "previewAudio": {
+          "waveform": "square",
+          "loopMs": 2400,
+          "notes": [
+            {
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 0,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 99,
+              "offsetMs": 150,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 99,
+              "offsetMs": 300,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1046.5,
+              "durationMs": 99,
+              "offsetMs": 450,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 987.77,
+              "durationMs": 99,
+              "offsetMs": 600,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 99,
+              "offsetMs": 750,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 99,
+              "offsetMs": 900,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 659.26,
+              "durationMs": 99,
+              "offsetMs": 1050,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 587.33,
+              "durationMs": 99,
+              "offsetMs": 1200,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 698.46,
+              "durationMs": 99,
+              "offsetMs": 1350,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 880,
+              "durationMs": 99,
+              "offsetMs": 1500,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1174.66,
+              "durationMs": 99,
+              "offsetMs": 1650,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 1046.5,
+              "durationMs": 99,
+              "offsetMs": 1800,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 880,
+              "durationMs": 99,
+              "offsetMs": 1950,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 783.99,
+              "durationMs": 99,
+              "offsetMs": 2100,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 523.25,
+              "durationMs": 99,
+              "offsetMs": 2250,
+              "gain": 0.022,
+              "waveform": "square"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 217.5,
+              "offsetMs": 0,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 217.5,
+              "offsetMs": 300,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 600,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 217.5,
+              "offsetMs": 900,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 65.41,
+              "durationMs": 217.5,
+              "offsetMs": 1200,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 82.41,
+              "durationMs": 217.5,
+              "offsetMs": 1500,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 87.31,
+              "durationMs": 217.5,
+              "offsetMs": 1800,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 98,
+              "durationMs": 217.5,
+              "offsetMs": 2100,
+              "gain": 0.028,
+              "waveform": "triangle"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 150,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 450,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 750,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1050,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1350,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 1650,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 1000,
+              "durationMs": 45,
+              "offsetMs": 1950,
+              "gain": 0.008,
+              "waveform": "noise"
+            },
+            {
+              "frequency": 2500,
+              "durationMs": 45,
+              "offsetMs": 2250,
+              "gain": 0.008,
+              "waveform": "noise"
             }
           ]
         }
@@ -1961,53 +6523,53 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/phoenix/pose/think": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/phoenix/pose/point": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/phoenix/pose/desk": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/phoenix/reaction/sweat": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/phoenix/reaction/shocked": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/apollo/pose/normal": {
@@ -2015,53 +6577,53 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/apollo/pose/think": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/apollo/pose/point": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/apollo/pose/confident": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/apollo/reaction/shocked": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/apollo/reaction/sweat": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/klavier/pose/normal": {
@@ -2069,35 +6631,35 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/klavier/pose/fist": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/klavier/pose/laugh": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/klavier/reaction/damaged": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/ema/pose/normal": {
@@ -2105,44 +6667,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/ema/pose/science": {
       "file": "chibi-ema-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/ema/pose/smug": {
       "file": "chibi-ema-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/ema/pose/mad": {
       "file": "chibi-ema-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/ema/reaction/surprised": {
       "file": "chibi-ema-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/trucy/pose/normal": {
@@ -2150,44 +6712,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/trucy/pose/cheer": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/trucy/pose/think": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/trucy/reaction/sad": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/trucy/reaction/surprised": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/edgeworth/pose/normal": {
@@ -2195,53 +6757,53 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/edgeworth/pose/bow": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/edgeworth/pose/point": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/edgeworth/pose/smug": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/edgeworth/reaction/surprised": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/edgeworth/reaction/damaged": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/maya/pose/normal": {
@@ -2249,44 +6811,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/maya/pose/cheer": {
       "file": "chibi-maya-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/maya/pose/think": {
       "file": "chibi-maya-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/maya/reaction/surprised": {
       "file": "chibi-maya-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/maya/reaction/sad": {
       "file": "chibi-maya-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/judge/pose/normal": {
@@ -2294,35 +6856,35 @@
       "frame": [
         0,
         0,
-        362,
-        544
+        512,
+        384
       ]
     },
     "character/judge/pose/stern": {
       "file": "chibi-judge-actions.webp",
       "frame": [
-        362,
+        512,
         0,
-        362,
-        544
+        512,
+        384
       ]
     },
     "character/judge/reaction/surprised": {
       "file": "chibi-judge-actions.webp",
       "frame": [
         0,
-        544,
-        362,
-        543
+        384,
+        512,
+        384
       ]
     },
     "character/judge/reaction/confused": {
       "file": "chibi-judge-actions.webp",
       "frame": [
-        362,
-        544,
-        362,
-        543
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/witness/pose/normal": {
@@ -2330,44 +6892,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/witness/pose/nervous": {
       "file": "chibi-witness-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/witness/pose/confident": {
       "file": "chibi-witness-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/witness/reaction/shocked": {
       "file": "chibi-witness-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/witness/reaction/sweat": {
       "file": "chibi-witness-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/von-karma/pose/normal": {
@@ -2375,26 +6937,26 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/von-karma/pose/accuse": {
       "file": "chibi-von-karma-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/von-karma/reaction/breakdown": {
       "file": "chibi-von-karma-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/gumshoe/pose/normal": {
@@ -2402,26 +6964,26 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/gumshoe/pose/salute": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/gumshoe/reaction/nervous": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/lotta/pose/normal": {
@@ -2429,26 +6991,26 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/lotta/pose/camera": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/lotta/reaction/shocked": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/yogi/pose/normal": {
@@ -2456,26 +7018,26 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/yogi/pose/stern": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/yogi/reaction/broken": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/mia/pose/normal": {
@@ -2483,26 +7045,26 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/mia/pose/point": {
       "file": "chibi-mia-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/mia/reaction/concerned": {
       "file": "chibi-mia-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "background/lake-dock": {
@@ -2617,45 +7179,45 @@
       "file": "chibi-von-karma-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/gumshoe/pose/point": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/lotta/pose/grin": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/yogi/reaction/shocked": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/mia/pose/smile": {
       "file": "chibi-mia-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "stage/defense/foreground": {
@@ -2697,19 +7259,19 @@
     "character/phoenix/pose/objection": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/phoenix/pose/smile": {
       "file": "chibi-phoenix-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/edgeworth/portrait": {
@@ -2724,19 +7286,19 @@
     "character/edgeworth/pose/objection": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/edgeworth/pose/desk": {
       "file": "chibi-edgeworth-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/maya/portrait": {
@@ -2744,35 +7306,35 @@
       "frame": [
         0,
         0,
-        256,
-        192
+        512,
+        384
       ]
     },
     "character/maya/pose/wave": {
       "file": "chibi-maya-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/maya/pose/point": {
       "file": "chibi-maya-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/maya/pose/thumbs-up": {
       "file": "chibi-maya-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/judge/portrait": {
@@ -2787,37 +7349,37 @@
     "character/judge/pose/gavel-strike": {
       "file": "chibi-judge-actions.webp",
       "frame": [
-        724,
+        1024,
         0,
-        361,
-        544
+        512,
+        384
       ]
     },
     "character/judge/pose/listen": {
       "file": "chibi-judge-actions.webp",
       "frame": [
-        1085,
+        1536,
         0,
-        362,
-        544
+        512,
+        384
       ]
     },
     "character/judge/pose/think": {
       "file": "chibi-judge-actions.webp",
       "frame": [
-        724,
-        544,
-        361,
-        543
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/judge/pose/relieved": {
       "file": "chibi-judge-actions.webp",
       "frame": [
-        1085,
-        544,
-        362,
-        543
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/gumshoe/portrait": {
@@ -2832,37 +7394,37 @@
     "character/gumshoe/pose/present-report": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/gumshoe/pose/think": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/gumshoe/pose/determined": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/gumshoe/reaction/embarrassed": {
       "file": "chibi-gumshoe-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/franziska/portrait": {
@@ -2870,8 +7432,8 @@
       "frame": [
         0,
         0,
-        1448,
-        1086
+        512,
+        384
       ]
     },
     "character/franziska/pose/normal": {
@@ -2879,71 +7441,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/franziska/pose/crossed-arms": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/franziska/pose/point": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/franziska/pose/whip-ready": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/franziska/pose/whip-strike": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/franziska/pose/smirk": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/franziska/reaction/surprised": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/franziska/reaction/frustrated": {
       "file": "chibi-franziska-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/von-karma/portrait": {
@@ -2951,44 +7513,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/von-karma/pose/crossed-arms": {
       "file": "chibi-von-karma-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/von-karma/pose/objection": {
       "file": "chibi-von-karma-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/von-karma/pose/glare": {
       "file": "chibi-von-karma-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/von-karma/reaction/shocked": {
       "file": "chibi-von-karma-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/lotta/portrait": {
@@ -2996,44 +7558,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/lotta/pose/point": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/lotta/pose/excited": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/lotta/pose/skeptical": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/lotta/reaction/flustered": {
       "file": "chibi-lotta-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/witness/portrait": {
@@ -3041,35 +7603,35 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/witness/pose/boast": {
       "file": "chibi-witness-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/witness/pose/plead": {
       "file": "chibi-witness-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/witness/pose/point": {
       "file": "chibi-witness-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/yogi/portrait": {
@@ -3077,44 +7639,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/yogi/pose/tired": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/yogi/pose/mutter": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/yogi/pose/point": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/yogi/pose/tense": {
       "file": "chibi-yogi-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/mia/portrait": {
@@ -3122,44 +7684,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/mia/pose/think": {
       "file": "chibi-mia-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/mia/pose/confident": {
       "file": "chibi-mia-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/mia/pose/encourage": {
       "file": "chibi-mia-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/mia/reaction/shocked": {
       "file": "chibi-mia-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/apollo/portrait": {
@@ -3167,26 +7729,26 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/apollo/pose/objection": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/apollo/pose/desk": {
       "file": "chibi-apollo-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/klavier/portrait": {
@@ -3194,44 +7756,44 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/klavier/pose/point": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/klavier/pose/guitar": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/klavier/pose/smirk": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/klavier/reaction/surprised": {
       "file": "chibi-klavier-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/ema/portrait": {
@@ -3239,35 +7801,35 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/ema/pose/inspect": {
       "file": "chibi-ema-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/ema/pose/think": {
       "file": "chibi-ema-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/ema/reaction/shocked": {
       "file": "chibi-ema-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/trucy/portrait": {
@@ -3275,35 +7837,35 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/trucy/pose/magic": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/trucy/pose/point": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/trucy/pose/smile": {
       "file": "chibi-trucy-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/pearl/portrait": {
@@ -3320,71 +7882,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/pearl/pose/think": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/pearl/pose/point": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/pearl/pose/objection": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/pearl/pose/prayer": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/pearl/pose/smile": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/pearl/reaction/sweat": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/pearl/reaction/shocked": {
       "file": "chibi-pearl-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "background/spirit-village": {
@@ -3437,71 +7999,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/godot/pose/sip": {
       "file": "chibi-godot-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/godot/pose/point": {
       "file": "chibi-godot-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/godot/pose/objection": {
       "file": "chibi-godot-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/godot/pose/desk": {
       "file": "chibi-godot-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/godot/pose/smirk": {
       "file": "chibi-godot-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/godot/reaction/shocked": {
       "file": "chibi-godot-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/godot/reaction/damaged": {
       "file": "chibi-godot-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/dahlia/portrait": {
@@ -3518,71 +8080,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/dahlia/pose/smile": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/dahlia/pose/hand-heart": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/dahlia/pose/point": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/dahlia/pose/glare": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/dahlia/pose/smirk": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/dahlia/reaction/shocked": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/dahlia/reaction/breakdown": {
       "file": "chibi-dahlia-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/athena/portrait": {
@@ -3599,71 +8161,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/athena/pose/think": {
       "file": "chibi-athena-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/athena/pose/point": {
       "file": "chibi-athena-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/athena/pose/objection": {
       "file": "chibi-athena-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/athena/pose/listen": {
       "file": "chibi-athena-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/athena/pose/cheer": {
       "file": "chibi-athena-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/athena/reaction/sweat": {
       "file": "chibi-athena-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/athena/reaction/shocked": {
       "file": "chibi-athena-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/blackquill/portrait": {
@@ -3680,71 +8242,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/blackquill/pose/crossed-arms": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/blackquill/pose/point": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/blackquill/pose/objection": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/blackquill/pose/think": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/blackquill/pose/smirk": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/blackquill/reaction/surprised": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/blackquill/reaction/angry": {
       "file": "chibi-blackquill-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/kristoph/portrait": {
@@ -3761,71 +8323,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/kristoph/pose/glasses": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/kristoph/pose/point": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/kristoph/pose/explain": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/kristoph/pose/think": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/kristoph/pose/smile": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/kristoph/reaction/sweat": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/kristoph/reaction/breakdown": {
       "file": "chibi-kristoph-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/payne/portrait": {
@@ -3842,71 +8404,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/payne/pose/glasses": {
       "file": "chibi-payne-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/payne/pose/point": {
       "file": "chibi-payne-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/payne/pose/objection": {
       "file": "chibi-payne-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/payne/pose/read": {
       "file": "chibi-payne-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/payne/pose/smug": {
       "file": "chibi-payne-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/payne/reaction/sweat": {
       "file": "chibi-payne-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/payne/reaction/shocked": {
       "file": "chibi-payne-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/adrian/portrait": {
@@ -3923,71 +8485,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/adrian/pose/glasses": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/adrian/pose/notes": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/adrian/pose/point": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/adrian/pose/think": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/adrian/pose/relieved": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/adrian/reaction/worried": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/adrian/reaction/shocked": {
       "file": "chibi-adrian-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     },
     "character/iris/portrait": {
@@ -4004,71 +8566,71 @@
       "frame": [
         0,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/iris/pose/prayer": {
       "file": "chibi-iris-actions.webp",
       "frame": [
-        444,
+        512,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/iris/pose/listen": {
       "file": "chibi-iris-actions.webp",
       "frame": [
-        887,
+        1024,
         0,
-        443,
-        444
+        512,
+        384
       ]
     },
     "character/iris/pose/explain": {
       "file": "chibi-iris-actions.webp",
       "frame": [
-        1330,
+        1536,
         0,
-        444,
-        444
+        512,
+        384
       ]
     },
     "character/iris/pose/think": {
       "file": "chibi-iris-actions.webp",
       "frame": [
         0,
-        444,
-        444,
-        443
+        384,
+        512,
+        384
       ]
     },
     "character/iris/pose/smile": {
       "file": "chibi-iris-actions.webp",
       "frame": [
-        444,
-        444,
-        443,
-        443
+        512,
+        384,
+        512,
+        384
       ]
     },
     "character/iris/reaction/worried": {
       "file": "chibi-iris-actions.webp",
       "frame": [
-        887,
-        444,
-        443,
-        443
+        1024,
+        384,
+        512,
+        384
       ]
     },
     "character/iris/reaction/surprised": {
       "file": "chibi-iris-actions.webp",
       "frame": [
-        1330,
-        444,
-        444,
-        443
+        1536,
+        384,
+        512,
+        384
       ]
     }
   }

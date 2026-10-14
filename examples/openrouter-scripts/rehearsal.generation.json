@@ -1,0 +1,33 @@
+{
+  "id": "rehearsal",
+  "title": "后台大搜索",
+  "requestedModel": "cohere/north-mini-code:free",
+  "actualModel": "cohere/north-mini-code:free",
+  "usage": {
+    "prompt_tokens": 154,
+    "completion_tokens": 1084,
+    "total_tokens": 1238,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 632,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "generatedAt": "2026-10-12T14:04:00.988Z",
+  "scenes": 2,
+  "dialogues": 12,
+  "brief": "后台喜剧。演出前十分钟道具消失，两人决定把寻找道具的过程演成开场，失物意外成为包袱。"
+}

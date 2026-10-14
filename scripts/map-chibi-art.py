@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "content-packs/courtroom-demo"
 ASSETS = PACK / "assets"
 CATALOG = PACK / "catalog.json"
-catalog = json.loads(CATALOG.read_text())
+catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
 
 gestures = {
     "point", "desk", "cheer", "fist", "science", "smug", "bow", "stern",
@@ -46,7 +46,7 @@ def grid_frames(filename: str, actions: tuple[str, ...]) -> dict[str, list[int]]
         for index, action in enumerate(actions)
     }
 
-sheet_manifest = json.loads((PACK / "art-source/action-sheets.json").read_text())
+sheet_manifest = json.loads((PACK / "art-source/action-sheets.json").read_text(encoding="utf-8"))
 characters_by_id = {character["id"]: character for character in catalog["characters"]}
 for sheet in sheet_manifest["sheets"]:
     if sheet["id"] in ACTION_ATLASES:
@@ -115,14 +115,17 @@ for resource_id, filename in scene_files.items():
     key = resource_id if resource_id.startswith("stage/") else f"background/{resource_id}"
     # The atlas may have been recut at a new resolution. Refresh stale crop
     # bounds too, otherwise the viewer still selects a 240x180 corner.
-    catalog["resources"][key] = {"file": filename, "frame": full_frame(filename)}
+    if (ASSETS / filename).is_file():
+        catalog["resources"][key] = {"file": filename, "frame": full_frame(filename)}
+    elif key not in catalog["resources"] or not (ASSETS / catalog["resources"][key]["file"]).is_file():
+        raise FileNotFoundError(f"Missing scene derivative: {filename}; rebuild scene sources first")
 
 catalog["version"] = "0.4.0"
-CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
+CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 files = sorted({item["file"] for item in catalog["resources"].values() if "file" in item})
 source_path = ASSETS / "sources.json"
-previous_sources = json.loads(source_path.read_text())
+previous_sources = json.loads(source_path.read_text(encoding="utf-8"))
 previous_assets = {item["file"]: item for item in previous_sources["assets"]}
 portrait_files = {item["portrait"] for item in sheet_manifest["sheets"] if "portraitSource" in item}
 sources = {
@@ -137,7 +140,7 @@ sources = {
             "source": previous_assets.get(name, {}).get("source", "generated:portrait" if name in portrait_files else "generated:vector-8-pose-atlas" if name.endswith(".svg") else "generated:8-pose-atlas"),
             "sha256": hashlib.sha256((ASSETS / name).read_bytes()).hexdigest(),
         }
-        for name in sorted(set(files) | set(previous_assets))
+        for name in sorted(set(files) | {name for name in previous_assets if (ASSETS / name).is_file()})
     ],
 }
-source_path.write_text(json.dumps(sources, ensure_ascii=False, indent=2) + "\n")
+source_path.write_text(json.dumps(sources, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

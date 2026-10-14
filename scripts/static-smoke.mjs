@@ -23,6 +23,8 @@ function walkModule(path) {
   }
 }
 walkModule(entryJs);
+walkModule(join(root, 'dist/apps/player/src/main.js'));
+for (const file of ['apps/player/index.html','apps/player/styles.css']) if (!existsSync(join(root,file))) throw new Error(`Missing player asset: ${file}`);
 
 const html = readFileSync(entryHtml, "utf8");
 if (!html.includes('../../dist/apps/editor/src/main.js')) throw new Error("Editor HTML is not wired to the portable compiled entry module.");

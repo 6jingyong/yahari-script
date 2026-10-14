@@ -10,7 +10,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "content-packs/courtroom-demo"
 ASSETS = PACK / "assets"
-catalog = json.loads((PACK / "catalog.json").read_text())
+catalog = json.loads((PACK / "catalog.json").read_text(encoding="utf-8"))
 characters = catalog["characters"]
 tile = 64
 atlas = Image.new("RGBA", (tile * len(characters), tile * 8))

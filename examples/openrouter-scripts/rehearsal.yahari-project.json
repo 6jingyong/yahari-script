@@ -1,0 +1,275 @@
+{
+  "fileFormat": "yahari-project",
+  "fileVersion": "0.7",
+  "manifest": {
+    "schemaVersion": "0.6",
+    "projectId": "openrouter-rehearsal",
+    "title": "后台大搜索",
+    "adapter": {
+      "id": "official.courtroom",
+      "version": "0.1.0"
+    },
+    "contentPacks": [
+      {
+        "id": "official.courtroom-demo",
+        "version": "0.4.0"
+      }
+    ],
+    "entryDocumentId": "openrouter-rehearsal-c1-s1",
+    "documents": [
+      {
+        "id": "openrouter-rehearsal-c1-s1",
+        "path": "openrouter-rehearsal-c1-s1.yahari.json"
+      },
+      {
+        "id": "openrouter-rehearsal-c2-s1",
+        "path": "openrouter-rehearsal-c2-s1.yahari.json"
+      }
+    ],
+    "cast": [
+      {
+        "castId": "a",
+        "displayName": "阿遥",
+        "characterRef": {
+          "packId": "official.courtroom-demo",
+          "id": "phoenix"
+        }
+      },
+      {
+        "castId": "b",
+        "displayName": "小夏",
+        "characterRef": {
+          "packId": "official.courtroom-demo",
+          "id": "maya"
+        }
+      }
+    ],
+    "narrative": {
+      "summary": "道具神秘失踪，两人上演异想天开的寻找秀，最终失物意外成为包袱。",
+      "chapters": [
+        {
+          "id": "openrouter-rehearsal-chapter-1",
+          "title": "道具神秘失踪",
+          "summary": "开场前十分鐘，舞台道具失蹤，阿遙和小夏驚慌失措，決定將尋找過程演成開場。",
+          "documentIds": [
+            "openrouter-rehearsal-c1-s1"
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-chapter-2",
+          "title": "意外爆笑收尾",
+          "summary": "两人变废为宝，用垃圾袋当道具，演得连观众都笑了，失物成笑料。",
+          "documentIds": [
+            "openrouter-rehearsal-c2-s1"
+          ]
+        }
+      ]
+    }
+  },
+  "documents": [
+    {
+      "schemaVersion": "0.7",
+      "documentId": "openrouter-rehearsal-c1-s1",
+      "title": "道具神秘失踪",
+      "summary": "开场前十分鐘，舞台道具失蹤，阿遙和小夏驚慌失措，決定將尋找過程演成開場。",
+      "blocks": [
+        {
+          "id": "openrouter-rehearsal-c1-s1-start",
+          "type": "cue",
+          "cue": {
+            "id": "openrouter-rehearsal-c1-s1-bg",
+            "type": "courtroom.background",
+            "params": {
+              "resource": {
+                "packId": "official.courtroom-demo",
+                "id": "background/lobby"
+              }
+            }
+          }
+        },
+        {
+          "id": "openrouter-rehearsal-c1-s1-0",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "不好！道具不见了！这是开场大灾难呀！"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c1-s1-1",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "别急，阿遥，咱们就像侦探一样，先看看昨晚有没有人碰过这东西。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c1-s1-2",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "嗯，舞台右前方那个角落总是堆着一些杂物，也许是被挪走了。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c1-s1-3",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "我去看看！竟然被当成垃圾袋藏在了音响后面，你别笑，我真是累惨了。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c1-s1-4",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "笑什么笑！这下好，跟本没道具怎么办呀？！"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c1-s1-5",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "我有办法！用这个垃圾袋当“神秘道具”，大不了演一场“无实物”的戏！"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": "0.7",
+      "documentId": "openrouter-rehearsal-c2-s1",
+      "title": "意外爆笑收尾",
+      "summary": "两人变废为宝，用垃圾袋当道具，演得连观众都笑了，失物成笑料。",
+      "blocks": [
+        {
+          "id": "openrouter-rehearsal-c2-s1-start",
+          "type": "cue",
+          "cue": {
+            "id": "openrouter-rehearsal-c2-s1-bg",
+            "type": "courtroom.background",
+            "params": {
+              "resource": {
+                "packId": "official.courtroom-demo",
+                "id": "background/office"
+              }
+            }
+          }
+        },
+        {
+          "id": "openrouter-rehearsal-c2-s1-0",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "等下，你觉得观众会注意到吗？"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c2-s1-1",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "他们会以为这才是先锋艺术呢！"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c2-s1-2",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "太棒了！我在一边准备一个巨型夸张的“风吹草动”手势。"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c2-s1-3",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "然后我扮成导演，一边嚷嚷着“特效就是这个！”"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c2-s1-4",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "a"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "观众一脸茫然地笑了，原来道具就是那袋垃圾！所有人笑到起飞！"
+            }
+          ]
+        },
+        {
+          "id": "openrouter-rehearsal-c2-s1-5",
+          "type": "dialogue",
+          "speaker": {
+            "castId": "b"
+          },
+          "content": [
+            {
+              "type": "text",
+              "text": "哈哈，我们成功把失误变成笑话，今晚的演出，由“垃圾包袱”开场！"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "generator": "OpenRouter free model sample",
+    "exportedAt": "2026-10-12T14:04:00.984Z"
+  }
+}

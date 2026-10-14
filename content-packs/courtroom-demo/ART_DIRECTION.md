@@ -1,4 +1,25 @@
-# Runtime art pipeline — 2026-09-29
+# Runtime art pipeline — 2026-10-13
+
+## Current character standard
+
+All 24 characters now use waist-up portraits, complete heads and hair, transparent backgrounds and a shared waist baseline. Each runtime action cell and neutral portrait is 512×384; an eight-action runtime atlas is 2048×768. `install_action_sheets.py` fits the eight cells using a common scale per actor, adds transparent margins and derives the neutral portrait from the first action. It resamples and lays out the generated artwork; it does not paint new gestures. High-resolution generated sources stay unchanged in `art-source/`.
+
+Thirteen atlases (104 actions) were redrawn with built-in image_gen: Pearl, Iris, Maya, Judge, Gumshoe, Franziska, Godot, Dahlia, Athena, Blackquill, Kristoph, Payne and Adrian. Pearl uses her original-trilogy child appearance with light brown hollow hair loops and pink robes. Iris uses an adult temple-nun appearance with a white hood and long brown hair. The other eleven existing half-body atlases remain the art sources. All 24 neutral portraits and the 192-action editor thumbnail atlas were rebuilt. Optional `sourceRows` declare actual row extents when generated gutters do not coincide with the mathematical halfway line.
+
+Exact final prompts, output hashes and prior source hashes: [halfbody-20261013.json](art-source/halfbody-20261013.json). Chinese name convention, aliases and QA report: [内置人物素材修订](../../docs/内置人物素材修订.md). Resource IDs, action IDs, cast IDs and the 0.4.0 pack compatibility version stay stable; this is recorded separately as an art revision. Authored character names and saved overrides stay under author control.
+
+Character-only rebuild on Windows, with Pillow available:
+
+```powershell
+uv run --with pillow python -X utf8 scripts/install_action_sheets.py
+uv run --with pillow python -X utf8 scripts/map-chibi-art.py
+uv run --with pillow python -X utf8 scripts/build-action-thumbnails.py
+uv run --with pillow python -X utf8 scripts/build-web-assets.py
+npm run check
+node scripts/build-static.mjs
+```
+
+For scene-source changes, run `build-chibi-art.py` before the mapping step. Character-only builds preserve existing scene derivatives. Builders must run in this order; stop if a step fails.
 
 All 24 characters use generated eight-pose raster action sheets. The final nine vector placeholders were replaced for Apollo, Klavier, Ema, Trucy, Larry, von Karma, Lotta, Yogi and Mia. Resource IDs and action IDs remain stable.
 

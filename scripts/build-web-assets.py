@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 import hashlib,json
 pack=Path(__file__).resolve().parents[1]/'content-packs/courtroom-demo'
-assets=pack/'assets'; catalog=json.loads((pack/'catalog.json').read_text()); provenance=json.loads((assets/'sources.json').read_text())
+assets=pack/'assets'; catalog=json.loads((pack/'catalog.json').read_text(encoding='utf-8')); provenance=json.loads((assets/'sources.json').read_text(encoding='utf-8'))
 files={x['file'] for x in catalog['resources'].values()}|{'action-thumbnails.png'}
 before=after=0; converted={}
 for name in sorted(files):
@@ -38,6 +38,6 @@ for path in assets.iterdir():
 provenance['assets']=[a for a in provenance['assets'] if a['file'] in runtime_files]
 if {a['file'] for a in provenance['assets']}!=runtime_files:
     raise ValueError('Runtime asset provenance is incomplete')
-(pack/'catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n')
-(assets/'sources.json').write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n')
+(pack/'catalog.json').write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(assets/'sources.json').write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'sourceBytes':before,'runtimeBytes':after,'reductionPercent':round((1-after/before)*100,1),'images':len(converted)}))

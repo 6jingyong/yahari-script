@@ -14,3 +14,5 @@ Acceptance:
 7. Existing compiler, editor and playback regressions remain green.
 
 Evidence: npm test; static-smoke.mjs; node --check; separate read-only review. Browser interaction and storage integration were not automated this milestone.
+
+2026-10-12 extension: binary `.yahari` bundle validation runs before the same Core gate; files are bounded to 32 MB and expanded media to the existing project limit. The browser previews before import, saves the existing work, and creates a copy on duplicate project identity. Active editing position is stored separately from the entry scene. Real browser import/export, custom images, failed-save transaction rollback and restoration are now verified; see [PROJECT_FILES_AND_SAVING.md](PROJECT_FILES_AND_SAVING.md).
